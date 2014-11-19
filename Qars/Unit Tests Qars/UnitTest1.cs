@@ -9,6 +9,17 @@ namespace Unit_Tests_Qars
         [TestMethod]
         public void TestMethod1()
         {
+            int result = 5 + 5;
+            Assert.IsTrue(result == 10);
+            
+        }
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            string naam = "";
+            naam = "Kat";
+            Assert.IsTrue(naam == "Kat");
         }
     }
 }
