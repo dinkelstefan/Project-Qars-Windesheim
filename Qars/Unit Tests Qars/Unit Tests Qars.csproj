@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>42aa58c3-93d0-4d4f-a0e4-644f2a641839</ProjectGuid>
+    <ProjectGuid>{FDF6FF0A-0ABC-4BB7-92B9-0AE4EAC918AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unit_Tests_Qars</RootNamespace>
-    <AssemblyName>Unit_Tests_Qars</AssemblyName>
+    <AssemblyName>Unit Tests Qars</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
