@@ -18,7 +18,7 @@ namespace Unit_Tests_Qars
         public void TestMethod2()
         {
             string naam = "";
-            naam = "Kat"; 
+            naam = "Kat";
             Assert.IsTrue(naam == "Kat");
         }
     }
