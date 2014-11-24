@@ -27,22 +27,18 @@ namespace The_Smooth_Moving_Button
         {
 
 
-            if (pressed == false)              
+            if (pressed == false)              //if the button is at the minimum left position
             {
-                timer1.Start();                          //je kan er al op klikken wanneer die al aan het draaien is....:(   en langzamerhand gaat ie naar links...
+                timer1.Start();                        
                 Button b = (Button)sender;
                 left = b.Location.X;
-                if (buffer < 0)
-                {
-                    MessageBox.Show("kleiner dan 0");
-                }
                 buffer = b.Location.X;
                 
             }
 
-            if (pressed == true)
+            if (pressed == true)                //if the button reached the maximum right position
             {
-                pressedBack = true;   //met comments 
+                pressedBack = true;   
                 timer1.Start();
                 Button b = (Button)sender;
                 right = b.Location.Y;
@@ -53,9 +49,9 @@ namespace The_Smooth_Moving_Button
         {
 
 
-            if (pressed == false)
+            if (pressed == false)   //trigger the button to go to end location  
             {
-                if (button1.Left <= 140)   //max positie
+                if (button1.Left <= 140)   //maximum position for button
                 {
                     button1.Enabled = false;
                     left += 5;
@@ -67,29 +63,34 @@ namespace The_Smooth_Moving_Button
                 }
                 else
                 {
-                    pressed = true;                     //als deze variabele wordt geplaatst op 
+                    pressed = true;                    
                     timer1.Stop();                       
                 }
             }
 
-            if (pressedBack)  //pressed                  //deze plek, dan voert hij deze actie ook half uit....
+            if (pressedBack)               //trigger the button to go to begin location             2nd trigger if other buttons are clicked (not yet implemented)    
             {
-                if (button1.Left >= buffer)   //min positie
+                if (button1.Left > buffer)    //minimum position for button
                 {
                     button1.Enabled = false;
-                    left -= 5;
-                    button1.Left = left;
-                    if (button1.Left < buffer)
-                    {
-                        button1.Enabled = true;
-                    }
+
+                        left -= 5;
+                    
+                        button1.Left = left;
+                        if (button1.Left < buffer)
+                        {
+                            button1.Left += (buffer - button1.Left);         //if distance between begin location and current postion differs, equalize it...
+                        }
+
+                        if (button1.Left == buffer)          //if distance is 0 between begin location and current position
+                        {
+                         button1.Enabled = true;
+                        }
                 }
                 else
                 {
                     pressed = false;
-                    pressedBack = false;   //dit comments
-                    int difference = buffer - button1.Left;
-                    button1.Left += difference; 
+                    pressedBack = false;   
                     timer1.Stop();
                 }
             }
