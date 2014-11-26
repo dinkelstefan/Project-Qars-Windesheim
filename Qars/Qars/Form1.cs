@@ -15,7 +15,7 @@ namespace Qars
         public Form1()
         {
             InitializeComponent();
-            var CarInfoPanel = new CarInfoPanel();
+            CarInfoPanel2 CarInfoPanel = new CarInfoPanel2();
             List<Car> cars = new List<Car>();
             //hoeveel autos zijn er?
             //for(int i = 0; i < aantal; i++){
