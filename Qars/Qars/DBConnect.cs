@@ -97,7 +97,6 @@ namespace Qars
             }
         }
 
-        //Update statement
         public void Update()
         {
             string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
@@ -132,9 +131,10 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-        public List<string> Select() //this function needs to insert the number of the tile that was clicked on so it can load the correct values!
-        {
-            string query = "SELECT * FROM Car WHERE CarID = 1"; //this has to be a number given to the function
+        public List<string> Select() //For just 1 car of for all cars? ASK KEVIN.
+        {   //CarID and Category should be given to the function (IF WE DO ONLY 1 CAR)
+
+            string query = "SELECT * FROM Car WHERE CarID = 1" /*AND Category = de huidige category ORDER BY CarID (IF WE DO ONLY 1 CAR) */;
 
             //Create a list to store the result
             List<String> list = new List<string>();
@@ -150,6 +150,7 @@ namespace Qars
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
+                    //need a cleaner solution? I tried a lot of stuff but this seemed to be the best one. I could try looking up the type and then creating a switch case.
                     list.Add(dataReader.GetInt32("CarID").ToString());
                     list.Add(dataReader.GetInt32("EstablishmentID").ToString());
                     list.Add(dataReader.GetString("Brand"));
@@ -218,8 +219,12 @@ namespace Qars
                 return Count;
             }
         }
+
+        public void DynamicQuery()
+        {
+            //Dynamicquery voor zoekfunctie
+        }
     }
 }
 
-//Backup
 

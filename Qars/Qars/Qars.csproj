@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="CarInfoPanel2.cs">
+    <Compile Include="CarDetailPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DBConnect.cs" />

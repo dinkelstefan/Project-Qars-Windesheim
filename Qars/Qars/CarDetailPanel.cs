@@ -7,11 +7,10 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    class CarInfoPanel2 : Panel
+    class CarDetailPanel : Panel
     {
-        public CarInfoPanel2()
+        public CarDetailPanel()
         {
         }
-
     }
 }

@@ -13,13 +13,13 @@ namespace Qars
     public partial class Form1 : Form
     {
         public Form1()
-        {
+        { // I might have to do all of this in Panel!
             InitializeComponent();
-            CarInfoPanel2 CarInfoPanel = new CarInfoPanel2();
+            CarDetailPanel CarDetailPanel = new CarDetailPanel();
             List<Car> cars = new List<Car>();
             DBConnect connection = new DBConnect();
-            List<String> test = connection.Select();
-            foreach (var item in test)
+            List<String> Queryresult = connection.Select(); //Create stringbuilder!
+            foreach (var item in Queryresult)
             {
                 //vind het tijlnummer waar op gedrukt was. Dit kan door bijvoorbeeld "Select * FROM Car WHERE CarID = tileview AND Category = de huidige categorie. ORDER BY CarID(zodat wij de volgorde hebben)
                 Console.WriteLine(item.ToString());
@@ -28,7 +28,7 @@ namespace Qars
 
                 //To do: Oplossing voor het invullen van de constructor!
             }
-            Console.WriteLine("Het aantal items in de lijst: " + test.Count);
+            Console.WriteLine("Het aantal items in de lijst: " + Cars.Count);
             //int aantal = connection.Count();
             //hoeveel autos zijn er?
             //for (int i = 0; i < aantal; i++)
