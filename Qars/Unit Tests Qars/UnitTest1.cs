@@ -11,7 +11,6 @@ namespace Unit_Tests_Qars
         {
             int result = 5 + 5;
             Assert.IsTrue(result == 10);
-            
         }
 
         [TestMethod]
