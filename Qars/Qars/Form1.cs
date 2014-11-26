@@ -8,10 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Qars {
-    public partial class Form1 : Form {
-        public Form1() {
+namespace Qars
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
             InitializeComponent();
+            var CarInfoPanel = new CarInfoPanel();
+            List<Car> cars = new List<Cars>();
         }
     }
 }
