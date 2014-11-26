@@ -27,7 +27,7 @@ namespace Qars
             server = "db4free.net";
             database = "qars1";
             uid = "qars1";
-            password = "Quintor1";
+            password = "Quintor";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -79,23 +79,6 @@ namespace Qars
             }
         }
 
-        //Insert statement
-        public void Insert()
-        {
-        }
-
-        //Update statement
-        public void Update()
-        {
-        }
-
-        //Delete statement
-        public void Delete()
-        {
-        }
-
-        //Select statement
-        //Insert statement
         public void Insert()
         {
             string query = "INSERT INTO tableinfo (name, age) VALUES('John Smith', '33')";
@@ -149,15 +132,12 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-        public List<string>[] Select()
+        public List<string> Select() //this function needs to insert the number of the tile that was clicked on so it can load the correct values!
         {
-            string query = "SELECT * FROM tableinfo";
+            string query = "SELECT * FROM Car WHERE CarID = 1"; //this has to be a number given to the function
 
             //Create a list to store the result
-            List<string>[] list = new List<string>[3];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
+            List<String> list = new List<string>();
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -170,11 +150,33 @@ namespace Qars
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list[0].Add(dataReader["id"] + "");
-                    list[1].Add(dataReader["name"] + "");
-                    list[2].Add(dataReader["age"] + "");
-                }
+                    list.Add(dataReader.GetInt32("CarID").ToString());
+                    list.Add(dataReader.GetInt32("EstablishmentID").ToString());
+                    list.Add(dataReader.GetString("Brand"));
+                    list.Add(dataReader.GetString("Model"));
+                    list.Add(dataReader.GetString("Category"));
+                    list.Add(dataReader.GetString("Modelyear"));
+                    list.Add(dataReader.GetBoolean("Automatic").ToString());
+                    list.Add(dataReader.GetInt32("Kilometers").ToString());
+                    list.Add(dataReader.GetString("Colour"));
+                    list.Add(dataReader.GetInt32("Doors").ToString());
+                    list.Add(dataReader.GetBoolean("Stereo").ToString());
+                    list.Add(dataReader.GetBoolean("Bluetooth").ToString());
+                    list.Add(dataReader.GetDouble("Horsepower").ToString());
+                    list.Add(dataReader.GetString("Length"));
+                    list.Add(dataReader.GetString("Width"));
+                    list.Add(dataReader.GetString("Height"));
+                    list.Add(dataReader.GetBoolean("Airco").ToString());
+                    list.Add(dataReader.GetInt32("Seats").ToString());
+                    list.Add(dataReader.GetValue(19).ToString()); //This doesn't work for MOTDate for some reason!
+                    list.Add(dataReader.GetDouble("Storagespace").ToString());
+                    list.Add(dataReader.GetInt32("Gearsamount").ToString());
+                    list.Add(dataReader.GetFloat("Rentalprice").ToString());
+                    list.Add(dataReader.GetFloat("Sellingprice").ToString());
+                    list.Add(dataReader.GetBoolean("Available").ToString());
+                    list.Add(dataReader.GetString("Description").ToString());
 
+                }
                 //close Data Reader
                 dataReader.Close();
 
@@ -190,10 +192,11 @@ namespace Qars
             }
         }
 
+
         //Count statement
         public int Count()
         {
-            string query = "SELECT Count(*) FROM tableinfo";
+            string query = "SELECT Count(*) FROM Car";
             int Count = -1;
 
             //Open Connection
@@ -216,7 +219,7 @@ namespace Qars
             }
         }
     }
-
-    //Backup
-
 }
+
+//Backup
+
