@@ -131,65 +131,30 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-        public List<string> Select() //For just 1 car of for all cars? ASK KEVIN.
-        {   //CarID and Category should be given to the function (IF WE DO ONLY 1 CAR)
+        public List<Car> FillCars()
+        {
+            string query = " SELECT * FROM Car ";
+            List<Car> localCarList = new List<Car>();
 
-            string query = "SELECT * FROM Car WHERE CarID = 1" /*AND Category = de huidige category ORDER BY CarID (IF WE DO ONLY 1 CAR) */;
-
-            //Create a list to store the result
-            List<String> list = new List<string>();
-
-            //Open connection
             if (this.OpenConnection() == true)
             {
-                //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    //need a cleaner solution? I tried a lot of stuff but this seemed to be the best one. I could try looking up the type and then creating a switch case.
-                    list.Add(dataReader.GetInt32("CarID").ToString());
-                    list.Add(dataReader.GetInt32("EstablishmentID").ToString());
-                    list.Add(dataReader.GetString("Brand"));
-                    list.Add(dataReader.GetString("Model"));
-                    list.Add(dataReader.GetString("Category"));
-                    list.Add(dataReader.GetString("Modelyear"));
-                    list.Add(dataReader.GetBoolean("Automatic").ToString());
-                    list.Add(dataReader.GetInt32("Kilometers").ToString());
-                    list.Add(dataReader.GetString("Colour"));
-                    list.Add(dataReader.GetInt32("Doors").ToString());
-                    list.Add(dataReader.GetBoolean("Stereo").ToString());
-                    list.Add(dataReader.GetBoolean("Bluetooth").ToString());
-                    list.Add(dataReader.GetDouble("Horsepower").ToString());
-                    list.Add(dataReader.GetString("Length"));
-                    list.Add(dataReader.GetString("Width"));
-                    list.Add(dataReader.GetString("Height"));
-                    list.Add(dataReader.GetBoolean("Airco").ToString());
-                    list.Add(dataReader.GetInt32("Seats").ToString());
-                    list.Add(dataReader.GetValue(19).ToString()); //This doesn't work for MOTDate for some reason!
-                    list.Add(dataReader.GetDouble("Storagespace").ToString());
-                    list.Add(dataReader.GetInt32("Gearsamount").ToString());
-                    list.Add(dataReader.GetFloat("Rentalprice").ToString());
-                    list.Add(dataReader.GetFloat("Sellingprice").ToString());
-                    list.Add(dataReader.GetBoolean("Available").ToString());
-                    list.Add(dataReader.GetString("Description").ToString());
-
+                    localCarList.Add(new Car(dataReader.GetInt32("CarID"), dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Brand"), dataReader.GetString("Model"), dataReader.GetString("Category"), dataReader.GetString("Modelyear"), dataReader.GetBoolean("Automatic"), dataReader.GetInt32("Kilometers"),
+                    dataReader.GetString("Colour"), dataReader.GetInt32("Doors"), dataReader.GetBoolean("Stereo"), dataReader.GetBoolean("Bluetooth"), dataReader.GetDouble("Horsepower"), dataReader.GetString("Length"), dataReader.GetString("Width"), dataReader.GetString("Height"), dataReader.GetBoolean("Airco"),
+                    dataReader.GetInt32("Seats"), dataReader.GetString("motdate"), dataReader.GetDouble("Storagespace"), dataReader.GetInt32("Gearsamount"), dataReader.GetFloat("Rentalprice"), dataReader.GetFloat("Sellingprice"), dataReader.GetBoolean("Available"), dataReader.GetString("Description").ToString()));
                 }
-                //close Data Reader
                 dataReader.Close();
-
-                //close Connection
                 this.CloseConnection();
 
-                //return list to be displayed
-                return list;
+                return localCarList;
             }
             else
             {
-                return list;
+                return null;
             }
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Qars
 {
-    class Car
+    public class Car
     {
         public int carID { get; set; }
         public int establishmentID { get; set; }
@@ -33,8 +33,34 @@ namespace Qars
         public float sellingprice { get; set; }
         public bool available { get; set; }
         public string description { get; set; }
+        public Car(int carID, int establishmentID, string brand, string model, string category, string modelyear, bool automatic, int kilometres, string colour, int doors, bool stereo, bool bluetooth, double horsepower, string length, string width, string height, bool airco, int seats, string motdate, double storagespace, int gearsamount, float rentalprice, float sellingprice, bool available, string description)
+        {
+            this.carID = carID;
+            this.establishmentID = establishmentID;
+            this.brand = brand;
+            this.model = model;
+            this.category = category;
+            this.modelyear = modelyear;
+            this.automatic = automatic;
+            this.kilometres = kilometres;
+            this.colour = colour;
+            this.doors = doors;
+            this.stereo = stereo;
+            this.bluetooth = bluetooth;
+            this.horsepower = horsepower;
+            this.length = length;
+            this.width = width;
+            this.height = height;
+            this.airco = airco;
+            this.seats = seats;
+            this.motdate = motdate;
+            this.storagespace = storagespace;
+            this.gearsamount = gearsamount;
+            this.rentalprice = rentalprice;
+            this.sellingprice = sellingprice;
+            this.available = available;
+            this.description = description;
 
-        //maak OF heel veel constructors OF setters.
-        public Car() { }
+        }
     }
 }
