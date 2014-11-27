@@ -35,7 +35,6 @@ namespace Qars
             connection = new MySqlConnection(connectionString);
         }
 
-        //open connection to database
 
         private bool OpenConnection()
         {
@@ -46,11 +45,6 @@ namespace Qars
             }
             catch (MySqlException ex)
             {
-                //When handling errors, you can your application's response based 
-                //on the error number.
-                //The two most common error numbers when connecting are as follows:
-                //0: Cannot connect to server.
-                //1045: Invalid user name and/or password.
                 switch (ex.Number)
                 {
                     case 0:
@@ -157,6 +151,35 @@ namespace Qars
                 return null;
             }
         }
+
+        public List<CarPhoto> FillCarPhotos()
+        {
+            string query = " SELECT * FROM Photo ";
+            List<CarPhoto> localPhotoList = new List<CarPhoto>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    localPhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
+                                                    dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return localPhotoList;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
 
 
         //Count statement

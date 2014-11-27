@@ -12,16 +12,20 @@ namespace Qars
 {
     public partial class Form1 : Form
     {
+        //This needs a better solution. Help?
         static public List<Car> cars;
+        static public List<CarPhoto> photos;
+
         public Form1()
         {
             InitializeComponent();
 
             DBConnect connection = new DBConnect();
             cars = new List<Car>(connection.FillCars());
+            photos = new List<CarPhoto>(connection.FillCarPhotos());
 
-            CarDetailPanel CarDetailPanel = new CarDetailPanel(0);
-            this.Controls.Add(CarDetailPanel);
+            CarDetailPanel carDetailPanel = new CarDetailPanel(0); //tile number
+            this.Controls.Add(carDetailPanel);
         }
     }
 }
