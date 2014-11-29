@@ -15,6 +15,7 @@ namespace Qars
         public string Datetaken { get; set; }
         public string Photolink { get; set; }
 
+
         public CarPhoto(int PhotoID, int CarID, string Name, string Description, string Datetaken, string Photolink)
         {
             this.PhotoID = PhotoID;

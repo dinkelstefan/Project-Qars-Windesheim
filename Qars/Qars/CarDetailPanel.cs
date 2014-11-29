@@ -10,7 +10,7 @@ namespace Qars
 {
     class CarDetailPanel : Panel
     {
-
+        private List<PictureBox> pbox = new List<PictureBox>();
         public CarDetailPanel(int carNumber)
         {
             //Properties of the panel
@@ -78,48 +78,25 @@ namespace Qars
                 hireButton.Text = "Niet beschikbaar"; //TO DO: Add "AVAILABLE AT: DATE"
             }
 
+            int left = 22;
+            foreach (var item in Form1.photos)
+            {
+                int top = 222;
+                int height = 75;
+                int width = 75;
+                int i = 0;
 
-            //This has to be a lot cleaner but I don't know how. 
-            //Listview didn't look pretty. How do I get all the individual photos/get a better solution?
-            PictureBox smallPicture1 = new PictureBox();
-            smallPicture1.Top = 220;
-            smallPicture1.Left = 22;
-            smallPicture1.Height = 75;
-            smallPicture1.Width = 75;
-            smallPicture1.ImageLocation = @Form1.photos[carNumber].Photolink;
-            smallPicture1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            PictureBox smallPicture2 = new PictureBox();
-            smallPicture2.Top = 220;
-            smallPicture2.Left = 110;//Left += 88
-            smallPicture2.Height = 75;
-            smallPicture2.Width = 75;
-            smallPicture2.ImageLocation = @Form1.photos[carNumber].Photolink;
-            smallPicture2.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            PictureBox smallPicture3 = new PictureBox();
-            smallPicture3.Top = 220;
-            smallPicture3.Left = 198;
-            smallPicture3.Height = 75;
-            smallPicture3.Width = 75;
-            smallPicture3.ImageLocation = @Form1.photos[carNumber].Photolink;
-            smallPicture3.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            PictureBox smallPicture4 = new PictureBox();
-            smallPicture4.Top = 220;
-            smallPicture4.Left = 286;
-            smallPicture4.Height = 75;
-            smallPicture4.Width = 75;
-            smallPicture4.ImageLocation = @Form1.photos[carNumber].Photolink;
-            smallPicture4.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            PictureBox smallPicture5 = new PictureBox();
-            smallPicture1.Top = 220;
-            smallPicture1.Left = 22;
-            smallPicture1.Height = 75;
-            smallPicture1.Width = 75;
-            smallPicture1.ImageLocation = @Form1.photos[carNumber].Photolink;
-            smallPicture1.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox pbox = new PictureBox();
+                pbox.ImageLocation = @Form1.photos[i].Photolink; //TO DO: GET ALL PICTURES INSTEAD OF ONE!
+                pbox.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbox.Top = top;
+                pbox.Left = left;
+                pbox.Height = height;
+                pbox.Width = width;
+                left += 88;
+                this.Controls.Add(pbox);
+                i++;
+            }
 
             //Main picture box
             PictureBox mainPicture = new PictureBox();
@@ -132,11 +109,41 @@ namespace Qars
 
             /*
              * TO DO:
-             * -Change Main Picture Box's image when I click on another Small Picture Box Image
+             * -Establishment Information
+             * -Change Main Picture Box's image when I click on another Picture Box Image
              * -Specifications about car
              * -Information about car
              * -Draw Line
             */
+
+            Label specifications = new Label();
+            specifications.Text = "Specificaties";
+            specifications.Top = 325;
+            specifications.Left = 22;
+            specifications.Width = 300;
+            specifications.Height = 300;
+            specifications.Font = new Font("Arial", 20);
+
+            foreach (var item in Form1.cars)
+            {
+                if (item.carID == carNumber)
+                {
+                    /* text(item.everything)
+                     * top
+                     * left
+                     * height
+                     * width
+                     * font
+                     * (x2 for Label Column & Column info)
+                     * 
+                     * label for column
+                     * label for column info
+                     * 
+                */
+                }
+            }
+
+
 
             //all controls.
             this.Controls.Add(carName);
@@ -145,11 +152,17 @@ namespace Qars
             this.Controls.Add(sellPrice);
             this.Controls.Add(availableAt);
             this.Controls.Add(hireButton);
-            this.Controls.Add(smallPicture1);
-            this.Controls.Add(smallPicture2);
-            this.Controls.Add(smallPicture3);
-            this.Controls.Add(smallPicture4);
+            this.Controls.Add(specifications);
+
+        }
+        private void CarDetailPanel_Paint(object sender, PaintEventArgs e)
+        {
+            Pen blackpen = new Pen(Color.Black, 3);
+            Graphics g = e.Graphics;
+            g.DrawLine(blackpen, 0, 0, 200, 200);
+            g.Dispose();
         }
     }
 }
+
 

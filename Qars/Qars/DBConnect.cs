@@ -152,7 +152,7 @@ namespace Qars
             }
         }
 
-        public List<CarPhoto> FillCarPhotos()
+        public List<CarPhoto> FillCarPhotos() //this needs improvement. How do I get all the pictures instead of just 1?
         {
             string query = " SELECT * FROM Photo ";
             List<CarPhoto> localPhotoList = new List<CarPhoto>();
