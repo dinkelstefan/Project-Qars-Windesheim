@@ -198,11 +198,11 @@ namespace Qars
             // 
             // postalcodeTextbox
             // 
-            this.postalcodeTextbox.Location = new System.Drawing.Point(192, 371);
+            this.postalcodeTextbox.Location = new System.Drawing.Point(358, 377);
             this.postalcodeTextbox.Mask = "0000 LL";
             this.postalcodeTextbox.Name = "postalcodeTextbox";
             this.postalcodeTextbox.Size = new System.Drawing.Size(76, 26);
-            this.postalcodeTextbox.TabIndex = 22;
+            this.postalcodeTextbox.TabIndex = 23;
             // 
             // phonenumberTextbox
             // 
@@ -273,10 +273,10 @@ namespace Qars
             // 
             // cityTextbox
             // 
-            this.cityTextbox.Location = new System.Drawing.Point(274, 371);
+            this.cityTextbox.Location = new System.Drawing.Point(192, 377);
             this.cityTextbox.Name = "cityTextbox";
             this.cityTextbox.Size = new System.Drawing.Size(160, 26);
-            this.cityTextbox.TabIndex = 23;
+            this.cityTextbox.TabIndex = 22;
             // 
             // groupBox1
             // 
@@ -305,6 +305,7 @@ namespace Qars
             this.button2.TabIndex = 33;
             this.button2.Text = "Annuleren";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.closeRentCarPanel);
             // 
             // commentTextbox
             // 
@@ -318,6 +319,7 @@ namespace Qars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.commentTextbox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -325,7 +327,6 @@ namespace Qars
             this.Controls.Add(this.cityTextbox);
             this.Controls.Add(this.citylabel);
             this.Controls.Add(this.streetnumbersuffixlabel);
-            this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.enddateTextbox);
             this.Controls.Add(this.emailTextbox);
             this.Controls.Add(this.startdateTextbox);

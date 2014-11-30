@@ -27,5 +27,10 @@ namespace Qars
             CarDetailPanel carDetailPanel = new CarDetailPanel(0); //tile number
             this.Controls.Add(carDetailPanel);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            rentCarPanel.Visible = !rentCarPanel.Visible;
+        }
     }
 }

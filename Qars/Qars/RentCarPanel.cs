@@ -94,11 +94,24 @@ namespace Qars
                 MessageBox.Show("U heeft geen emailadres ingevuld");
             }
 
-            mail.addSubject("Aanvraag van Audi A4");
-            mail.addBody(buildEmailBody());
+            MailAddress emailaddress = new MailAddress(emailTextbox.Text);
+            Models.Reservation reservation = new Models.Reservation(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, Convert.ToInt32(streetnumberTextbox.Text), streetnumbersuffixTextbox.Text, postalcodeTextbox.Text, cityTextbox.Text, emailaddress, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text);
 
-            mail.sendEmail();
-            MessageBox.Show("Er is");
+            DBConnect connection = new DBConnect();
+
+            try
+            {
+                mail.addSubject("Aanvraag van Audi A4");
+                mail.addBody(buildEmailBody());
+                connection.insertReservation(reservation);
+                mail.sendEmail();
+
+                MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fout tijdens het verwerken van uw aanvraag.");
+            }
         }
 
         private string buildEmailBody()
@@ -113,7 +126,7 @@ namespace Qars
 
             builder.AppendLine(String.Format("Voornaam:\t{0}", firstnameTextbox.Text));
             builder.AppendLine(String.Format("Achternaam:\t{0}", lastnameTextbox.Text));
-            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetnameTextbox.Text, streetnumberTextbox.Text , streetnumbersuffixTextbox.Text));
+            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text));
             builder.AppendLine(String.Format("Woonplaats:\t{0}", cityTextbox.Text));
             builder.AppendLine(String.Format("Postcode:\t{0}", postalcodeTextbox.Text));
             builder.AppendLine(String.Format("Email:\t\t{0}", emailTextbox.Text));
@@ -130,8 +143,13 @@ namespace Qars
             builder.AppendLine("Met vriendelijke groeten,");
             builder.AppendLine("");
             builder.AppendLine("Qars");
-                
+
             return builder.ToString();
+        }
+
+        private void closeRentCarPanel(object sender, EventArgs e)
+        {
+            this.Visible = !this.Visible;
         }
 
     }
