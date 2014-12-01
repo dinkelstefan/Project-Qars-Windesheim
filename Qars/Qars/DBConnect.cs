@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data;
+using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
-using System.Data;
 namespace Qars
 {
-    class DBConnect
+    public class DBConnect
     {
         private MySqlConnection connection;
         private string server;

@@ -33,9 +33,14 @@ namespace Qars
         public float sellingprice { get; set; }
         public bool available { get; set; }
         public string description { get; set; }
+<<<<<<< HEAD
         public int Fuelusage { get; set; }
         public string motor { get; set; }
         public Car(int carID, int establishmentID, string brand, string model, string category, string modelyear, bool automatic, int kilometres, string colour, int doors, bool stereo, bool bluetooth, double horsepower, string length, string width, string height, bool airco, int seats, string motdate, double storagespace, int gearsamount, float rentalprice, float sellingprice, bool available, string description, int Fuelusage, string motor)
+=======
+
+        public Car(int carID, int establishmentID, string brand, string model, string category, string modelyear, bool automatic, int kilometres, string colour, int doors, bool stereo, bool bluetooth, double horsepower, string length, string width, string height, bool airco, int seats, string motdate, double storagespace, int gearsamount, float rentalprice, float sellingprice, bool available, string description)
+>>>>>>> f9e2e66d9e98a27db7fac2385c32a552568ae676
         {
             this.carID = carID;
             this.establishmentID = establishmentID;
