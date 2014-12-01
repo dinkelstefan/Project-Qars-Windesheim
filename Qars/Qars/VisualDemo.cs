@@ -18,7 +18,7 @@ namespace Qars
     {
         public int imageWidth = 160;
         public int imageHeigth = 160;
-       
+
         public List<Car> compareList = new List<Car>();
         static public List<Car> carList = new List<Car>();
         public int carNumber = 0;
@@ -33,15 +33,24 @@ namespace Qars
             DoubleBuffered = true;
 
             carList = db.FillCars();
-            cPhotos = new List<CarPhoto>(db.FillCarPhotos());
+            try
+            {
+                cPhotos = new List<CarPhoto>(db.FillCarPhotos());
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error! Er ging iets fout in de database! Neem contact op met een administrator!\nFoutbericht:" + e.Message);
+                Application.Exit();
+
+            }
 
             int localY = 200;
             int localX = 10;
             int checkNumb = 0;
 
             Debug.WriteLine(cPhotos[0].Photolink);
-            
-            for(int i=0; i < carList.Count;i++)
+
+            for (int i = 0; i < carList.Count; i++)
             {
                 Debug.WriteLine(cPhotos[0].Photolink);
                 TileListPanel tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, cPhotos[0].Photolink, localY, localX, i, this);
@@ -56,7 +65,7 @@ namespace Qars
                     checkNumb = 0;
                 }
 
-            }  
+            }
         }
 
 
@@ -78,7 +87,7 @@ namespace Qars
                 button1.Visible = false;
 
             UpdateCompareLabel();
-            
+
         }
 
         public void UpdateCompareLabel()
