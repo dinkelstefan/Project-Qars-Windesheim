@@ -15,6 +15,7 @@ namespace Qars
         //This needs a better solution. Help?
         static public List<Car> cars;
         static public List<CarPhoto> photos;
+        
 
         public Form1()
         {
@@ -35,11 +36,6 @@ namespace Qars
                 Console.WriteLine(item.Photolink);
 
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            rentCarPanel.Visible = !rentCarPanel.Visible;
         }
     }
 }

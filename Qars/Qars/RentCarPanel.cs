@@ -13,11 +13,16 @@ namespace Qars
 {
     public partial class RentCarPanel : UserControl
     {
+        public int carnumber { get; set; }
         private String currentSelectedDateBox;
-        public RentCarPanel()
+        public RentCarPanel(int carnumber)
         {
             InitializeComponent();
+            this.carnumber = carnumber;
+            fillCarInfoPanel();
+
         }
+
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -150,6 +155,38 @@ namespace Qars
         private void closeRentCarPanel(object sender, EventArgs e)
         {
             this.Visible = !this.Visible;
+        }
+
+        public void fillCarInfoPanel()
+        {
+
+            //Form1.cars[carnumber].(info);
+            modelLabel.Text = "Model:";
+            MotorLabel.Text = "Merk:";
+            PriceLiterLabel.Text = "Prijs Liter:";
+            CategoryLabel.Text = "Categorie:";
+            YearOfBuildLabel.Text = "Bouwjaar:";
+            KilometerLabel.Text = "Kilometer:";
+            PkLabel.Text = "Pk:";
+            SpaceLabel.Text = "Ruimte:";
+
+            label2.Text = Form1.cars[carnumber].model + Form1.cars[carnumber].brand;
+            //label3.Text = Form1.cars[carnumber].;
+            label4.Text = Form1.cars[carnumber].sellingprice.ToString();
+            label5.Text = Form1.cars[carnumber].category;
+            label6.Text = Form1.cars[carnumber].modelyear;
+            label7.Text = Form1.cars[carnumber].kilometres.ToString();
+            label8.Text = Form1.cars[carnumber].horsepower.ToString();
+            label9.Text = Form1.cars[carnumber].storagespace.ToString();
+            /*label10.Text = Form1.cars[carnumber].;
+            label12.Text = Form1.cars[carnumber].(info);
+            */
+
+        }
+
+        private void modelCarLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -12,6 +12,7 @@ namespace Qars
     {
         private List<PictureBox> pbox = new List<PictureBox>();
         private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "PK:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:" };
+        private int currentCarNumber;
         public CarDetailPanel(int carNumber)
         {
             //Properties of the panel
@@ -63,6 +64,7 @@ namespace Qars
             availableAt.Font = new Font("Arial", 14);
 
             Button hireButton = new Button();
+            hireButton.Click += new EventHandler(hireButtonClick);
             hireButton.Text = "Huren";
             hireButton.BackColor = Color.Green;
             hireButton.Top = 180;
@@ -492,5 +494,12 @@ namespace Qars
                 }
             }
         }
+            public void hireButtonClick(object sender, EventArgs e){
+                RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber);
+                this.Controls.Add(rentcarpanel);
+                rentcarpanel.BringToFront();
+                rentcarpanel.Show();
+            }
+        }
     }
-}
+
