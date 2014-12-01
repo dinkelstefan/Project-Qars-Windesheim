@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,30 +47,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="CarListView.cs">
+    <Compile Include="CarDetailPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomCheckBox.cs" />
+    <Compile Include="CarPhoto.cs" />
+    <Compile Include="DBConnect.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GridPanel.cs" />
-    <Compile Include="MyCheckBox.cs" />
-    <Compile Include="panel.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TempStuff.cs" />
-    <Compile Include="VisualDemo.cs">
-      <SubType>Form</SubType>
+    <Compile Include="RentCarPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VisualDemo.Designer.cs">
-      <DependentUpon>VisualDemo.cs</DependentUpon>
+    <Compile Include="RentCarPanel.Designer.cs">
+      <DependentUpon>RentCarPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\Mail.cs" />
+    <EmbeddedResource Include="CarDetailPanel.resx">
+      <DependentUpon>CarDetailPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,8 +83,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VisualDemo.resx">
-      <DependentUpon>VisualDemo.cs</DependentUpon>
+    <EmbeddedResource Include="RentCarPanel.resx">
+      <DependentUpon>RentCarPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
