@@ -29,7 +29,7 @@ namespace Qars
             carName.Left = 375;
             carName.Width = 300;
             carName.Height = 28;
-            carName.Font = new Font("Arial", 20);
+            carName.Font = new Font("Calibri", 20);
 
             Label kmPrice = new Label();
             kmPrice.Text = "Gemiddelde prijs per K.M: € 20,-"; //TO DO: Query to get the average price per Kilometre
@@ -37,7 +37,7 @@ namespace Qars
             kmPrice.Left = 375;
             kmPrice.Width = 400;
             kmPrice.Height = 27;
-            kmPrice.Font = new Font("Arial", 14);
+            kmPrice.Font = new Font("Calibri", 14);
 
             Label sellPrice = new Label();
             if (Form1.cars[carNumber].sellingprice == 0)
@@ -52,7 +52,7 @@ namespace Qars
             sellPrice.Left = 375;
             sellPrice.Width = 400;
             sellPrice.Height = 27;
-            sellPrice.Font = new Font("Arial", 14);
+            sellPrice.Font = new Font("Calibri", 14);
 
             Label availableAt = new Label();
             availableAt.Text = "Verkrijgbaar bij: " + Form1.cars[carNumber].establishmentID; //TO DO: Query to get establishments
@@ -60,7 +60,7 @@ namespace Qars
             availableAt.Left = 375;
             availableAt.Width = 400;
             availableAt.Height = 27;
-            availableAt.Font = new Font("Arial", 14);
+            availableAt.Font = new Font("Calibri", 14);
 
             Button hireButton = new Button();
             hireButton.Text = "Huren";
@@ -70,7 +70,7 @@ namespace Qars
             hireButton.Width = 150;
             hireButton.Height = 29;
             hireButton.ForeColor = Color.White;
-            hireButton.Font = new Font("Old English", 11, FontStyle.Bold);
+            hireButton.Font = new Font("Calibri", 11, FontStyle.Bold);
             hireButton.FlatStyle = FlatStyle.Flat;
             if (!Form1.cars[carNumber].available)
             {
@@ -114,7 +114,7 @@ namespace Qars
             specifications.Left = 22;
             specifications.Width = 300;
             specifications.Height = 300;
-            specifications.Font = new Font("Arial", 20);
+            specifications.Font = new Font("Calibri", 20);
 
             //Code for the Column Name
             int top1 = 350;
@@ -143,7 +143,7 @@ namespace Qars
                 specLabel.Top = top1;
                 specLabel.Left = Left;
                 specLabel.Width = width;
-                specLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+                specLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
                 specLabel.Height = height;
 
                 this.Controls.Add(specLabel);
@@ -161,7 +161,7 @@ namespace Qars
             description.Left = 690;
             description.Width = 165;
             description.Height = 32;
-            description.Font = new Font("Arial", 20);
+            description.Font = new Font("Calibri", 20);
 
             Label descriptioninfo = new Label(); /*Maximum: ~686 characters */
             descriptioninfo.Text = Form1.cars[carNumber].description;
@@ -169,7 +169,7 @@ namespace Qars
             descriptioninfo.Left = 690;
             descriptioninfo.Width = 300;
             descriptioninfo.Height = 300;
-            descriptioninfo.Font = new Font("Arial", 9);
+            descriptioninfo.Font = new Font("Calibri", 9);
 
             //all controls.
             this.Controls.Add(carName);
@@ -222,7 +222,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -236,7 +236,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -257,7 +257,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -271,7 +271,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -285,7 +285,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -299,7 +299,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -320,7 +320,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -341,7 +341,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -355,7 +355,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -369,7 +369,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -383,7 +383,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -397,7 +397,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -418,7 +418,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -432,7 +432,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -446,7 +446,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -460,7 +460,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
@@ -481,7 +481,7 @@ namespace Qars
                         item.Left = left;
                         item.Width = width;
                         item.Height = height;
-                        item.Font = new Font("Arial", 12);
+                        item.Font = new Font("Calibri", 12);
                         panel.Controls.Add(item);
 
                         top += 30;
