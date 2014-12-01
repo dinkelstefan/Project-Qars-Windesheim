@@ -11,6 +11,7 @@ namespace Qars
     class CarDetailPanel : Panel
     {
         private List<PictureBox> pbox = new List<PictureBox>();
+        private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "PK:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:" };
         public CarDetailPanel(int carNumber)
         {
             //Properties of the panel
@@ -87,7 +88,7 @@ namespace Qars
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = @Form1.photos[i].Photolink; //TO DO: GET ALL PICTURES INSTEAD OF ONE!
+                pbox.ImageLocation = item.Photolink; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;
@@ -104,46 +105,71 @@ namespace Qars
             mainPicture.Left = 22;
             mainPicture.Height = 185;
             mainPicture.Width = 350;
-            mainPicture.ImageLocation = @Form1.photos[carNumber].Photolink; //foto's met stefan
+            mainPicture.ImageLocation = @Form1.photos[0].Photolink; //foto's met stefan
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            /*
-             * TO DO:
-             * -Establishment Information
-             * -Change Main Picture Box's image when I click on another Picture Box Image
-             * -Specifications about car
-             * -Information about car
-             * -Draw Line
-            */
 
             Label specifications = new Label();
             specifications.Text = "Specificaties";
-            specifications.Top = 325;
+            specifications.Top = 305;
             specifications.Left = 22;
             specifications.Width = 300;
             specifications.Height = 300;
             specifications.Font = new Font("Arial", 20);
 
-            foreach (var item in Form1.cars)
+            //Code for the Column Name
+            int top1 = 350;
+            int Left = 22;
+            int count = 0;
+            foreach (var item in specname)
             {
-                if (item.carID == carNumber)
+                if (count == 7 || count == 14 || count == 21)
                 {
-                    /* text(item.everything)
-                     * top
-                     * left
-                     * height
-                     * width
-                     * font
-                     * (x2 for Label Column & Column info)
-                     * 
-                     * label for column
-                     * label for column info
-                     * 
-                */
+                    if (count == 14)
+                    {
+                        Left += 200;
+                        top1 = 350;
+                    }
+                    else
+                    {
+                        Left += 240;
+                        top1 = 350;
+                    }
                 }
+                int width = 120;
+                int height = 30;
+
+                Label specLabel = new Label();
+                specLabel.Text = item;
+                specLabel.Top = top1;
+                specLabel.Left = Left;
+                specLabel.Width = width;
+                specLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+                specLabel.Height = height;
+
+                this.Controls.Add(specLabel);
+
+                top1 += 30;
+                count += 1;
+
             }
+            //Create the information
+            CreateSpecInfo(this, Form1.cars, carNumber);
 
+            Label description = new Label();
+            description.Text = "Beschrijving";
+            description.Top = 305;
+            description.Left = 690;
+            description.Width = 165;
+            description.Height = 32;
+            description.Font = new Font("Arial", 20);
 
+            Label descriptioninfo = new Label(); /*Maximum: ~686 characters */
+            descriptioninfo.Text = Form1.cars[carNumber].description;
+            descriptioninfo.Top = 350;
+            descriptioninfo.Left = 690;
+            descriptioninfo.Width = 300;
+            descriptioninfo.Height = 300;
+            descriptioninfo.Font = new Font("Arial", 9);
 
             //all controls.
             this.Controls.Add(carName);
@@ -153,16 +179,318 @@ namespace Qars
             this.Controls.Add(availableAt);
             this.Controls.Add(hireButton);
             this.Controls.Add(specifications);
-
+            this.Controls.Add(description);
+            this.Controls.Add(descriptioninfo);
         }
-        private void CarDetailPanel_Paint(object sender, PaintEventArgs e)
+
+
+        private void CreateSpecInfo(Panel panel, List<Car> list, int carnumber)
         {
-            Pen blackpen = new Pen(Color.Black, 3);
-            Graphics g = e.Graphics;
-            g.DrawLine(blackpen, 0, 0, 200, 200);
-            g.Dispose();
+            List<Label> LabelList = new List<Label>();
+            for (int i = 0; i <= 17; i++)
+            {
+                LabelList.Add(new Label());
+            }
+
+            int top = 350;
+            int left = 140;
+            int width = 105;
+            int height = 30;
+            int count = 0;
+            int count2 = 0;
+
+            foreach (var item in LabelList)
+            {
+                if (count == 7 || count == 14 || count == 21)
+                {
+                    if (count == 14)
+                    {
+                        top = 350;
+                        left += 200;
+                    }
+                    else
+                    {
+                        top = 350;
+                        left += 240;
+                    }
+                }
+                switch (count2)
+                {
+                    case 0:
+                        item.Text = list[carnumber].category;
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 1:
+                        item.Text = list[carnumber].modelyear.ToString();
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 2:
+                        if (list[carnumber].automatic)
+                        {
+                            item.Text = "Ja";
+                        }
+                        else
+                        {
+                            item.Text = "Nee";
+                        }
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 3:
+                        item.Text = list[carnumber].kilometres.ToString();
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 4:
+                        item.Text = list[carnumber].colour;
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 5:
+                        item.Text = list[carnumber].doors.ToString();
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 6:
+                        if (list[carnumber].stereo)
+                        {
+                            item.Text = "Ja";
+                        }
+                        else
+                        {
+                            item.Text = "Nee";
+                        }
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 7:
+                        if (list[carnumber].automatic)
+                        {
+                            item.Text = "Ja";
+                        }
+                        else
+                        {
+                            item.Text = "Nee";
+                        }
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 8:
+                        item.Text = list[carnumber].horsepower.ToString();
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 9:
+                        item.Text = list[carnumber].length + " cm";
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 10:
+                        item.Text = list[carnumber].width + " cm";
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 11:
+                        item.Text = list[carnumber].height + " cm";
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 12:
+                        if (list[carnumber].automatic)
+                        {
+                            item.Text = "Ja";
+                        }
+                        else
+                        {
+                            item.Text = "Nee";
+                        }
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 13:
+                        item.Text = list[carnumber].doors.ToString();
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 14:
+                        item.Text = list[carnumber].motdate;
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 15:
+                        item.Text = list[carnumber].storagespace.ToString() + " Liter";
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 16:
+                        if (list[carnumber].automatic)
+                        {
+                            item.Text = "N.V.T.";
+                        }
+                        else
+                        {
+                            item.Text = list[carnumber].gearsamount.ToString();
+                        }
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                }
+            }
         }
     }
 }
-
-
