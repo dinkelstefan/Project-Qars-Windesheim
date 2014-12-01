@@ -98,7 +98,7 @@ namespace Qars
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                if (Form1.cars[carNumber].carID == carNumber)
+                if (VisualDemo.cars[carNumber].carID == carNumber)
                 {
                     pbox.ImageLocation = item.Photolink;
                 }
