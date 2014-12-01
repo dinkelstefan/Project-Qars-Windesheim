@@ -24,7 +24,7 @@ namespace Qars
 
             //Text and other stuff
             Label carName = new Label();
-            carName.Text = Form1.cars[carNumber].brand + " " + Form1.cars[carNumber].model;
+            carName.Text = VisualDemo.cars[carNumber].brand + " " + VisualDemo.cars[carNumber].model;
             carName.Top = 20;
             carName.Left = 375;
             carName.Width = 300;
@@ -40,13 +40,13 @@ namespace Qars
             kmPrice.Font = new Font("Calibri", 14);
 
             Label sellPrice = new Label();
-            if (Form1.cars[carNumber].sellingprice == 0)
+            if (VisualDemo.cars[carNumber].sellingprice == 0)
             {
                 sellPrice.Text = "Verkoopprijs: N.V.T";
             }
             else
             {
-                sellPrice.Text = "Verkoopprijs: € " + Form1.cars[carNumber].sellingprice;
+                sellPrice.Text = "Verkoopprijs: € " + VisualDemo.cars[carNumber].sellingprice;
             }
             sellPrice.Top = 110;
             sellPrice.Left = 375;
@@ -55,7 +55,7 @@ namespace Qars
             sellPrice.Font = new Font("Calibri", 14);
 
             Label availableAt = new Label();
-            availableAt.Text = "Verkrijgbaar bij: " + Form1.cars[carNumber].establishmentID; //TO DO: Query to get establishments
+            availableAt.Text = "Verkrijgbaar bij: " + VisualDemo.cars[carNumber].establishmentID; //TO DO: Query to get establishments
             availableAt.Top = 150;
             availableAt.Left = 375;
             availableAt.Width = 400;
@@ -72,7 +72,7 @@ namespace Qars
             hireButton.ForeColor = Color.White;
             hireButton.Font = new Font("Calibri", 11, FontStyle.Bold);
             hireButton.FlatStyle = FlatStyle.Flat;
-            if (!Form1.cars[carNumber].available)
+            if (!VisualDemo.cars[carNumber].available)
             {
                 hireButton.Enabled = false;
                 hireButton.BackColor = Color.Red;
@@ -80,7 +80,8 @@ namespace Qars
             }
 
             int left = 22;
-            foreach (var item in Form1.photos)
+
+            foreach (var item in VisualDemo.cPhotos)
             {
                 int top = 222;
                 int height = 75;
@@ -105,7 +106,7 @@ namespace Qars
             mainPicture.Left = 22;
             mainPicture.Height = 185;
             mainPicture.Width = 350;
-            mainPicture.ImageLocation = @Form1.photos[0].Photolink; //foto's met stefan
+            mainPicture.ImageLocation = VisualDemo.cPhotos[0].Photolink; //foto's met stefan
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
 
             Label specifications = new Label();
@@ -153,7 +154,7 @@ namespace Qars
 
             }
             //Create the information
-            CreateSpecInfo(this, Form1.cars, carNumber);
+            CreateSpecInfo(this, VisualDemo.cars, carNumber);
 
             Label description = new Label();
             description.Text = "Beschrijving";
@@ -164,7 +165,7 @@ namespace Qars
             description.Font = new Font("Calibri", 20);
 
             Label descriptioninfo = new Label(); /*Maximum: ~686 characters */
-            descriptioninfo.Text = Form1.cars[carNumber].description;
+            descriptioninfo.Text = VisualDemo.cars[carNumber].description;
             descriptioninfo.Top = 350;
             descriptioninfo.Left = 690;
             descriptioninfo.Width = 300;

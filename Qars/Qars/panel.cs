@@ -45,7 +45,7 @@ namespace Qars
             {
                 pictures.Add(new PictureBox());
                 pictures[i].Left = (Width / cars.Count) * i + 1;
-                pictures[i].Image = Image.FromFile(cars[i].picPath);
+                //pictures[i].Image = Image.FromFile(cars[i].picPath);
                 pictures[i].Width = (Width / cars.Count) - 2;
                 pictures[i].Top = 30;
                 pictures[i].Height = 200;
@@ -59,13 +59,13 @@ namespace Qars
                 this.Controls.Add(brand[i]);
 
                 pk.Add(new Label());
-                pk[i].Text = "Aantal pk: " + cars[i].pk;
+                pk[i].Text = "Aantal pk: " + cars[i].horsepower;
                 pk[i].Left = (Width / cars.Count) * i + 1;
                 pk[i].Top = 300;
                 this.Controls.Add(pk[i]);
 
                 price.Add(new Label());
-                price[i].Text = "Prijs is: " + cars[i].price;
+                price[i].Text = "Prijs is: " + cars[i].rentalprice;
                 price[i].Left = (Width / cars.Count) * i + 1;
                 price[i].Top = 350;
                 this.Controls.Add(price[i]);
