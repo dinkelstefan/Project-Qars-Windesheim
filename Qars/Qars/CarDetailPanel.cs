@@ -82,17 +82,26 @@ namespace Qars
             }
 
             int left = 22;
-            
 
-            // add the picture;
-            foreach (CarPhoto photo in VisualDemo.cars[carNumber].PhotoList) {
+            foreach (var item in VisualDemo.cPhotos)
+            {
+                /*
+                List<string> photoLocation = new List<string>(); //vul dit met de foto's van de carID die overeenkomt met de carnumber ofso
+                List<string> photoLocation = from photo in Form1.photos
+                                             where Form1.cars[carNumber].carID == carNumber
+                                             select item.Photolink.ToString();
+                */
+
                 int top = 222;
                 int height = 75;
                 int width = 75;
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = photo.Photolink; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
+                if (VisualDemo.cars[carNumber].carID == carNumber)
+                {
+                    pbox.ImageLocation = item.Photolink;
+                }
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;
@@ -109,12 +118,7 @@ namespace Qars
             mainPicture.Left = 22;
             mainPicture.Height = 185;
             mainPicture.Width = 350;
-
-            // check if the car has a picture and add it as a main picture
-            if(VisualDemo.cars[carNumber].PhotoList.Count > 0){
-                mainPicture.ImageLocation = VisualDemo.cars[carNumber].PhotoList[0].Photolink; //foto's met stefan
-            }
-
+            mainPicture.ImageLocation = VisualDemo.cPhotos[0].Photolink; //foto's met stefan
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
 
             Label specifications = new Label();
