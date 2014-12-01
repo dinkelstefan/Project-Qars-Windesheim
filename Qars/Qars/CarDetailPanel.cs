@@ -11,7 +11,9 @@ namespace Qars
     class CarDetailPanel : Panel
     {
         private List<PictureBox> pbox = new List<PictureBox>();
-        private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "PK:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:" };
+        private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "PK:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
+        private PictureBox mainPicture;
+
         public CarDetailPanel(int carNumber)
         {
             //Properties of the panel
@@ -82,13 +84,23 @@ namespace Qars
             int left = 22;
             foreach (var item in Form1.photos)
             {
+                /*
+                List<string> photoLocation = new List<string>(); //vul dit met de foto's van de carID die overeenkomt met de carnumber ofso
+                List<string> photoLocation = from photo in Form1.photos
+                                             where Form1.cars[carNumber].carID == carNumber
+                                             select item.Photolink.ToString();
+                */
+
                 int top = 222;
                 int height = 75;
                 int width = 75;
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = item.Photolink; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
+                if (Form1.cars[carNumber].carID == carNumber)
+                {
+                    pbox.ImageLocation = item.Photolink;
+                }
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;
@@ -97,10 +109,10 @@ namespace Qars
                 left += 88;
                 this.Controls.Add(pbox);
                 i++;
+                pbox.MouseHover += new EventHandler(PictureHover);
             }
-
             //Main picture box
-            PictureBox mainPicture = new PictureBox();
+            mainPicture = new PictureBox();
             mainPicture.Top = 22;
             mainPicture.Left = 22;
             mainPicture.Height = 185;
@@ -187,7 +199,7 @@ namespace Qars
         private void CreateSpecInfo(Panel panel, List<Car> list, int carnumber)
         {
             List<Label> LabelList = new List<Label>();
-            for (int i = 0; i <= 17; i++)
+            for (int i = 0; i <= 18; i++)
             {
                 LabelList.Add(new Label());
             }
@@ -489,8 +501,42 @@ namespace Qars
                         count++;
                         count2++;
                         break;
+                    case 17:
+                        item.Text = list[carnumber].Fuelusage.ToString() + " per k.m";
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
+                    case 18:
+                        item.Text = list[carnumber].motor;
+                        Console.WriteLine(list[carnumber].motor);
+                        item.Top = top;
+                        item.Left = left;
+                        item.Width = width;
+                        item.Height = height;
+                        item.Font = new Font("Arial", 12);
+                        panel.Controls.Add(item);
+
+                        top += 30;
+
+                        count++;
+                        count2++;
+                        break;
                 }
             }
+        }
+        public void PictureHover(object sender, EventArgs e)
+        {
+            PictureBox smallbox = (PictureBox)sender;
+            mainPicture.ImageLocation = smallbox.ImageLocation;
         }
     }
 }
