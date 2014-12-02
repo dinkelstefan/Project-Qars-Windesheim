@@ -54,6 +54,9 @@
     <Compile Include="ComparePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ComparePricePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
@@ -63,6 +66,9 @@
     </Compile>
     <Compile Include="RentCarPanel.Designer.cs">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TileListPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Util\Mail.cs" />
     <Compile Include="TileListPanel.cs">

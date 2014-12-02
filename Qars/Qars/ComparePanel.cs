@@ -24,7 +24,7 @@ namespace Qars
             
             this.Font = new Font("Calibri", 10);
             Height = 570;//570
-            Width = 960;//960
+            Width = 1040;//960
             this.BackColor = Color.FromArgb(158, 158, 158);
             cars = list;
 
@@ -121,10 +121,6 @@ namespace Qars
             graphics.DrawLine(pen, new Point(50, 0), new Point(50, Height));
             graphics.DrawLine(pen, new Point(350, 0), new Point(350, Height));
             graphics.DrawLine(pen, new Point(650, 0), new Point(650, Height));
-            for (int i = 0; i < cars.Count; i++)
-            {
-                graphics.DrawLine(pen, new Point((Width / cars.Count) * i, 0), new Point((Width / cars.Count) * i, Height));
-            }
             this.BringToFront();
         }
 
