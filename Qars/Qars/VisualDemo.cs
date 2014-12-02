@@ -101,7 +101,7 @@ namespace Qars
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ComparePricePanel p = new ComparePricePanel(compareList);
+            ComparePanel p = new ComparePanel(compareList);
             this.Controls.Add(p);
         }
 
