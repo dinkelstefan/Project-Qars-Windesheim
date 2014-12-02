@@ -22,8 +22,8 @@ namespace Qars
 
         public List<Car> compareList = new List<Car>();
 
-        static public List<CarPhoto> cPhotos;
-        static public List<Car> cars = new List<Car>();
+        static public List<CarPhoto> cPhotos = new List<CarPhoto>();
+        //static public List<Car> cars = new List<Car>();
         static public List<Car> carList = new List<Car>();
 
         public DBConnect db = new DBConnect();
@@ -34,7 +34,7 @@ namespace Qars
             DoubleBuffered = true;
 
             carList = db.FillCars();
-            cPhotos = new List<CarPhoto>(db.FillCarPhotos());
+            cPhotos = db.FillCarPhotos();
 
             int localY = 200;
             int localX = 10;
@@ -99,16 +99,18 @@ namespace Qars
             }
         }
 
-        private void VisualDemo_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ComparePricePanel p = new ComparePricePanel(compareList);
             this.Controls.Add(p);
         }
 
+        public void OpenDetails(int number)
+        {
+            CarDetailPanel cp = new CarDetailPanel(number);
+            Debug.WriteLine("stuff");
+            this.Controls.Add(cp);
+            cp.BringToFront();
+        }
     }
 }

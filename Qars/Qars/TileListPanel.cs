@@ -44,6 +44,7 @@ namespace Qars
 
            pb.ImageLocation = imageLink;
            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+           pb.DoubleClick += new EventHandler(pb_DoubleClick);
            this.Controls.Add(pb);
 
            Label name = new Label();
@@ -70,7 +71,13 @@ namespace Qars
            cb.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
 
            this.Controls.Add(cb);
+           
         }
+
+       private void pb_DoubleClick(object sender, EventArgs e)
+       {
+           vd.OpenDetails(carNumber);
+       }
 
        public bool check = false;
        protected void CheckBox_CheckedChanged(object sender, EventArgs e)
@@ -82,5 +89,7 @@ namespace Qars
            else
                vd.RemoveCompare(carNumber);
        }
+
+        
     }
 }
