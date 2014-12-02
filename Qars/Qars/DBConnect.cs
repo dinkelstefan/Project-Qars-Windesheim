@@ -7,6 +7,8 @@ using MySql.Data;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Net.Mail;
+using Qars.Models;
 namespace Qars
 {
     public class DBConnect
@@ -185,7 +187,6 @@ namespace Qars
             }
         }
 
-
         public List<CarPhoto> FillCarPhotos() //this needs improvement. How do I get all the pictures instead of just 1?
         {
             string query = " SELECT * FROM Photo ";
@@ -241,6 +242,20 @@ namespace Qars
                 return Count;
             }
         }
+
+        public void insertReservation(Reservation reservation)
+        {
+            string query = "Insert into Customer (Firstname, Lastname, Postalcode, City, Steetname, Streetnumber, Streetnumbersuffix, Phonenumber, Emailaddress)";
+            query += String.Format("Values({0}{1},{2},{3},{4},{5},{6},{7},{8})", reservation.firstname, reservation.lastname, reservation.postalcode, reservation.city, reservation.streetname, reservation.streetnumber, reservation.streetnumbersuffix, reservation.phonenumber, reservation.email.ToString());
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
 
         public void DynamicQuery()
         {
