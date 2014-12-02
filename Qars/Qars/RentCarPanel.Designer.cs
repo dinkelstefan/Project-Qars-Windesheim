@@ -57,7 +57,7 @@ namespace Qars
             this.label12 = new System.Windows.Forms.Label();
             this.SpaceLabel = new System.Windows.Forms.Label();
             this.ApkLabel = new System.Windows.Forms.Label();
-            this.PkLabel = new System.Windows.Forms.Label();
+            this.PKLabel = new System.Windows.Forms.Label();
             this.KilometerLabel = new System.Windows.Forms.Label();
             this.AutoLabel = new System.Windows.Forms.Label();
             this.YearOfBuildLabel = new System.Windows.Forms.Label();
@@ -71,10 +71,8 @@ namespace Qars
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.PriceLiterLabel = new System.Windows.Forms.Label();
+            this.SellingspriceLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.MotorLabel = new System.Windows.Forms.Label();
             this.modelLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -315,7 +313,7 @@ namespace Qars
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.SpaceLabel);
             this.groupBox1.Controls.Add(this.ApkLabel);
-            this.groupBox1.Controls.Add(this.PkLabel);
+            this.groupBox1.Controls.Add(this.PKLabel);
             this.groupBox1.Controls.Add(this.KilometerLabel);
             this.groupBox1.Controls.Add(this.AutoLabel);
             this.groupBox1.Controls.Add(this.YearOfBuildLabel);
@@ -329,10 +327,8 @@ namespace Qars
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.PriceLiterLabel);
+            this.groupBox1.Controls.Add(this.SellingspriceLabel);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.MotorLabel);
             this.groupBox1.Controls.Add(this.modelLabel);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox1.Location = new System.Drawing.Point(580, 49);
@@ -348,34 +344,53 @@ namespace Qars
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label12.Location = new System.Drawing.Point(430, 331);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 29);
+=======
+            this.label12.Location = new System.Drawing.Point(318, 222);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(104, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label12.TabIndex = 1009;
-            this.label12.Text = "label12";
+            this.label12.Text = "N.V.T (12)";
             // 
             // SpaceLabel
             // 
             this.SpaceLabel.AutoSize = true;
             this.SpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.SpaceLabel.Location = new System.Drawing.Point(19, 331);
             this.SpaceLabel.Name = "SpaceLabel";
             this.SpaceLabel.Size = new System.Drawing.Size(89, 29);
+=======
+            this.SpaceLabel.Location = new System.Drawing.Point(17, 222);
+            this.SpaceLabel.Name = "SpaceLabel";
+            this.SpaceLabel.Size = new System.Drawing.Size(158, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.SpaceLabel.TabIndex = 1008;
-            this.SpaceLabel.Text = "Ruimte";
+            this.SpaceLabel.Text = "Ruimte (in Liters)";
             // 
             // ApkLabel
             // 
             this.ApkLabel.AutoSize = true;
             this.ApkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.ApkLabel.Location = new System.Drawing.Point(19, 300);
             this.ApkLabel.Name = "ApkLabel";
             this.ApkLabel.Size = new System.Drawing.Size(54, 29);
+=======
+            this.ApkLabel.Location = new System.Drawing.Point(17, 197);
+            this.ApkLabel.Name = "ApkLabel";
+            this.ApkLabel.Size = new System.Drawing.Size(115, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.ApkLabel.TabIndex = 1007;
-            this.ApkLabel.Text = "Apk";
+            this.ApkLabel.Text = "APK Datum";
             // 
-            // PkLabel
+            // PKLabel
             // 
+<<<<<<< HEAD
             this.PkLabel.AutoSize = true;
             this.PkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PkLabel.Location = new System.Drawing.Point(19, 268);
@@ -383,12 +398,25 @@ namespace Qars
             this.PkLabel.Size = new System.Drawing.Size(41, 29);
             this.PkLabel.TabIndex = 1006;
             this.PkLabel.Text = "Pk";
+=======
+            this.PKLabel.AutoSize = true;
+            this.PKLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PKLabel.Location = new System.Drawing.Point(17, 172);
+            this.PKLabel.Name = "PKLabel";
+            this.PKLabel.Size = new System.Drawing.Size(39, 25);
+            this.PKLabel.TabIndex = 1006;
+            this.PKLabel.Text = "PK";
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             // 
             // KilometerLabel
             // 
             this.KilometerLabel.AutoSize = true;
             this.KilometerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.KilometerLabel.Location = new System.Drawing.Point(19, 236);
+=======
+            this.KilometerLabel.Location = new System.Drawing.Point(17, 146);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.KilometerLabel.Name = "KilometerLabel";
             this.KilometerLabel.Size = new System.Drawing.Size(117, 29);
             this.KilometerLabel.TabIndex = 1005;
@@ -398,7 +426,11 @@ namespace Qars
             // 
             this.AutoLabel.AutoSize = true;
             this.AutoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.AutoLabel.Location = new System.Drawing.Point(19, 204);
+=======
+            this.AutoLabel.Location = new System.Drawing.Point(17, 121);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.AutoLabel.Name = "AutoLabel";
             this.AutoLabel.Size = new System.Drawing.Size(113, 29);
             this.AutoLabel.TabIndex = 1004;
@@ -408,7 +440,11 @@ namespace Qars
             // 
             this.YearOfBuildLabel.AutoSize = true;
             this.YearOfBuildLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.YearOfBuildLabel.Location = new System.Drawing.Point(19, 173);
+=======
+            this.YearOfBuildLabel.Location = new System.Drawing.Point(17, 96);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.YearOfBuildLabel.Name = "YearOfBuildLabel";
             this.YearOfBuildLabel.Size = new System.Drawing.Size(114, 29);
             this.YearOfBuildLabel.TabIndex = 1003;
@@ -418,7 +454,11 @@ namespace Qars
             // 
             this.CategoryLabel.AutoSize = true;
             this.CategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.CategoryLabel.Location = new System.Drawing.Point(19, 142);
+=======
+            this.CategoryLabel.Location = new System.Drawing.Point(17, 71);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.CategoryLabel.Name = "CategoryLabel";
             this.CategoryLabel.Size = new System.Drawing.Size(119, 29);
             this.CategoryLabel.TabIndex = 1002;
@@ -427,7 +467,11 @@ namespace Qars
             // label11
             // 
             this.label11.AutoSize = true;
+<<<<<<< HEAD
             this.label11.Location = new System.Drawing.Point(57, 307);
+=======
+            this.label11.Location = new System.Drawing.Point(51, 203);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(0, 29);
             this.label11.TabIndex = 1001;
@@ -436,71 +480,113 @@ namespace Qars
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label10.Location = new System.Drawing.Point(430, 300);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 29);
+=======
+            this.label10.Location = new System.Drawing.Point(318, 197);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label10.TabIndex = 1000;
-            this.label10.Text = "label10";
+            this.label10.Text = "N.V.T (10)";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label9.Location = new System.Drawing.Point(430, 268);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 29);
+=======
+            this.label9.Location = new System.Drawing.Point(318, 172);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label9.TabIndex = 12;
-            this.label9.Text = "label9";
+            this.label9.Text = "N.V.T (9)";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label8.Location = new System.Drawing.Point(430, 236);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 29);
+=======
+            this.label8.Location = new System.Drawing.Point(318, 146);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label8.TabIndex = 11;
-            this.label8.Text = "label8";
+            this.label8.Text = "N.V.T (8)";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label7.Location = new System.Drawing.Point(430, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 29);
+=======
+            this.label7.Location = new System.Drawing.Point(318, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label7.TabIndex = 10;
-            this.label7.Text = "label7";
+            this.label7.Text = "N.V.T (7)";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label6.Location = new System.Drawing.Point(430, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 29);
+=======
+            this.label6.Location = new System.Drawing.Point(318, 96);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label6.TabIndex = 9;
-            this.label6.Text = "label6";
+            this.label6.Text = "N.V.T (6)";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(430, 142);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 29);
+=======
+            this.label5.Location = new System.Drawing.Point(318, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label5.TabIndex = 8;
-            this.label5.Text = "label5";
+            this.label5.Text = "N.V.T (5)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(430, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 29);
+=======
+            this.label4.Location = new System.Drawing.Point(318, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 25);
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             this.label4.TabIndex = 7;
-            this.label4.Text = "label4";
+            this.label4.Text = "N.V.T (4)";
             // 
             // label1
             // 
@@ -511,8 +597,9 @@ namespace Qars
             this.label1.Size = new System.Drawing.Size(0, 29);
             this.label1.TabIndex = 6;
             // 
-            // label3
+            // SellingspriceLabel
             // 
+<<<<<<< HEAD
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(430, 80);
@@ -530,11 +617,21 @@ namespace Qars
             this.PriceLiterLabel.Size = new System.Drawing.Size(114, 29);
             this.PriceLiterLabel.TabIndex = 4;
             this.PriceLiterLabel.Text = "Prijs Liter";
+=======
+            this.SellingspriceLabel.AutoSize = true;
+            this.SellingspriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellingspriceLabel.Location = new System.Drawing.Point(18, 46);
+            this.SellingspriceLabel.Name = "SellingspriceLabel";
+            this.SellingspriceLabel.Size = new System.Drawing.Size(121, 25);
+            this.SellingspriceLabel.TabIndex = 4;
+            this.SellingspriceLabel.Text = "Verkoopprijs";
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(430, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 29);
@@ -550,6 +647,13 @@ namespace Qars
             this.MotorLabel.Size = new System.Drawing.Size(75, 29);
             this.MotorLabel.TabIndex = 2;
             this.MotorLabel.Text = "Motor";
+=======
+            this.label2.Location = new System.Drawing.Point(318, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "N.V.T (2)";
+>>>>>>> 44e2662618b359dd571885ae735bbc48d0ff7155
             // 
             // modelLabel
             // 
@@ -665,10 +769,8 @@ namespace Qars
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox commentTextbox;
         private System.Windows.Forms.Label modelLabel;
-        private System.Windows.Forms.Label PriceLiterLabel;
+        private System.Windows.Forms.Label SellingspriceLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label MotorLabel;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -684,7 +786,7 @@ namespace Qars
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label SpaceLabel;
         private System.Windows.Forms.Label ApkLabel;
-        private System.Windows.Forms.Label PkLabel;
+        private System.Windows.Forms.Label PKLabel;
         private System.Windows.Forms.Label label12;
 
 
