@@ -24,10 +24,9 @@ namespace Qars
             this.Left = 221;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
-
             //Text and other stuff
             Label carName = new Label();
-            carName.Text = VisualDemo.cars[carNumber].brand + " " + VisualDemo.cars[carNumber].model;
+            carName.Text = VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model;
             carName.Top = 20;
             carName.Left = 375;
             carName.Width = 300;
@@ -43,13 +42,13 @@ namespace Qars
             kmPrice.Font = new Font("Calibri", 14);
 
             Label sellPrice = new Label();
-            if (VisualDemo.cars[carNumber].sellingprice == 0)
+            if (VisualDemo.carList[carNumber].sellingprice == 0)
             {
                 sellPrice.Text = "Verkoopprijs: N.V.T";
             }
             else
             {
-                sellPrice.Text = "Verkoopprijs: € " + VisualDemo.cars[carNumber].sellingprice;
+                sellPrice.Text = "Verkoopprijs: € " + VisualDemo.carList[carNumber].sellingprice;
             }
             sellPrice.Top = 110;
             sellPrice.Left = 375;
@@ -58,7 +57,7 @@ namespace Qars
             sellPrice.Font = new Font("Calibri", 14);
 
             Label availableAt = new Label();
-            availableAt.Text = "Verkrijgbaar bij: " + VisualDemo.cars[carNumber].establishmentID; //TO DO: Query to get establishments
+            availableAt.Text = "Verkrijgbaar bij: " + VisualDemo.carList[carNumber].establishmentID; //TO DO: Query to get establishments
             availableAt.Top = 150;
             availableAt.Left = 375;
             availableAt.Width = 400;
@@ -75,7 +74,7 @@ namespace Qars
             hireButton.ForeColor = Color.White;
             hireButton.Font = new Font("Calibri", 11, FontStyle.Bold);
             hireButton.FlatStyle = FlatStyle.Flat;
-            if (!VisualDemo.cars[carNumber].available)
+            if (!VisualDemo.carList[carNumber].available)
             {
                 hireButton.Enabled = false;
                 hireButton.BackColor = Color.Red;
@@ -84,15 +83,7 @@ namespace Qars
 
             int left = 22;
 
-            foreach (var item in VisualDemo.cPhotos)
-            {
-                picturelink.Add((from photo in VisualDemo.cPhotos
-                                 where VisualDemo.cars[carNumber].carID == item.CarID
-                                 select item.Photolink).ToString());
-            }
-
-            // add the picture;
-            foreach (var item in picturelink)
+            foreach (CarPhoto photo in VisualDemo.carList[carNumber].PhotoList)
             {
                 int top = 222;
                 int height = 75;
@@ -119,9 +110,9 @@ namespace Qars
             mainPicture.Width = 350;
 
             // check if the car has a picture and add it as a main picture
-            if (VisualDemo.cars[carNumber].PhotoList.Count > 0)
+            if (VisualDemo.carList[carNumber].PhotoList.Count > 0)
             {
-                mainPicture.ImageLocation = VisualDemo.cars[carNumber].PhotoList[0].Photolink; //foto's met stefan
+                mainPicture.ImageLocation = VisualDemo.carList[carNumber].PhotoList[0].Photolink; //foto's met stefan
             }
 
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -171,7 +162,7 @@ namespace Qars
 
             }
             //Create the information
-            CreateSpecInfo(this, VisualDemo.cars, carNumber);
+            CreateSpecInfo(this, VisualDemo.carList, carNumber);
 
             Label description = new Label();
             description.Text = "Beschrijving";
@@ -182,7 +173,7 @@ namespace Qars
             description.Font = new Font("Calibri", 20);
 
             Label descriptioninfo = new Label(); /*Maximum: ~686 characters */
-            descriptioninfo.Text = VisualDemo.cars[carNumber].description;
+            descriptioninfo.Text = VisualDemo.carList[carNumber].description;
             descriptioninfo.Top = 350;
             descriptioninfo.Left = 690;
             descriptioninfo.Width = 300;
