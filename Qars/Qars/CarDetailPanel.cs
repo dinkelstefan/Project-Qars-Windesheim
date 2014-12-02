@@ -92,14 +92,15 @@ namespace Qars
             }
 
             // add the picture;
-            foreach (CarPhoto photo in VisualDemo.cars[carNumber].PhotoList) {
+            foreach (var item in picturelink)
+            {
                 int top = 222;
                 int height = 75;
                 int width = 75;
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = photo.Photolink; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
+                pbox.ImageLocation = item; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;
@@ -118,7 +119,8 @@ namespace Qars
             mainPicture.Width = 350;
 
             // check if the car has a picture and add it as a main picture
-            if (VisualDemo.cars[carNumber].PhotoList.Count > 0) {
+            if (VisualDemo.cars[carNumber].PhotoList.Count > 0)
+            {
                 mainPicture.ImageLocation = VisualDemo.cars[carNumber].PhotoList[0].Photolink; //foto's met stefan
             }
 
