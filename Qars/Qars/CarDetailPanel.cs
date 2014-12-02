@@ -91,7 +91,7 @@ namespace Qars
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = item; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
+                pbox.ImageLocation = photo.Photolink; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;
