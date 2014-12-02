@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Qars.Models
 {
-    class Reservation
+    public class Reservation
     {
         public string firstname;
         public string lastname;

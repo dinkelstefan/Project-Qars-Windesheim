@@ -160,7 +160,7 @@ namespace Qars
         public void fillCarInfoPanel()
         {
 
-            //Form1.cars[carnumber].(info);
+            //VisualDemo.carList[carnumber].(info);
             modelLabel.Text = "Model:";
             
             SellingspriceLabel.Text = "Verkoopprijs:";
@@ -170,13 +170,13 @@ namespace Qars
             PKLabel.Text = "Pk:";
             SpaceLabel.Text = "Ruimte:";
 
-            label2.Text = Form1.cars[carnumber].brand + " " + Form1.cars[carnumber].model;
-            label4.Text = Form1.cars[carnumber].sellingprice.ToString();
-            label5.Text = Form1.cars[carnumber].category;
-            label6.Text = Form1.cars[carnumber].modelyear;
-            label8.Text = Form1.cars[carnumber].kilometres.ToString();
-            label9.Text = Form1.cars[carnumber].horsepower.ToString();  //deze 
-            label7.Text = Form1.cars[carnumber].automatic.ToString();
+            label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
+            label4.Text = VisualDemo.carList[carnumber].sellingprice.ToString();
+            label5.Text = VisualDemo.carList[carnumber].category;
+            label6.Text = VisualDemo.carList[carnumber].modelyear;
+            label8.Text = VisualDemo.carList[carnumber].kilometres.ToString();
+            label9.Text = VisualDemo.carList[carnumber].horsepower.ToString();  //deze 
+            label7.Text = VisualDemo.carList[carnumber].automatic.ToString();
             if (label7.Text == "False")
             {
                 label7.Text = "Nee";
@@ -185,8 +185,8 @@ namespace Qars
             {
                 label7.Text = "Ja";
             }
-            label10.Text = Form1.cars[carnumber].motdate;
-            label12.Text = Form1.cars[carnumber].storagespace.ToString() + "Liter";
+            label10.Text = VisualDemo.carList[carnumber].motdate;
+            label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + "Liter";
 
 
         }
