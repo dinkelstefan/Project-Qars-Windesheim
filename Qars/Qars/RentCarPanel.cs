@@ -108,7 +108,7 @@ namespace Qars
             {
                 mail.addSubject("Aanvraag van Audi A4");
                 mail.addBody(buildEmailBody());
-                connection.insertReservation(reservation);
+                //connection.insertReservation(reservation);
                 mail.sendEmail();
 
                 MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
@@ -162,32 +162,33 @@ namespace Qars
 
             //Form1.cars[carnumber].(info);
             modelLabel.Text = "Model:";
-            MotorLabel.Text = "Merk:";
-            PriceLiterLabel.Text = "Prijs Liter:";
+            
+            SellingspriceLabel.Text = "Verkoopprijs:";
             CategoryLabel.Text = "Categorie:";
             YearOfBuildLabel.Text = "Bouwjaar:";
             KilometerLabel.Text = "Kilometer:";
-            PkLabel.Text = "Pk:";
+            PKLabel.Text = "Pk:";
             SpaceLabel.Text = "Ruimte:";
 
-            label2.Text = Form1.cars[carnumber].model + Form1.cars[carnumber].brand;
-            //label3.Text = Form1.cars[carnumber].;
+            label2.Text = Form1.cars[carnumber].brand + " " + Form1.cars[carnumber].model;
             label4.Text = Form1.cars[carnumber].sellingprice.ToString();
             label5.Text = Form1.cars[carnumber].category;
             label6.Text = Form1.cars[carnumber].modelyear;
-            label7.Text = Form1.cars[carnumber].kilometres.ToString();
-            label8.Text = Form1.cars[carnumber].horsepower.ToString();
-            label9.Text = Form1.cars[carnumber].storagespace.ToString();
-            /*label10.Text = Form1.cars[carnumber].;
-            label12.Text = Form1.cars[carnumber].(info);
-            */
+            label8.Text = Form1.cars[carnumber].kilometres.ToString();
+            label9.Text = Form1.cars[carnumber].horsepower.ToString();  //deze 
+            label7.Text = Form1.cars[carnumber].automatic.ToString();
+            if (label7.Text == "False")
+            {
+                label7.Text = "Nee";
+            }
+            else
+            {
+                label7.Text = "Ja";
+            }
+            label10.Text = Form1.cars[carnumber].motdate;
+            label12.Text = Form1.cars[carnumber].storagespace.ToString() + "Liter";
+
 
         }
-
-        private void modelCarLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
