@@ -52,11 +52,8 @@
     </Compile>
     <Compile Include="CarPhoto.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ComparePricePanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
@@ -68,11 +65,17 @@
       <DependentUpon>RentCarPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Mail.cs" />
+    <Compile Include="TileListPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VisualDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualDemo.Designer.cs">
+      <DependentUpon>VisualDemo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CarDetailPanel.resx">
       <DependentUpon>CarDetailPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -85,6 +88,11 @@
     </Compile>
     <EmbeddedResource Include="RentCarPanel.resx">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
+    <EmbeddedResource Include="TileListPanel.resx">
+      <DependentUpon>TileListPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualDemo.resx">
+      <DependentUpon>VisualDemo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -26,15 +26,6 @@ namespace Qars
 
             CarDetailPanel carDetailPanel = new CarDetailPanel(0); //tile number
             this.Controls.Add(carDetailPanel);
-
-            foreach (var item in photos)
-            {
-                Console.WriteLine("Beschrijving:");
-                Console.WriteLine(item.Description);
-                Console.WriteLine("Photo Link:");
-                Console.WriteLine(item.Photolink);
-
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
