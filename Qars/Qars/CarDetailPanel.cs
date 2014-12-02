@@ -64,6 +64,17 @@ namespace Qars
             availableAt.Height = 27;
             availableAt.Font = new Font("Calibri", 14);
 
+            Button backButton = new Button();
+            backButton.Text = "Sluiten";
+            backButton.BackColor = Color.Red;
+            backButton.Top = -5;
+            backButton.Left = 950;
+            backButton.Width = 100;
+            backButton.Height = 40;
+            backButton.ForeColor = Color.White;
+            backButton.Font = new Font("Calibri", 11, FontStyle.Bold);
+            backButton.FlatStyle = FlatStyle.Flat;
+            backButton.Click += new EventHandler(BackButtonClick);
             Button hireButton = new Button();
             hireButton.Text = "Huren";
             hireButton.BackColor = Color.Green;
@@ -190,6 +201,7 @@ namespace Qars
             this.Controls.Add(specifications);
             this.Controls.Add(description);
             this.Controls.Add(descriptioninfo);
+            this.Controls.Add(backButton);
         }
 
 
@@ -534,6 +546,10 @@ namespace Qars
         {
             PictureBox smallbox = (PictureBox)sender;
             mainPicture.ImageLocation = smallbox.ImageLocation;
+        }
+        public void BackButtonClick(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

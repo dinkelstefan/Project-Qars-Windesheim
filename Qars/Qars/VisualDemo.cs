@@ -45,9 +45,12 @@ namespace Qars
             for (int i = 0; i < carList.Count; i++)
             {
                 TileListPanel tp;
-                if (carList[i].PhotoList.Count > 0) {
+                if (carList[i].PhotoList.Count > 0)
+                {
                     tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
-                } else {
+                }
+                else
+                {
                     tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, "asd", localY, localX, i, this);
                 }
                 TileView.Controls.Add(tp);
