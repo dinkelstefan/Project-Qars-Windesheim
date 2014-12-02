@@ -52,7 +52,7 @@
     </Compile>
     <Compile Include="CarPhoto.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="panel.cs">
+    <Compile Include="ComparePricePanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />

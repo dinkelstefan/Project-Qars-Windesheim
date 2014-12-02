@@ -18,14 +18,15 @@ namespace Qars
     {
         public int imageWidth = 160;
         public int imageHeigth = 160;
+        public int carNumber = 0; //This has to be the tile number!
 
         public List<Car> compareList = new List<Car>();
-        static public List<Car> carList = new List<Car>();
-        public int carNumber = 0;
-        public DBConnect db = new DBConnect();
 
-        static public List<Car> cars = new List<Car>();
         static public List<CarPhoto> cPhotos;
+        static public List<Car> cars = new List<Car>();
+        static public List<Car> carList = new List<Car>();
+
+        public DBConnect db = new DBConnect();
 
         public VisualDemo()
         {
@@ -33,16 +34,7 @@ namespace Qars
             DoubleBuffered = true;
 
             carList = db.FillCars();
-            try
-            {
-                cPhotos = new List<CarPhoto>(db.FillCarPhotos());
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error! Er ging iets fout in de database! Neem contact op met een administrator!\nFoutbericht:" + e.Message);
-                Application.Exit();
-
-            }
+            cPhotos = new List<CarPhoto>(db.FillCarPhotos());
 
             int localY = 200;
             int localX = 10;
@@ -110,7 +102,7 @@ namespace Qars
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel p = new panel(compareList);
+            ComparePricePanel p = new ComparePricePanel(compareList);
             this.Controls.Add(p);
         }
 

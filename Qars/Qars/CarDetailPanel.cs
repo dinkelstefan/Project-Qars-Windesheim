@@ -13,6 +13,7 @@ namespace Qars
         private List<PictureBox> pbox = new List<PictureBox>();
         private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "PK:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
         private PictureBox mainPicture;
+        private List<string> picturelink = new List<string>();
 
         public CarDetailPanel(int carNumber)
         {
@@ -85,23 +86,20 @@ namespace Qars
 
             foreach (var item in VisualDemo.cPhotos)
             {
-                /*
-                List<string> photoLocation = new List<string>(); //vul dit met de foto's van de carID die overeenkomt met de carnumber ofso
-                List<string> photoLocation = from photo in Form1.photos
-                                             where Form1.cars[carNumber].carID == carNumber
-                                             select item.Photolink.ToString();
-                */
+                picturelink.Add((from photo in VisualDemo.cPhotos
+                                 where VisualDemo.cars[carNumber].carID == item.CarID
+                                 select item.Photolink).ToString());
+            }
 
+            foreach (var item in picturelink)
+            {
                 int top = 222;
                 int height = 75;
                 int width = 75;
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                if (VisualDemo.cars[carNumber].carID == carNumber)
-                {
-                    pbox.ImageLocation = item.Photolink;
-                }
+                pbox.ImageLocation = item;
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;

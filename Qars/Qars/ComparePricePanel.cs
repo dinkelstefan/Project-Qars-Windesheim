@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    public class panel : Panel
+    public class ComparePricePanel : Panel
     {
         public List<Car> cars { get; set; }
         public List<Label> brand { get; set; }
@@ -17,7 +17,7 @@ namespace Qars
         public List<PictureBox> pictures { get; set; }
         public Graphics graphics;
 
-        public panel(List<Car> list)
+        public ComparePricePanel(List<Car> list)
         {
             Height = 570;
             Width = 960;
@@ -79,7 +79,7 @@ namespace Qars
             graphics = e.Graphics;
             Pen pen = new Pen(Color.Black);
             //styling lines can be put here.
-            graphics.DrawLine(pen, new Point(0,28), new Point(Width,28));
+            graphics.DrawLine(pen, new Point(0, 28), new Point(Width, 28));
             graphics.DrawLine(pen, new Point(0, 230), new Point(Width, 230));
             for (int i = 0; i < cars.Count; i++)
             {
