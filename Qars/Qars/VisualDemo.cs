@@ -22,8 +22,7 @@ namespace Qars
 
         public List<Car> compareList = new List<Car>();
 
-        static public List<CarPhoto> cPhotos = new List<CarPhoto>();
-        //static public List<Car> cars = new List<Car>();
+        static public List<CarPhoto> cPhotos;
         static public List<Car> carList = new List<Car>();
 
         public DBConnect db = new DBConnect();
@@ -101,7 +100,7 @@ namespace Qars
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ComparePricePanel p = new ComparePricePanel(compareList);
+            ComparePanel p = new ComparePanel(compareList);
             this.Controls.Add(p);
         }
 

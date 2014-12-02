@@ -13,11 +13,16 @@ namespace Qars
 {
     public partial class RentCarPanel : UserControl
     {
+        public int carnumber { get; set; }
         private String currentSelectedDateBox;
-        public RentCarPanel()
+        public RentCarPanel(int carnumber)
         {
             InitializeComponent();
+            this.carnumber = carnumber;
+            fillCarInfoPanel();
+
         }
+
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -103,7 +108,7 @@ namespace Qars
             {
                 mail.addSubject("Aanvraag van Audi A4");
                 mail.addBody(buildEmailBody());
-                connection.insertReservation(reservation);
+                //connection.insertReservation(reservation);
                 mail.sendEmail();
 
                 MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
@@ -152,5 +157,38 @@ namespace Qars
             this.Visible = !this.Visible;
         }
 
+        public void fillCarInfoPanel()
+        {
+
+            //VisualDemo.carList[carnumber].(info);
+            modelLabel.Text = "Model:";
+            
+            SellingspriceLabel.Text = "Verkoopprijs:";
+            CategoryLabel.Text = "Categorie:";
+            YearOfBuildLabel.Text = "Bouwjaar:";
+            KilometerLabel.Text = "Kilometer:";
+            PKLabel.Text = "Pk:";
+            SpaceLabel.Text = "Ruimte:";
+
+            label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
+            label4.Text = VisualDemo.carList[carnumber].sellingprice.ToString();
+            label5.Text = VisualDemo.carList[carnumber].category;
+            label6.Text = VisualDemo.carList[carnumber].modelyear;
+            label8.Text = VisualDemo.carList[carnumber].kilometres.ToString();
+            label9.Text = VisualDemo.carList[carnumber].horsepower.ToString();  //deze 
+            label7.Text = VisualDemo.carList[carnumber].automatic.ToString();
+            if (label7.Text == "False")
+            {
+                label7.Text = "Nee";
+            }
+            else
+            {
+                label7.Text = "Ja";
+            }
+            label10.Text = VisualDemo.carList[carnumber].motdate;
+            label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + "Liter";
+
+
+        }
     }
 }
