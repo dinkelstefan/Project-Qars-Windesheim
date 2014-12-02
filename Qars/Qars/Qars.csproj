@@ -51,9 +51,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CarPhoto.cs" />
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="ComparePricePanel.cs">
+    <Compile Include="ComparePanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DBConnect.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
@@ -65,15 +71,6 @@
       <DependentUpon>RentCarPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Mail.cs" />
-    <Compile Include="TileListPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="VisualDemo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VisualDemo.Designer.cs">
-      <DependentUpon>VisualDemo.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CarDetailPanel.resx">
       <DependentUpon>CarDetailPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,11 +85,6 @@
     </Compile>
     <EmbeddedResource Include="RentCarPanel.resx">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
-    <EmbeddedResource Include="TileListPanel.resx">
-      <DependentUpon>TileListPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VisualDemo.resx">
-      <DependentUpon>VisualDemo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
