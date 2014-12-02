@@ -71,9 +71,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Util\Mail.cs" />
-    <Compile Include="TileListPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="VisualDemo.cs">
       <SubType>Form</SubType>
     </Compile>
