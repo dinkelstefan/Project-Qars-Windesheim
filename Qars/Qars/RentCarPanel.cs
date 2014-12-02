@@ -170,8 +170,8 @@ namespace Qars
             PkLabel.Text = "Pk:";
             SpaceLabel.Text = "Ruimte:";
 
-            label2.Text = Form1.cars[carnumber].model + Form1.cars[carnumber].brand;
-            //label3.Text = Form1.cars[carnumber].;
+            label2.Text = Form1.cars[carnumber].brand;
+            label3.Text = Form1.cars[carnumber].model;
             label4.Text = Form1.cars[carnumber].sellingprice.ToString();
             label5.Text = Form1.cars[carnumber].category;
             label6.Text = Form1.cars[carnumber].modelyear;
@@ -183,11 +183,5 @@ namespace Qars
             */
 
         }
-
-        private void modelCarLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
