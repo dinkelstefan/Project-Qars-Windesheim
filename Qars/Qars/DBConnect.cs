@@ -284,12 +284,32 @@ namespace Qars
 
         public void insertReservation(Reservation reservation)
         {
-            string query = "Insert into Customer (Firstname, Lastname, Postalcode, City, Steetname, Streetnumber, Streetnumbersuffix, Phonenumber, Emailaddress)";
-            query += String.Format("Values({0}{1},{2},{3},{4},{5},{6},{7},{8})", reservation.firstname, reservation.lastname, reservation.postalcode, reservation.city, reservation.streetname, reservation.streetnumber, reservation.streetnumbersuffix, reservation.phonenumber, reservation.email.ToString());
-
+            int ReservationID = 0;
+            string query = "SELECT max(ReservationID) FROM Reservation";
             if (this.OpenConnection())
             {
+                Console.WriteLine("hallo test");
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                Console.WriteLine("hallo test 2 Query geslaagd");
+
+
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    ReservationID = dataReader.GetInt32(0);
+                    Console.WriteLine("hallo");
+                }
+                this.CloseConnection();
+            }
+
+            Console.WriteLine(ReservationID);
+            ReservationID++;
+            string query2 = "INSERT INTO Reservation (ReservationID, CarID, CustomerID, Startdate, Enddate, Confirmed, Kilometres, Pickupcity, Pickupstreetname, Pickupstreetnumber, Pickupstreetnumbersuffix, Paid, Comment)";
+            query2 += String.Format("VALUES({0},1,1,'{1}','{2}', 0, 5000,'Zwolle', 'Lubeckestraat', 1, null, 0, '{3}')", ReservationID, reservation.startdate, reservation.enddate, reservation.comment);
+            Console.WriteLine(query2);
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query2, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
