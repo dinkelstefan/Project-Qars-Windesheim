@@ -78,6 +78,9 @@ namespace Qars
             this.button2 = new System.Windows.Forms.Button();
             this.commentTextbox = new System.Windows.Forms.RichTextBox();
             this.commentLabel = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +128,7 @@ namespace Qars
             // 
             this.postalcodeLabel.AutoSize = true;
             this.postalcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.postalcodeLabel.Location = new System.Drawing.Point(34, 316);
+            this.postalcodeLabel.Location = new System.Drawing.Point(34, 319);
             this.postalcodeLabel.Name = "postalcodeLabel";
             this.postalcodeLabel.Size = new System.Drawing.Size(105, 24);
             this.postalcodeLabel.TabIndex = 11;
@@ -135,7 +138,7 @@ namespace Qars
             // 
             this.streetnumberLabel.AutoSize = true;
             this.streetnumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.streetnumberLabel.Location = new System.Drawing.Point(34, 225);
+            this.streetnumberLabel.Location = new System.Drawing.Point(36, 214);
             this.streetnumberLabel.Name = "streetnumberLabel";
             this.streetnumberLabel.Size = new System.Drawing.Size(119, 24);
             this.streetnumberLabel.TabIndex = 12;
@@ -145,7 +148,7 @@ namespace Qars
             // 
             this.streetnameLabel.AutoSize = true;
             this.streetnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.streetnameLabel.Location = new System.Drawing.Point(34, 196);
+            this.streetnameLabel.Location = new System.Drawing.Point(36, 185);
             this.streetnameLabel.Name = "streetnameLabel";
             this.streetnameLabel.Size = new System.Drawing.Size(103, 24);
             this.streetnameLabel.TabIndex = 13;
@@ -199,7 +202,7 @@ namespace Qars
             // 
             // streetnameTextbox
             // 
-            this.streetnameTextbox.Location = new System.Drawing.Point(171, 195);
+            this.streetnameTextbox.Location = new System.Drawing.Point(170, 183);
             this.streetnameTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.streetnameTextbox.Name = "streetnameTextbox";
             this.streetnameTextbox.Size = new System.Drawing.Size(216, 22);
@@ -207,7 +210,7 @@ namespace Qars
             // 
             // streetnumberTextbox
             // 
-            this.streetnumberTextbox.Location = new System.Drawing.Point(171, 236);
+            this.streetnumberTextbox.Location = new System.Drawing.Point(171, 225);
             this.streetnumberTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.streetnumberTextbox.Name = "streetnumberTextbox";
             this.streetnumberTextbox.Size = new System.Drawing.Size(101, 22);
@@ -215,7 +218,7 @@ namespace Qars
             // 
             // streetnumbersuffixTextbox
             // 
-            this.streetnumbersuffixTextbox.Location = new System.Drawing.Point(276, 236);
+            this.streetnumbersuffixTextbox.Location = new System.Drawing.Point(274, 225);
             this.streetnumbersuffixTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.streetnumbersuffixTextbox.Name = "streetnumbersuffixTextbox";
             this.streetnumbersuffixTextbox.Size = new System.Drawing.Size(110, 22);
@@ -275,19 +278,18 @@ namespace Qars
             // 
             this.monthCalendar.Location = new System.Drawing.Point(277, 302);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.monthCalendar.MinDate = new System.DateTime(2014, 11, 30, 0, 0, 0, 0);
+            this.monthCalendar.MinDate = new System.DateTime(2014, 12, 3, 0, 0, 0, 0);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 999;
             this.monthCalendar.Visible = false;
             this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.closeCalender);
-            this.monthCalendar.MinDate = DateTime.Today;
             // 
             // streetnumbersuffixlabel
             // 
             this.streetnumbersuffixlabel.AutoSize = true;
             this.streetnumbersuffixlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.streetnumbersuffixlabel.Location = new System.Drawing.Point(34, 246);
+            this.streetnumbersuffixlabel.Location = new System.Drawing.Point(37, 238);
             this.streetnumbersuffixlabel.Name = "streetnumbersuffixlabel";
             this.streetnumbersuffixlabel.Size = new System.Drawing.Size(128, 24);
             this.streetnumbersuffixlabel.TabIndex = 29;
@@ -305,7 +307,7 @@ namespace Qars
             // 
             // cityTextbox
             // 
-            this.cityTextbox.Location = new System.Drawing.Point(171, 302);
+            this.cityTextbox.Location = new System.Drawing.Point(169, 316);
             this.cityTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextbox.Name = "cityTextbox";
             this.cityTextbox.Size = new System.Drawing.Size(143, 22);
@@ -581,10 +583,45 @@ namespace Qars
             this.commentLabel.TabIndex = 1000;
             this.commentLabel.Text = "Opmerkingen";
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(320, 271);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(53, 21);
+            this.radioButton1.TabIndex = 1001;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "nee";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(274, 271);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(40, 21);
+            this.radioButton2.TabIndex = 1002;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "ja";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(37, 268);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 24);
+            this.label3.TabIndex = 1003;
+            this.label3.Text = "afhalen van locatie?";
+            // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.commentLabel);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.commentTextbox);
@@ -675,6 +712,9 @@ namespace Qars
         private System.Windows.Forms.Label PKLabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label commentLabel;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label3;
 
 
     }
