@@ -19,6 +19,8 @@ namespace Qars
         public int imageWidth = 160;
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
+        public TileListPanel tlp;
+        public HoverPanel hp;
 
         public List<Car> compareList = new List<Car>();
 
@@ -31,7 +33,7 @@ namespace Qars
         {
             InitializeComponent();
             DoubleBuffered = true;
-
+            hp = new HoverPanel(this);
             carList = db.FillCars();
             cPhotos = db.FillCarPhotos();
 
@@ -46,13 +48,14 @@ namespace Qars
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
                 {
-                    tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
+                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].rentalprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this);
                 }
                 else
                 {
-                    tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, "asd", localY, localX, i, this);
+                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].rentalprice, "asd", localY, localX, i, false, this);
                 }
                 TileView.Controls.Add(tp);
+                tlp = tp;
                 localX += 200;
                 checkNumb++;
 
@@ -64,8 +67,10 @@ namespace Qars
                 }
 
             }
-        }
 
+            this.Controls.Add(hp);
+            hp.BringToFront();
+        }
 
         public void AddCompare(int number)
         {

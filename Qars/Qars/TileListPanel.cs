@@ -9,19 +9,19 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    class TileListPanel : Panel
+    public class TileListPanel : Panel
     {
         public string name;
+        public string model;
         public double carPrice;
         public string imageLink;
         public int carNumber;
         public VisualDemo vd;
 
-        //aasd
-
-        public TileListPanel(string n, double p, string i, int h, int w, int carNumber, VisualDemo vd)
+        public TileListPanel(string n, string m, double p, string i, int h, int w, int carNumber, bool available, VisualDemo vd)
         {
             this.name = n;
+            this.model = m;
             this.carPrice = p;
             this.imageLink = i;
             this.carNumber = carNumber;
@@ -29,12 +29,10 @@ namespace Qars
 
             Height = 220;
             Width = 175;
-            this.BackColor = Color.White;
-
-            this.Top = h;
-            this.Left = w;
-
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            Top = h;
+            Left = w;
+            BackColor = Color.White;
+            BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
 
             PictureBox pb = new PictureBox();
@@ -47,11 +45,17 @@ namespace Qars
             pb.ImageLocation = imageLink;
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
             pb.DoubleClick += new EventHandler(pb_DoubleClick);
+            pb.MouseHover += new EventHandler(pb_MouseHover);
+            pb.MouseLeave += new EventHandler(pb_MouseLeave);
+
+            if(!available)
+                pb.Paint += new PaintEventHandler(pb_Paint);
+
             this.Controls.Add(pb);
 
             Label name = new Label();
             name.Width = 200;
-            name.Text = this.name;
+            name.Text = this.name + " " + this.model;
             name.Font = new Font("Ariel", 10);
             name.Top = 160;
             name.Left = 10;
@@ -60,21 +64,51 @@ namespace Qars
 
             Label price = new Label();
             price.Width = 200;
-            price.Text = "" + carPrice;
+            price.Text = "€" + carPrice;
             price.Font = new Font("Ariel", 10);
             price.Top = 180;
             price.Left = 10;
 
             this.Controls.Add(price);
 
+            Label verglijking = new Label();
+            verglijking.Width = 48;
+            verglijking.Text = "Vergelijk";
+            verglijking.Font = new Font("Ariel", 7);
+            verglijking.ForeColor = Color.Blue;
+            verglijking.Top = 205;
+            verglijking.Left = 112;
+
+            this.Controls.Add(verglijking);
+
             CheckBox cb = new CheckBox();
             cb.Top = 200;
             cb.Left = 160;
-
-
             cb.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
             this.Controls.Add(cb);
 
+            
+        }
+
+        protected void pb_MouseHover(object sender, EventArgs e)
+        {
+            
+            vd.hp.SetInformation(MousePosition.X-320, MousePosition.Y-180, VisualDemo.carList[carNumber]);
+            vd.hp.Visible = true;
+        }
+
+        protected void pb_MouseLeave(object sender, EventArgs e)
+        {
+            vd.hp.Visible = false;
+        }
+
+        protected void pb_Paint(object sender, PaintEventArgs e)
+        {
+
+            SolidBrush blueBrush = new SolidBrush(Color.DarkOrange);
+            Rectangle rect = new Rectangle(0, 0, 150,30);
+            e.Graphics.FillRectangle(blueBrush, rect);
+            e.Graphics.DrawString("Niet Beschikbaar", new Font("Aharoni", 13, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 6f);
         }
 
         private void pb_DoubleClick(object sender, EventArgs e)
@@ -94,7 +128,5 @@ namespace Qars
                 vd.RemoveCompare(carNumber);
 
         }
-
-
     }
 }

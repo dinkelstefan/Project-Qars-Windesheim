@@ -58,6 +58,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="HoverPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
