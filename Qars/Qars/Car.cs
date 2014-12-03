@@ -29,6 +29,8 @@ namespace Qars
         public string motdate { get; set; } //convert date to string
         public double storagespace { get; set; }
         public int gearsamount { get; set; }
+
+        public float startprice { get; set; }
         public float rentalprice { get; set; }
         public float sellingprice { get; set; }
         public bool available { get; set; }
@@ -37,7 +39,7 @@ namespace Qars
         public string motor { get; set; }
         public List<CarPhoto> PhotoList { get; set; }
 
-        public Car(int carID, int establishmentID, string brand, string model, string category, string modelyear, bool automatic, int kilometres, string colour, int doors, bool stereo, bool bluetooth, double horsepower, string length, string width, string height, bool airco, int seats, string motdate, double storagespace, int gearsamount, float rentalprice, float sellingprice, bool available, string description, int Fuelusage, string motor)
+        public Car(int carID, int establishmentID, string brand, string model, string category, string modelyear, bool automatic, int kilometres, string colour, int doors, bool stereo, bool bluetooth, double horsepower, string length, string width, string height, bool airco, int seats, string motdate, double storagespace, int gearsamount, float startprice, float rentalprice, float sellingprice, bool available, string description, int Fuelusage, string motor)
         {
             this.carID = carID;
             this.establishmentID = establishmentID;
@@ -60,6 +62,7 @@ namespace Qars
             this.motdate = motdate;
             this.storagespace = storagespace;
             this.gearsamount = gearsamount;
+            this.startprice = startprice;
             this.rentalprice = rentalprice;
             this.sellingprice = sellingprice;
             this.available = available;

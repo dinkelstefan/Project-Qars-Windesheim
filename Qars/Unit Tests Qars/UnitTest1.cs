@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Qars;
+using System.Collections.Generic;
 
 namespace Unit_Tests_Qars
 {
@@ -7,10 +9,12 @@ namespace Unit_Tests_Qars
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void DataBaseCarList()
         {
-            int result = 5 + 5;
-            Assert.IsTrue(result == 10);
+            DBConnect db = new DBConnect();
+            List<Car> Autolijst = db.FillCars();
+            Assert.IsNotNull(Autolijst);
+
         }
 
         [TestMethod]
@@ -20,5 +24,6 @@ namespace Unit_Tests_Qars
             naam = "Kat";
             Assert.IsTrue(naam == "Kat");
         }
+
     }
 }

@@ -11,7 +11,7 @@ namespace Qars
     class CarDetailPanel : Panel
     {
         private List<PictureBox> pbox = new List<PictureBox>();
-        private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "PK:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
+        private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "Vermogen:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
         private PictureBox mainPicture;
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
@@ -26,6 +26,7 @@ namespace Qars
             this.Left = 221;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
+
             //Text and other stuff
             Label carName = new Label();
             carName.Text = VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model;
@@ -35,34 +36,35 @@ namespace Qars
             carName.Height = 28;
             carName.Font = new Font("Calibri", 20);
 
-            Label kmPrice = new Label();
-            kmPrice.Text = "Gemiddelde prijs per K.M: € 20,-"; //TO DO: Query to get the average price per Kilometre
-            kmPrice.Top = 70;
-            kmPrice.Left = 375;
-            kmPrice.Width = 400;
-            kmPrice.Height = 27;
-            kmPrice.Font = new Font("Calibri", 14);
+            Label startprice = new Label();
+            startprice.Text = "Beginprijs: € " + VisualDemo.carList[carNumber].startprice;
+            startprice.Top = 70;
+            startprice.Left = 375;
+            startprice.Width = 200;
+            startprice.Height = 27;
+            startprice.Font = new Font("Calibri", 14);
 
-            Label sellPrice = new Label();
-            if (VisualDemo.carList[carNumber].sellingprice == 0)
-            {
-                sellPrice.Text = "Verkoopprijs: N.V.T";
-            }
-            else
-            {
-                sellPrice.Text = "Verkoopprijs: € " + VisualDemo.carList[carNumber].sellingprice;
-            }
-            sellPrice.Top = 110;
-            sellPrice.Left = 375;
-            sellPrice.Width = 400;
-            sellPrice.Height = 27;
-            sellPrice.Font = new Font("Calibri", 14);
+            Label kmprice = new Label();
+            kmprice.Text = "Prijs per Kilometer: € " + VisualDemo.carList[carNumber].rentalprice;
+            kmprice.Top = 100;
+            kmprice.Left = 375;
+            kmprice.Width = 200;
+            kmprice.Height = 27;
+            kmprice.Font = new Font("Calibri", 14);
+
 
             Label availableAt = new Label();
-            availableAt.Text = "Verkrijgbaar bij: " + VisualDemo.carList[carNumber].establishmentID; //TO DO: Query to get establishments
-            availableAt.Top = 150;
+            foreach (var bedrijf in VisualDemo.EstablishmentList)
+            {
+                if (VisualDemo.carList[carNumber].establishmentID == bedrijf.establishmentID)
+                {
+                    availableAt.Text = "Verkrijgbaar bij: " + bedrijf.name;
+
+                }
+            }
+            availableAt.Top = 130;
             availableAt.Left = 375;
-            availableAt.Width = 400;
+            availableAt.Width = 200;
             availableAt.Height = 27;
             availableAt.Font = new Font("Calibri", 14);
 
@@ -77,6 +79,7 @@ namespace Qars
             backButton.Font = new Font("Calibri", 11, FontStyle.Bold);
             backButton.FlatStyle = FlatStyle.Flat;
             backButton.Click += new EventHandler(BackButtonClick);
+
             Button hireButton = new Button();
             hireButton.Click += new EventHandler(hireButtonClick);
             hireButton.Text = "Huren";
@@ -180,7 +183,7 @@ namespace Qars
 
             Label description = new Label();
             description.Text = "Beschrijving";
-            description.Top = 305;
+            description.Top = 20;
             description.Left = 690;
             description.Width = 165;
             description.Height = 32;
@@ -188,7 +191,7 @@ namespace Qars
 
             Label descriptioninfo = new Label(); /*Maximum: ~686 characters */
             descriptioninfo.Text = VisualDemo.carList[carNumber].description;
-            descriptioninfo.Top = 350;
+            descriptioninfo.Top = 65;
             descriptioninfo.Left = 690;
             descriptioninfo.Width = 300;
             descriptioninfo.Height = 300;
@@ -196,9 +199,9 @@ namespace Qars
 
             //all controls.
             this.Controls.Add(carName);
-            this.Controls.Add(kmPrice);
+            this.Controls.Add(startprice);
+            this.Controls.Add(kmprice);
             this.Controls.Add(mainPicture);
-            this.Controls.Add(sellPrice);
             this.Controls.Add(availableAt);
             this.Controls.Add(hireButton);
             this.Controls.Add(specifications);
@@ -206,7 +209,6 @@ namespace Qars
             this.Controls.Add(descriptioninfo);
             this.Controls.Add(backButton);
         }
-
 
         private void CreateSpecInfo(Panel panel, List<Car> list, int carnumber)
         {
@@ -549,6 +551,7 @@ namespace Qars
         {
             PictureBox smallbox = (PictureBox)sender;
             mainPicture.ImageLocation = smallbox.ImageLocation;
+            Console.WriteLine("Ik hover nu");
         }
 
         public void BackButtonClick(object sender, EventArgs e)

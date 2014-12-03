@@ -142,34 +142,46 @@ namespace Qars
                 int currentCarID = -1;
 
 
-                while (dataReader.Read()) {
+                while (dataReader.Read())
+                {
                     // check if we are reading a new car
-                    if (dataReader.GetInt32("CarID") != currentCarID) {
+                    if (dataReader.GetInt32("CarID") != currentCarID)
+                    {
                         currentCarID = dataReader.GetInt32("CarID");
 
                         // make a new car with 
                         Car newCar = new Car(dataReader.GetInt32("CarID"), dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Brand"), dataReader.GetString("Model"), dataReader.GetString("Category"), dataReader.GetString("Modelyear"), dataReader.GetBoolean("Automatic"), dataReader.GetInt32("Kilometers"),
                         dataReader.GetString("Colour"), dataReader.GetInt32("Doors"), dataReader.GetBoolean("Stereo"), dataReader.GetBoolean("Bluetooth"), dataReader.GetDouble("Horsepower"), dataReader.GetString("Length"), dataReader.GetString("Width"), dataReader.GetString("Height"), dataReader.GetBoolean("Airco"),
-                        dataReader.GetInt32("Seats"), dataReader.GetString("motdate"), dataReader.GetDouble("Storagespace"), dataReader.GetInt32("Gearsamount"), dataReader.GetFloat("Rentalprice"), dataReader.GetFloat("Sellingprice"), dataReader.GetBoolean("Available"), dataReader.GetString("Description").ToString(), dataReader.GetInt32("Fuelusage"), dataReader.GetString("motor"));
+                        dataReader.GetInt32("Seats"), dataReader.GetString("motdate"), dataReader.GetDouble("Storagespace"), dataReader.GetInt32("Gearsamount"), dataReader.GetFloat("Startprice"), dataReader.GetFloat("Rentalprice"), dataReader.GetFloat("Sellingprice"), dataReader.GetBoolean("Available"), dataReader.GetString("Description").ToString(), dataReader.GetInt32("Fuelusage"), dataReader.GetString("motor"));
 
                         // see if the car has photos, and at the first one to the list
-                        try {
+                        try
+                        {
                             newCar.PhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
                                                         dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
-                        } catch (System.Data.SqlTypes.SqlNullValueException) {
+                        }
+                        catch (System.Data.SqlTypes.SqlNullValueException)
+                        {
                             Console.WriteLine(" car:" + newCar.carID + " has no photos");
                         }
                         localCarList.Add(newCar);
-                    } else {
+                    }
+                    else
+                    {
                         // if there is no new car, this means its adding pictures to an existing car
-                        foreach (Car car in localCarList) {
+                        foreach (Car car in localCarList)
+                        {
                             // find the existing car
-                            if (car.carID == dataReader.GetInt32("CarID")) {
+                            if (car.carID == dataReader.GetInt32("CarID"))
+                            {
                                 //try adding photos to the existing car
-                                try {
+                                try
+                                {
                                     car.PhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
                                                                 dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
-                                } catch (System.Data.SqlTypes.SqlNullValueException) {
+                                }
+                                catch (System.Data.SqlTypes.SqlNullValueException)
+                                {
                                     Console.WriteLine(" car:" + car.carID + " failed to load more photos");
                                 }
                             }
@@ -207,6 +219,33 @@ namespace Qars
                 this.CloseConnection();
 
                 return localPhotoList;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Establishment> FillEstablishment()
+        {
+            string query = " SELECT * FROM Establishment ";
+            List<Establishment> localEstablishmentList = new List<Establishment>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+
+                    localEstablishmentList.Add(new Establishment(dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Name"), dataReader.GetString("City"), dataReader.GetString("Postalcode"),
+                                                    dataReader.GetString("Streetname"), dataReader.GetInt32("Streetnumber"), dataReader.GetString("Streetnumbersuffix"), dataReader.GetString("Phonenumber"), dataReader.GetString("Emailaddress"), dataReader.GetString("Leafletlink"), dataReader.GetString("Description")));
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return localEstablishmentList;
             }
             else
             {
