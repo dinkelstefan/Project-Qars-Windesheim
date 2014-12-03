@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
@@ -74,49 +76,48 @@ namespace Qars
 
         private void rentCarClick(object sender, EventArgs e)
         {
-            Util.Mail mail = new Util.Mail();
-            //some variables that needs to be checked
+
             try
             {
+                //little check if the input is valid
                 int streetnumber = Convert.ToInt32(streetnumberTextbox.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Uw huisnummer klopt niet");
-            }
-
-            try
-            { //check if emailaddress is valid
                 MailAddress email = new MailAddress(emailTextbox.Text);
+
+                Models.Reservation reservation = new Models.Reservation(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, streetnumber, streetnumbersuffixTextbox.Text, postalcodeTextbox.Text, cityTextbox.Text, email, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text);
+
+                //This creates the email
+                Util.Mail mail = new Util.Mail();
                 mail.addTo(emailTextbox.Text);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Geen geldig emailadres");
-            }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("U heeft geen emailadres ingevuld");
-            }
-
-            MailAddress emailaddress = new MailAddress(emailTextbox.Text);
-            Models.Reservation reservation = new Models.Reservation(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, Convert.ToInt32(streetnumberTextbox.Text), streetnumbersuffixTextbox.Text, postalcodeTextbox.Text, cityTextbox.Text, emailaddress, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text);
-
-            DBConnect connection = new DBConnect();
-
-            try
-            {
                 mail.addSubject("Aanvraag van Audi A4");
                 mail.addBody(buildEmailBody());
-                //connection.insertReservation(reservation);
+
+                //insert the reservation in the database
+                DBConnect connection = new DBConnect();
+                connection.insertReservation(reservation);
+
+                //The email can only be send when the insert function succeed
                 mail.sendEmail();
 
                 MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
             }
+
+            catch (DbException)
+            {
+                MessageBox.Show("Fout tijdens het verwerken van uw aanvraag");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("U heeft niet alle velden ingevuld");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("U heeft geen geldig emailadres ingevuld");
+            }
             catch (Exception)
             {
-                MessageBox.Show("Fout tijdens het verwerken van uw aanvraag.");
+                MessageBox.Show("U heeft niet alle velden correct ingevuld");
             }
+
         }
 
         private string buildEmailBody()
@@ -162,7 +163,7 @@ namespace Qars
 
             //VisualDemo.carList[carnumber].(info);
             modelLabel.Text = "Model:";
-            
+
             SellingspriceLabel.Text = "Verkoopprijs:";
             CategoryLabel.Text = "Categorie:";
             YearOfBuildLabel.Text = "Bouwjaar:";

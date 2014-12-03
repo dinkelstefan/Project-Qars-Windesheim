@@ -77,6 +77,7 @@ namespace Qars
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.commentTextbox = new System.Windows.Forms.RichTextBox();
+            this.commentLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,7 +336,7 @@ namespace Qars
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(538, 372);
+            this.groupBox1.Size = new System.Drawing.Size(538, 305);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Uw geselecteerde auto";
@@ -346,7 +347,7 @@ namespace Qars
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(318, 222);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 25);
+            this.label12.Size = new System.Drawing.Size(122, 29);
             this.label12.TabIndex = 1009;
             this.label12.Text = "N.V.T (12)";
             // 
@@ -356,7 +357,7 @@ namespace Qars
             this.SpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpaceLabel.Location = new System.Drawing.Point(17, 222);
             this.SpaceLabel.Name = "SpaceLabel";
-            this.SpaceLabel.Size = new System.Drawing.Size(158, 25);
+            this.SpaceLabel.Size = new System.Drawing.Size(195, 29);
             this.SpaceLabel.TabIndex = 1008;
             this.SpaceLabel.Text = "Ruimte (in Liters)";
             // 
@@ -366,7 +367,7 @@ namespace Qars
             this.ApkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApkLabel.Location = new System.Drawing.Point(17, 197);
             this.ApkLabel.Name = "ApkLabel";
-            this.ApkLabel.Size = new System.Drawing.Size(115, 25);
+            this.ApkLabel.Size = new System.Drawing.Size(135, 29);
             this.ApkLabel.TabIndex = 1007;
             this.ApkLabel.Text = "APK Datum";
             // 
@@ -376,7 +377,7 @@ namespace Qars
             this.PKLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PKLabel.Location = new System.Drawing.Point(17, 172);
             this.PKLabel.Name = "PKLabel";
-            this.PKLabel.Size = new System.Drawing.Size(39, 25);
+            this.PKLabel.Size = new System.Drawing.Size(45, 29);
             this.PKLabel.TabIndex = 1006;
             this.PKLabel.Text = "PK";
             // 
@@ -434,7 +435,7 @@ namespace Qars
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(318, 197);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 25);
+            this.label10.Size = new System.Drawing.Size(122, 29);
             this.label10.TabIndex = 1000;
             this.label10.Text = "N.V.T (10)";
             // 
@@ -444,7 +445,7 @@ namespace Qars
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(318, 172);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 25);
+            this.label9.Size = new System.Drawing.Size(109, 29);
             this.label9.TabIndex = 12;
             this.label9.Text = "N.V.T (9)";
             // 
@@ -454,7 +455,7 @@ namespace Qars
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(318, 146);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 25);
+            this.label8.Size = new System.Drawing.Size(109, 29);
             this.label8.TabIndex = 11;
             this.label8.Text = "N.V.T (8)";
             // 
@@ -464,7 +465,7 @@ namespace Qars
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(318, 121);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 25);
+            this.label7.Size = new System.Drawing.Size(109, 29);
             this.label7.TabIndex = 10;
             this.label7.Text = "N.V.T (7)";
             // 
@@ -474,7 +475,7 @@ namespace Qars
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(318, 96);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 25);
+            this.label6.Size = new System.Drawing.Size(109, 29);
             this.label6.TabIndex = 9;
             this.label6.Text = "N.V.T (6)";
             // 
@@ -484,7 +485,7 @@ namespace Qars
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(318, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 25);
+            this.label5.Size = new System.Drawing.Size(109, 29);
             this.label5.TabIndex = 8;
             this.label5.Text = "N.V.T (5)";
             // 
@@ -494,7 +495,7 @@ namespace Qars
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(318, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 25);
+            this.label4.Size = new System.Drawing.Size(109, 29);
             this.label4.TabIndex = 7;
             this.label4.Text = "N.V.T (4)";
             // 
@@ -513,7 +514,7 @@ namespace Qars
             this.SellingspriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellingspriceLabel.Location = new System.Drawing.Point(18, 46);
             this.SellingspriceLabel.Name = "SellingspriceLabel";
-            this.SellingspriceLabel.Size = new System.Drawing.Size(121, 25);
+            this.SellingspriceLabel.Size = new System.Drawing.Size(150, 29);
             this.SellingspriceLabel.TabIndex = 4;
             this.SellingspriceLabel.Text = "Verkoopprijs";
             // 
@@ -523,7 +524,7 @@ namespace Qars
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(318, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 25);
+            this.label2.Size = new System.Drawing.Size(109, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "N.V.T (2)";
             // 
@@ -561,17 +562,28 @@ namespace Qars
             // 
             // commentTextbox
             // 
-            this.commentTextbox.Location = new System.Drawing.Point(580, 438);
+            this.commentTextbox.Location = new System.Drawing.Point(580, 423);
             this.commentTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.commentTextbox.Name = "commentTextbox";
-            this.commentTextbox.Size = new System.Drawing.Size(538, 192);
+            this.commentTextbox.Size = new System.Drawing.Size(538, 207);
             this.commentTextbox.TabIndex = 34;
-            this.commentTextbox.Text = "Plaats hier uw opmerking";
+            this.commentTextbox.Text = "";
+            // 
+            // commentLabel
+            // 
+            this.commentLabel.AutoSize = true;
+            this.commentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.commentLabel.Location = new System.Drawing.Point(575, 395);
+            this.commentLabel.Name = "commentLabel";
+            this.commentLabel.Size = new System.Drawing.Size(143, 26);
+            this.commentLabel.TabIndex = 1000;
+            this.commentLabel.Text = "Opmerkingen";
             // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.commentLabel);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.commentTextbox);
             this.Controls.Add(this.button2);
@@ -660,6 +672,7 @@ namespace Qars
         private System.Windows.Forms.Label ApkLabel;
         private System.Windows.Forms.Label PKLabel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label commentLabel;
 
 
     }
