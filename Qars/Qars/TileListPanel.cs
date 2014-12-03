@@ -17,79 +17,82 @@ namespace Qars
         public int carNumber;
         public VisualDemo vd;
 
-       public TileListPanel(string n, double p, string i, int h, int w, int carNumber, VisualDemo vd)
-       {
-           this.name = n;
-           this.carPrice = p;
-           this.imageLink = i;
-           this.carNumber = carNumber;
-           this.vd = vd;
+        public TileListPanel(string n, double p, string i, int h, int w, int carNumber, VisualDemo vd)
+        {
+            this.name = n;
+            this.carPrice = p;
+            this.imageLink = i;
+            this.carNumber = carNumber;
+            this.vd = vd;
 
-           Height = 220;
-           Width = 175;
-           this.BackColor = Color.White;
+            Height = 220;
+            Width = 175;
+            this.BackColor = Color.White;
 
-           this.Top = h;
-           this.Left = w;
+            this.Top = h;
+            this.Left = w;
 
-           this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-           
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
-           PictureBox pb = new PictureBox();
-           
-           pb.Height = 150;
-           pb.Width = 150;
-           pb.Left = 12;
-           pb.Top = 10;
 
-           pb.ImageLocation = imageLink;
-           pb.SizeMode = PictureBoxSizeMode.StretchImage;
-           pb.DoubleClick += new EventHandler(pb_DoubleClick);
-           this.Controls.Add(pb);
+            PictureBox pb = new PictureBox();
 
-           Label name = new Label();
-           name.Width = 200;
-           name.Text = this.name;
-           name.Font = new Font("Ariel", 10);
-           name.Top = 160;
-           name.Left = 10;
+            pb.Height = 150;
+            pb.Width = 150;
+            pb.Left = 12;
+            pb.Top = 10;
 
-           this.Controls.Add(name);
+            pb.ImageLocation = imageLink;
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.DoubleClick += new EventHandler(pb_DoubleClick);
+            this.Controls.Add(pb);
 
-           Label price = new Label();
-           price.Width = 200;
-           price.Text = "" + carPrice;
-           price.Font = new Font("Ariel", 10);
-           price.Top = 180;
-           price.Left = 10;
+            Label name = new Label();
+            name.Width = 200;
+            name.Text = this.name;
+            name.Font = new Font("Ariel", 10);
+            name.Top = 160;
+            name.Left = 10;
 
-           this.Controls.Add(price);
+            this.Controls.Add(name);
 
-           CheckBox cb = new CheckBox();
-           cb.Top = 200;
-           cb.Left = 160;
-           cb.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
+            Label price = new Label();
+            price.Width = 200;
+            price.Text = "" + carPrice;
+            price.Font = new Font("Ariel", 10);
+            price.Top = 180;
+            price.Left = 10;
 
-           this.Controls.Add(cb);
-           
+            this.Controls.Add(price);
+
+            CheckBox cb = new CheckBox();
+            cb.Top = 200;
+            cb.Left = 160;
+
+
+            cb.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
+            this.Controls.Add(cb);
+
         }
 
-       private void pb_DoubleClick(object sender, EventArgs e)
-       {
-           vd.OpenDetails(carNumber);
-       }
+        private void pb_DoubleClick(object sender, EventArgs e)
+        {
+            vd.OpenDetails(carNumber);
+        }
 
-       public bool check = false;
-       protected void CheckBox_CheckedChanged(object sender, EventArgs e)
-       {
-           check = !check;
+        public bool check = false;
+        protected void CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            check = !check;
 
-           if(check)
-            vd.AddCompare(carNumber);
-           else
-               vd.RemoveCompare(carNumber);
-       }
 
-        
+            if (check)
+                vd.AddCompare(carNumber);
+            else
+                vd.RemoveCompare(carNumber);
+
+        }
+
+
     }
 }
