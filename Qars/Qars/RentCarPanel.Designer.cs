@@ -281,6 +281,7 @@ namespace Qars
             this.monthCalendar.Visible = false;
             this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.closeCalender);
+            this.monthCalendar.MinDate = DateTime.Today;
             // 
             // streetnumbersuffixlabel
             // 
