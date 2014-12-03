@@ -162,7 +162,7 @@ namespace Qars
         {
 
             //VisualDemo.carList[carnumber].(info);
-            modelLabel.Text = "Model:";
+            //modelLabel.Text = "Model:";       Delete?
 
             SellingspriceLabel.Text = "Verkoopprijs:";
             CategoryLabel.Text = "Categorie:";
@@ -187,7 +187,7 @@ namespace Qars
                 label7.Text = "Ja";
             }
             label10.Text = VisualDemo.carList[carnumber].motdate;
-            label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + "Liter";
+            label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + " Liter";
 
 
         }
