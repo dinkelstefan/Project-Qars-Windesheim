@@ -17,6 +17,9 @@ namespace Qars
     {
         public int carnumber { get; set; }
         private String currentSelectedDateBox;
+        bool secondDateChecked;     
+        DateTime datum;
+        DateTime datum2;
         public RentCarPanel(int carnumber)
         {
             InitializeComponent();
@@ -46,32 +49,39 @@ namespace Qars
             if (startdateTextbox.Name == currentSelectedDateBox)
             {
                 startdateTextbox.Text = date;
+                datum = monthCalendar.SelectionStart.Date;
             }
             else if (enddateTextbox.Name == currentSelectedDateBox)
             {
                 enddateTextbox.Text = date;
+                datum2 = monthCalendar.SelectionStart.Date;
+                secondDateChecked = true;
             }
 
-
+            if (secondDateChecked)
+            {
+                if (datum2 < datum)
+                {
+                    enddateTextbox.Text = "";
+                }
+            }
         }
 
         private void openCalender(object sender, EventArgs e)
         {
-            monthCalendar.MinDate = DateTime.Today;
+            if (currentSelectedDateBox == startdateTextbox.Name)
+            {
+                monthCalendar.MinDate = DateTime.Today;
+            }
             monthCalendar.Show();
             MaskedTextBox b = (MaskedTextBox)sender;
             currentSelectedDateBox = b.Name;
-
         }
 
         private void closeCalender(object sender, EventArgs e)
         {
             monthCalendar.Hide();
 
-            if (currentSelectedDateBox == startdateTextbox.Name)
-            {
-                monthCalendar.MinDate = monthCalendar.SelectionStart.Date;
-            }
         }
 
         private void rentCarClick(object sender, EventArgs e)
@@ -117,7 +127,6 @@ namespace Qars
             {
                 MessageBox.Show("U heeft niet alle velden correct ingevuld");
             }
-
         }
 
         private string buildEmailBody()
@@ -162,8 +171,7 @@ namespace Qars
         {
 
             //VisualDemo.carList[carnumber].(info);
-            //modelLabel.Text = "Model:";       Delete?
-
+            ModelLabel.Text = "Model:";   
             SellingspriceLabel.Text = "Verkoopprijs:";
             CategoryLabel.Text = "Categorie:";
             YearOfBuildLabel.Text = "Bouwjaar:";
