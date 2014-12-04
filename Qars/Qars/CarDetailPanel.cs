@@ -545,7 +545,7 @@ namespace Qars
                         count2++;
                         break;
                     case 17:
-                        item.Text = list[carnumber].Fuelusage.ToString() + " per k.m";
+                        item.Text = list[carnumber].Fuelusage.ToString() + " liter per km";
                         item.Top = top;
                         item.Left = left;
                         item.Width = width;
