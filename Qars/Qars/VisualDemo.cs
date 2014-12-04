@@ -20,6 +20,7 @@ namespace Qars
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
 
+        static public List<Damage> damageList = new List<Damage>();
         static public List<Establishment> EstablishmentList = new List<Establishment>();
         static public List<Reservation> reservationList = new List<Reservation>();
         static public List<Car> carList = new List<Car>();
@@ -35,7 +36,7 @@ namespace Qars
             carList = db.FillCars();
             EstablishmentList = db.FillEstablishment();
             reservationList = db.FillReservation();
-
+            damageList = db.FillDamage();
 
             int localY = 200;
             int localX = 10;
@@ -111,7 +112,6 @@ namespace Qars
         public void OpenDetails(int number)
         {
             CarDetailPanel cp = new CarDetailPanel(number);
-            Debug.WriteLine("stuff");
             this.Controls.Add(cp);
             cp.BringToFront();
         }

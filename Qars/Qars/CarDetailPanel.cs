@@ -13,13 +13,13 @@ namespace Qars
         private List<PictureBox> pbox = new List<PictureBox>();
         private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "Vermogen:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
         private PictureBox mainPicture;
+        private Label fotoBeschrijving;
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
 
         public CarDetailPanel(int carNumber)
         {
             this.currentCarNumber = carNumber;
-            //Properties of the panel
             this.Height = 568;
             this.Width = 1044;
             this.Top = 70;
@@ -27,7 +27,6 @@ namespace Qars
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
 
-            //Text and other stuff
             Label carName = new Label();
             carName.Text = VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model;
             carName.Top = 20;
@@ -64,7 +63,7 @@ namespace Qars
             }
             availableAt.Top = 130;
             availableAt.Left = 375;
-            availableAt.Width = 250;
+            availableAt.Width = 4000;
             availableAt.Height = 27;
             availableAt.Font = new Font("Calibri", 14);
 
@@ -81,6 +80,7 @@ namespace Qars
             backButton.Click += new EventHandler(BackButtonClick);
 
             Button hireButton = new Button();
+            Label hiredLabel = new Label();
             hireButton.Click += new EventHandler(hireButtonClick);
             hireButton.Text = "Huren";
             hireButton.BackColor = Color.Green;
@@ -91,53 +91,46 @@ namespace Qars
             hireButton.ForeColor = Color.White;
             hireButton.Font = new Font("Calibri", 11, FontStyle.Bold);
             hireButton.FlatStyle = FlatStyle.Flat;
-            if (!VisualDemo.carList[carNumber].available) //Niet beschikbaar. Kapot/Verhuurd!
+            if (!VisualDemo.carList[carNumber].available)
             {
-                hireButton.BackColor = Color.Orange;
-
-                Label hiredLabel = new Label();
                 hiredLabel.Top = 185;
                 hiredLabel.Left = 525;
-                hiredLabel.Width = 700;
+                hiredLabel.Width = 200;
                 hiredLabel.Height = 30;
-                hiredLabel.Font = new Font("Calibri", 12);
+                hiredLabel.Font = new Font("Calibri", 14);
                 this.Controls.Add(hiredLabel);
 
-
-
-                //check if a reservation is current
                 foreach (var res in VisualDemo.reservationList)
                 {
-
-                    if (res.carID == carNumber) //Auto is geserveerd. 
+                    if (res.carID == carNumber)
                     {
-                        hiredLabel.Text = "Momenteel verhuurd";
+                        hireButton.BackColor = Color.Orange;
+                        hireButton.Text = "Verhuurd";
                     }
                 }
-                /*
-                //check if a car is being repaired
+
                 foreach (var rep in VisualDemo.damageList)
                 {
-                    if (rep.carID == carNumber && rep.repaired == false) //car is broken down and not repaired
+                    if (rep.carID == carNumber && rep.repaired == false)
                     {
-                        hiredLabel.Text = "Deze auto wordt gerepareerd."; //Do I need to add a "Available at"?
-                        hiredLabel.BackColor = Color.Red;
+                        hireButton.Text = "Reparatie";
+                        hireButton.BackColor = Color.Red;
+                        hireButton.Enabled = false;
                     }
                 }
-                */
             }
 
             int left = 22;
 
             foreach (CarPhoto photo in VisualDemo.carList[carNumber].PhotoList)
             {
-                int top = 222;
+                int top = 232;
                 int height = 75;
                 int width = 75;
                 int i = 0;
 
                 PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = photo.Photolink; //TO DO: Bug test: Does it work for just 1 car or is this all cars?
+                pbox.ImageLocation = photo.Photolink;
                 pbox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbox.Top = top;
                 pbox.Left = left;
@@ -145,34 +138,50 @@ namespace Qars
                 pbox.Width = width;
                 left += 88;
                 this.Controls.Add(pbox);
-                i++;
+
                 pbox.MouseHover += new EventHandler(PictureHover);
+
+                i++;
             }
-            //Main picture box
+
             mainPicture = new PictureBox();
             mainPicture.Top = 22;
             mainPicture.Left = 22;
             mainPicture.Height = 185;
             mainPicture.Width = 350;
-
-            // check if the car has a picture and add it as a main picture
             if (VisualDemo.carList[carNumber].PhotoList.Count > 0)
             {
-                mainPicture.ImageLocation = VisualDemo.carList[carNumber].PhotoList[0].Photolink; //foto's met stefan
+                mainPicture.ImageLocation = VisualDemo.carList[carNumber].PhotoList[0].Photolink;
             }
 
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
 
+            Label fotoBeschrijvingBold = new Label();
+            fotoBeschrijvingBold.Text = "Beschrijving: ";
+            fotoBeschrijvingBold.Top = 211;
+            fotoBeschrijvingBold.Left = 22;
+            fotoBeschrijvingBold.Width = 88;
+            fotoBeschrijvingBold.Height = 20;
+            fotoBeschrijvingBold.Font = new Font("Calibri", 11, FontStyle.Bold);
+            this.Controls.Add(fotoBeschrijvingBold);
+
+            fotoBeschrijving = new Label();
+            fotoBeschrijving.Top = 211;
+            fotoBeschrijving.Left = 110;
+            fotoBeschrijving.Width = 600;
+            fotoBeschrijving.Height = 20;
+            fotoBeschrijving.Font = new Font("Calibri", 11);
+            fotoBeschrijving.Text = "NOT DONE YET. NEED HELP WITH CREATING EVENT.";
+            this.Controls.Add(fotoBeschrijving);
             Label specifications = new Label();
             specifications.Text = "Specificaties";
-            specifications.Top = 305;
+            specifications.Top = 315;
             specifications.Left = 22;
             specifications.Width = 300;
             specifications.Height = 300;
             specifications.Font = new Font("Calibri", 20);
 
-            //Code for the Column Name
-            int top1 = 350;
+            int top1 = 355;
             int Left = 22;
             int count = 0;
             foreach (var item in specname)
@@ -182,12 +191,12 @@ namespace Qars
                     if (count == 14)
                     {
                         Left += 200;
-                        top1 = 350;
+                        top1 = 355;
                     }
                     else
                     {
                         Left += 240;
-                        top1 = 350;
+                        top1 = 355;
                     }
                 }
                 int width = 120;
@@ -207,21 +216,20 @@ namespace Qars
                 count += 1;
 
             }
-            //Create the information
             CreateSpecInfo(this, VisualDemo.carList, carNumber);
 
             Label description = new Label();
             description.Text = "Beschrijving";
             description.Top = 20;
-            description.Left = 690;
+            description.Left = 700;
             description.Width = 165;
             description.Height = 32;
             description.Font = new Font("Calibri", 20);
 
-            Label descriptioninfo = new Label(); /*Maximum: ~686 characters */
+            Label descriptioninfo = new Label();
             descriptioninfo.Text = VisualDemo.carList[carNumber].description;
             descriptioninfo.Top = 65;
-            descriptioninfo.Left = 690;
+            descriptioninfo.Left = 700;
             descriptioninfo.Width = 300;
             descriptioninfo.Height = 300;
             descriptioninfo.Font = new Font("Calibri", 9);
@@ -247,7 +255,7 @@ namespace Qars
                 LabelList.Add(new Label());
             }
 
-            int top = 350;
+            int top = 355;
             int left = 140;
             int width = 105;
             int height = 30;
@@ -260,12 +268,12 @@ namespace Qars
                 {
                     if (count == 14)
                     {
-                        top = 350;
+                        top = 355;
                         left += 200;
                     }
                     else
                     {
-                        top = 350;
+                        top = 355;
                         left += 240;
                     }
                 }
@@ -405,7 +413,7 @@ namespace Qars
                         count2++;
                         break;
                     case 8:
-                        item.Text = list[carnumber].horsepower.ToString();
+                        item.Text = list[carnumber].horsepower.ToString() + " PK";
                         item.Top = top;
                         item.Left = left;
                         item.Width = width;
@@ -548,7 +556,7 @@ namespace Qars
                         item.Text = list[carnumber].Fuelusage.ToString() + " liter per km";
                         item.Top = top;
                         item.Left = left;
-                        item.Width = width;
+                        item.Width = width + 7;
                         item.Height = height;
                         item.Font = new Font("Arial", 12);
                         panel.Controls.Add(item);
@@ -560,7 +568,6 @@ namespace Qars
                         break;
                     case 18:
                         item.Text = list[carnumber].motor;
-                        Console.WriteLine(list[carnumber].motor);
                         item.Top = top;
                         item.Left = left;
                         item.Width = width;
@@ -580,7 +587,6 @@ namespace Qars
         {
             PictureBox smallbox = (PictureBox)sender;
             mainPicture.ImageLocation = smallbox.ImageLocation;
-            Console.WriteLine("Ik hover nu");
         }
 
         public void BackButtonClick(object sender, EventArgs e)
@@ -594,6 +600,11 @@ namespace Qars
             this.Controls.Add(rentcarpanel);
             rentcarpanel.BringToFront();
             rentcarpanel.Show();
+        }
+        public void PictureText(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string URL = mainPicture.ImageLocation;
         }
     }
 }
