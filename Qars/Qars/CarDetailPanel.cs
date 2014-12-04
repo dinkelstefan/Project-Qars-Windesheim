@@ -16,8 +16,6 @@ namespace Qars
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
 
-        bool hirednow;
-        bool returnedtoday;
         public CarDetailPanel(int carNumber)
         {
             this.currentCarNumber = carNumber;
@@ -50,7 +48,7 @@ namespace Qars
             kmprice.Text = "Prijs per Kilometer: € " + VisualDemo.carList[carNumber].rentalprice;
             kmprice.Top = 100;
             kmprice.Left = 375;
-            kmprice.Width = 200;
+            kmprice.Width = 225;
             kmprice.Height = 27;
             kmprice.Font = new Font("Calibri", 14);
 
@@ -66,7 +64,7 @@ namespace Qars
             }
             availableAt.Top = 130;
             availableAt.Left = 375;
-            availableAt.Width = 200;
+            availableAt.Width = 250;
             availableAt.Height = 27;
             availableAt.Font = new Font("Calibri", 14);
 

@@ -21,6 +21,7 @@ namespace Qars
         public int carNumber = 0; //This has to be the tile number!
 
         static public List<Establishment> EstablishmentList = new List<Establishment>();
+        static public List<Reservation> reservationList = new List<Reservation>();
         static public List<Car> carList = new List<Car>();
         public List<Car> compareList = new List<Car>();
 
@@ -46,11 +47,11 @@ namespace Qars
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
                 {
-                    tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
+                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
                 }
                 else
                 {
-                    tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, "asd", localY, localX, i, this);
+                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, "asd", localY, localX, i, this);
                 }
                 TileView.Controls.Add(tp);
                 localX += 200;

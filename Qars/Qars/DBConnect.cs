@@ -282,6 +282,33 @@ namespace Qars
                 return Count;
             }
         }
+        public List<Establishment> FillEstablishment()
+        {
+            string query = " SELECT * FROM Establishment ";
+            List<Establishment> localEstablishmentList = new List<Establishment>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+
+                    localEstablishmentList.Add(new Establishment(dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Name"), dataReader.GetString("City"), dataReader.GetString("Postalcode"),
+                                                    dataReader.GetString("Streetname"), dataReader.GetInt32("Streetnumber"), dataReader.GetString("Streetnumbersuffix"), dataReader.GetString("Phonenumber"), dataReader.GetString("Emailaddress"), dataReader.GetString("Leafletlink"), dataReader.GetString("Description")));
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return localEstablishmentList;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
         public void insertReservation(Reservation2 reservation)
         {
@@ -318,25 +345,29 @@ namespace Qars
             //Dynamicquery voor zoekfunctie
         }
 
-        public static string SafeGetString(MySqlDataReader reader, int colIndex) {
+        public static string SafeGetString(MySqlDataReader reader, int colIndex)
+        {
             if (!reader.IsDBNull(colIndex))
                 return reader.GetString(colIndex);
             else
                 return string.Empty;
         }
-        public static int SafeGetInt(MySqlDataReader reader, int colIndex) {
+        public static int SafeGetInt(MySqlDataReader reader, int colIndex)
+        {
             if (!reader.IsDBNull(colIndex))
                 return reader.GetInt32(colIndex);
             else
                 return -1;
         }
-        public static bool SafeGetBoolean(MySqlDataReader reader, int colIndex) {
+        public static bool SafeGetBoolean(MySqlDataReader reader, int colIndex)
+        {
             if (!reader.IsDBNull(colIndex))
                 return reader.GetBoolean(colIndex);
             else
                 return false;
         }
-        public static double SafeGetDouble(MySqlDataReader reader, int colIndex) {
+        public static double SafeGetDouble(MySqlDataReader reader, int colIndex)
+        {
             if (!reader.IsDBNull(colIndex))
                 return reader.GetDouble(colIndex);
             else
