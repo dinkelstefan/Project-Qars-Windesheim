@@ -22,8 +22,6 @@ namespace Qars
 
         static public List<Establishment> EstablishmentList = new List<Establishment>();
         static public List<Car> carList = new List<Car>();
-        static public List<CarPhoto> cPhotos = new List<CarPhoto>();
-        static public List<Reservation> reservationList = new List<Reservation>();
         public List<Car> compareList = new List<Car>();
 
         public DBConnect db = new DBConnect();
@@ -34,7 +32,6 @@ namespace Qars
             DoubleBuffered = true;
 
             carList = db.FillCars();
-            cPhotos = db.FillCarPhotos();
             EstablishmentList = db.FillEstablishment();
             reservationList = db.FillReservation();
 
@@ -43,7 +40,6 @@ namespace Qars
             int localX = 10;
             int checkNumb = 0;
 
-            Debug.WriteLine(cPhotos[0].Photolink);
 
             for (int i = 0; i < carList.Count; i++)
             {

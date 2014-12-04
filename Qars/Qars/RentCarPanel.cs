@@ -184,7 +184,7 @@ namespace Qars
             label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
             label4.Text = VisualDemo.carList[carnumber].sellingprice.ToString();
             label5.Text = VisualDemo.carList[carnumber].category;
-            label6.Text = VisualDemo.carList[carnumber].modelyear;
+            label6.Text = VisualDemo.carList[carnumber].modelyear.ToString();
             label8.Text = VisualDemo.carList[carnumber].kilometres.ToString();
             label9.Text = VisualDemo.carList[carnumber].horsepower.ToString();  //deze 
             label7.Text = VisualDemo.carList[carnumber].automatic.ToString();

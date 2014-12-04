@@ -150,9 +150,40 @@ namespace Qars
                         currentCarID = dataReader.GetInt32("CarID");
 
                         // make a new car with 
-                        Car newCar = new Car(dataReader.GetInt32("CarID"), dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Brand"), dataReader.GetString("Model"), dataReader.GetString("Category"), dataReader.GetString("Modelyear"), dataReader.GetBoolean("Automatic"), dataReader.GetInt32("Kilometers"),
-                        dataReader.GetString("Colour"), dataReader.GetInt32("Doors"), dataReader.GetBoolean("Stereo"), dataReader.GetBoolean("Bluetooth"), dataReader.GetDouble("Horsepower"), dataReader.GetString("Length"), dataReader.GetString("Width"), dataReader.GetString("Height"), dataReader.GetBoolean("Airco"),
-                        dataReader.GetInt32("Seats"), dataReader.GetString("motdate"), dataReader.GetDouble("Storagespace"), dataReader.GetInt32("Gearsamount"), dataReader.GetFloat("Startprice"), dataReader.GetFloat("Rentalprice"), dataReader.GetFloat("Sellingprice"), dataReader.GetBoolean("Available"), dataReader.GetString("Description").ToString(), dataReader.GetInt32("Fuelusage"), dataReader.GetString("motor"));
+                        Car newCar = new Car();
+                        newCar.carID = SafeGetInt(dataReader, 0);
+                        newCar.establishmentID = SafeGetInt(dataReader, 1);
+                        newCar.brand = SafeGetString(dataReader, 2);
+                        newCar.model = SafeGetString(dataReader, 3);
+                        newCar.category = SafeGetString(dataReader, 4);
+                        newCar.modelyear = SafeGetInt(dataReader, 5);
+                        newCar.automatic = SafeGetBoolean(dataReader, 6);
+                        newCar.kilometres = SafeGetInt(dataReader, 7);
+                        newCar.colour = SafeGetString(dataReader, 8);
+                        newCar.doors = SafeGetInt(dataReader, 9);
+                        newCar.stereo = SafeGetBoolean(dataReader, 10);
+                        newCar.bluetooth = SafeGetBoolean(dataReader, 11);
+                        newCar.horsepower = SafeGetDouble(dataReader, 12);
+                        newCar.length = SafeGetInt(dataReader, 13);
+                        newCar.height = SafeGetInt(dataReader, 14);
+                        newCar.width = SafeGetInt(dataReader, 15);
+                        newCar.weight = SafeGetInt(dataReader, 16);
+                        newCar.navigation = SafeGetBoolean(dataReader, 17);
+                        newCar.parkingAssist = SafeGetBoolean(dataReader, 18);
+                        newCar.fourwheeldrive = SafeGetBoolean(dataReader, 19);
+                        newCar.cabrio = SafeGetBoolean(dataReader, 20);
+                        newCar.airco = SafeGetBoolean(dataReader, 21);
+                        newCar.seats = SafeGetInt(dataReader, 22);
+                        newCar.motdate = SafeGetString(dataReader, 23);
+                        newCar.storagespace = SafeGetDouble(dataReader, 24);
+                        newCar.gearsamount = SafeGetInt(dataReader, 25);
+                        newCar.motor = SafeGetString(dataReader, 26);
+                        newCar.Fuelusage = SafeGetInt(dataReader, 27);
+                        newCar.startprice = SafeGetInt(dataReader, 28);
+                        newCar.rentalprice = SafeGetDouble(dataReader, 29);
+                        newCar.sellingprice = SafeGetDouble(dataReader, 30);
+                        newCar.available = SafeGetBoolean(dataReader, 31);
+                        newCar.description = SafeGetString(dataReader, 32);
 
                         // see if the car has photos, and at the first one to the list
                         try
@@ -192,60 +223,6 @@ namespace Qars
                 this.CloseConnection();
 
                 return localCarList;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public List<CarPhoto> FillCarPhotos()
-        {
-            string query = " SELECT * FROM Photo ";
-            List<CarPhoto> localPhotoList = new List<CarPhoto>();
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    localPhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
-                                                    dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
-                }
-
-                dataReader.Close();
-                this.CloseConnection();
-
-                return localPhotoList;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public List<Establishment> FillEstablishment()
-        {
-            string query = " SELECT * FROM Establishment ";
-            List<Establishment> localEstablishmentList = new List<Establishment>();
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
-                {
-
-                    localEstablishmentList.Add(new Establishment(dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Name"), dataReader.GetString("City"), dataReader.GetString("Postalcode"),
-                                                    dataReader.GetString("Streetname"), dataReader.GetInt32("Streetnumber"), dataReader.GetString("Streetnumbersuffix"), dataReader.GetString("Phonenumber"), dataReader.GetString("Emailaddress"), dataReader.GetString("Leafletlink"), dataReader.GetString("Description")));
-                }
-
-                dataReader.Close();
-                this.CloseConnection();
-
-                return localEstablishmentList;
             }
             else
             {
@@ -339,6 +316,31 @@ namespace Qars
         public void DynamicQuery()
         {
             //Dynamicquery voor zoekfunctie
+        }
+
+        public static string SafeGetString(MySqlDataReader reader, int colIndex) {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetString(colIndex);
+            else
+                return string.Empty;
+        }
+        public static int SafeGetInt(MySqlDataReader reader, int colIndex) {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetInt32(colIndex);
+            else
+                return -1;
+        }
+        public static bool SafeGetBoolean(MySqlDataReader reader, int colIndex) {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetBoolean(colIndex);
+            else
+                return false;
+        }
+        public static double SafeGetDouble(MySqlDataReader reader, int colIndex) {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetDouble(colIndex);
+            else
+                return -1;
         }
     }
 }
