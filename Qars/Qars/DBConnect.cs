@@ -129,7 +129,7 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-        public List<Car> FillCars()
+        public List<Car> FillCars() //TO DO: NULL CHECK
         {
             string query = " SELECT * FROM Car A LEFT JOIN Photo B ON A.CarID = B.CarID ORDER BY A.CarID ";
             List<Car> localCarList = new List<Car>();
@@ -199,7 +199,7 @@ namespace Qars
             }
         }
 
-        public List<CarPhoto> FillCarPhotos() //this needs improvement. How do I get all the pictures instead of just 1?
+        public List<CarPhoto> FillCarPhotos()
         {
             string query = " SELECT * FROM Photo ";
             List<CarPhoto> localPhotoList = new List<CarPhoto>();
@@ -253,8 +253,32 @@ namespace Qars
             }
         }
 
+        public List<Reservation> FillReservation()
+        {
+            string query = " SELECT * FROM Reservation ";
+            List<Reservation> localReservationList = new List<Reservation>();
 
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
 
+                    localReservationList.Add(new Reservation(dataReader.GetInt32("ReservationID"), dataReader.GetInt32("CarID"), dataReader.GetInt32("CustomerID"), dataReader.GetString("Startdate"),
+                                                    dataReader.GetString("Enddate"), dataReader.GetBoolean("Confirmed"), dataReader.GetInt32("Kilometres"), dataReader.GetString("Pickupcity"), dataReader.GetString("Pickupstreetname"), dataReader.GetInt32("Pickupstreetnumber"), dataReader.GetString("Pickupstreetnumbersuffix"), dataReader.GetBoolean("Paid"), dataReader.GetString("Comment")));
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return localReservationList;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         //Count statement
         public int Count()
@@ -282,22 +306,18 @@ namespace Qars
             }
         }
 
-        public void insertReservation(Reservation reservation)
+        public void insertReservation(Reservation2 reservation)
         {
             int ReservationID = 0;
             string query = "SELECT max(ReservationID) FROM Reservation";
             if (this.OpenConnection())
             {
-                Console.WriteLine("hallo test");
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                Console.WriteLine("hallo test 2 Query geslaagd");
-
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
                     ReservationID = dataReader.GetInt32(0);
-                    Console.WriteLine("hallo");
                 }
                 this.CloseConnection();
             }

@@ -19,9 +19,11 @@ namespace Qars
         public int imageWidth = 160;
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
+
         static public List<Establishment> EstablishmentList = new List<Establishment>();
         static public List<Car> carList = new List<Car>();
         static public List<CarPhoto> cPhotos = new List<CarPhoto>();
+        static public List<Reservation> reservationList = new List<Reservation>();
         public List<Car> compareList = new List<Car>();
 
         public DBConnect db = new DBConnect();
@@ -34,6 +36,8 @@ namespace Qars
             carList = db.FillCars();
             cPhotos = db.FillCarPhotos();
             EstablishmentList = db.FillEstablishment();
+            reservationList = db.FillReservation();
+
 
             int localY = 200;
             int localX = 10;

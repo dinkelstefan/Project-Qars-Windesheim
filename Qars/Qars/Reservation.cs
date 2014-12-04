@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +17,12 @@ namespace Qars
         public int kilometres { get; set; }
         public string pickupcity { get; set; }
         public string pickupstreetname { get; set; }
-        public string pickupstreetnumber { get; set; }
+        public int pickupstreetnumber { get; set; }
         public string pickupstreetnumbersuffix { get; set; }
         public bool paid { get; set; }
         public string comment { get; set; }
 
-        public Reservation(int reservation, int carID, int customerID, string startdate, string enddate, bool confirmed, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, bool paid, string comment)
+        public Reservation(int reservation, int carID, int customerID, string startdate, string enddate, bool confirmed, int kilometres, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, bool paid, string comment)
         {
             this.reservationID = reservationID;
             this.carID = carID;
@@ -40,4 +40,3 @@ namespace Qars
         }
     }
 }
-*/

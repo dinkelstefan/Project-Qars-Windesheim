@@ -16,6 +16,8 @@ namespace Qars
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
 
+        bool hirednow;
+        bool returnedtoday;
         public CarDetailPanel(int carNumber)
         {
             this.currentCarNumber = carNumber;
@@ -91,11 +93,40 @@ namespace Qars
             hireButton.ForeColor = Color.White;
             hireButton.Font = new Font("Calibri", 11, FontStyle.Bold);
             hireButton.FlatStyle = FlatStyle.Flat;
-            if (!VisualDemo.carList[carNumber].available)
+            if (!VisualDemo.carList[carNumber].available) //Niet beschikbaar. Kapot/Verhuurd!
             {
-                hireButton.Enabled = false;
-                hireButton.BackColor = Color.Red;
-                hireButton.Text = "Niet beschikbaar"; //TO DO: Add "AVAILABLE AT: DATE"
+                hireButton.BackColor = Color.Orange;
+
+                Label hiredLabel = new Label();
+                hiredLabel.Top = 185;
+                hiredLabel.Left = 525;
+                hiredLabel.Width = 700;
+                hiredLabel.Height = 30;
+                hiredLabel.Font = new Font("Calibri", 12);
+                this.Controls.Add(hiredLabel);
+
+
+
+                //check if a reservation is current
+                foreach (var res in VisualDemo.reservationList)
+                {
+
+                    if (res.carID == carNumber) //Auto is geserveerd. 
+                    {
+                        hiredLabel.Text = "Momenteel verhuurd";
+                    }
+                }
+                /*
+                //check if a car is being repaired
+                foreach (var rep in VisualDemo.damageList)
+                {
+                    if (rep.carID == carNumber && rep.repaired == false) //car is broken down and not repaired
+                    {
+                        hiredLabel.Text = "Deze auto wordt gerepareerd."; //Do I need to add a "Available at"?
+                        hiredLabel.BackColor = Color.Red;
+                    }
+                }
+                */
             }
 
             int left = 22;
