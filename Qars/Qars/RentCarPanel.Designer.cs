@@ -29,6 +29,7 @@ namespace Qars
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.firstnameLabel = new System.Windows.Forms.Label();
             this.lastnameLabel = new System.Windows.Forms.Label();
             this.enddateLabel = new System.Windows.Forms.Label();
@@ -90,6 +91,7 @@ namespace Qars
             this.label17 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,9 +101,9 @@ namespace Qars
             this.firstnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.firstnameLabel.Location = new System.Drawing.Point(34, 98);
             this.firstnameLabel.Name = "firstnameLabel";
-            this.firstnameLabel.Size = new System.Drawing.Size(98, 24);
+            this.firstnameLabel.Size = new System.Drawing.Size(110, 24);
             this.firstnameLabel.TabIndex = 0;
-            this.firstnameLabel.Text = "Voornaam";
+            this.firstnameLabel.Text = "Voornaam*:";
             // 
             // lastnameLabel
             // 
@@ -109,9 +111,9 @@ namespace Qars
             this.lastnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lastnameLabel.Location = new System.Drawing.Point(34, 134);
             this.lastnameLabel.Name = "lastnameLabel";
-            this.lastnameLabel.Size = new System.Drawing.Size(112, 24);
+            this.lastnameLabel.Size = new System.Drawing.Size(129, 24);
             this.lastnameLabel.TabIndex = 8;
-            this.lastnameLabel.Text = "Achternaam";
+            this.lastnameLabel.Text = "Achternaam*: ";
             // 
             // enddateLabel
             // 
@@ -119,9 +121,9 @@ namespace Qars
             this.enddateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.enddateLabel.Location = new System.Drawing.Point(36, 443);
             this.enddateLabel.Name = "enddateLabel";
-            this.enddateLabel.Size = new System.Drawing.Size(101, 24);
+            this.enddateLabel.Size = new System.Drawing.Size(113, 24);
             this.enddateLabel.TabIndex = 9;
-            this.enddateLabel.Text = "Einddatum";
+            this.enddateLabel.Text = "Einddatum*:";
             // 
             // startdataLabel
             // 
@@ -129,9 +131,9 @@ namespace Qars
             this.startdataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.startdataLabel.Location = new System.Drawing.Point(37, 415);
             this.startdataLabel.Name = "startdataLabel";
-            this.startdataLabel.Size = new System.Drawing.Size(111, 24);
+            this.startdataLabel.Size = new System.Drawing.Size(123, 24);
             this.startdataLabel.TabIndex = 10;
-            this.startdataLabel.Text = "Begindatum";
+            this.startdataLabel.Text = "Begindatum*:";
             // 
             // postalcodeLabel
             // 
@@ -149,9 +151,9 @@ namespace Qars
             this.streetnumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.streetnumberLabel.Location = new System.Drawing.Point(36, 214);
             this.streetnumberLabel.Name = "streetnumberLabel";
-            this.streetnumberLabel.Size = new System.Drawing.Size(119, 24);
+            this.streetnumberLabel.Size = new System.Drawing.Size(131, 24);
             this.streetnumberLabel.TabIndex = 12;
-            this.streetnumberLabel.Text = "Huisnummer";
+            this.streetnumberLabel.Text = "Huisnummer*:";
             // 
             // streetnameLabel
             // 
@@ -159,9 +161,9 @@ namespace Qars
             this.streetnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.streetnameLabel.Location = new System.Drawing.Point(36, 185);
             this.streetnameLabel.Name = "streetnameLabel";
-            this.streetnameLabel.Size = new System.Drawing.Size(103, 24);
+            this.streetnameLabel.Size = new System.Drawing.Size(115, 24);
             this.streetnameLabel.TabIndex = 13;
-            this.streetnameLabel.Text = "Straatnaam";
+            this.streetnameLabel.Text = "Straatnaam*:";
             // 
             // phonenumberLabel
             // 
@@ -310,9 +312,9 @@ namespace Qars
             this.citylabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.citylabel.Location = new System.Drawing.Point(37, 273);
             this.citylabel.Name = "citylabel";
-            this.citylabel.Size = new System.Drawing.Size(109, 24);
+            this.citylabel.Size = new System.Drawing.Size(121, 24);
             this.citylabel.TabIndex = 30;
-            this.citylabel.Text = "Woonplaats";
+            this.citylabel.Text = "Woonplaats*:";
             // 
             // cityTextbox
             // 
@@ -345,11 +347,11 @@ namespace Qars
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.ModelLabel);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(516, 39);
+            this.groupBox1.Location = new System.Drawing.Point(738, 18);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(478, 244);
+            this.groupBox1.Size = new System.Drawing.Size(585, 244);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Uw geselecteerde auto";
@@ -588,13 +590,14 @@ namespace Qars
             this.commentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.commentLabel.Location = new System.Drawing.Point(734, 319);
             this.commentLabel.Name = "commentLabel";
-            this.commentLabel.Size = new System.Drawing.Size(126, 24);
+            this.commentLabel.Size = new System.Drawing.Size(131, 24);
             this.commentLabel.TabIndex = 1000;
-            this.commentLabel.Text = "Opmerkingen";
+            this.commentLabel.Text = "Opmerkingen:";
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(278, 487);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(53, 21);
@@ -610,7 +613,6 @@ namespace Qars
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(40, 21);
             this.radioButton2.TabIndex = 1002;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "ja";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -701,6 +703,11 @@ namespace Qars
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(76, 22);
             this.textBox4.TabIndex = 1012;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // RentCarPanel
             // 
@@ -820,6 +827,7 @@ namespace Qars
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 
 
     }
