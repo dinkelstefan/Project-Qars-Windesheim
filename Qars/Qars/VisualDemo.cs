@@ -114,5 +114,11 @@ namespace Qars
             this.Controls.Add(cp);
             cp.BringToFront();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            Views.searchWizard search = new Views.searchWizard();
+            search.Visible = true;
+        }
     }
 }

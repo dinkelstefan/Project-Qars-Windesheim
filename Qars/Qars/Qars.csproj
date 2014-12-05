@@ -73,6 +73,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Util\Mail.cs" />
+    <Compile Include="Views\searchWizard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\searchWizard.Designer.cs">
+      <DependentUpon>searchWizard.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisualDemo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TileListPanel.resx">
       <DependentUpon>TileListPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\searchWizard.resx">
+      <DependentUpon>searchWizard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VisualDemo.resx">
       <DependentUpon>VisualDemo.cs</DependentUpon>
