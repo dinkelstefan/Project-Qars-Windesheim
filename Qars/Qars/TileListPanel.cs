@@ -12,12 +12,12 @@ namespace Qars
     class TileListPanel : Panel
     {
         public string name;
-        public double carPrice;
+        public string carPrice;
         public string imageLink;
         public int carNumber;
         public VisualDemo vd;
 
-        public TileListPanel(string n, double p, string i, int h, int w, int carNumber, VisualDemo vd)
+        public TileListPanel(string n, string p, string i, int h, int w, int carNumber, VisualDemo vd)
         {
             this.name = n;
             this.carPrice = p;

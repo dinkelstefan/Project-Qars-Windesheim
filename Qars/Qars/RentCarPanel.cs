@@ -93,7 +93,9 @@ namespace Qars
                 int streetnumber = Convert.ToInt32(streetnumberTextbox.Text);
                 MailAddress email = new MailAddress(emailTextbox.Text);
 
-                Models.Reservation reservation = new Models.Reservation(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, streetnumber, streetnumbersuffixTextbox.Text, postalcodeTextbox.Text, cityTextbox.Text, email, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text);
+                //this has to become the new Reservation Class
+                Models.Reservation2 reservation = new Models.Reservation2(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, streetnumber, streetnumbersuffixTextbox.Text, postalcodeTextbox.Text, cityTextbox.Text, email, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text);
+                //Models.Customer customer = new Customer(Insert everything BUT the comment, startdate and enddate here!)
 
                 //This creates the email
                 Util.Mail mail = new Util.Mail();
@@ -182,7 +184,7 @@ namespace Qars
             label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
             label4.Text = VisualDemo.carList[carnumber].sellingprice.ToString();
             label5.Text = VisualDemo.carList[carnumber].category;
-            label6.Text = VisualDemo.carList[carnumber].modelyear;
+            label6.Text = VisualDemo.carList[carnumber].modelyear.ToString();
             label8.Text = VisualDemo.carList[carnumber].kilometres.ToString();
             label9.Text = VisualDemo.carList[carnumber].horsepower.ToString();  //deze 
             label7.Text = VisualDemo.carList[carnumber].automatic.ToString();

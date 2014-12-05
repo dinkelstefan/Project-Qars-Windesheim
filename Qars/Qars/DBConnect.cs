@@ -19,13 +19,10 @@ namespace Qars
         private string uid;
         private string password;
 
-        //Constructor
         public DBConnect()
         {
             Initialize();
         }
-
-        //Initialize values
         private void Initialize()
         {
             server = "db4free.net";
@@ -38,8 +35,6 @@ namespace Qars
 
             connection = new MySqlConnection(connectionString);
         }
-
-
         private bool OpenConnection()
         {
             try
@@ -61,8 +56,6 @@ namespace Qars
                 return false;
             }
         }
-
-
         private bool CloseConnection()
         {
             try
@@ -74,59 +67,6 @@ namespace Qars
             {
                 MessageBox.Show(ex.Message);
                 return false;
-            }
-        }
-
-        public void Insert()
-        {
-            string query = "INSERT INTO tableinfo (name, age) VALUES('John Smith', '33')";
-
-            //open connection
-            if (this.OpenConnection() == true)
-            {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                //Execute command
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                this.CloseConnection();
-            }
-        }
-
-        public void Update()
-        {
-            string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
-
-            //Open connection
-            if (this.OpenConnection() == true)
-            {
-                //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the connection using Connection
-                cmd.Connection = connection;
-
-                //Execute query
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                this.CloseConnection();
-            }
-        }
-
-        //Delete statement
-        public void Delete()
-        {
-            string query = "DELETE FROM tableinfo WHERE name='John Smith'";
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                this.CloseConnection();
             }
         }
         public List<Car> FillCars()
@@ -145,20 +85,50 @@ namespace Qars
                 while (dataReader.Read())
                 {
                     // check if we are reading a new car
-                    if (dataReader.GetInt32("CarID") != currentCarID)
+                    if (SafeGetInt(dataReader, 0) != currentCarID)
                     {
-                        currentCarID = dataReader.GetInt32("CarID");
+                        currentCarID = SafeGetInt(dataReader, 0);
 
                         // make a new car with 
-                        Car newCar = new Car(dataReader.GetInt32("CarID"), dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Brand"), dataReader.GetString("Model"), dataReader.GetString("Category"), dataReader.GetString("Modelyear"), dataReader.GetBoolean("Automatic"), dataReader.GetInt32("Kilometers"),
-                        dataReader.GetString("Colour"), dataReader.GetInt32("Doors"), dataReader.GetBoolean("Stereo"), dataReader.GetBoolean("Bluetooth"), dataReader.GetDouble("Horsepower"), dataReader.GetString("Length"), dataReader.GetString("Width"), dataReader.GetString("Height"), dataReader.GetBoolean("Airco"),
-                        dataReader.GetInt32("Seats"), dataReader.GetString("motdate"), dataReader.GetDouble("Storagespace"), dataReader.GetInt32("Gearsamount"), dataReader.GetFloat("Startprice"), dataReader.GetFloat("Rentalprice"), dataReader.GetFloat("Sellingprice"), dataReader.GetBoolean("Available"), dataReader.GetString("Description").ToString(), dataReader.GetInt32("Fuelusage"), dataReader.GetString("motor"));
+                        Car newCar = new Car();
+                        newCar.carID = SafeGetInt(dataReader, 0);
+                        newCar.establishmentID = SafeGetInt(dataReader, 1);
+                        newCar.brand = SafeGetString(dataReader, 2);
+                        newCar.model = SafeGetString(dataReader, 3);
+                        newCar.category = SafeGetString(dataReader, 4);
+                        newCar.modelyear = SafeGetInt(dataReader, 5);
+                        newCar.automatic = SafeGetBoolean(dataReader, 6);
+                        newCar.kilometres = SafeGetInt(dataReader, 7);
+                        newCar.colour = SafeGetString(dataReader, 8);
+                        newCar.doors = SafeGetInt(dataReader, 9);
+                        newCar.stereo = SafeGetBoolean(dataReader, 10);
+                        newCar.bluetooth = SafeGetBoolean(dataReader, 11);
+                        newCar.horsepower = SafeGetDouble(dataReader, 12);
+                        newCar.length = SafeGetInt(dataReader, 13);
+                        newCar.height = SafeGetInt(dataReader, 14);
+                        newCar.width = SafeGetInt(dataReader, 15);
+                        newCar.weight = SafeGetInt(dataReader, 16);
+                        newCar.navigation = SafeGetBoolean(dataReader, 17);
+                        newCar.parkingAssist = SafeGetBoolean(dataReader, 18);
+                        newCar.fourwheeldrive = SafeGetBoolean(dataReader, 19);
+                        newCar.cabrio = SafeGetBoolean(dataReader, 20);
+                        newCar.airco = SafeGetBoolean(dataReader, 21);
+                        newCar.seats = SafeGetInt(dataReader, 22);
+                        newCar.motdate = SafeGetString(dataReader, 23);
+                        newCar.storagespace = SafeGetDouble(dataReader, 24);
+                        newCar.gearsamount = SafeGetInt(dataReader, 25);
+                        newCar.motor = SafeGetString(dataReader, 26);
+                        newCar.Fuelusage = SafeGetInt(dataReader, 27);
+                        newCar.startprice = SafeGetInt(dataReader, 28);
+                        newCar.rentalprice = SafeGetDouble(dataReader, 29);
+                        newCar.sellingprice = SafeGetDouble(dataReader, 30);
+                        newCar.available = SafeGetBoolean(dataReader, 31);
+                        newCar.description = SafeGetString(dataReader, 32);
 
                         // see if the car has photos, and at the first one to the list
                         try
                         {
-                            newCar.PhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
-                                                        dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
+                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 0), SafeGetInt(dataReader, 1), SafeGetString(dataReader, 2), SafeGetString(dataReader, 3), SafeGetString(dataReader, 4), SafeGetString(dataReader, 5)));
                         }
                         catch (System.Data.SqlTypes.SqlNullValueException)
                         {
@@ -172,13 +142,12 @@ namespace Qars
                         foreach (Car car in localCarList)
                         {
                             // find the existing car
-                            if (car.carID == dataReader.GetInt32("CarID"))
+                            if (car.carID == SafeGetInt(dataReader, 0))
                             {
                                 //try adding photos to the existing car
                                 try
                                 {
-                                    car.PhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
-                                                                dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
+                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 0), SafeGetInt(dataReader, 1), SafeGetString(dataReader, 2), SafeGetString(dataReader, 3), SafeGetString(dataReader, 4), SafeGetString(dataReader, 5)));
                                 }
                                 catch (System.Data.SqlTypes.SqlNullValueException)
                                 {
@@ -198,34 +167,32 @@ namespace Qars
                 return null;
             }
         }
-
-        public List<CarPhoto> FillCarPhotos() //this needs improvement. How do I get all the pictures instead of just 1?
+        public List<Reservation> FillReservation()
         {
-            string query = " SELECT * FROM Photo ";
-            List<CarPhoto> localPhotoList = new List<CarPhoto>();
+            string query = " SELECT * FROM Reservation ";
+            List<Reservation> localReservationList = new List<Reservation>();
 
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-
                 while (dataReader.Read())
                 {
-                    localPhotoList.Add(new CarPhoto(dataReader.GetInt32("PhotoID"), dataReader.GetInt32("CarID"), dataReader.GetString("Name"), dataReader.GetString("Description"),
-                                                    dataReader.GetString("Datetaken"), dataReader.GetString("Photolink")));
+
+                    localReservationList.Add(new Reservation(SafeGetInt(dataReader, 0), SafeGetInt(dataReader, 1), SafeGetInt(dataReader, 2), SafeGetString(dataReader, 3),
+                                                    SafeGetString(dataReader, 4), SafeGetBoolean(dataReader, 5), SafeGetInt(dataReader, 6), SafeGetString(dataReader, 7), SafeGetString(dataReader, 8), SafeGetInt(dataReader, 9), SafeGetString(dataReader, 10), SafeGetBoolean(dataReader, 11), SafeGetString(dataReader, 12)));
                 }
 
                 dataReader.Close();
                 this.CloseConnection();
 
-                return localPhotoList;
+                return localReservationList;
             }
             else
             {
                 return null;
             }
         }
-
         public List<Establishment> FillEstablishment()
         {
             string query = " SELECT * FROM Establishment ";
@@ -238,8 +205,8 @@ namespace Qars
                 while (dataReader.Read())
                 {
 
-                    localEstablishmentList.Add(new Establishment(dataReader.GetInt32("EstablishmentID"), dataReader.GetString("Name"), dataReader.GetString("City"), dataReader.GetString("Postalcode"),
-                                                    dataReader.GetString("Streetname"), dataReader.GetInt32("Streetnumber"), dataReader.GetString("Streetnumbersuffix"), dataReader.GetString("Phonenumber"), dataReader.GetString("Emailaddress"), dataReader.GetString("Leafletlink"), dataReader.GetString("Description")));
+                    localEstablishmentList.Add(new Establishment(SafeGetInt(dataReader, 0), SafeGetString(dataReader, 1), SafeGetString(dataReader, 2), SafeGetString(dataReader, 3),
+                                                    SafeGetString(dataReader, 4), SafeGetInt(dataReader, 5), SafeGetString(dataReader, 6), SafeGetString(dataReader, 7), SafeGetString(dataReader, 8), SafeGetString(dataReader, 9), SafeGetString(dataReader, 10)));
                 }
 
                 dataReader.Close();
@@ -252,61 +219,26 @@ namespace Qars
                 return null;
             }
         }
-
-
-
-
-        //Count statement
-        public int Count()
-        {
-            string query = "SELECT Count(*) FROM Car";
-            int Count = -1;
-
-            //Open Connection
-            if (this.OpenConnection() == true)
-            {
-                //Create Mysql Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                //ExecuteScalar will return one value
-                Count = int.Parse(cmd.ExecuteScalar() + "");
-
-                //close Connection
-                this.CloseConnection();
-
-                return Count;
-            }
-            else
-            {
-                return Count;
-            }
-        }
-
-        public void insertReservation(Reservation reservation)
+        public void insertReservation(Reservation2 reservation)
         {
             int ReservationID = 0;
             string query = "SELECT max(ReservationID) FROM Reservation";
             if (this.OpenConnection())
             {
-                Console.WriteLine("hallo test");
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                Console.WriteLine("hallo test 2 Query geslaagd");
-
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    ReservationID = dataReader.GetInt32(0);
-                    Console.WriteLine("hallo");
+                    ReservationID = SafeGetInt(dataReader, 0);
                 }
                 this.CloseConnection();
             }
 
-            Console.WriteLine(ReservationID);
             ReservationID++;
             string query2 = "INSERT INTO Reservation (ReservationID, CarID, CustomerID, Startdate, Enddate, Confirmed, Kilometres, Pickupcity, Pickupstreetname, Pickupstreetnumber, Pickupstreetnumbersuffix, Paid, Comment)";
             query2 += String.Format("VALUES({0},1,1,'{1}','{2}', 0, 5000,'Zwolle', 'Lubeckestraat', 1, null, 0, '{3}')", ReservationID, reservation.startdate, reservation.enddate, reservation.comment);
-            Console.WriteLine(query2);
+            Console.WriteLine(query2);         //carID,customerID are MISSING!
             if (this.OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query2, connection);
@@ -314,11 +246,58 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-
-
-        public void DynamicQuery()
+        public List<Damage> FillDamage()
         {
-            //Dynamicquery voor zoekfunctie
+            string query = " SELECT * FROM Damage ";
+            List<Damage> localDamageList = new List<Damage>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+
+                    localDamageList.Add(new Damage(dataReader.GetInt32("DamageID"), dataReader.GetInt32("CarID"), dataReader.GetString("Description"), dataReader.GetBoolean("Repaired")));
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return localDamageList;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static string SafeGetString(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetString(colIndex);
+            else
+                return string.Empty;
+        }
+        public static int SafeGetInt(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetInt32(colIndex);
+            else
+                return -1;
+        }
+        public static bool SafeGetBoolean(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetBoolean(colIndex);
+            else
+                return false;
+        }
+        public static double SafeGetDouble(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetDouble(colIndex);
+            else
+                return -1;
         }
     }
 }

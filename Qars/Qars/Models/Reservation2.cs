@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Qars.Models
 {
-    public class Reservation
+    public class Reservation2
     {
         public string firstname;
         public string lastname;
@@ -22,7 +22,7 @@ namespace Qars.Models
         public string enddate;
         public string comment;
 
-        public Reservation(string Firstname, string Lastname, string Streetname, int Streetnumber, string Streetnumbersuffix, string City, string Postalcode, MailAddress Email, string Phonenumber, string Startdate, string Enddate, string Comment)
+        public Reservation2(string Firstname, string Lastname, string Streetname, int Streetnumber, string Streetnumbersuffix, string City, string Postalcode, MailAddress Email, string Phonenumber, string Startdate, string Enddate, string Comment)
         {
             this.firstname = Firstname;
             this.lastname = Lastname;

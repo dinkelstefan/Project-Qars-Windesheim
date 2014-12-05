@@ -19,9 +19,11 @@ namespace Qars
         public int imageWidth = 160;
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
+
+        static public List<Damage> damageList = new List<Damage>();
         static public List<Establishment> EstablishmentList = new List<Establishment>();
+        static public List<Reservation> reservationList = new List<Reservation>();
         static public List<Car> carList = new List<Car>();
-        static public List<CarPhoto> cPhotos = new List<CarPhoto>();
         public List<Car> compareList = new List<Car>();
 
         public DBConnect db = new DBConnect();
@@ -32,25 +34,25 @@ namespace Qars
             DoubleBuffered = true;
 
             carList = db.FillCars();
-            cPhotos = db.FillCarPhotos();
             EstablishmentList = db.FillEstablishment();
+            reservationList = db.FillReservation();
+            damageList = db.FillDamage();
 
             int localY = 200;
             int localX = 10;
             int checkNumb = 0;
 
-            Debug.WriteLine(cPhotos[0].Photolink);
 
             for (int i = 0; i < carList.Count; i++)
             {
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
                 {
-                    tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
+                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
                 }
                 else
                 {
-                    tp = new TileListPanel(carList[i].brand, carList[i].rentalprice, "asd", localY, localX, i, this);
+                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, "asd", localY, localX, i, this);
                 }
                 TileView.Controls.Add(tp);
                 localX += 200;
@@ -110,7 +112,6 @@ namespace Qars
         public void OpenDetails(int number)
         {
             CarDetailPanel cp = new CarDetailPanel(number);
-            Debug.WriteLine("stuff");
             this.Controls.Add(cp);
             cp.BringToFront();
         }

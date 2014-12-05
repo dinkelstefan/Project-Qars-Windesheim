@@ -13,7 +13,7 @@ namespace Qars
         public string brand { get; set; }
         public string model { get; set; }
         public string category { get; set; }
-        public string modelyear { get; set; }
+        public int modelyear { get; set; }
         public bool automatic { get; set; }
         public int kilometres { get; set; }
         public string colour { get; set; }
@@ -21,56 +21,32 @@ namespace Qars
         public bool stereo { get; set; }
         public bool bluetooth { get; set; }
         public double horsepower { get; set; }
-        public string length { get; set; }
-        public string width { get; set; }
-        public string height { get; set; }
+        public int length { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+        public int weight { get; set; }
+        public bool navigation { get; set; }
+        public bool parkingAssist { get; set; }
+        public bool fourwheeldrive { get; set; }
+        public bool cabrio { get; set; }
         public bool airco { get; set; }
         public int seats { get; set; }
         public string motdate { get; set; } //convert date to string
         public double storagespace { get; set; }
         public int gearsamount { get; set; }
 
-        public float startprice { get; set; }
-        public float rentalprice { get; set; }
-        public float sellingprice { get; set; }
+        public int startprice { get; set; }
+        public double rentalprice { get; set; }
+        public double sellingprice { get; set; }
         public bool available { get; set; }
         public string description { get; set; }
         public int Fuelusage { get; set; }
         public string motor { get; set; }
         public List<CarPhoto> PhotoList { get; set; }
 
-        public Car(int carID, int establishmentID, string brand, string model, string category, string modelyear, bool automatic, int kilometres, string colour, int doors, bool stereo, bool bluetooth, double horsepower, string length, string width, string height, bool airco, int seats, string motdate, double storagespace, int gearsamount, float startprice, float rentalprice, float sellingprice, bool available, string description, int Fuelusage, string motor)
+        public Car()
         {
-            this.carID = carID;
-            this.establishmentID = establishmentID;
-            this.brand = brand;
-            this.model = model;
-            this.category = category;
-            this.modelyear = modelyear;
-            this.automatic = automatic;
-            this.kilometres = kilometres;
-            this.colour = colour;
-            this.doors = doors;
-            this.stereo = stereo;
-            this.bluetooth = bluetooth;
-            this.horsepower = horsepower;
-            this.length = length;
-            this.width = width;
-            this.height = height;
-            this.airco = airco;
-            this.seats = seats;
-            this.motdate = motdate;
-            this.storagespace = storagespace;
-            this.gearsamount = gearsamount;
-            this.startprice = startprice;
-            this.rentalprice = rentalprice;
-            this.sellingprice = sellingprice;
-            this.available = available;
-            this.description = description;
-            this.Fuelusage = Fuelusage;
-            this.motor = motor;
             this.PhotoList = new List<CarPhoto>();
-
         }
     }
 }
