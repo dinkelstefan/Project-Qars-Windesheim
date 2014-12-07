@@ -34,7 +34,6 @@ namespace Qars
         public string motdate { get; set; } //convert date to string
         public double storagespace { get; set; }
         public int gearsamount { get; set; }
-
         public int startprice { get; set; }
         public double rentalprice { get; set; }
         public double sellingprice { get; set; }
@@ -47,6 +46,11 @@ namespace Qars
         public Car()
         {
             this.PhotoList = new List<CarPhoto>();
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}.\t{1} {2}\t{3}\t{4}", this.carID, this.brand, this.model, this.automatic.ToString(), this.category);
         }
     }
 }

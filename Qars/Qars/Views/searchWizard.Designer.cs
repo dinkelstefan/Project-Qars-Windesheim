@@ -30,6 +30,7 @@
         {
             this.searchWizardTabControl = new System.Windows.Forms.TabControl();
             this.searchTabpage1 = new System.Windows.Forms.TabPage();
+            this.searchButton1 = new System.Windows.Forms.Button();
             this.sportRadioButton = new System.Windows.Forms.RadioButton();
             this.sedanRadioButton = new System.Windows.Forms.RadioButton();
             this.bedrijfswagenRadioButton = new System.Windows.Forms.RadioButton();
@@ -38,16 +39,19 @@
             this.stationwagenRadioButton = new System.Windows.Forms.RadioButton();
             this.question1Label = new System.Windows.Forms.Label();
             this.searchTabpage2 = new System.Windows.Forms.TabPage();
+            this.searchButton2 = new System.Windows.Forms.Button();
             this.handgeschakeldRadioButton = new System.Windows.Forms.RadioButton();
             this.automaatRadioButton = new System.Windows.Forms.RadioButton();
             this.question2Label = new System.Windows.Forms.Label();
             this.searchTabpage3 = new System.Windows.Forms.TabPage();
+            this.searchButton3 = new System.Windows.Forms.Button();
             this.veryHighCheckBox = new System.Windows.Forms.CheckBox();
             this.highCheckBox = new System.Windows.Forms.CheckBox();
             this.mediumCheckBox = new System.Windows.Forms.CheckBox();
             this.lowCheckBox = new System.Windows.Forms.CheckBox();
             this.question3Label = new System.Windows.Forms.Label();
             this.searchTabpage4 = new System.Windows.Forms.TabPage();
+            this.searchButton4 = new System.Windows.Forms.Button();
             this.leeuwardenCheckBox = new System.Windows.Forms.CheckBox();
             this.groningenCheckBox = new System.Windows.Forms.CheckBox();
             this.amsterdamCheckBox = new System.Windows.Forms.CheckBox();
@@ -55,6 +59,7 @@
             this.zwolleCheckBox = new System.Windows.Forms.CheckBox();
             this.question4label = new System.Windows.Forms.Label();
             this.searchTabpage5 = new System.Windows.Forms.TabPage();
+            this.searchButton5 = new System.Windows.Forms.Button();
             this.aircoCheckbox = new System.Windows.Forms.CheckBox();
             this.radioCheckBox = new System.Windows.Forms.CheckBox();
             this.navigationCheckBox = new System.Windows.Forms.CheckBox();
@@ -85,6 +90,7 @@
             // searchTabpage1
             // 
             this.searchTabpage1.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage1.Controls.Add(this.searchButton1);
             this.searchTabpage1.Controls.Add(this.sportRadioButton);
             this.searchTabpage1.Controls.Add(this.sedanRadioButton);
             this.searchTabpage1.Controls.Add(this.bedrijfswagenRadioButton);
@@ -98,6 +104,16 @@
             this.searchTabpage1.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage1.TabIndex = 0;
             this.searchTabpage1.Text = "Vraag 1";
+            // 
+            // searchButton1
+            // 
+            this.searchButton1.Location = new System.Drawing.Point(1418, 776);
+            this.searchButton1.Name = "searchButton1";
+            this.searchButton1.Size = new System.Drawing.Size(104, 34);
+            this.searchButton1.TabIndex = 1;
+            this.searchButton1.Text = "Zoeken";
+            this.searchButton1.UseVisualStyleBackColor = true;
+            this.searchButton1.Click += new System.EventHandler(this.searchClick);
             // 
             // sportRadioButton
             // 
@@ -162,13 +178,11 @@
             // stationwagenRadioButton
             // 
             this.stationwagenRadioButton.AutoSize = true;
-            this.stationwagenRadioButton.Checked = true;
             this.stationwagenRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.stationwagenRadioButton.Location = new System.Drawing.Point(44, 146);
             this.stationwagenRadioButton.Name = "stationwagenRadioButton";
             this.stationwagenRadioButton.Size = new System.Drawing.Size(214, 36);
             this.stationwagenRadioButton.TabIndex = 2;
-            this.stationwagenRadioButton.TabStop = true;
             this.stationwagenRadioButton.Text = "Stationwagen";
             this.stationwagenRadioButton.UseVisualStyleBackColor = true;
             this.stationwagenRadioButton.CheckedChanged += new System.EventHandler(this.selectCarType);
@@ -186,6 +200,7 @@
             // searchTabpage2
             // 
             this.searchTabpage2.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage2.Controls.Add(this.searchButton2);
             this.searchTabpage2.Controls.Add(this.handgeschakeldRadioButton);
             this.searchTabpage2.Controls.Add(this.automaatRadioButton);
             this.searchTabpage2.Controls.Add(this.question2Label);
@@ -195,6 +210,16 @@
             this.searchTabpage2.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage2.TabIndex = 1;
             this.searchTabpage2.Text = "Vraag 2";
+            // 
+            // searchButton2
+            // 
+            this.searchButton2.Location = new System.Drawing.Point(1420, 777);
+            this.searchButton2.Name = "searchButton2";
+            this.searchButton2.Size = new System.Drawing.Size(104, 34);
+            this.searchButton2.TabIndex = 3;
+            this.searchButton2.Text = "Zoeken";
+            this.searchButton2.UseVisualStyleBackColor = true;
+            this.searchButton2.Click += new System.EventHandler(this.searchClick);
             // 
             // handgeschakeldRadioButton
             // 
@@ -235,6 +260,7 @@
             // searchTabpage3
             // 
             this.searchTabpage3.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage3.Controls.Add(this.searchButton3);
             this.searchTabpage3.Controls.Add(this.veryHighCheckBox);
             this.searchTabpage3.Controls.Add(this.highCheckBox);
             this.searchTabpage3.Controls.Add(this.mediumCheckBox);
@@ -245,6 +271,16 @@
             this.searchTabpage3.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage3.TabIndex = 2;
             this.searchTabpage3.Text = "Vraag 3";
+            // 
+            // searchButton3
+            // 
+            this.searchButton3.Location = new System.Drawing.Point(1417, 777);
+            this.searchButton3.Name = "searchButton3";
+            this.searchButton3.Size = new System.Drawing.Size(104, 34);
+            this.searchButton3.TabIndex = 6;
+            this.searchButton3.Text = "Zoeken";
+            this.searchButton3.UseVisualStyleBackColor = true;
+            this.searchButton3.Click += new System.EventHandler(this.searchClick);
             // 
             // veryHighCheckBox
             // 
@@ -259,7 +295,6 @@
             this.veryHighCheckBox.Tag = "200-*";
             this.veryHighCheckBox.Text = "€200 en meer";
             this.veryHighCheckBox.UseVisualStyleBackColor = true;
-            this.veryHighCheckBox.CheckedChanged += new System.EventHandler(this.priceClassChanged);
             // 
             // highCheckBox
             // 
@@ -274,7 +309,6 @@
             this.highCheckBox.Tag = "100-200";
             this.highCheckBox.Text = "€100 - €200";
             this.highCheckBox.UseVisualStyleBackColor = true;
-            this.highCheckBox.CheckedChanged += new System.EventHandler(this.priceClassChanged);
             // 
             // mediumCheckBox
             // 
@@ -289,7 +323,6 @@
             this.mediumCheckBox.Tag = "50-100";
             this.mediumCheckBox.Text = "€50 - €100";
             this.mediumCheckBox.UseVisualStyleBackColor = true;
-            this.mediumCheckBox.CheckedChanged += new System.EventHandler(this.priceClassChanged);
             // 
             // lowCheckBox
             // 
@@ -304,7 +337,6 @@
             this.lowCheckBox.Tag = "15-50";
             this.lowCheckBox.Text = "€15 - €50";
             this.lowCheckBox.UseVisualStyleBackColor = true;
-            this.lowCheckBox.CheckedChanged += new System.EventHandler(this.priceClassChanged);
             // 
             // question3Label
             // 
@@ -319,6 +351,7 @@
             // searchTabpage4
             // 
             this.searchTabpage4.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage4.Controls.Add(this.searchButton4);
             this.searchTabpage4.Controls.Add(this.leeuwardenCheckBox);
             this.searchTabpage4.Controls.Add(this.groningenCheckBox);
             this.searchTabpage4.Controls.Add(this.amsterdamCheckBox);
@@ -331,6 +364,16 @@
             this.searchTabpage4.TabIndex = 3;
             this.searchTabpage4.Text = "Vraag 4";
             // 
+            // searchButton4
+            // 
+            this.searchButton4.Location = new System.Drawing.Point(1411, 775);
+            this.searchButton4.Name = "searchButton4";
+            this.searchButton4.Size = new System.Drawing.Size(104, 34);
+            this.searchButton4.TabIndex = 8;
+            this.searchButton4.Text = "Zoeken";
+            this.searchButton4.UseVisualStyleBackColor = true;
+            this.searchButton4.Click += new System.EventHandler(this.searchClick);
+            // 
             // leeuwardenCheckBox
             // 
             this.leeuwardenCheckBox.AutoSize = true;
@@ -341,7 +384,6 @@
             this.leeuwardenCheckBox.TabIndex = 7;
             this.leeuwardenCheckBox.Text = "Leeuwarden";
             this.leeuwardenCheckBox.UseVisualStyleBackColor = true;
-            this.leeuwardenCheckBox.CheckedChanged += new System.EventHandler(this.cityChanged);
             // 
             // groningenCheckBox
             // 
@@ -353,7 +395,6 @@
             this.groningenCheckBox.TabIndex = 6;
             this.groningenCheckBox.Text = "Groningen";
             this.groningenCheckBox.UseVisualStyleBackColor = true;
-            this.groningenCheckBox.CheckedChanged += new System.EventHandler(this.cityChanged);
             // 
             // amsterdamCheckBox
             // 
@@ -365,7 +406,6 @@
             this.amsterdamCheckBox.TabIndex = 5;
             this.amsterdamCheckBox.Text = "Amsterdam";
             this.amsterdamCheckBox.UseVisualStyleBackColor = true;
-            this.amsterdamCheckBox.CheckedChanged += new System.EventHandler(this.cityChanged);
             // 
             // arnhemCheckBox
             // 
@@ -377,7 +417,6 @@
             this.arnhemCheckBox.TabIndex = 4;
             this.arnhemCheckBox.Text = "Arnhem";
             this.arnhemCheckBox.UseVisualStyleBackColor = true;
-            this.arnhemCheckBox.CheckedChanged += new System.EventHandler(this.cityChanged);
             // 
             // zwolleCheckBox
             // 
@@ -389,7 +428,6 @@
             this.zwolleCheckBox.TabIndex = 3;
             this.zwolleCheckBox.Text = "Zwolle";
             this.zwolleCheckBox.UseVisualStyleBackColor = true;
-            this.zwolleCheckBox.CheckedChanged += new System.EventHandler(this.cityChanged);
             // 
             // question4label
             // 
@@ -404,6 +442,7 @@
             // searchTabpage5
             // 
             this.searchTabpage5.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage5.Controls.Add(this.searchButton5);
             this.searchTabpage5.Controls.Add(this.aircoCheckbox);
             this.searchTabpage5.Controls.Add(this.radioCheckBox);
             this.searchTabpage5.Controls.Add(this.navigationCheckBox);
@@ -415,6 +454,16 @@
             this.searchTabpage5.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage5.TabIndex = 4;
             this.searchTabpage5.Text = "Vraag 5";
+            // 
+            // searchButton5
+            // 
+            this.searchButton5.Location = new System.Drawing.Point(1405, 769);
+            this.searchButton5.Name = "searchButton5";
+            this.searchButton5.Size = new System.Drawing.Size(104, 34);
+            this.searchButton5.TabIndex = 9;
+            this.searchButton5.Text = "Zoeken";
+            this.searchButton5.UseVisualStyleBackColor = true;
+            this.searchButton5.Click += new System.EventHandler(this.searchClick);
             // 
             // aircoCheckbox
             // 
@@ -538,5 +587,10 @@
         private System.Windows.Forms.CheckBox cruisControlCheckBox;
         private System.Windows.Forms.CheckBox bluetoothCheckBox;
         private System.Windows.Forms.Label question5Label;
+        private System.Windows.Forms.Button searchButton1;
+        private System.Windows.Forms.Button searchButton2;
+        private System.Windows.Forms.Button searchButton3;
+        private System.Windows.Forms.Button searchButton4;
+        private System.Windows.Forms.Button searchButton5;
     }
 }
