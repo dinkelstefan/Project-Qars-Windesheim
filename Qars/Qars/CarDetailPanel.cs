@@ -6,14 +6,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+/*TO DO:
+ * 
+ * Add more specs to specname
+ * Clean up code
+ * Make the panel only load in the values that are not null
+ * Add a description to the photos
+ */
 namespace Qars
 {
     class CarDetailPanel : Panel
     {
         private List<PictureBox> pbox = new List<PictureBox>();
+
         private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "Vermogen:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
         private PictureBox mainPicture;
-        private Label fotoBeschrijving;
+        private Label photoDescription;
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
 
@@ -165,14 +174,15 @@ namespace Qars
             fotoBeschrijvingBold.Font = new Font("Calibri", 11, FontStyle.Bold);
             this.Controls.Add(fotoBeschrijvingBold);
 
-            fotoBeschrijving = new Label();
-            fotoBeschrijving.Top = 211;
-            fotoBeschrijving.Left = 110;
-            fotoBeschrijving.Width = 600;
-            fotoBeschrijving.Height = 20;
-            fotoBeschrijving.Font = new Font("Calibri", 11);
-            fotoBeschrijving.Text = "NOT DONE YET. NEED HELP WITH CREATING EVENT.";
-            this.Controls.Add(fotoBeschrijving);
+            photoDescription = new Label();
+            photoDescription.Top = 211;
+            photoDescription.Left = 110;
+            photoDescription.Width = 600;
+            photoDescription.Height = 20;
+            photoDescription.Font = new Font("Calibri", 11);
+            photoDescription.Text = "NOT DONE YET. NEED HELP WITH CREATING EVENT.";
+            this.Controls.Add(photoDescription);
+
             Label specifications = new Label();
             specifications.Text = "Specificaties";
             specifications.Top = 315;
@@ -601,7 +611,7 @@ namespace Qars
             rentcarpanel.BringToFront();
             rentcarpanel.Show();
         }
-        public void PictureText(object sender, EventArgs e)
+        public void PictureText(object sender, EventArgs e) /* Help Please */
         {
             Label label = (Label)sender;
             string URL = mainPicture.ImageLocation;
