@@ -30,6 +30,7 @@
         {
             this.searchWizardTabControl = new System.Windows.Forms.TabControl();
             this.searchTabpage1 = new System.Windows.Forms.TabPage();
+            this.nextButton1 = new System.Windows.Forms.Button();
             this.searchButton1 = new System.Windows.Forms.Button();
             this.sportRadioButton = new System.Windows.Forms.RadioButton();
             this.sedanRadioButton = new System.Windows.Forms.RadioButton();
@@ -39,11 +40,16 @@
             this.stationwagenRadioButton = new System.Windows.Forms.RadioButton();
             this.question1Label = new System.Windows.Forms.Label();
             this.searchTabpage2 = new System.Windows.Forms.TabPage();
+            this.countCarLabel2 = new System.Windows.Forms.Label();
+            this.previousButton1 = new System.Windows.Forms.Button();
+            this.nextButton2 = new System.Windows.Forms.Button();
             this.searchButton2 = new System.Windows.Forms.Button();
             this.handgeschakeldRadioButton = new System.Windows.Forms.RadioButton();
             this.automaatRadioButton = new System.Windows.Forms.RadioButton();
             this.question2Label = new System.Windows.Forms.Label();
             this.searchTabpage3 = new System.Windows.Forms.TabPage();
+            this.privousButton2 = new System.Windows.Forms.Button();
+            this.nextButton3 = new System.Windows.Forms.Button();
             this.searchButton3 = new System.Windows.Forms.Button();
             this.veryHighCheckBox = new System.Windows.Forms.CheckBox();
             this.highCheckBox = new System.Windows.Forms.CheckBox();
@@ -51,6 +57,8 @@
             this.lowCheckBox = new System.Windows.Forms.CheckBox();
             this.question3Label = new System.Windows.Forms.Label();
             this.searchTabpage4 = new System.Windows.Forms.TabPage();
+            this.previousButton3 = new System.Windows.Forms.Button();
+            this.nextButton4 = new System.Windows.Forms.Button();
             this.searchButton4 = new System.Windows.Forms.Button();
             this.leeuwardenCheckBox = new System.Windows.Forms.CheckBox();
             this.groningenCheckBox = new System.Windows.Forms.CheckBox();
@@ -59,13 +67,18 @@
             this.zwolleCheckBox = new System.Windows.Forms.CheckBox();
             this.question4label = new System.Windows.Forms.Label();
             this.searchTabpage5 = new System.Windows.Forms.TabPage();
+            this.previousButton4 = new System.Windows.Forms.Button();
             this.searchButton5 = new System.Windows.Forms.Button();
-            this.aircoCheckbox = new System.Windows.Forms.CheckBox();
+            this.aircoCheckBox = new System.Windows.Forms.CheckBox();
             this.radioCheckBox = new System.Windows.Forms.CheckBox();
             this.navigationCheckBox = new System.Windows.Forms.CheckBox();
-            this.cruisControlCheckBox = new System.Windows.Forms.CheckBox();
+            this.cruiseControlCheckBox = new System.Windows.Forms.CheckBox();
             this.bluetoothCheckBox = new System.Windows.Forms.CheckBox();
             this.question5Label = new System.Windows.Forms.Label();
+            this.countCarLabel1 = new System.Windows.Forms.Label();
+            this.countCarLabel3 = new System.Windows.Forms.Label();
+            this.countCarLabel4 = new System.Windows.Forms.Label();
+            this.countCarLabel5 = new System.Windows.Forms.Label();
             this.searchWizardTabControl.SuspendLayout();
             this.searchTabpage1.SuspendLayout();
             this.searchTabpage2.SuspendLayout();
@@ -90,6 +103,8 @@
             // searchTabpage1
             // 
             this.searchTabpage1.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage1.Controls.Add(this.countCarLabel1);
+            this.searchTabpage1.Controls.Add(this.nextButton1);
             this.searchTabpage1.Controls.Add(this.searchButton1);
             this.searchTabpage1.Controls.Add(this.sportRadioButton);
             this.searchTabpage1.Controls.Add(this.sedanRadioButton);
@@ -104,6 +119,16 @@
             this.searchTabpage1.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage1.TabIndex = 0;
             this.searchTabpage1.Text = "Vraag 1";
+            // 
+            // nextButton1
+            // 
+            this.nextButton1.Location = new System.Drawing.Point(44, 776);
+            this.nextButton1.Name = "nextButton1";
+            this.nextButton1.Size = new System.Drawing.Size(93, 34);
+            this.nextButton1.TabIndex = 8;
+            this.nextButton1.Text = "Volgende";
+            this.nextButton1.UseVisualStyleBackColor = true;
+            this.nextButton1.Click += new System.EventHandler(this.nextTabpage);
             // 
             // searchButton1
             // 
@@ -200,6 +225,9 @@
             // searchTabpage2
             // 
             this.searchTabpage2.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage2.Controls.Add(this.countCarLabel2);
+            this.searchTabpage2.Controls.Add(this.previousButton1);
+            this.searchTabpage2.Controls.Add(this.nextButton2);
             this.searchTabpage2.Controls.Add(this.searchButton2);
             this.searchTabpage2.Controls.Add(this.handgeschakeldRadioButton);
             this.searchTabpage2.Controls.Add(this.automaatRadioButton);
@@ -211,9 +239,39 @@
             this.searchTabpage2.TabIndex = 1;
             this.searchTabpage2.Text = "Vraag 2";
             // 
+            // countCarLabel2
+            // 
+            this.countCarLabel2.AutoSize = true;
+            this.countCarLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel2.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel2.Name = "countCarLabel2";
+            this.countCarLabel2.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel2.TabIndex = 12;
+            this.countCarLabel2.Text = "Aantal gevonden auto\'s:\r\n";
+            // 
+            // previousButton1
+            // 
+            this.previousButton1.Location = new System.Drawing.Point(44, 777);
+            this.previousButton1.Name = "previousButton1";
+            this.previousButton1.Size = new System.Drawing.Size(77, 34);
+            this.previousButton1.TabIndex = 11;
+            this.previousButton1.Text = "Vorige";
+            this.previousButton1.UseVisualStyleBackColor = true;
+            this.previousButton1.Click += new System.EventHandler(this.previousTabPage);
+            // 
+            // nextButton2
+            // 
+            this.nextButton2.Location = new System.Drawing.Point(127, 777);
+            this.nextButton2.Name = "nextButton2";
+            this.nextButton2.Size = new System.Drawing.Size(93, 34);
+            this.nextButton2.TabIndex = 9;
+            this.nextButton2.Text = "Volgende";
+            this.nextButton2.UseVisualStyleBackColor = true;
+            this.nextButton2.Click += new System.EventHandler(this.nextTabpage);
+            // 
             // searchButton2
             // 
-            this.searchButton2.Location = new System.Drawing.Point(1420, 777);
+            this.searchButton2.Location = new System.Drawing.Point(1418, 776);
             this.searchButton2.Name = "searchButton2";
             this.searchButton2.Size = new System.Drawing.Size(104, 34);
             this.searchButton2.TabIndex = 3;
@@ -229,10 +287,9 @@
             this.handgeschakeldRadioButton.Name = "handgeschakeldRadioButton";
             this.handgeschakeldRadioButton.Size = new System.Drawing.Size(253, 36);
             this.handgeschakeldRadioButton.TabIndex = 2;
-            this.handgeschakeldRadioButton.TabStop = true;
             this.handgeschakeldRadioButton.Text = "Handgeschakeld";
             this.handgeschakeldRadioButton.UseVisualStyleBackColor = true;
-            this.handgeschakeldRadioButton.CheckedChanged += new System.EventHandler(this.transissionType);
+            this.handgeschakeldRadioButton.CheckedChanged += new System.EventHandler(this.selectTransmissionType);
             // 
             // automaatRadioButton
             // 
@@ -242,10 +299,9 @@
             this.automaatRadioButton.Name = "automaatRadioButton";
             this.automaatRadioButton.Size = new System.Drawing.Size(162, 36);
             this.automaatRadioButton.TabIndex = 1;
-            this.automaatRadioButton.TabStop = true;
             this.automaatRadioButton.Text = "Automaat";
             this.automaatRadioButton.UseVisualStyleBackColor = true;
-            this.automaatRadioButton.CheckedChanged += new System.EventHandler(this.transissionType);
+            this.automaatRadioButton.CheckedChanged += new System.EventHandler(this.selectTransmissionType);
             // 
             // question2Label
             // 
@@ -260,6 +316,9 @@
             // searchTabpage3
             // 
             this.searchTabpage3.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage3.Controls.Add(this.countCarLabel3);
+            this.searchTabpage3.Controls.Add(this.privousButton2);
+            this.searchTabpage3.Controls.Add(this.nextButton3);
             this.searchTabpage3.Controls.Add(this.searchButton3);
             this.searchTabpage3.Controls.Add(this.veryHighCheckBox);
             this.searchTabpage3.Controls.Add(this.highCheckBox);
@@ -272,9 +331,29 @@
             this.searchTabpage3.TabIndex = 2;
             this.searchTabpage3.Text = "Vraag 3";
             // 
+            // privousButton2
+            // 
+            this.privousButton2.Location = new System.Drawing.Point(48, 777);
+            this.privousButton2.Name = "privousButton2";
+            this.privousButton2.Size = new System.Drawing.Size(77, 34);
+            this.privousButton2.TabIndex = 10;
+            this.privousButton2.Text = "Vorige";
+            this.privousButton2.UseVisualStyleBackColor = true;
+            this.privousButton2.Click += new System.EventHandler(this.previousTabPage);
+            // 
+            // nextButton3
+            // 
+            this.nextButton3.Location = new System.Drawing.Point(131, 777);
+            this.nextButton3.Name = "nextButton3";
+            this.nextButton3.Size = new System.Drawing.Size(93, 34);
+            this.nextButton3.TabIndex = 9;
+            this.nextButton3.Text = "Volgende";
+            this.nextButton3.UseVisualStyleBackColor = true;
+            this.nextButton3.Click += new System.EventHandler(this.nextTabpage);
+            // 
             // searchButton3
             // 
-            this.searchButton3.Location = new System.Drawing.Point(1417, 777);
+            this.searchButton3.Location = new System.Drawing.Point(1418, 776);
             this.searchButton3.Name = "searchButton3";
             this.searchButton3.Size = new System.Drawing.Size(104, 34);
             this.searchButton3.TabIndex = 6;
@@ -295,6 +374,7 @@
             this.veryHighCheckBox.Tag = "200-*";
             this.veryHighCheckBox.Text = "€200 en meer";
             this.veryHighCheckBox.UseVisualStyleBackColor = true;
+            this.veryHighCheckBox.CheckedChanged += new System.EventHandler(this.selectPriceClass);
             // 
             // highCheckBox
             // 
@@ -309,6 +389,7 @@
             this.highCheckBox.Tag = "100-200";
             this.highCheckBox.Text = "€100 - €200";
             this.highCheckBox.UseVisualStyleBackColor = true;
+            this.highCheckBox.CheckedChanged += new System.EventHandler(this.selectPriceClass);
             // 
             // mediumCheckBox
             // 
@@ -323,6 +404,7 @@
             this.mediumCheckBox.Tag = "50-100";
             this.mediumCheckBox.Text = "€50 - €100";
             this.mediumCheckBox.UseVisualStyleBackColor = true;
+            this.mediumCheckBox.CheckedChanged += new System.EventHandler(this.selectPriceClass);
             // 
             // lowCheckBox
             // 
@@ -337,6 +419,7 @@
             this.lowCheckBox.Tag = "15-50";
             this.lowCheckBox.Text = "€15 - €50";
             this.lowCheckBox.UseVisualStyleBackColor = true;
+            this.lowCheckBox.CheckedChanged += new System.EventHandler(this.selectPriceClass);
             // 
             // question3Label
             // 
@@ -351,6 +434,9 @@
             // searchTabpage4
             // 
             this.searchTabpage4.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage4.Controls.Add(this.countCarLabel4);
+            this.searchTabpage4.Controls.Add(this.previousButton3);
+            this.searchTabpage4.Controls.Add(this.nextButton4);
             this.searchTabpage4.Controls.Add(this.searchButton4);
             this.searchTabpage4.Controls.Add(this.leeuwardenCheckBox);
             this.searchTabpage4.Controls.Add(this.groningenCheckBox);
@@ -364,9 +450,29 @@
             this.searchTabpage4.TabIndex = 3;
             this.searchTabpage4.Text = "Vraag 4";
             // 
+            // previousButton3
+            // 
+            this.previousButton3.Location = new System.Drawing.Point(48, 775);
+            this.previousButton3.Name = "previousButton3";
+            this.previousButton3.Size = new System.Drawing.Size(77, 34);
+            this.previousButton3.TabIndex = 11;
+            this.previousButton3.Text = "Vorige";
+            this.previousButton3.UseVisualStyleBackColor = true;
+            this.previousButton3.Click += new System.EventHandler(this.previousTabPage);
+            // 
+            // nextButton4
+            // 
+            this.nextButton4.Location = new System.Drawing.Point(130, 775);
+            this.nextButton4.Name = "nextButton4";
+            this.nextButton4.Size = new System.Drawing.Size(93, 34);
+            this.nextButton4.TabIndex = 9;
+            this.nextButton4.Text = "Volgende";
+            this.nextButton4.UseVisualStyleBackColor = true;
+            this.nextButton4.Click += new System.EventHandler(this.nextTabpage);
+            // 
             // searchButton4
             // 
-            this.searchButton4.Location = new System.Drawing.Point(1411, 775);
+            this.searchButton4.Location = new System.Drawing.Point(1418, 776);
             this.searchButton4.Name = "searchButton4";
             this.searchButton4.Size = new System.Drawing.Size(104, 34);
             this.searchButton4.TabIndex = 8;
@@ -377,6 +483,8 @@
             // leeuwardenCheckBox
             // 
             this.leeuwardenCheckBox.AutoSize = true;
+            this.leeuwardenCheckBox.Checked = true;
+            this.leeuwardenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.leeuwardenCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.leeuwardenCheckBox.Location = new System.Drawing.Point(48, 448);
             this.leeuwardenCheckBox.Name = "leeuwardenCheckBox";
@@ -384,10 +492,13 @@
             this.leeuwardenCheckBox.TabIndex = 7;
             this.leeuwardenCheckBox.Text = "Leeuwarden";
             this.leeuwardenCheckBox.UseVisualStyleBackColor = true;
+            this.leeuwardenCheckBox.CheckedChanged += new System.EventHandler(this.selectLocation);
             // 
             // groningenCheckBox
             // 
             this.groningenCheckBox.AutoSize = true;
+            this.groningenCheckBox.Checked = true;
+            this.groningenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.groningenCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groningenCheckBox.Location = new System.Drawing.Point(48, 380);
             this.groningenCheckBox.Name = "groningenCheckBox";
@@ -395,10 +506,13 @@
             this.groningenCheckBox.TabIndex = 6;
             this.groningenCheckBox.Text = "Groningen";
             this.groningenCheckBox.UseVisualStyleBackColor = true;
+            this.groningenCheckBox.CheckedChanged += new System.EventHandler(this.selectLocation);
             // 
             // amsterdamCheckBox
             // 
             this.amsterdamCheckBox.AutoSize = true;
+            this.amsterdamCheckBox.Checked = true;
+            this.amsterdamCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.amsterdamCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.amsterdamCheckBox.Location = new System.Drawing.Point(48, 305);
             this.amsterdamCheckBox.Name = "amsterdamCheckBox";
@@ -406,10 +520,13 @@
             this.amsterdamCheckBox.TabIndex = 5;
             this.amsterdamCheckBox.Text = "Amsterdam";
             this.amsterdamCheckBox.UseVisualStyleBackColor = true;
+            this.amsterdamCheckBox.CheckedChanged += new System.EventHandler(this.selectLocation);
             // 
             // arnhemCheckBox
             // 
             this.arnhemCheckBox.AutoSize = true;
+            this.arnhemCheckBox.Checked = true;
+            this.arnhemCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.arnhemCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.arnhemCheckBox.Location = new System.Drawing.Point(48, 234);
             this.arnhemCheckBox.Name = "arnhemCheckBox";
@@ -417,10 +534,13 @@
             this.arnhemCheckBox.TabIndex = 4;
             this.arnhemCheckBox.Text = "Arnhem";
             this.arnhemCheckBox.UseVisualStyleBackColor = true;
+            this.arnhemCheckBox.CheckedChanged += new System.EventHandler(this.selectLocation);
             // 
             // zwolleCheckBox
             // 
             this.zwolleCheckBox.AutoSize = true;
+            this.zwolleCheckBox.Checked = true;
+            this.zwolleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.zwolleCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.zwolleCheckBox.Location = new System.Drawing.Point(48, 164);
             this.zwolleCheckBox.Name = "zwolleCheckBox";
@@ -428,6 +548,7 @@
             this.zwolleCheckBox.TabIndex = 3;
             this.zwolleCheckBox.Text = "Zwolle";
             this.zwolleCheckBox.UseVisualStyleBackColor = true;
+            this.zwolleCheckBox.CheckedChanged += new System.EventHandler(this.selectLocation);
             // 
             // question4label
             // 
@@ -442,11 +563,13 @@
             // searchTabpage5
             // 
             this.searchTabpage5.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage5.Controls.Add(this.countCarLabel5);
+            this.searchTabpage5.Controls.Add(this.previousButton4);
             this.searchTabpage5.Controls.Add(this.searchButton5);
-            this.searchTabpage5.Controls.Add(this.aircoCheckbox);
+            this.searchTabpage5.Controls.Add(this.aircoCheckBox);
             this.searchTabpage5.Controls.Add(this.radioCheckBox);
             this.searchTabpage5.Controls.Add(this.navigationCheckBox);
-            this.searchTabpage5.Controls.Add(this.cruisControlCheckBox);
+            this.searchTabpage5.Controls.Add(this.cruiseControlCheckBox);
             this.searchTabpage5.Controls.Add(this.bluetoothCheckBox);
             this.searchTabpage5.Controls.Add(this.question5Label);
             this.searchTabpage5.Location = new System.Drawing.Point(4, 29);
@@ -455,9 +578,19 @@
             this.searchTabpage5.TabIndex = 4;
             this.searchTabpage5.Text = "Vraag 5";
             // 
+            // previousButton4
+            // 
+            this.previousButton4.Location = new System.Drawing.Point(58, 769);
+            this.previousButton4.Name = "previousButton4";
+            this.previousButton4.Size = new System.Drawing.Size(77, 34);
+            this.previousButton4.TabIndex = 11;
+            this.previousButton4.Text = "Vorige";
+            this.previousButton4.UseVisualStyleBackColor = true;
+            this.previousButton4.Click += new System.EventHandler(this.previousTabPage);
+            // 
             // searchButton5
             // 
-            this.searchButton5.Location = new System.Drawing.Point(1405, 769);
+            this.searchButton5.Location = new System.Drawing.Point(1418, 776);
             this.searchButton5.Name = "searchButton5";
             this.searchButton5.Size = new System.Drawing.Size(104, 34);
             this.searchButton5.TabIndex = 9;
@@ -465,16 +598,17 @@
             this.searchButton5.UseVisualStyleBackColor = true;
             this.searchButton5.Click += new System.EventHandler(this.searchClick);
             // 
-            // aircoCheckbox
+            // aircoCheckBox
             // 
-            this.aircoCheckbox.AutoSize = true;
-            this.aircoCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.aircoCheckbox.Location = new System.Drawing.Point(58, 376);
-            this.aircoCheckbox.Name = "aircoCheckbox";
-            this.aircoCheckbox.Size = new System.Drawing.Size(106, 36);
-            this.aircoCheckbox.TabIndex = 8;
-            this.aircoCheckbox.Text = "Airco";
-            this.aircoCheckbox.UseVisualStyleBackColor = true;
+            this.aircoCheckBox.AutoSize = true;
+            this.aircoCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.aircoCheckBox.Location = new System.Drawing.Point(58, 376);
+            this.aircoCheckBox.Name = "aircoCheckBox";
+            this.aircoCheckBox.Size = new System.Drawing.Size(106, 36);
+            this.aircoCheckBox.TabIndex = 8;
+            this.aircoCheckBox.Text = "Airco";
+            this.aircoCheckBox.UseVisualStyleBackColor = true;
+            this.aircoCheckBox.CheckedChanged += new System.EventHandler(this.selectExtra);
             // 
             // radioCheckBox
             // 
@@ -486,6 +620,7 @@
             this.radioCheckBox.TabIndex = 7;
             this.radioCheckBox.Text = "Radio";
             this.radioCheckBox.UseVisualStyleBackColor = true;
+            this.radioCheckBox.CheckedChanged += new System.EventHandler(this.selectExtra);
             // 
             // navigationCheckBox
             // 
@@ -497,17 +632,19 @@
             this.navigationCheckBox.TabIndex = 6;
             this.navigationCheckBox.Text = "Navigatie";
             this.navigationCheckBox.UseVisualStyleBackColor = true;
+            this.navigationCheckBox.CheckedChanged += new System.EventHandler(this.selectExtra);
             // 
-            // cruisControlCheckBox
+            // cruiseControlCheckBox
             // 
-            this.cruisControlCheckBox.AutoSize = true;
-            this.cruisControlCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.cruisControlCheckBox.Location = new System.Drawing.Point(58, 236);
-            this.cruisControlCheckBox.Name = "cruisControlCheckBox";
-            this.cruisControlCheckBox.Size = new System.Drawing.Size(216, 36);
-            this.cruisControlCheckBox.TabIndex = 5;
-            this.cruisControlCheckBox.Text = "Cruise control";
-            this.cruisControlCheckBox.UseVisualStyleBackColor = true;
+            this.cruiseControlCheckBox.AutoSize = true;
+            this.cruiseControlCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cruiseControlCheckBox.Location = new System.Drawing.Point(58, 236);
+            this.cruiseControlCheckBox.Name = "cruiseControlCheckBox";
+            this.cruiseControlCheckBox.Size = new System.Drawing.Size(216, 36);
+            this.cruiseControlCheckBox.TabIndex = 5;
+            this.cruiseControlCheckBox.Text = "Cruise control";
+            this.cruiseControlCheckBox.UseVisualStyleBackColor = true;
+            this.cruiseControlCheckBox.CheckedChanged += new System.EventHandler(this.selectExtra);
             // 
             // bluetoothCheckBox
             // 
@@ -519,6 +656,7 @@
             this.bluetoothCheckBox.TabIndex = 4;
             this.bluetoothCheckBox.Text = "Bluetooth";
             this.bluetoothCheckBox.UseVisualStyleBackColor = true;
+            this.bluetoothCheckBox.CheckedChanged += new System.EventHandler(this.selectExtra);
             // 
             // question5Label
             // 
@@ -526,9 +664,49 @@
             this.question5Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.question5Label.Location = new System.Drawing.Point(50, 87);
             this.question5Label.Name = "question5Label";
-            this.question5Label.Size = new System.Drawing.Size(553, 46);
+            this.question5Label.Size = new System.Drawing.Size(778, 46);
             this.question5Label.TabIndex = 3;
-            this.question5Label.Text = "Waar kunt u de auto ophalen?";
+            this.question5Label.Text = "Welke extra\'s moeten er op de auto zitten?";
+            // 
+            // countCarLabel1
+            // 
+            this.countCarLabel1.AutoSize = true;
+            this.countCarLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel1.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel1.Name = "countCarLabel1";
+            this.countCarLabel1.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel1.TabIndex = 13;
+            this.countCarLabel1.Text = "Aantal gevonden auto\'s:\r\n";
+            // 
+            // countCarLabel3
+            // 
+            this.countCarLabel3.AutoSize = true;
+            this.countCarLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel3.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel3.Name = "countCarLabel3";
+            this.countCarLabel3.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel3.TabIndex = 13;
+            this.countCarLabel3.Text = "Aantal gevonden auto\'s:\r\n";
+            // 
+            // countCarLabel4
+            // 
+            this.countCarLabel4.AutoSize = true;
+            this.countCarLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel4.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel4.Name = "countCarLabel4";
+            this.countCarLabel4.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel4.TabIndex = 13;
+            this.countCarLabel4.Text = "Aantal gevonden auto\'s:\r\n";
+            // 
+            // countCarLabel5
+            // 
+            this.countCarLabel5.AutoSize = true;
+            this.countCarLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel5.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel5.Name = "countCarLabel5";
+            this.countCarLabel5.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel5.TabIndex = 13;
+            this.countCarLabel5.Text = "Aantal gevonden auto\'s:\r\n";
             // 
             // searchWizard
             // 
@@ -581,10 +759,10 @@
         private System.Windows.Forms.CheckBox groningenCheckBox;
         private System.Windows.Forms.CheckBox amsterdamCheckBox;
         private System.Windows.Forms.CheckBox arnhemCheckBox;
-        private System.Windows.Forms.CheckBox aircoCheckbox;
+        private System.Windows.Forms.CheckBox aircoCheckBox;
         private System.Windows.Forms.CheckBox radioCheckBox;
         private System.Windows.Forms.CheckBox navigationCheckBox;
-        private System.Windows.Forms.CheckBox cruisControlCheckBox;
+        private System.Windows.Forms.CheckBox cruiseControlCheckBox;
         private System.Windows.Forms.CheckBox bluetoothCheckBox;
         private System.Windows.Forms.Label question5Label;
         private System.Windows.Forms.Button searchButton1;
@@ -592,5 +770,18 @@
         private System.Windows.Forms.Button searchButton3;
         private System.Windows.Forms.Button searchButton4;
         private System.Windows.Forms.Button searchButton5;
+        private System.Windows.Forms.Button nextButton1;
+        private System.Windows.Forms.Button nextButton2;
+        private System.Windows.Forms.Button nextButton3;
+        private System.Windows.Forms.Button nextButton4;
+        private System.Windows.Forms.Button privousButton2;
+        private System.Windows.Forms.Button previousButton1;
+        private System.Windows.Forms.Button previousButton3;
+        private System.Windows.Forms.Button previousButton4;
+        private System.Windows.Forms.Label countCarLabel2;
+        private System.Windows.Forms.Label countCarLabel1;
+        private System.Windows.Forms.Label countCarLabel3;
+        private System.Windows.Forms.Label countCarLabel4;
+        private System.Windows.Forms.Label countCarLabel5;
     }
 }

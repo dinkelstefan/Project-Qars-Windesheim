@@ -50,7 +50,7 @@ namespace Qars
 
         public override string ToString()
         {
-            return string.Format("{0}.\t{1} {2}\t{3}\t{4}", this.carID, this.brand, this.model, this.automatic.ToString(), this.category);
+            return string.Format("{0}.\t{1} {2}\t{3}\t{4}\t{5}", this.carID, this.brand, this.model, this.automatic.ToString(), this.category, this.establishmentID.ToString());
         }
     }
 }
