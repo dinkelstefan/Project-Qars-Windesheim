@@ -30,6 +30,7 @@
         {
             this.searchWizardTabControl = new System.Windows.Forms.TabControl();
             this.searchTabpage1 = new System.Windows.Forms.TabPage();
+            this.countCarLabel1 = new System.Windows.Forms.Label();
             this.nextButton1 = new System.Windows.Forms.Button();
             this.searchButton1 = new System.Windows.Forms.Button();
             this.sportRadioButton = new System.Windows.Forms.RadioButton();
@@ -48,6 +49,7 @@
             this.automaatRadioButton = new System.Windows.Forms.RadioButton();
             this.question2Label = new System.Windows.Forms.Label();
             this.searchTabpage3 = new System.Windows.Forms.TabPage();
+            this.countCarLabel3 = new System.Windows.Forms.Label();
             this.privousButton2 = new System.Windows.Forms.Button();
             this.nextButton3 = new System.Windows.Forms.Button();
             this.searchButton3 = new System.Windows.Forms.Button();
@@ -57,6 +59,7 @@
             this.lowCheckBox = new System.Windows.Forms.CheckBox();
             this.question3Label = new System.Windows.Forms.Label();
             this.searchTabpage4 = new System.Windows.Forms.TabPage();
+            this.countCarLabel4 = new System.Windows.Forms.Label();
             this.previousButton3 = new System.Windows.Forms.Button();
             this.nextButton4 = new System.Windows.Forms.Button();
             this.searchButton4 = new System.Windows.Forms.Button();
@@ -67,6 +70,7 @@
             this.zwolleCheckBox = new System.Windows.Forms.CheckBox();
             this.question4label = new System.Windows.Forms.Label();
             this.searchTabpage5 = new System.Windows.Forms.TabPage();
+            this.countCarLabel5 = new System.Windows.Forms.Label();
             this.previousButton4 = new System.Windows.Forms.Button();
             this.searchButton5 = new System.Windows.Forms.Button();
             this.aircoCheckBox = new System.Windows.Forms.CheckBox();
@@ -75,10 +79,7 @@
             this.cruiseControlCheckBox = new System.Windows.Forms.CheckBox();
             this.bluetoothCheckBox = new System.Windows.Forms.CheckBox();
             this.question5Label = new System.Windows.Forms.Label();
-            this.countCarLabel1 = new System.Windows.Forms.Label();
-            this.countCarLabel3 = new System.Windows.Forms.Label();
-            this.countCarLabel4 = new System.Windows.Forms.Label();
-            this.countCarLabel5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.searchWizardTabControl.SuspendLayout();
             this.searchTabpage1.SuspendLayout();
             this.searchTabpage2.SuspendLayout();
@@ -119,6 +120,16 @@
             this.searchTabpage1.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage1.TabIndex = 0;
             this.searchTabpage1.Text = "Vraag 1";
+            // 
+            // countCarLabel1
+            // 
+            this.countCarLabel1.AutoSize = true;
+            this.countCarLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel1.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel1.Name = "countCarLabel1";
+            this.countCarLabel1.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel1.TabIndex = 13;
+            this.countCarLabel1.Text = "Aantal gevonden auto\'s:\r\n";
             // 
             // nextButton1
             // 
@@ -170,9 +181,9 @@
             this.bedrijfswagenRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.bedrijfswagenRadioButton.Location = new System.Drawing.Point(44, 330);
             this.bedrijfswagenRadioButton.Name = "bedrijfswagenRadioButton";
-            this.bedrijfswagenRadioButton.Size = new System.Drawing.Size(220, 36);
+            this.bedrijfswagenRadioButton.Size = new System.Drawing.Size(204, 36);
             this.bedrijfswagenRadioButton.TabIndex = 5;
-            this.bedrijfswagenRadioButton.Text = "Bedrijfswagen";
+            this.bedrijfswagenRadioButton.Text = "Bestelwagen";
             this.bedrijfswagenRadioButton.UseVisualStyleBackColor = true;
             this.bedrijfswagenRadioButton.CheckedChanged += new System.EventHandler(this.selectCarType);
             // 
@@ -316,6 +327,7 @@
             // searchTabpage3
             // 
             this.searchTabpage3.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage3.Controls.Add(this.label1);
             this.searchTabpage3.Controls.Add(this.countCarLabel3);
             this.searchTabpage3.Controls.Add(this.privousButton2);
             this.searchTabpage3.Controls.Add(this.nextButton3);
@@ -330,6 +342,16 @@
             this.searchTabpage3.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage3.TabIndex = 2;
             this.searchTabpage3.Text = "Vraag 3";
+            // 
+            // countCarLabel3
+            // 
+            this.countCarLabel3.AutoSize = true;
+            this.countCarLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel3.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel3.Name = "countCarLabel3";
+            this.countCarLabel3.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel3.TabIndex = 13;
+            this.countCarLabel3.Text = "Aantal gevonden auto\'s:\r\n";
             // 
             // privousButton2
             // 
@@ -367,7 +389,7 @@
             this.veryHighCheckBox.Checked = true;
             this.veryHighCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.veryHighCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.veryHighCheckBox.Location = new System.Drawing.Point(48, 409);
+            this.veryHighCheckBox.Location = new System.Drawing.Point(48, 452);
             this.veryHighCheckBox.Name = "veryHighCheckBox";
             this.veryHighCheckBox.Size = new System.Drawing.Size(215, 36);
             this.veryHighCheckBox.TabIndex = 5;
@@ -382,7 +404,7 @@
             this.highCheckBox.Checked = true;
             this.highCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.highCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.highCheckBox.Location = new System.Drawing.Point(48, 326);
+            this.highCheckBox.Location = new System.Drawing.Point(48, 369);
             this.highCheckBox.Name = "highCheckBox";
             this.highCheckBox.Size = new System.Drawing.Size(192, 36);
             this.highCheckBox.TabIndex = 4;
@@ -397,7 +419,7 @@
             this.mediumCheckBox.Checked = true;
             this.mediumCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mediumCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.mediumCheckBox.Location = new System.Drawing.Point(48, 244);
+            this.mediumCheckBox.Location = new System.Drawing.Point(48, 287);
             this.mediumCheckBox.Name = "mediumCheckBox";
             this.mediumCheckBox.Size = new System.Drawing.Size(176, 36);
             this.mediumCheckBox.TabIndex = 3;
@@ -412,7 +434,7 @@
             this.lowCheckBox.Checked = true;
             this.lowCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.lowCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lowCheckBox.Location = new System.Drawing.Point(48, 165);
+            this.lowCheckBox.Location = new System.Drawing.Point(48, 208);
             this.lowCheckBox.Name = "lowCheckBox";
             this.lowCheckBox.Size = new System.Drawing.Size(160, 36);
             this.lowCheckBox.TabIndex = 2;
@@ -449,6 +471,16 @@
             this.searchTabpage4.Size = new System.Drawing.Size(1551, 834);
             this.searchTabpage4.TabIndex = 3;
             this.searchTabpage4.Text = "Vraag 4";
+            // 
+            // countCarLabel4
+            // 
+            this.countCarLabel4.AutoSize = true;
+            this.countCarLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel4.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel4.Name = "countCarLabel4";
+            this.countCarLabel4.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel4.TabIndex = 13;
+            this.countCarLabel4.Text = "Aantal gevonden auto\'s:\r\n";
             // 
             // previousButton3
             // 
@@ -578,6 +610,16 @@
             this.searchTabpage5.TabIndex = 4;
             this.searchTabpage5.Text = "Vraag 5";
             // 
+            // countCarLabel5
+            // 
+            this.countCarLabel5.AutoSize = true;
+            this.countCarLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.countCarLabel5.Location = new System.Drawing.Point(1127, 779);
+            this.countCarLabel5.Name = "countCarLabel5";
+            this.countCarLabel5.Size = new System.Drawing.Size(223, 25);
+            this.countCarLabel5.TabIndex = 13;
+            this.countCarLabel5.Text = "Aantal gevonden auto\'s:\r\n";
+            // 
             // previousButton4
             // 
             this.previousButton4.Location = new System.Drawing.Point(58, 769);
@@ -668,45 +710,16 @@
             this.question5Label.TabIndex = 3;
             this.question5Label.Text = "Welke extra\'s moeten er op de auto zitten?";
             // 
-            // countCarLabel1
+            // label1
             // 
-            this.countCarLabel1.AutoSize = true;
-            this.countCarLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.countCarLabel1.Location = new System.Drawing.Point(1127, 779);
-            this.countCarLabel1.Name = "countCarLabel1";
-            this.countCarLabel1.Size = new System.Drawing.Size(223, 25);
-            this.countCarLabel1.TabIndex = 13;
-            this.countCarLabel1.Text = "Aantal gevonden auto\'s:\r\n";
-            // 
-            // countCarLabel3
-            // 
-            this.countCarLabel3.AutoSize = true;
-            this.countCarLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.countCarLabel3.Location = new System.Drawing.Point(1127, 779);
-            this.countCarLabel3.Name = "countCarLabel3";
-            this.countCarLabel3.Size = new System.Drawing.Size(223, 25);
-            this.countCarLabel3.TabIndex = 13;
-            this.countCarLabel3.Text = "Aantal gevonden auto\'s:\r\n";
-            // 
-            // countCarLabel4
-            // 
-            this.countCarLabel4.AutoSize = true;
-            this.countCarLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.countCarLabel4.Location = new System.Drawing.Point(1127, 779);
-            this.countCarLabel4.Name = "countCarLabel4";
-            this.countCarLabel4.Size = new System.Drawing.Size(223, 25);
-            this.countCarLabel4.TabIndex = 13;
-            this.countCarLabel4.Text = "Aantal gevonden auto\'s:\r\n";
-            // 
-            // countCarLabel5
-            // 
-            this.countCarLabel5.AutoSize = true;
-            this.countCarLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.countCarLabel5.Location = new System.Drawing.Point(1127, 779);
-            this.countCarLabel5.Name = "countCarLabel5";
-            this.countCarLabel5.Size = new System.Drawing.Size(223, 25);
-            this.countCarLabel5.TabIndex = 13;
-            this.countCarLabel5.Text = "Aantal gevonden auto\'s:\r\n";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(754, 50);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Deze bedragen representeren het bedrag dat u ongeveer zal moeten betalen wanneer\r" +
+    "\n u 100 kilomter heeft gereden met de gehuurde auto.";
             // 
             // searchWizard
             // 
@@ -783,5 +796,6 @@
         private System.Windows.Forms.Label countCarLabel3;
         private System.Windows.Forms.Label countCarLabel4;
         private System.Windows.Forms.Label countCarLabel5;
+        private System.Windows.Forms.Label label1;
     }
 }

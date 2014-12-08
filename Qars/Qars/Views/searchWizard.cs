@@ -51,7 +51,18 @@ namespace Qars.Views
             filteredList = filterPriceClass(filteredList);
             filteredList = filterLocation(filteredList);
 
-            // filteredList = filterExtras(filteredList);
+            bool check = false;
+            for (int i = 0; i < answerExtra.Length; i++)
+            {
+                if(answerExtra[i]){
+                    check = true;
+                }
+            }
+
+            if (check)
+            {
+                filteredList = filterExtras(filteredList);
+            }
 
             if (filteredList.Count > 0)
             {
@@ -195,7 +206,7 @@ namespace Qars.Views
                 double price = car.startprice + (car.rentalprice * 100);
                 for (int i = 0; i < answerPriceClass.Length; i++)
                 {
-                    if (answerPriceClass[i] == true && (price > priceClasses[i, 0] && price < priceClasses[i, 1]))
+                    if (answerPriceClass[i] && (price > priceClasses[i, 0] && price < priceClasses[i, 1]))
                     {
                         localList.Add(car);
                     }
@@ -226,28 +237,31 @@ namespace Qars.Views
             //initialize vars needed for this function
             List<Car> localList = new List<Car>();
 
-            foreach (Car car in listToFilter)
+            var query = from car in listToFilter
+                        select car;
+
+            if (answerExtra[0])
             {
-                for (int i = 0; i < answerExtra.Length; i++)
-                {
-                    if (answerExtra[i] == true && car.bluetooth == true)
-                    {
-                        localList = addCarToList(localList, car);
-                    }
-                    else if (answerExtra[i] == true && car.navigation == true)
-                    {
-                        localList = addCarToList(localList, car);
-                    }
-                    else if (answerExtra[i] == true && car.stereo == true)
-                    {
-                        localList = addCarToList(localList, car);
-                    }
-                    else if (answerExtra[i] == true && car.airco == true)
-                    {
-                        localList = addCarToList(localList, car);
-                    }
-                }
+                query = query.Where(car => car.bluetooth == true);
             }
+
+            if (answerExtra[2])
+            {
+                query = query.Where(car => car.navigation == true);
+            }
+
+            if (answerExtra[3])
+            {
+                query = query.Where(car => car.stereo == true);
+            }
+
+            if (answerExtra[4])
+            {
+                query = query.Where(car => car.airco == true);
+            }
+
+            localList = query.ToList();
+
 
             return localList;
         }
@@ -298,7 +312,7 @@ namespace Qars.Views
             countCarLabel4.Text = labelText;
             countCarLabel5.Text = labelText;
         }
-        
+
         //REMOVE WHEN FINISHED
         private void printList(List<Car> list)
         {

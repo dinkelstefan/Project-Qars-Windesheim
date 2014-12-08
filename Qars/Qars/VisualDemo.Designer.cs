@@ -56,8 +56,8 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
-            this.searchButton = new System.Windows.Forms.Button();
             this.searchWizard1 = new Qars.Views.searchWizard();
+            this.searchButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -369,13 +369,20 @@
             // 
             this.TileView.AutoScroll = true;
             this.TileView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TileView.Controls.Add(this.searchWizard1);
             this.TileView.Controls.Add(this.panel8);
             this.TileView.Location = new System.Drawing.Point(332, 108);
             this.TileView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TileView.Name = "TileView";
             this.TileView.Size = new System.Drawing.Size(1565, 873);
             this.TileView.TabIndex = 12;
+            // 
+            // searchWizard1
+            // 
+            this.searchWizard1.Location = new System.Drawing.Point(331, 121);
+            this.searchWizard1.Name = "searchWizard1";
+            this.searchWizard1.Size = new System.Drawing.Size(1565, 873);
+            this.searchWizard1.TabIndex = 11;
+            this.searchWizard1.Visible = false;
             // 
             // searchButton
             // 
@@ -387,20 +394,13 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // searchWizard1
-            // 
-            this.searchWizard1.Location = new System.Drawing.Point(-3, -2);
-            this.searchWizard1.Name = "searchWizard1";
-            this.searchWizard1.Size = new System.Drawing.Size(1565, 873);
-            this.searchWizard1.TabIndex = 11;
-            this.searchWizard1.Visible = false;
-            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1896, 1048);
+            this.Controls.Add(this.searchWizard1);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.TileView);
             this.Controls.Add(this.label3);
