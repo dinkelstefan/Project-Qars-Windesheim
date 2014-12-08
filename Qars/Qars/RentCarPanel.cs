@@ -332,6 +332,8 @@ namespace Qars
             //}
 
 
+
+
             label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
             //label4 (?)
             label5.Text = VisualDemo.carList[carnumber].category;
