@@ -29,7 +29,7 @@ namespace Qars.Views
 
 
         private List<Car> copyList = new List<Car>();
-        private List<Car> filteredList = new List<Car>();
+        public List<Car> filteredList = new List<Car>();
 
         public searchWizard()
         {
@@ -39,22 +39,31 @@ namespace Qars.Views
         {
             copyList = VisualDemo.carList;
 
+            //Skip when answerType is empty
             if (answerType != null)
             {
                 filteredList = filterType(copyList);
             }
+
+            //Skip when answerTransmission is empty
             if (answerTransmission != null)
             {
                 filteredList = filterTransmission(filteredList);
             }
 
+            //Filter list on price class
             filteredList = filterPriceClass(filteredList);
+
+            //Filter list on location
             filteredList = filterLocation(filteredList);
 
+            //Checks if the list with extras filled with answers
+            //Else skip the filterExtras function
             bool check = false;
             for (int i = 0; i < answerExtra.Length; i++)
             {
-                if(answerExtra[i]){
+                if (answerExtra[i])
+                {
                     check = true;
                 }
             }
@@ -169,13 +178,10 @@ namespace Qars.Views
                 auto = true;
             }
 
-            foreach (Car car in listToFilter)
-            {
-                if (car.automatic == auto)
-                {
-                    localList.Add(car);
-                }
-            }
+            var query = from car in listToFilter
+                        select car;
+            query = query.Where(car => car.automatic == auto);
+            localList = query.ToList();
 
             return localList;
         }
@@ -184,15 +190,11 @@ namespace Qars.Views
             //initialize all the vars needed for this function
             List<Car> localList = new List<Car>();
 
-            foreach (Car car in listToFilter)
-            {
-                if (car.category == this.answerType)
-                {
-                    localList.Add(car);
-                }
+            var query = from car in listToFilter
+                        select car;
+            query = query.Where(car => car.category == this.answerType);
 
-            }
-
+            localList = query.ToList();
 
             return localList;
         }
@@ -306,6 +308,23 @@ namespace Qars.Views
             }
 
             string labelText = string.Format("Aantal gevonden auto's: {0}", countCar);
+            if (countCar == 0)
+            {
+                countCarLabel1.ForeColor = System.Drawing.Color.Red;
+                countCarLabel2.ForeColor = System.Drawing.Color.Red;
+                countCarLabel3.ForeColor = System.Drawing.Color.Red;
+                countCarLabel4.ForeColor = System.Drawing.Color.Red;
+                countCarLabel5.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                countCarLabel1.ForeColor = System.Drawing.Color.Black;
+                countCarLabel2.ForeColor = System.Drawing.Color.Black;
+                countCarLabel3.ForeColor = System.Drawing.Color.Black;
+                countCarLabel4.ForeColor = System.Drawing.Color.Black;
+                countCarLabel5.ForeColor = System.Drawing.Color.Black;
+            }
+
             countCarLabel1.Text = labelText;
             countCarLabel2.Text = labelText;
             countCarLabel3.Text = labelText;
