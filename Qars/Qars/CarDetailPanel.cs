@@ -67,7 +67,7 @@ namespace Qars
             }
             availableAt.Top = 130;
             availableAt.Left = 375;
-            availableAt.Width = 4000;
+            availableAt.Width = 327;
             availableAt.Height = 27;
             availableAt.Font = new Font("Calibri", 14);
 
@@ -332,8 +332,6 @@ namespace Qars
                         }
                         else
                         {
-                            item.Text = list[carnumber].gearsamount.ToString();
-
                             Label label = new Label();
                             label.Text = "Versnellingen:";
                             label.Top = top;
@@ -342,7 +340,7 @@ namespace Qars
                             label.Font = new Font("Calibri", 12, FontStyle.Bold);
                             label.Height = height;
                             this.Controls.Add(label);
-
+                            item.Text = list[carnumber].gearsamount.ToString();
                             item.Top = top;
                             item.Left = left;
                             item.Width = width;
@@ -706,7 +704,7 @@ namespace Qars
                             label.Height = height;
                             this.Controls.Add(label);
 
-                            item.Text = list[carnumber].stereo.ToString();
+                            item.Text = "Ja";
                             item.Top = top;
                             item.Left = left;
                             item.Width = width;
@@ -736,7 +734,7 @@ namespace Qars
                             label.Height = height;
                             this.Controls.Add(label);
 
-                            item.Text = list[carnumber].bluetooth.ToString();
+                            item.Text = "Ja";
                             item.Top = top;
                             item.Left = left;
                             item.Width = width;
@@ -798,7 +796,7 @@ namespace Qars
                             label.Height = height;
                             this.Controls.Add(label);
 
-                            item.Text = list[carnumber].parkingAssist.ToString();
+                            item.Text = "Ja";
                             item.Top = top;
                             item.Left = left;
                             item.Width = width;
@@ -888,7 +886,7 @@ namespace Qars
                             label.Height = height;
                             this.Controls.Add(label);
 
-                            item.Text = list[carnumber].airco.ToString();
+                            item.Text = "Ja";
                             item.Top = top;
                             item.Left = left;
                             item.Width = width;
