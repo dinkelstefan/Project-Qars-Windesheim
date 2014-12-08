@@ -17,7 +17,7 @@ namespace Qars
     {
         public int carnumber { get; set; }
         private String currentSelectedDateBox;
-        bool secondDateChecked;     
+        bool secondDateChecked;
         DateTime datum;
         DateTime datum2;
         public RentCarPanel(int carnumber)
@@ -173,21 +173,37 @@ namespace Qars
         {
 
             //VisualDemo.carList[carnumber].(info);
-            ModelLabel.Text = "Model:";   
-            SellingspriceLabel.Text = "Verkoopprijs:";
+            ModelLabel.Text = "Model:";
             CategoryLabel.Text = "Categorie:";
             YearOfBuildLabel.Text = "Bouwjaar:";
             KilometerLabel.Text = "Kilometer:";
             PKLabel.Text = "Pk:";
             SpaceLabel.Text = "Ruimte:";
+            AutoLabel.Text = "Automaat:";
+            label5.Text = "";
+            if (label5.Text == "")
+            {
+                CategoryLabel.Visible = false;
+                label5.Visible = false;
+                label6.Top = label5.Top;
+                label7.Top = label6.Top;
+                label8.Top = label7.Top;
+                label9.Top = label8.Top;
+
+                YearOfBuildLabel.Top = CategoryLabel.Top;
+                AutoLabel.Top = YearOfBuildLabel.Top;
+                KilometerLabel.Top = AutoLabel.Top;
+                PKLabel.Top = KilometerLabel.Top;
+
+            }
 
             label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
-            label4.Text = VisualDemo.carList[carnumber].sellingprice.ToString();
             label5.Text = VisualDemo.carList[carnumber].category;
             label6.Text = VisualDemo.carList[carnumber].modelyear.ToString();
+            label7.Text = VisualDemo.carList[carnumber].automatic.ToString();
             label8.Text = VisualDemo.carList[carnumber].kilometres.ToString();
             label9.Text = VisualDemo.carList[carnumber].horsepower.ToString();  //deze 
-            label7.Text = VisualDemo.carList[carnumber].automatic.ToString();
+
             if (label7.Text == "False")
             {
                 label7.Text = "Nee";
@@ -199,6 +215,20 @@ namespace Qars
             label10.Text = VisualDemo.carList[carnumber].motdate;
             label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + " Liter";
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
 
         }
     }

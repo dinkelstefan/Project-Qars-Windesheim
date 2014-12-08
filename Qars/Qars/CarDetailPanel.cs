@@ -10,19 +10,14 @@ using System.Windows.Forms;
 /*TO DO:
  * 
  * Add more specs to specname
- * Clean up code
  * Make the panel only load in the values that are not null
- * Add a description to the photos
  */
 namespace Qars
 {
     class CarDetailPanel : Panel
     {
         private List<PictureBox> pbox = new List<PictureBox>();
-
-        private string[] specname = { "Categorie:", "Bouwjaar:", "Automaat:", "Kilometers:", "Kleur:", "Deuren:", "Stereo:", "Bluetooth:", "Vermogen:", "Lengte:", "Breedte:", "Hoogte:", "Airco:", "Stoelen:", "APK:", "Ruimte:", "Versnellingen:", "Verbruik", "Motor" };
         private PictureBox mainPicture;
-        private Label photoDescription;
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
 
@@ -147,8 +142,8 @@ namespace Qars
                 pbox.Width = width;
                 left += 88;
                 this.Controls.Add(pbox);
-
                 pbox.MouseHover += new EventHandler(PictureHover);
+
 
                 i++;
             }
@@ -165,24 +160,6 @@ namespace Qars
 
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            Label fotoBeschrijvingBold = new Label();
-            fotoBeschrijvingBold.Text = "Beschrijving: ";
-            fotoBeschrijvingBold.Top = 211;
-            fotoBeschrijvingBold.Left = 22;
-            fotoBeschrijvingBold.Width = 88;
-            fotoBeschrijvingBold.Height = 20;
-            fotoBeschrijvingBold.Font = new Font("Calibri", 11, FontStyle.Bold);
-            this.Controls.Add(fotoBeschrijvingBold);
-
-            photoDescription = new Label();
-            photoDescription.Top = 211;
-            photoDescription.Left = 110;
-            photoDescription.Width = 600;
-            photoDescription.Height = 20;
-            photoDescription.Font = new Font("Calibri", 11);
-            photoDescription.Text = "NOT DONE YET. NEED HELP WITH CREATING EVENT.";
-            this.Controls.Add(photoDescription);
-
             Label specifications = new Label();
             specifications.Text = "Specificaties";
             specifications.Top = 315;
@@ -191,41 +168,6 @@ namespace Qars
             specifications.Height = 300;
             specifications.Font = new Font("Calibri", 20);
 
-            int top1 = 355;
-            int Left = 22;
-            int count = 0;
-            foreach (var item in specname)
-            {
-                if (count == 7 || count == 14 || count == 21)
-                {
-                    if (count == 14)
-                    {
-                        Left += 200;
-                        top1 = 355;
-                    }
-                    else
-                    {
-                        Left += 240;
-                        top1 = 355;
-                    }
-                }
-                int width = 120;
-                int height = 30;
-
-                Label specLabel = new Label();
-                specLabel.Text = item;
-                specLabel.Top = top1;
-                specLabel.Left = Left;
-                specLabel.Width = width;
-                specLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
-                specLabel.Height = height;
-
-                this.Controls.Add(specLabel);
-
-                top1 += 30;
-                count += 1;
-
-            }
             CreateSpecInfo(this, VisualDemo.carList, carNumber);
 
             Label description = new Label();
@@ -260,336 +202,766 @@ namespace Qars
         private void CreateSpecInfo(Panel panel, List<Car> list, int carnumber)
         {
             List<Label> LabelList = new List<Label>();
-            for (int i = 0; i <= 18; i++)
+            for (int i = 0; i <= 24; i++)
             {
                 LabelList.Add(new Label());
             }
+
+            int left1 = 22;
+            int width1 = 120;
 
             int top = 355;
             int left = 140;
             int width = 105;
             int height = 30;
+
             int count = 0;
             int count2 = 0;
-
             foreach (var item in LabelList)
             {
-                if (count == 7 || count == 14 || count == 21)
+                if (count2 == 7 || count2 == 14 || count2 == 21)
                 {
-                    if (count == 14)
-                    {
-                        top = 355;
-                        left += 200;
-                    }
-                    else
-                    {
-                        top = 355;
-                        left += 240;
-                    }
+
+
+                    top = 355;
+                    left += 240;
+                    left1 += 240;
                 }
-                switch (count2)
+
+
+                switch (count)
                 {
                     case 0:
-                        item.Text = list[carnumber].category;
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
+                        if (list[carnumber].category == "")
+                        {
+                            count++;
+                            continue;
 
-                        top += 30;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Categorie:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
 
-                        count++;
-                        count2++;
-                        break;
+                            item.Text = list[carnumber].category;
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+
+                            count++;
+                            count2++;
+                            break;
+                        }
                     case 1:
-                        item.Text = list[carnumber].modelyear.ToString();
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
+                        if (list[carnumber].modelyear == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Bouwjaar:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
 
-                        top += 30;
+                            item.Text = list[carnumber].modelyear.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
 
-                        count++;
-                        count2++;
-                        break;
+                            top += 30;
+                            count++;
+                            count2++;
+                            break;
+                        }
                     case 2:
-                        if (list[carnumber].automatic)
+                        if (!list[carnumber].automatic)
                         {
-                            item.Text = "Ja";
+                            count++;
+                            continue;
                         }
                         else
                         {
-                            item.Text = "Nee";
+                            Label label = new Label();
+                            label.Text = "Automaat:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = "Ja";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count++;
+                            count2++;
+                            break;
                         }
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
                     case 3:
-                        item.Text = list[carnumber].kilometres.ToString();
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
 
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 4:
-                        item.Text = list[carnumber].colour;
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 5:
-                        item.Text = list[carnumber].doors.ToString();
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 6:
-                        if (list[carnumber].stereo)
+                        if (!list[carnumber].automatic)
                         {
-                            item.Text = "Ja";
-                        }
-                        else
-                        {
-                            item.Text = "Nee";
-                        }
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 7:
-                        if (list[carnumber].automatic)
-                        {
-                            item.Text = "Ja";
-                        }
-                        else
-                        {
-                            item.Text = "Nee";
-                        }
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 8:
-                        item.Text = list[carnumber].horsepower.ToString() + " PK";
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 9:
-                        item.Text = list[carnumber].length + " cm";
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 10:
-                        item.Text = list[carnumber].width + " cm";
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 11:
-                        item.Text = list[carnumber].height + " cm";
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 12:
-                        if (list[carnumber].automatic)
-                        {
-                            item.Text = "Ja";
-                        }
-                        else
-                        {
-                            item.Text = "Nee";
-                        }
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 13:
-                        item.Text = list[carnumber].doors.ToString();
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 14:
-                        item.Text = list[carnumber].motdate;
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 15:
-                        item.Text = list[carnumber].storagespace.ToString() + " Liter";
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
-
-                        top += 30;
-
-                        count++;
-                        count2++;
-                        break;
-                    case 16:
-                        if (list[carnumber].automatic)
-                        {
-                            item.Text = "N.V.T.";
+                            count++;
+                            continue;
                         }
                         else
                         {
                             item.Text = list[carnumber].gearsamount.ToString();
+
+                            Label label = new Label();
+                            label.Text = "Versnellingen:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count++;
+                            count2++;
+                            break;
                         }
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Calibri", 12);
-                        panel.Controls.Add(item);
+                    case 4:
+                        if (list[carnumber].motor == "")
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Motor:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
 
-                        top += 30;
+                            item.Text = list[carnumber].motor;
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
 
-                        count++;
-                        count2++;
-                        break;
+                            top += 30;
+                            count++;
+                            count2++;
+                            break;
+                        }
+                    case 5:
+                        if (list[carnumber].horsepower == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Vermogen:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].horsepower + " PK";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count++;
+                            count2++;
+                            break;
+                        }
+                    case 6:
+                        if (list[carnumber].Fuelusage == -1)
+                        {
+                            count++;
+                            continue;
+
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Verbruik:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].Fuelusage.ToString() + " liter per km";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+
+                            count++;
+                            count2++;
+                            break;
+                        }
+                    case 7:
+                        if (list[carnumber].kilometres == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Kilometers:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].kilometres.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 8:
+                        if (list[carnumber].motdate == "")
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "APK:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].motdate;
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 9:
+                        if (list[carnumber].length == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Lengte";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].length + " cm";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 10:
+                        if (list[carnumber].width == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Breedte:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].width + " cm";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 11:
+                        if (list[carnumber].height == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Hoogte:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].height + " cm";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 12:
+                        if (list[carnumber].weight == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Gewicht:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].weight.ToString() + " kg";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 13:
+                        if (list[carnumber].colour == "")
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Kleur:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].colour;
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 14:
+                        if (list[carnumber].doors == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Deuren:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].doors.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 15:
+                        if (!list[carnumber].stereo)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Stereo:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].stereo.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 16:
+                        if (!list[carnumber].bluetooth)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Bluetooth:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].bluetooth.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+
+                            break;
+                        }
                     case 17:
-                        item.Text = list[carnumber].Fuelusage.ToString() + " liter per km";
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width + 7;
-                        item.Height = height;
-                        item.Font = new Font("Arial", 12);
-                        panel.Controls.Add(item);
+                        if (!list[carnumber].navigation)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
 
-                        top += 30;
+                            Label label = new Label();
+                            label.Text = "Navigatie:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
 
-                        count++;
-                        count2++;
-                        break;
+                            item.Text = "Ja";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width + 7;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
                     case 18:
-                        item.Text = list[carnumber].motor;
-                        item.Top = top;
-                        item.Left = left;
-                        item.Width = width;
-                        item.Height = height;
-                        item.Font = new Font("Arial", 12);
-                        panel.Controls.Add(item);
+                        if (!list[carnumber].parkingAssist)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Parkeerhulp:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
 
-                        top += 30;
+                            item.Text = list[carnumber].parkingAssist.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
 
-                        count++;
-                        count2++;
-                        break;
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 19:
+                        if (!list[carnumber].fourwheeldrive)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "4WD:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = "Ja";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 20:
+                        if (!list[carnumber].cabrio)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Cabrio:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = "Ja";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 21:
+                        if (!list[carnumber].airco)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Airco:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].airco.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+
+                    case 22:
+                        if (list[carnumber].seats == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Stoelen:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].seats.ToString();
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 23:
+                        if (list[carnumber].storagespace == -1)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            Label label = new Label();
+                            label.Text = "Ruimte:";
+                            label.Top = top;
+                            label.Left = left1;
+                            label.Width = width1;
+                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
+                            label.Height = height;
+                            this.Controls.Add(label);
+
+                            item.Text = list[carnumber].storagespace + " liter";
+                            item.Top = top;
+                            item.Left = left;
+                            item.Width = width;
+                            item.Height = height;
+                            item.Font = new Font("Calibri", 12);
+                            panel.Controls.Add(item);
+
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
                 }
             }
         }
@@ -598,7 +970,6 @@ namespace Qars
             PictureBox smallbox = (PictureBox)sender;
             mainPicture.ImageLocation = smallbox.ImageLocation;
         }
-
         public void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
@@ -611,11 +982,7 @@ namespace Qars
             rentcarpanel.BringToFront();
             rentcarpanel.Show();
         }
-        public void PictureText(object sender, EventArgs e) /* Help Please */
-        {
-            Label label = (Label)sender;
-            string URL = mainPicture.ImageLocation;
-        }
+
     }
 }
 
