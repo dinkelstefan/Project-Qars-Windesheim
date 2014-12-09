@@ -36,6 +36,7 @@ namespace Qars
             Label descinfo = createLabel(VisualDemo.carList[carNumber].description, 65, 700, 300, 300, 9, FontStyle.Regular);
             Button close = createButton("Sluiten", Color.Red, Color.White, -5, 950, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
+
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
             CreateSpecInfo(this, VisualDemo.carList, carNumber);
 
@@ -140,23 +141,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Bouwjaar:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].modelyear.ToString();
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Bouwjaar", top, left1, width, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].model.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
                             count2++;
@@ -865,16 +851,16 @@ namespace Qars
         public Button createButton(string text, Color backcolor, Color forecolor, int top, int left, int width, int height, int fontsize, FontStyle fontstyle, FlatStyle flatstyle, EventHandler handler)
         {
             Button button = new Button();
-            button.Text = "Sluiten";
-            button.BackColor = Color.Red;
-            button.Top = -5;
-            button.Left = 950;
-            button.Width = 100;
-            button.Height = 40;
-            button.ForeColor = Color.White;
-            button.Font = new Font("Calibri", 11, FontStyle.Bold);
-            button.FlatStyle = FlatStyle.Flat;
-            button.Click += new EventHandler(BackButtonClick);
+            button.Text = text;
+            button.BackColor = backcolor;
+            button.Top = top;
+            button.Left = left;
+            button.Width = width;
+            button.Height = height;
+            button.ForeColor = forecolor;
+            button.Font = new Font("Calibri", fontsize, fontstyle);
+            button.FlatStyle = flatstyle;
+            button.Click += new EventHandler(handler);
             this.Controls.Add(button);
             return button;
         }
