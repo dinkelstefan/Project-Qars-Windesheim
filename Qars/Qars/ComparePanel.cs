@@ -15,6 +15,7 @@ namespace Qars
         //items in code are given in English. In the application the translation is shown.
         public string[] compareItemsTranslation = { "Huurprijs", "Merk", "Categorie", "Bouwjaar", "Vermogen", "Deuren", "Stoelen", "Verbruik", "Motor" };
         public List<string> checkHighest = new List<String>{ "horsepower","seats" };
+        public List<string> checkLowest = new List<String> { "rentalprice","Fuelusage"};
         public List<Label> allLabels { get; set; }
         public List<PictureBox> pictures { get; set; }
         public Graphics graphics;
@@ -99,7 +100,11 @@ namespace Qars
                     tempLabel.BackColor = Color.Transparent;
                     if (checkHighest.Contains(compareItems[j]))
                     {
-                        CheckHighest(checkHighest[0], ref tempLabel, cars[i]);
+                        CheckHighest(compareItems[j], ref tempLabel, cars[i]);
+                    }
+                    if (checkLowest.Contains(compareItems[j]))
+                    {
+                        CheckLowest(compareItems[j], ref tempLabel, cars[i]);
                     }
                     this.Controls.Add(tempLabel);
                     allLabels.Add(tempLabel);
@@ -121,7 +126,6 @@ namespace Qars
             }
 
             //styling lines can be put here.
-            graphics.DrawLine(pen, new Point(0,topMargin), new Point(Width,topMargin));
             graphics.DrawLine(pen, new Point(0, topMargin + pictureHeight), new Point(Width, topMargin + pictureHeight));
 
             for (int i = 0; i < cars.Count; i++){
@@ -138,6 +142,7 @@ namespace Qars
 
         public void CheckHighest(string item, ref Label label,Car car){
             double[] compare = new double[cars.Count];
+            
             for (int i = 0; i < compare.Length; i++){
                 compare[i] = Convert.ToDouble(GetPropValue(cars[i],item));
             }
@@ -151,13 +156,11 @@ namespace Qars
         public void CheckLowest(string item, ref Label label, Car car)
         {
             double[] compare = new double[cars.Count];
-            for (int i = 0; i < compare.Length; i++)
-            {
+            for (int i = 0; i < compare.Length; i++){
                 compare[i] = Convert.ToDouble(GetPropValue(cars[i], item));
             }
             double maxValue = compare.Min();
-            if (maxValue == Convert.ToDouble(GetPropValue(car, item)))
-            {
+            if (maxValue == Convert.ToDouble(GetPropValue(car, item))){
                 label.Text = label.Text + " \u221A";
                 label.Font = new Font("Calibri", 10, FontStyle.Bold);
             }
