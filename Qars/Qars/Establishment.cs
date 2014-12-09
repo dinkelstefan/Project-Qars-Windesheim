@@ -18,7 +18,7 @@ namespace Qars
         public string streetnumbersuffix { get; set; }
         public string phonenumber { get; set; }
         public string emailaddress { get; set; }
-        public string leafletlink { get; set; } //Link naar een folder van een bedrijf
+        public string leafletlink { get; set; } //Link naar een folder van een company
         public string description { get; set; }
 
         public Establishment(int establishmentID, string name, string city, string postalcode, string streetname, int streetnumber, string streetnumbersuffix, string phonenumber, string emailaddress, string leafletlink, string description)

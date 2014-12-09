@@ -126,14 +126,14 @@ namespace Qars
                         newCar.description = SafeGetString(dataReader, 32);
 
                         // see if the car has photos, and at the first one to the list
-                        try
-                        {
-                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 0), SafeGetInt(dataReader, 1), SafeGetString(dataReader, 2), SafeGetString(dataReader, 3), SafeGetString(dataReader, 4), SafeGetString(dataReader, 5)));
-                        }
-                        catch (System.Data.SqlTypes.SqlNullValueException)
-                        {
-                            Console.WriteLine(" car:" + newCar.carID + " has no photos");
-                        }
+                        //try
+                        //{
+                        newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 33), SafeGetInt(dataReader, 34), SafeGetString(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38)));
+                        //}
+                        //catch (System.Data.SqlTypes.SqlNullValueException)
+                        //{
+                        //    Console.WriteLine(" car:" + newCar.carID + " has no photos");
+                        //}
                         localCarList.Add(newCar);
                     }
                     else
@@ -145,14 +145,14 @@ namespace Qars
                             if (car.carID == SafeGetInt(dataReader, 0))
                             {
                                 //try adding photos to the existing car
-                                try
-                                {
-                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 0), SafeGetInt(dataReader, 1), SafeGetString(dataReader, 2), SafeGetString(dataReader, 3), SafeGetString(dataReader, 4), SafeGetString(dataReader, 5)));
-                                }
-                                catch (System.Data.SqlTypes.SqlNullValueException)
-                                {
-                                    Console.WriteLine(" car:" + car.carID + " failed to load more photos");
-                                }
+                                //try
+                                //{
+                                car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 33), SafeGetInt(dataReader, 34), SafeGetString(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38)));
+                                //}
+                                //catch (System.Data.SqlTypes.SqlNullValueException)
+                                //{
+                                //Console.WriteLine(" car:" + car.carID + " failed to load more photos");
+                                //}
                             }
                         }
                     }

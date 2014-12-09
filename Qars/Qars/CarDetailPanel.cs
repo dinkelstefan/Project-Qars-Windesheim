@@ -6,23 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-/*TO DO:
- * 
- * Add more specs to specname
- * Make the panel only load in the values that are not null
- */
 namespace Qars
 {
     class CarDetailPanel : Panel
     {
         private List<PictureBox> pbox = new List<PictureBox>();
-        private PictureBox mainPicture;
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
+        private string availableat;
+        private PictureBox mainpicture;
 
         public CarDetailPanel(int carNumber)
-        {
+        {   //properties of the panel
             this.currentCarNumber = carNumber;
             this.Height = 568;
             this.Width = 1044;
@@ -31,172 +26,63 @@ namespace Qars
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
 
-            Label carName = new Label();
-            carName.Text = VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model;
-            carName.Top = 20;
-            carName.Left = 375;
-            carName.Width = 300;
-            carName.Height = 28;
-            carName.Font = new Font("Calibri", 20);
+            //all the labels, images and buttons
+            Label carname = createLabel(VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
+            Label beginprice = createLabel("Beginprijs: € " + VisualDemo.carList[carNumber].startprice, 70, 375, 200, 27, 14, FontStyle.Regular);
+            Label priceperkm = createLabel("Prijs per Kilometer: € " + VisualDemo.carList[carNumber].rentalprice, 100, 375, 225, 27, 14, FontStyle.Regular);
+            Label establishment = createLabel(availableat, 130, 375, 327, 27, 14, FontStyle.Regular);
+            Label specs = createLabel("Specificaties", 315, 22, 300, 32, 20, FontStyle.Regular);
+            Label desc = createLabel("Beschrijving", 20, 700, 165, 32, 20, FontStyle.Regular);
+            Label descinfo = createLabel(VisualDemo.carList[carNumber].description, 65, 700, 300, 300, 9, FontStyle.Regular);
+            Button close = createButton("Sluiten", Color.Red, Color.White, -5, 950, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
+            Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
+            mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
+            CreateSpecInfo(this, VisualDemo.carList, carNumber);
 
-            Label startprice = new Label();
-            startprice.Text = "Beginprijs: € " + VisualDemo.carList[carNumber].startprice;
-            startprice.Top = 70;
-            startprice.Left = 375;
-            startprice.Width = 200;
-            startprice.Height = 27;
-            startprice.Font = new Font("Calibri", 14);
-
-            Label kmprice = new Label();
-            kmprice.Text = "Prijs per Kilometer: € " + VisualDemo.carList[carNumber].rentalprice;
-            kmprice.Top = 100;
-            kmprice.Left = 375;
-            kmprice.Width = 225;
-            kmprice.Height = 27;
-            kmprice.Font = new Font("Calibri", 14);
-
-
-            Label availableAt = new Label();
-            foreach (var bedrijf in VisualDemo.EstablishmentList)
+            //Look up where the Car is available
+            foreach (var company in VisualDemo.EstablishmentList)
             {
-                if (VisualDemo.carList[carNumber].establishmentID == bedrijf.establishmentID)
+                if (VisualDemo.carList[carNumber].establishmentID == company.establishmentID)
                 {
-                    availableAt.Text = "Verkrijgbaar bij: " + bedrijf.name;
-
+                    availableat = "Verkrijgbaar bij: " + company.name;
                 }
             }
-            availableAt.Top = 130;
-            availableAt.Left = 375;
-            availableAt.Width = 327;
-            availableAt.Height = 27;
-            availableAt.Font = new Font("Calibri", 14);
 
-            Button backButton = new Button();
-            backButton.Text = "Sluiten";
-            backButton.BackColor = Color.Red;
-            backButton.Top = -5;
-            backButton.Left = 950;
-            backButton.Width = 100;
-            backButton.Height = 40;
-            backButton.ForeColor = Color.White;
-            backButton.Font = new Font("Calibri", 11, FontStyle.Bold);
-            backButton.FlatStyle = FlatStyle.Flat;
-            backButton.Click += new EventHandler(BackButtonClick);
-
-            Button hireButton = new Button();
-            Label hiredLabel = new Label();
-            hireButton.Click += new EventHandler(hireButtonClick);
-            hireButton.Text = "Huren";
-            hireButton.BackColor = Color.Green;
-            hireButton.Top = 180;
-            hireButton.Left = 375;
-            hireButton.Width = 150;
-            hireButton.Height = 29;
-            hireButton.ForeColor = Color.White;
-            hireButton.Font = new Font("Calibri", 11, FontStyle.Bold);
-            hireButton.FlatStyle = FlatStyle.Flat;
-            if (!VisualDemo.carList[carNumber].available)
+            //look up if the car is available
+            foreach (var res in VisualDemo.reservationList)
             {
-                hiredLabel.Top = 185;
-                hiredLabel.Left = 525;
-                hiredLabel.Width = 200;
-                hiredLabel.Height = 30;
-                hiredLabel.Font = new Font("Calibri", 14);
-                this.Controls.Add(hiredLabel);
-
-                foreach (var res in VisualDemo.reservationList)
+                if (!VisualDemo.carList[carNumber].available)
                 {
                     if (res.carID == carNumber)
                     {
-                        hireButton.BackColor = Color.Orange;
-                        hireButton.Text = "Verhuurd";
+                        hire.BackColor = Color.Orange;
+                        hire.Text = "Verhuurd";
                     }
                 }
-
+                //look up if the car is being repaired
                 foreach (var rep in VisualDemo.damageList)
                 {
                     if (rep.carID == carNumber && rep.repaired == false)
                     {
-                        hireButton.Text = "Reparatie";
-                        hireButton.BackColor = Color.Red;
-                        hireButton.Enabled = false;
+                        hire.Text = "Reparatie";
+                        hire.BackColor = Color.Red;
+                        hire.Enabled = false;
                     }
                 }
             }
 
+            //Create the small pictures
             int left = 22;
-
             foreach (CarPhoto photo in VisualDemo.carList[carNumber].PhotoList)
             {
-                int top = 232;
-                int height = 75;
-                int width = 75;
-                int i = 0;
-
-                PictureBox pbox = new PictureBox();
-                pbox.ImageLocation = photo.Photolink;
-                pbox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pbox.Top = top;
-                pbox.Left = left;
-                pbox.Height = height;
-                pbox.Width = width;
+                PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
                 left += 88;
-                this.Controls.Add(pbox);
-                pbox.MouseHover += new EventHandler(PictureHover);
-
-
-                i++;
             }
-
-            mainPicture = new PictureBox();
-            mainPicture.Top = 22;
-            mainPicture.Left = 22;
-            mainPicture.Height = 185;
-            mainPicture.Width = 350;
+            //Select the main picture
             if (VisualDemo.carList[carNumber].PhotoList.Count > 0)
             {
-                mainPicture.ImageLocation = VisualDemo.carList[carNumber].PhotoList[0].Photolink;
+                mainpicture.ImageLocation = VisualDemo.carList[carNumber].PhotoList[0].Photolink;
             }
-
-            mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            Label specifications = new Label();
-            specifications.Text = "Specificaties";
-            specifications.Top = 315;
-            specifications.Left = 22;
-            specifications.Width = 300;
-            specifications.Height = 300;
-            specifications.Font = new Font("Calibri", 20);
-
-            CreateSpecInfo(this, VisualDemo.carList, carNumber);
-
-            Label description = new Label();
-            description.Text = "Beschrijving";
-            description.Top = 20;
-            description.Left = 700;
-            description.Width = 165;
-            description.Height = 32;
-            description.Font = new Font("Calibri", 20);
-
-            Label descriptioninfo = new Label();
-            descriptioninfo.Text = VisualDemo.carList[carNumber].description;
-            descriptioninfo.Top = 65;
-            descriptioninfo.Left = 700;
-            descriptioninfo.Width = 300;
-            descriptioninfo.Height = 300;
-            descriptioninfo.Font = new Font("Calibri", 9);
-
-            //all controls.
-            this.Controls.Add(carName);
-            this.Controls.Add(startprice);
-            this.Controls.Add(kmprice);
-            this.Controls.Add(mainPicture);
-            this.Controls.Add(availableAt);
-            this.Controls.Add(hireButton);
-            this.Controls.Add(specifications);
-            this.Controls.Add(description);
-            this.Controls.Add(descriptioninfo);
-            this.Controls.Add(backButton);
         }
 
         private void CreateSpecInfo(Panel panel, List<Car> list, int carnumber)
@@ -236,29 +122,12 @@ namespace Qars
                         {
                             count++;
                             continue;
-
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Categorie:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].category;
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Categorie", top, left1, width, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-
                             count++;
                             count2++;
                             break;
@@ -966,7 +835,7 @@ namespace Qars
         public void PictureHover(object sender, EventArgs e)
         {
             PictureBox smallbox = (PictureBox)sender;
-            mainPicture.ImageLocation = smallbox.ImageLocation;
+            mainpicture.ImageLocation = smallbox.ImageLocation;
         }
         public void BackButtonClick(object sender, EventArgs e)
         {
@@ -979,6 +848,48 @@ namespace Qars
             this.Controls.Add(rentcarpanel);
             rentcarpanel.BringToFront();
             rentcarpanel.Show();
+        }
+
+        public Label createLabel(string text, int top, int left, int width, int height, int fontsize, FontStyle style)
+        {
+            Label label = new Label();
+            label.Text = text;
+            label.Top = top;
+            label.Left = left;
+            label.Width = width;
+            label.Height = height;
+            label.Font = new Font("Calibri", fontsize, style);
+            this.Controls.Add(label);
+            return label;
+        }
+        public Button createButton(string text, Color backcolor, Color forecolor, int top, int left, int width, int height, int fontsize, FontStyle fontstyle, FlatStyle flatstyle, EventHandler handler)
+        {
+            Button button = new Button();
+            button.Text = "Sluiten";
+            button.BackColor = Color.Red;
+            button.Top = -5;
+            button.Left = 950;
+            button.Width = 100;
+            button.Height = 40;
+            button.ForeColor = Color.White;
+            button.Font = new Font("Calibri", 11, FontStyle.Bold);
+            button.FlatStyle = FlatStyle.Flat;
+            button.Click += new EventHandler(BackButtonClick);
+            this.Controls.Add(button);
+            return button;
+        }
+        public PictureBox createPictureBox(string location, PictureBoxSizeMode sizemode, int top, int left, int height, int width, EventHandler handler)
+        {
+            PictureBox pbox = new PictureBox();
+            pbox.ImageLocation = location;
+            pbox.SizeMode = sizemode;
+            pbox.Top = top;
+            pbox.Left = left;
+            pbox.Height = height;
+            pbox.Width = width;
+            pbox.MouseHover += new EventHandler(PictureHover);
+            this.Controls.Add(pbox);
+            return pbox;
         }
 
     }
