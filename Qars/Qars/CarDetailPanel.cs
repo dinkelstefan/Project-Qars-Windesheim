@@ -38,7 +38,7 @@ namespace Qars
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
 
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
-            CreateSpecInfo(this, VisualDemo.carList, carNumber);
+            CreateSpecInfo(VisualDemo.carList, carNumber);
 
             //Look up where the Car is available
             foreach (var company in VisualDemo.EstablishmentList)
@@ -86,14 +86,8 @@ namespace Qars
             }
         }
 
-        private void CreateSpecInfo(Panel panel, List<Car> list, int carnumber)
+        private void CreateSpecInfo(List<Car> list, int carnumber)
         {
-            List<Label> LabelList = new List<Label>();
-            for (int i = 0; i <= 24; i++)
-            {
-                LabelList.Add(new Label());
-            }
-
             int left1 = 22;
             int width1 = 120;
 
@@ -104,12 +98,11 @@ namespace Qars
 
             int count = 0;
             int count2 = 0;
-            foreach (var item in LabelList)
+
+            for (int i = 0; i < 24; i++)
             {
                 if (count2 == 7 || count2 == 14 || count2 == 21)
                 {
-
-
                     top = 355;
                     left += 240;
                     left1 += 240;
@@ -126,7 +119,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Categorie", top, left1, width, height, 12, FontStyle.Bold);
+                            createLabel("Categorie", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -141,7 +134,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Bouwjaar", top, left1, width, height, 12, FontStyle.Bold);
+                            createLabel("Bouwjaar", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].model.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -156,23 +149,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Automaat:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Automaat", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
                             count2++;
@@ -187,22 +165,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Versnellingen:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-                            item.Text = list[carnumber].gearsamount.ToString();
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Versnellingen", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].gearsamount.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
                             count2++;
@@ -216,23 +180,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Motor:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].motor;
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Motor", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].motor, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
                             count2++;
@@ -246,23 +195,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Vermogen:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].horsepower + " PK";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Vermogen", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].horsepower + " PK", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
                             count2++;
@@ -277,25 +211,9 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Verbruik:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].Fuelusage.ToString() + " liter per km";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Verbruik", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].Fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-
                             count++;
                             count2++;
                             break;
@@ -308,23 +226,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Kilometers:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].kilometres.ToString();
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Kilometers", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].kilometres.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -338,25 +241,9 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "APK:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].motdate;
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("APK", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].motdate, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-
                             count2++;
                             count++;
                             break;
@@ -369,25 +256,9 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Lengte";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].length + " cm";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Lengte:", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].length + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-
                             count2++;
                             count++;
                             break;
@@ -400,23 +271,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Breedte:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].width + " cm";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Breedte:", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].width + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -430,23 +286,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Hoogte:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].height + " cm";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Hoogte:", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].height + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -460,23 +301,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Gewicht:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].weight.ToString() + " kg";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Gewicht", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].weight + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -490,23 +316,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Kleur:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].colour;
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Kleur", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].colour, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -520,23 +331,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Deuren:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].doors.ToString();
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Deuren", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].doors.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -550,23 +346,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Stereo:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Stereo", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -580,23 +361,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Bluetooth:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Bluetooth", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -611,24 +377,8 @@ namespace Qars
                         }
                         else
                         {
-
-                            Label label = new Label();
-                            label.Text = "Navigatie:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width + 7;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Navigatie", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -642,23 +392,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Parkeerhulp:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Parkeerhulp", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -672,23 +407,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "4WD:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("4WD", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -702,23 +422,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Cabrio:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Cabrio", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -732,23 +437,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Airco:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = "Ja";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Airco", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -763,23 +453,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Stoelen:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].seats.ToString();
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Stoelen", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].seats.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -793,23 +468,8 @@ namespace Qars
                         }
                         else
                         {
-                            Label label = new Label();
-                            label.Text = "Ruimte:";
-                            label.Top = top;
-                            label.Left = left1;
-                            label.Width = width1;
-                            label.Font = new Font("Calibri", 12, FontStyle.Bold);
-                            label.Height = height;
-                            this.Controls.Add(label);
-
-                            item.Text = list[carnumber].storagespace + " liter";
-                            item.Top = top;
-                            item.Left = left;
-                            item.Width = width;
-                            item.Height = height;
-                            item.Font = new Font("Calibri", 12);
-                            panel.Controls.Add(item);
-
+                            createLabel("Ruimte", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
                             count++;
@@ -818,6 +478,7 @@ namespace Qars
                 }
             }
         }
+
         public void PictureHover(object sender, EventArgs e)
         {
             PictureBox smallbox = (PictureBox)sender;
