@@ -79,18 +79,18 @@ namespace Qars
             this.button2 = new System.Windows.Forms.Button();
             this.commentTextbox = new System.Windows.Forms.RichTextBox();
             this.commentLabel = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioNoButton = new System.Windows.Forms.RadioButton();
+            this.radioYesButton = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pickupCityTextbox = new System.Windows.Forms.TextBox();
+            this.pickupStreetTextbox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pickupStreetnumberTextbox = new System.Windows.Forms.TextBox();
+            this.pickupStreetnumberSuffixTextbox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -287,6 +287,7 @@ namespace Qars
             // 
             // monthCalendar
             // 
+            this.monthCalendar.BackColor = System.Drawing.SystemColors.Window;
             this.monthCalendar.Location = new System.Drawing.Point(277, 273);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.monthCalendar.MinDate = new System.DateTime(2014, 12, 3, 0, 0, 0, 0);
@@ -372,9 +373,9 @@ namespace Qars
             this.SpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpaceLabel.Location = new System.Drawing.Point(17, 217);
             this.SpaceLabel.Name = "SpaceLabel";
-            this.SpaceLabel.Size = new System.Drawing.Size(158, 25);
+            this.SpaceLabel.Size = new System.Drawing.Size(164, 25);
             this.SpaceLabel.TabIndex = 1008;
-            this.SpaceLabel.Text = "Ruimte (in Liters)";
+            this.SpaceLabel.Text = "Ruimte (in Liters):";
             // 
             // ApkLabel
             // 
@@ -382,9 +383,9 @@ namespace Qars
             this.ApkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApkLabel.Location = new System.Drawing.Point(17, 194);
             this.ApkLabel.Name = "ApkLabel";
-            this.ApkLabel.Size = new System.Drawing.Size(115, 25);
+            this.ApkLabel.Size = new System.Drawing.Size(121, 25);
             this.ApkLabel.TabIndex = 1007;
-            this.ApkLabel.Text = "APK Datum";
+            this.ApkLabel.Text = "APK Datum:";
             // 
             // PKLabel
             // 
@@ -392,9 +393,9 @@ namespace Qars
             this.PKLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PKLabel.Location = new System.Drawing.Point(17, 169);
             this.PKLabel.Name = "PKLabel";
-            this.PKLabel.Size = new System.Drawing.Size(39, 25);
+            this.PKLabel.Size = new System.Drawing.Size(45, 25);
             this.PKLabel.TabIndex = 1006;
-            this.PKLabel.Text = "PK";
+            this.PKLabel.Text = "PK:";
             // 
             // KilometerLabel
             // 
@@ -402,9 +403,9 @@ namespace Qars
             this.KilometerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KilometerLabel.Location = new System.Drawing.Point(16, 144);
             this.KilometerLabel.Name = "KilometerLabel";
-            this.KilometerLabel.Size = new System.Drawing.Size(94, 25);
+            this.KilometerLabel.Size = new System.Drawing.Size(100, 25);
             this.KilometerLabel.TabIndex = 1005;
-            this.KilometerLabel.Text = "Kilometer";
+            this.KilometerLabel.Text = "Kilometer:";
             // 
             // AutoLabel
             // 
@@ -412,9 +413,9 @@ namespace Qars
             this.AutoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoLabel.Location = new System.Drawing.Point(17, 117);
             this.AutoLabel.Name = "AutoLabel";
-            this.AutoLabel.Size = new System.Drawing.Size(96, 25);
+            this.AutoLabel.Size = new System.Drawing.Size(102, 25);
             this.AutoLabel.TabIndex = 1004;
-            this.AutoLabel.Text = "Automaat";
+            this.AutoLabel.Text = "Automaat:";
             // 
             // YearOfBuildLabel
             // 
@@ -422,9 +423,9 @@ namespace Qars
             this.YearOfBuildLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.YearOfBuildLabel.Location = new System.Drawing.Point(17, 97);
             this.YearOfBuildLabel.Name = "YearOfBuildLabel";
-            this.YearOfBuildLabel.Size = new System.Drawing.Size(93, 25);
+            this.YearOfBuildLabel.Size = new System.Drawing.Size(99, 25);
             this.YearOfBuildLabel.TabIndex = 1003;
-            this.YearOfBuildLabel.Text = "Bouwjaar";
+            this.YearOfBuildLabel.Text = "Bouwjaar:";
             // 
             // CategoryLabel
             // 
@@ -432,9 +433,9 @@ namespace Qars
             this.CategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryLabel.Location = new System.Drawing.Point(17, 72);
             this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(97, 25);
+            this.CategoryLabel.Size = new System.Drawing.Size(103, 25);
             this.CategoryLabel.TabIndex = 1002;
-            this.CategoryLabel.Text = "Categorie";
+            this.CategoryLabel.Text = "Categorie:";
             // 
             // label11
             // 
@@ -529,9 +530,9 @@ namespace Qars
             this.SellingspriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellingspriceLabel.Location = new System.Drawing.Point(17, 47);
             this.SellingspriceLabel.Name = "SellingspriceLabel";
-            this.SellingspriceLabel.Size = new System.Drawing.Size(121, 25);
+            this.SellingspriceLabel.Size = new System.Drawing.Size(94, 25);
             this.SellingspriceLabel.TabIndex = 4;
-            this.SellingspriceLabel.Text = "Verkoopprijs";
+            this.SellingspriceLabel.Text = "Startprijs:";
             // 
             // label2
             // 
@@ -549,9 +550,9 @@ namespace Qars
             this.ModelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ModelLabel.Location = new System.Drawing.Point(17, 25);
             this.ModelLabel.Name = "ModelLabel";
-            this.ModelLabel.Size = new System.Drawing.Size(66, 25);
+            this.ModelLabel.Size = new System.Drawing.Size(72, 25);
             this.ModelLabel.TabIndex = 0;
-            this.ModelLabel.Text = "Model";
+            this.ModelLabel.Text = "Model:";
             // 
             // button1
             // 
@@ -594,27 +595,29 @@ namespace Qars
             this.commentLabel.TabIndex = 1000;
             this.commentLabel.Text = "Opmerkingen:";
             // 
-            // radioButton1
+            // radioNoButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(278, 487);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(53, 21);
-            this.radioButton1.TabIndex = 1001;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "nee";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioNoButton.AutoSize = true;
+            this.radioNoButton.Checked = true;
+            this.radioNoButton.Location = new System.Drawing.Point(278, 487);
+            this.radioNoButton.Name = "radioNoButton";
+            this.radioNoButton.Size = new System.Drawing.Size(53, 21);
+            this.radioNoButton.TabIndex = 1001;
+            this.radioNoButton.TabStop = true;
+            this.radioNoButton.Text = "nee";
+            this.radioNoButton.UseVisualStyleBackColor = true;
+            this.radioNoButton.CheckedChanged += new System.EventHandler(this.radioNoButton_CheckedChanged);
             // 
-            // radioButton2
+            // radioYesButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(232, 487);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(40, 21);
-            this.radioButton2.TabIndex = 1002;
-            this.radioButton2.Text = "ja";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioYesButton.AutoSize = true;
+            this.radioYesButton.Location = new System.Drawing.Point(232, 487);
+            this.radioYesButton.Name = "radioYesButton";
+            this.radioYesButton.Size = new System.Drawing.Size(40, 21);
+            this.radioYesButton.TabIndex = 1002;
+            this.radioYesButton.Text = "ja";
+            this.radioYesButton.UseVisualStyleBackColor = true;
+            this.radioYesButton.CheckedChanged += new System.EventHandler(this.radioYesButton_CheckedChanged);
             // 
             // label3
             // 
@@ -666,19 +669,23 @@ namespace Qars
             this.label16.TabIndex = 1007;
             this.label16.Text = "Huisnummer:";
             // 
-            // textBox1
+            // pickupCityTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(170, 556);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 22);
-            this.textBox1.TabIndex = 1008;
+            this.pickupCityTextbox.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pickupCityTextbox.Location = new System.Drawing.Point(170, 556);
+            this.pickupCityTextbox.Name = "pickupCityTextbox";
+            this.pickupCityTextbox.ReadOnly = true;
+            this.pickupCityTextbox.Size = new System.Drawing.Size(214, 22);
+            this.pickupCityTextbox.TabIndex = 1008;
             // 
-            // textBox2
+            // pickupStreetTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(170, 590);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 22);
-            this.textBox2.TabIndex = 1009;
+            this.pickupStreetTextbox.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pickupStreetTextbox.Location = new System.Drawing.Point(170, 590);
+            this.pickupStreetTextbox.Name = "pickupStreetTextbox";
+            this.pickupStreetTextbox.ReadOnly = true;
+            this.pickupStreetTextbox.Size = new System.Drawing.Size(214, 22);
+            this.pickupStreetTextbox.TabIndex = 1009;
             // 
             // label17
             // 
@@ -690,19 +697,23 @@ namespace Qars
             this.label17.TabIndex = 1010;
             this.label17.Text = "+ Toevoeging";
             // 
-            // textBox3
+            // pickupStreetnumberTextbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(171, 622);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(131, 22);
-            this.textBox3.TabIndex = 1011;
+            this.pickupStreetnumberTextbox.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pickupStreetnumberTextbox.Location = new System.Drawing.Point(171, 622);
+            this.pickupStreetnumberTextbox.Name = "pickupStreetnumberTextbox";
+            this.pickupStreetnumberTextbox.ReadOnly = true;
+            this.pickupStreetnumberTextbox.Size = new System.Drawing.Size(131, 22);
+            this.pickupStreetnumberTextbox.TabIndex = 1011;
             // 
-            // textBox4
+            // pickupStreetnumberSuffixTextbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(309, 622);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(76, 22);
-            this.textBox4.TabIndex = 1012;
+            this.pickupStreetnumberSuffixTextbox.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pickupStreetnumberSuffixTextbox.Location = new System.Drawing.Point(309, 622);
+            this.pickupStreetnumberSuffixTextbox.Name = "pickupStreetnumberSuffixTextbox";
+            this.pickupStreetnumberSuffixTextbox.ReadOnly = true;
+            this.pickupStreetnumberSuffixTextbox.Size = new System.Drawing.Size(76, 22);
+            this.pickupStreetnumberSuffixTextbox.TabIndex = 1012;
             // 
             // contextMenuStrip1
             // 
@@ -713,19 +724,19 @@ namespace Qars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.pickupStreetnumberSuffixTextbox);
+            this.Controls.Add(this.pickupStreetnumberTextbox);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pickupStreetTextbox);
+            this.Controls.Add(this.pickupCityTextbox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioYesButton);
+            this.Controls.Add(this.radioNoButton);
             this.Controls.Add(this.commentLabel);
             this.Controls.Add(this.commentTextbox);
             this.Controls.Add(this.button2);
@@ -756,7 +767,7 @@ namespace Qars
             this.Controls.Add(this.firstnameLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RentCarPanel";
-            this.Size = new System.Drawing.Size(1348, 673);
+            this.Size = new System.Drawing.Size(1396, 679);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -815,18 +826,18 @@ namespace Qars
         private System.Windows.Forms.Label PKLabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label commentLabel;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioNoButton;
+        private System.Windows.Forms.RadioButton radioYesButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox pickupCityTextbox;
+        private System.Windows.Forms.TextBox pickupStreetTextbox;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox pickupStreetnumberTextbox;
+        private System.Windows.Forms.TextBox pickupStreetnumberSuffixTextbox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 
 
