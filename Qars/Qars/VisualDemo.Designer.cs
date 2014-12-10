@@ -329,7 +329,7 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(74, 49);
             this.panel13.TabIndex = 3;
-            // 
+           
             // label3
             // 
             this.label3.AutoSize = true;

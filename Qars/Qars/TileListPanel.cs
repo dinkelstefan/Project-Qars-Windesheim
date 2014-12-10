@@ -44,7 +44,7 @@ namespace Qars
 
             pb.ImageLocation = imageLink;
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
-            pb.DoubleClick += new EventHandler(pb_DoubleClick);
+            pb.Click += new EventHandler(pb_Click);
             pb.MouseHover += new EventHandler(pb_MouseHover);
             pb.MouseLeave += new EventHandler(pb_MouseLeave);
 
@@ -110,7 +110,7 @@ namespace Qars
             e.Graphics.DrawString("Niet Beschikbaar", new Font("Aharoni", 13, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 6f);
         }
 
-        private void pb_DoubleClick(object sender, EventArgs e)
+        private void pb_Click(object sender, EventArgs e)
         {
             vd.OpenDetails(carNumber);
         }
