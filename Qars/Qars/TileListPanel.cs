@@ -18,19 +18,19 @@ namespace Qars
         public int carNumber;
         public VisualDemo vd;
 
-        public TileListPanel(string n, string m, double p, string i, int h, int w, int carNumber, bool available, VisualDemo vd)
+        public TileListPanel(string cName, string cModel, double cPrice, string imageLink, int height, int width, int carNumber, bool available, VisualDemo vd)
         {
-            this.name = n;
-            this.model = m;
-            this.carPrice = p;
-            this.imageLink = i;
+            this.name = cName;
+            this.model = cModel;
+            this.carPrice = cPrice;
+            this.imageLink = imageLink;
             this.carNumber = carNumber;
             this.vd = vd;
 
             Height = 220;
             Width = 175;
-            Top = h;
-            Left = w;
+            Top = height;
+            Left = width;
             BackColor = Color.White;
             BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
