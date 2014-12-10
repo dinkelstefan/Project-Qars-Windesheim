@@ -19,6 +19,7 @@ namespace Qars
     {
         DateTime[] bolddates;
         public int carnumber { get; set; }
+                       public int countlabel = 0;
         private String currentSelectedDateBox;
         bool secondDateChecked;
         DateTime startdatum;
@@ -66,7 +67,7 @@ namespace Qars
             {
                 if (einddatum < startdatum)
                 {
-                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum!");
+                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum");
                     enddateTextbox.Text = "";
                 }
             }
@@ -320,7 +321,7 @@ namespace Qars
             //label2.Text = "";
             if (label2.Text == "")
             {
-                int random  = label2.Top;
+                int random = label2.Top;
                 int random2 = label4.Top;
                 int random3 = label5.Top;
                 int random4 = label6.Top;
@@ -330,18 +331,34 @@ namespace Qars
                 int random8 = label10.Top;
                 int random9 = label12.Top;
 
+                //List<Label> Labels = new List<Label>();
+                //Labels.Add(label1);
+                //Labels.Add(label2);
+                //Labels.Add(label4);
+                //Labels.Add(label5);
+                //Labels.Add(label6);
+                //Labels.Add(label7);
+                //Labels.Add(label8);
+                //Labels.Add(label9);
+                //Labels.Add(label10);
+                //Labels.Add(label12);
 
-
+                
                 ModelLabel.Visible = false;
                 label2.Visible = false;
-                label4.Top = random;
-                label5.Top = random2;
-                label6.Top = random3;
-                label7.Top = random4;
-                label8.Top = random5;
-                label9.Top = random6;
-                label10.Top = random7;
-                label12.Top = label10.Top;
+                 //label4 in en uit -->
+                //label4.Top = random;  
+                
+                //label5.Top = random2;
+                
+                //label6.Top = random3;
+                
+                //label7.Top = random4;
+                
+                //label8.Top = random5;
+                //label9.Top = random6;
+                //label10.Top = random7;
+                //label12.Top = label10.Top;
 
                 SpaceLabel.Top = ModelLabel.Top;
                 /*CategoryLabel.Top = SellingspriceLabel.Top;
