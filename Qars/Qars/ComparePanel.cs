@@ -11,11 +11,11 @@ namespace Qars
     class ComparePanel : Panel
     {
         public List<Car> cars { get; set; }
-        public string[] compareItems = { "rentalprice", "brand", "model", "category", "modelyear", "horsepower", "doors", "seats", "Fuelusage", "motor" };
+        public string[] compareItems = { "startprice","rentalprice", "brand", "model", "category", "modelyear", "horsepower", "doors", "seats", "Fuelusage", "motor" };
         //items in code are given in English. In the application the translation is shown.
-        public string[] compareItemsTranslation = { "Huurprijs", "Merk", "model", "Categorie", "Bouwjaar", "Vermogen", "Deuren", "Stoelen", "Verbruik", "Motor" };
-        public List<string> checkHighest = new List<String>{ "horsepower","seats" };
-        public List<string> checkLowest = new List<String> { "rentalprice","Fuelusage"};
+        public string[] compareItemsTranslation = { "startprijs","Huurprijs", "Merk", "model", "Categorie", "Bouwjaar", "Vermogen", "Deuren", "Stoelen", "Verbruik", "Motor" };
+        public List<string> checkHighest = new List<String>{"modelyear", "horsepower","doors","seats" };
+        public List<string> checkLowest = new List<String> {"startprice","rentalprice","Fuelusage"};
         public List<Label> allLabels { get; set; }
         public List<PictureBox> pictures { get; set; }
         public Graphics graphics;
