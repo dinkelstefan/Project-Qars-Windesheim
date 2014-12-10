@@ -12,6 +12,7 @@ namespace Qars.Views
 {
     public partial class searchWizard : UserControl
     {
+        private VisualDemo qarsApplication;
         private string answerType = null;
         private string answerTransmission = null;
 
@@ -31,13 +32,14 @@ namespace Qars.Views
         private List<Car> copyList = new List<Car>();
         public  List<Car> filteredList = new List<Car>();
 
-        public searchWizard()
+        public searchWizard(VisualDemo qarsApp)
         {
+            this.qarsApplication = qarsApp;
             InitializeComponent();
         }
         private void search()
         {
-            copyList = VisualDemo.totalCarList;
+            copyList = this.qarsApplication.carList;
 
             //Skip when answerType is empty
             if (answerType != null)
@@ -76,7 +78,7 @@ namespace Qars.Views
 
             if (filteredList.Count > 0)
             {
-                VisualDemo.carList = filteredList;
+                this.qarsApplication.carList = filteredList;
             }
             setLabelCountNumerOfCarsFound();
         }

@@ -16,16 +16,16 @@ namespace Qars
         public double carPrice;
         public string imageLink;
         public int carNumber;
-        public VisualDemo vd;
+        private VisualDemo qarsApplication;
 
-        public TileListPanel(string n, string m, double p, string i, int h, int w, int carNumber, bool available, VisualDemo vd)
+        public TileListPanel(string n, string m, double p, string i, int h, int w, int carNumber, bool available, VisualDemo qarsApp)
         {
             this.name = n;
             this.model = m;
             this.carPrice = p;
             this.imageLink = i;
             this.carNumber = carNumber;
-            this.vd = vd;
+            this.qarsApplication = qarsApp;
 
             Height = 220;
             Width = 175;
@@ -92,13 +92,13 @@ namespace Qars
 
         protected void pb_MouseHover(object sender, EventArgs e)
         {
-            vd.hp.SetInformation(MousePosition.X - 320, MousePosition.Y - 180, VisualDemo.carList[carNumber]);
-            vd.hp.Visible = true;
+            qarsApplication.hp.SetInformation(MousePosition.X - 320, MousePosition.Y - 180, this.qarsApplication.carList[carNumber]);
+            qarsApplication.hp.Visible = true;
         }
 
         protected void pb_MouseLeave(object sender, EventArgs e)
         {
-            vd.hp.Visible = false;
+            qarsApplication.hp.Visible = false;
         }
 
         protected void pb_Paint(object sender, PaintEventArgs e)
@@ -112,7 +112,7 @@ namespace Qars
 
         private void pb_Click(object sender, EventArgs e)
         {
-            vd.OpenDetails(carNumber);
+            qarsApplication.OpenDetails(carNumber);
         }
 
         public bool check = false;
@@ -122,9 +122,9 @@ namespace Qars
 
 
             if (check)
-                vd.AddCompare(carNumber);
+                qarsApplication.AddCompare(carNumber);
             else
-                vd.RemoveCompare(carNumber);
+                qarsApplication.RemoveCompare(carNumber);
 
         }
     }

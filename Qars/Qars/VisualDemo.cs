@@ -21,11 +21,11 @@ namespace Qars
         public int carNumber = 0; //This has to be the tile number!
         public HoverPanel hp;
 
-        static public List<Damage> damageList = new List<Damage>();
-        static public List<Establishment> EstablishmentList = new List<Establishment>();
-        static public List<Reservation> reservationList = new List<Reservation>();
-        static public List<Car> carList;
-        static public List<Car> totalCarList { get; private set; }
+        public List<Damage> damageList = new List<Damage>();
+        public List<Establishment> EstablishmentList = new List<Establishment>();
+        public List<Reservation> reservationList = new List<Reservation>();
+        public List<Car> carList;
+        public List<Car> totalCarList { get; private set; }
 
         public List<Car> compareList = new List<Car>();
 
@@ -90,7 +90,7 @@ namespace Qars
 
         public void OpenDetails(int number)
         {
-            CarDetailPanel cp = new CarDetailPanel(number);
+            CarDetailPanel cp = new CarDetailPanel(number, this);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
