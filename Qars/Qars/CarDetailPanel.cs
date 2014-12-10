@@ -15,8 +15,9 @@ namespace Qars
         private int currentCarNumber;
         private string availableat;
         private PictureBox mainpicture;
+        private VisualDemo qarsApplication;
 
-        public CarDetailPanel(int carNumber)
+        public CarDetailPanel(int carNumber, VisualDemo qarsApp)
         {   //properties of the panel
             this.currentCarNumber = carNumber;
             this.Height = 568;
@@ -26,33 +27,35 @@ namespace Qars
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
 
+            this.qarsApplication = qarsApp;
+
             //all the labels, images and buttons
-            Label carname = createLabel(VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
-            Label beginprice = createLabel("Beginprijs: € " + VisualDemo.carList[carNumber].startprice, 70, 375, 200, 27, 14, FontStyle.Regular);
-            Label priceperkm = createLabel("Prijs per Kilometer: € " + VisualDemo.carList[carNumber].rentalprice, 100, 375, 225, 27, 14, FontStyle.Regular);
+            Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
+            Label beginprice = createLabel("Beginprijs: € " + this.qarsApplication.carList[carNumber].startprice, 70, 375, 200, 27, 14, FontStyle.Regular);
+            Label priceperkm = createLabel("Prijs per Kilometer: € " + this.qarsApplication.carList[carNumber].rentalprice, 100, 375, 225, 27, 14, FontStyle.Regular);
             Label establishment = createLabel(availableat, 130, 375, 327, 27, 14, FontStyle.Regular);
             Label specs = createLabel("Specificaties", 315, 22, 300, 32, 20, FontStyle.Regular);
             Label desc = createLabel("Beschrijving", 20, 700, 165, 32, 20, FontStyle.Regular);
-            Label descinfo = createLabel(VisualDemo.carList[carNumber].description, 65, 700, 300, 300, 9, FontStyle.Regular);
+            Label descinfo = createLabel(this.qarsApplication.carList[carNumber].description, 65, 700, 300, 300, 9, FontStyle.Regular);
             Button close = createButton("Sluiten", Color.Red, Color.White, -5, 950, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
 
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
-            CreateSpecInfo(VisualDemo.carList, carNumber);
+            CreateSpecInfo(this.qarsApplication.carList, carNumber);
 
             //Look up where the Car is available
-            foreach (var company in VisualDemo.EstablishmentList)
+            foreach (var company in this.qarsApplication.EstablishmentList)
             {
-                if (VisualDemo.carList[carNumber].establishmentID == company.establishmentID)
+                if (this.qarsApplication.carList[carNumber].establishmentID == company.establishmentID)
                 {
                     availableat = "Verkrijgbaar bij: " + company.name;
                 }
             }
 
             //look up if the car is available
-            foreach (var res in VisualDemo.reservationList)
+            foreach (var res in this.qarsApplication.reservationList)
             {
-                if (!VisualDemo.carList[carNumber].available)
+                if (!this.qarsApplication.carList[carNumber].available)
                 {
                     if (res.carID == carNumber)
                     {
@@ -61,7 +64,7 @@ namespace Qars
                     }
                 }
                 //look up if the car is being repaired
-                foreach (var rep in VisualDemo.damageList)
+                foreach (var rep in this.qarsApplication.damageList)
                 {
                     if (rep.carID == carNumber && rep.repaired == false)
                     {
@@ -74,15 +77,15 @@ namespace Qars
 
             //Create the small pictures
             int left = 22;
-            foreach (CarPhoto photo in VisualDemo.carList[carNumber].PhotoList)
+            foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
             {
                 PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
                 left += 88;
             }
             //Select the main picture
-            if (VisualDemo.carList[carNumber].PhotoList.Count > 0)
+            if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
             {
-                mainpicture.ImageLocation = VisualDemo.carList[carNumber].PhotoList[0].Photolink;
+                mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
             }
         }
 
@@ -491,7 +494,7 @@ namespace Qars
 
         public void hireButtonClick(object sender, EventArgs e)
         {
-            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber);
+            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, this.qarsApplication);
             this.Controls.Add(rentcarpanel);
             rentcarpanel.BringToFront();
             rentcarpanel.Show();

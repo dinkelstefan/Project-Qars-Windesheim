@@ -23,8 +23,10 @@ namespace Qars
         bool secondDateChecked;
         DateTime datum;
         DateTime datum2;
-        public RentCarPanel(int carnumber)
+        private VisualDemo qarsApplication;
+        public RentCarPanel(int carnumber, VisualDemo qarsApp)
         {
+            this.qarsApplication = qarsApp;
             InitializeComponent();
             this.carnumber = carnumber;
             fillCarInfoPanel();
@@ -85,7 +87,7 @@ namespace Qars
 
         private void openCalender(object sender, EventArgs e)
         {
-            foreach (var item in VisualDemo.reservationList) //loop through all the reservations
+            foreach (var item in this.qarsApplication.reservationList) //loop through all the reservations
                 if (carnumber == item.carID) //Check if there is a reservation for the current car
                 {
                     string startDateString = item.startdate;
@@ -274,7 +276,7 @@ namespace Qars
         public void fillCarInfoPanel()
         {
 
-            //VisualDemo.carList[carnumber].(info);
+            //this.qarsApplication.carList[carnumber].(info);
             ModelLabel.Text = "Model:";
             CategoryLabel.Text = "Categorie:";
             YearOfBuildLabel.Text = "Bouwjaar:";
@@ -334,15 +336,15 @@ namespace Qars
 
 
 
-            label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
+            label2.Text = this.qarsApplication.carList[carnumber].brand + " " + this.qarsApplication.carList[carnumber].model;
             //label4 (?)
-            label5.Text = VisualDemo.carList[carnumber].category;
-            label6.Text = VisualDemo.carList[carnumber].modelyear.ToString();
-            label7.Text = VisualDemo.carList[carnumber].automatic.ToString();
-            label8.Text = VisualDemo.carList[carnumber].kilometres.ToString();
-            label9.Text = VisualDemo.carList[carnumber].horsepower.ToString();  //deze 
+            label5.Text = this.qarsApplication.carList[carnumber].category;
+            label6.Text = this.qarsApplication.carList[carnumber].modelyear.ToString();
+            label7.Text = this.qarsApplication.carList[carnumber].automatic.ToString();
+            label8.Text = this.qarsApplication.carList[carnumber].kilometres.ToString();
+            label9.Text = this.qarsApplication.carList[carnumber].horsepower.ToString();  //deze 
 
-            if (VisualDemo.carList[carnumber].automatic)
+            if (this.qarsApplication.carList[carnumber].automatic)
             {
                 label7.Text = "Ja";
 
@@ -351,8 +353,8 @@ namespace Qars
             {
                 label7.Text = "Nee";
             }
-            label10.Text = VisualDemo.carList[carnumber].motdate;
-            label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + " Liter";
+            label10.Text = this.qarsApplication.carList[carnumber].motdate;
+            label12.Text = this.qarsApplication.carList[carnumber].storagespace.ToString() + " Liter";
         }
 
 
