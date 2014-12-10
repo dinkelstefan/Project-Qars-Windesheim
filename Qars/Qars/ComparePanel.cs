@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    class ComparePanel : Panel
+    public class ComparePanel : Panel
     {
         public List<Car> cars { get; set; }
         public string[] compareItems = { "startprice","rentalprice", "brand", "model", "category", "modelyear", "horsepower", "doors", "seats", "Fuelusage", "motor" };
@@ -150,19 +150,6 @@ namespace Qars
             if (maxValue == Convert.ToDouble(GetPropValue(car,item))){
                 label.Text = label.Text + " \u221A";
                 label.Font = new Font("Calibri", 14, FontStyle.Bold);
-                
-                //big check
-                //Label tempLabel = new Label();
-                //tempLabel.Text = "\u221A";
-                //tempLabel.Font = new Font("Calibri", 20, FontStyle.Bold);
-                //tempLabel.Left = label.Left + label.Width;
-                //tempLabel.Top = label.Top;
-                //tempLabel.Height = labelHeight;
-                //tempLabel.Width = columnWidth;
-                //tempLabel.TextAlign = ContentAlignment.MiddleCenter;
-                //tempLabel.BackColor = Color.Transparent;
-                //this.Controls.Add(tempLabel);
-                //allLabels.Add(tempLabel);
             }
         }
 
