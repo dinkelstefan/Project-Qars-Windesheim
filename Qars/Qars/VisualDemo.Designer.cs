@@ -57,7 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.searchWizard1 = new Qars.Views.searchWizard(this);
+            this.searchWizard = new Qars.Views.searchWizard(this);
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -387,13 +387,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
-            // searchWizard1
+            // searchWizard
             // 
-            this.searchWizard1.Location = new System.Drawing.Point(331, 121);
-            this.searchWizard1.Name = "searchWizard1";
-            this.searchWizard1.Size = new System.Drawing.Size(1565, 873);
-            this.searchWizard1.TabIndex = 11;
-            this.searchWizard1.Visible = false;
+            this.searchWizard.Location = new System.Drawing.Point(331, 121);
+            this.searchWizard.Name = "searchWizard1";
+            this.searchWizard.Size = new System.Drawing.Size(1565, 873);
+            this.searchWizard.TabIndex = 11;
+            this.searchWizard.Visible = false;
             // 
             // VisualDemo
             // 
@@ -402,7 +402,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1896, 1048);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.searchWizard1);
+            this.Controls.Add(this.searchWizard);
             this.Controls.Add(this.TileView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel4);
@@ -459,7 +459,7 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel TileView;
-        private Views.searchWizard searchWizard1;
+        private Views.searchWizard searchWizard;
         private System.Windows.Forms.Button button2;
 
     }

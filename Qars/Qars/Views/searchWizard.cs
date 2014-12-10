@@ -264,6 +264,7 @@ namespace Qars.Views
         private void searchClick(object sender, EventArgs e)
         {
             search();
+            this.qarsApplication.updateTileView();
             this.Visible = false;
         }
         private List<Car> addCarToList(List<Car> list, Car car)

@@ -97,7 +97,7 @@ namespace Qars
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            searchWizard1.Visible = !searchWizard1.Visible; 
+            searchWizard.Visible = !searchWizard.Visible; 
             updateTileView();
         }
 
@@ -148,9 +148,9 @@ namespace Qars
 
         private void showAllCars(object sender, EventArgs e)
         {
-            if (searchWizard1.Visible == true)
+            if (searchWizard.Visible == true)
             {
-                searchWizard1.Visible = false;
+                searchWizard.Visible = false;
             }
             carList = db.FillCars();
             totalCarList = carList;
