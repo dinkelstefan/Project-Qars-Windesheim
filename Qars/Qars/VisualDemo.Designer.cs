@@ -56,8 +56,8 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.searchWizard1 = new Qars.Views.searchWizard();
-            this.searchButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -106,6 +106,7 @@
             this.label14.Size = new System.Drawing.Size(108, 110);
             this.label14.TabIndex = 2;
             this.label14.Text = "Q";
+            this.label14.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // label13
             // 
@@ -376,6 +377,16 @@
             this.TileView.Size = new System.Drawing.Size(1565, 873);
             this.TileView.TabIndex = 12;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1787, 997);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 31);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Toon alles";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.showAllCars);
+            // 
             // searchWizard1
             // 
             this.searchWizard1.Location = new System.Drawing.Point(331, 121);
@@ -384,24 +395,14 @@
             this.searchWizard1.TabIndex = 11;
             this.searchWizard1.Visible = false;
             // 
-            // searchButton
-            // 
-            this.searchButton.Location = new System.Drawing.Point(1764, 997);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(104, 30);
-            this.searchButton.TabIndex = 13;
-            this.searchButton.Text = "Zoek!!!";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1896, 1048);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.searchWizard1);
-            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.TileView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel4);
@@ -458,8 +459,8 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel TileView;
-        private System.Windows.Forms.Button searchButton;
         private Views.searchWizard searchWizard1;
+        private System.Windows.Forms.Button button2;
 
     }
 }

@@ -23,7 +23,9 @@ namespace Qars
         static public List<Damage> damageList = new List<Damage>();
         static public List<Establishment> EstablishmentList = new List<Establishment>();
         static public List<Reservation> reservationList = new List<Reservation>();
-        static public List<Car> carList = new List<Car>();
+        static public List<Car> carList;
+        static public List<Car> totalCarList { get; private set; }
+
         public List<Car> compareList = new List<Car>();
 
         public DBConnect db = new DBConnect();
@@ -33,39 +35,14 @@ namespace Qars
             InitializeComponent();
             DoubleBuffered = true;
 
-            carList = db.FillCars();
+            totalCarList = db.FillCars();
+            carList = totalCarList;
+
             EstablishmentList = db.FillEstablishment();
             reservationList = db.FillReservation();
             damageList = db.FillDamage();
 
-            int localY = 200;
-            int localX = 10;
-            int checkNumb = 0;
-
-
-            for (int i = 0; i < carList.Count; i++)
-            {
-                TileListPanel tp;
-                if (carList[i].PhotoList.Count > 0)
-                {
-                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
-                }
-                else
-                {
-                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, "asd", localY, localX, i, this);
-                }
-                TileView.Controls.Add(tp);
-                localX += 200;
-                checkNumb++;
-
-                if (checkNumb == 5)
-                {
-                    localY += 250;
-                    localX = 10;
-                    checkNumb = 0;
-                }
-
-            }
+            updateTileView();
         }
 
 
@@ -118,7 +95,69 @@ namespace Qars
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            searchWizard1.Visible = !searchWizard1.Visible;
+            searchWizard1.Visible = !searchWizard1.Visible; 
+            updateTileView();
+        }
+
+        public void updateTileView()
+        {
+
+            int localY = 200;
+            int localX = 10;
+            int checkNumb = 0;
+
+            List<TileListPanel> toRemove = new List<TileListPanel>();
+
+
+            foreach (Control c in TileView.Controls)
+            {
+                if (c.GetType() == typeof(TileListPanel))
+                {
+                    toRemove.Insert(0, c as TileListPanel);
+                }
+            }
+
+            foreach (TileListPanel tile in toRemove)
+            {
+                TileView.Controls.Remove(tile);
+                tile.Dispose();
+            }
+
+            for (int i = 0; i < carList.Count; i++)
+            {
+                TileListPanel tp;
+                if (carList[i].PhotoList.Count > 0)
+                {
+                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, this);
+
+                }
+                else
+                {
+                    tp = new TileListPanel(carList[i].brand, "€ " + carList[i].startprice, "asd", localY, localX, i, this);
+                }
+                TileView.Controls.Add(tp);
+                localX += 200;
+                checkNumb++;
+
+                if (checkNumb == 5)
+                {
+                    localY += 250;
+                    localX = 10;
+                    checkNumb = 0;
+                }
+
+            }
+        }
+
+        private void showAllCars(object sender, EventArgs e)
+        {
+            if (searchWizard1.Visible == true)
+            {
+                searchWizard1.Visible = false;
+            }
+            carList = db.FillCars();
+            totalCarList = carList;
+            updateTileView();
         }
     }
 }

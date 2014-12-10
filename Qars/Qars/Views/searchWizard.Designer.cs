@@ -49,6 +49,7 @@
             this.automaatRadioButton = new System.Windows.Forms.RadioButton();
             this.question2Label = new System.Windows.Forms.Label();
             this.searchTabpage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.countCarLabel3 = new System.Windows.Forms.Label();
             this.privousButton2 = new System.Windows.Forms.Button();
             this.nextButton3 = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.cruiseControlCheckBox = new System.Windows.Forms.CheckBox();
             this.bluetoothCheckBox = new System.Windows.Forms.CheckBox();
             this.question5Label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.searchWizardTabControl.SuspendLayout();
             this.searchTabpage1.SuspendLayout();
             this.searchTabpage2.SuspendLayout();
@@ -246,7 +246,7 @@
             this.searchTabpage2.Location = new System.Drawing.Point(4, 29);
             this.searchTabpage2.Name = "searchTabpage2";
             this.searchTabpage2.Padding = new System.Windows.Forms.Padding(3);
-            this.searchTabpage2.Size = new System.Drawing.Size(1551, 834);
+            this.searchTabpage2.Size = new System.Drawing.Size(1551, 890);
             this.searchTabpage2.TabIndex = 1;
             this.searchTabpage2.Text = "Vraag 2";
             // 
@@ -339,9 +339,20 @@
             this.searchTabpage3.Controls.Add(this.question3Label);
             this.searchTabpage3.Location = new System.Drawing.Point(4, 29);
             this.searchTabpage3.Name = "searchTabpage3";
-            this.searchTabpage3.Size = new System.Drawing.Size(1551, 834);
+            this.searchTabpage3.Size = new System.Drawing.Size(1551, 890);
             this.searchTabpage3.TabIndex = 2;
             this.searchTabpage3.Text = "Vraag 3";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(754, 50);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Deze bedragen representeren het bedrag dat u ongeveer zal moeten betalen wanneer\r" +
+    "\n u 100 kilomter heeft gereden met de gehuurde auto.";
             // 
             // countCarLabel3
             // 
@@ -468,7 +479,7 @@
             this.searchTabpage4.Controls.Add(this.question4label);
             this.searchTabpage4.Location = new System.Drawing.Point(4, 29);
             this.searchTabpage4.Name = "searchTabpage4";
-            this.searchTabpage4.Size = new System.Drawing.Size(1551, 834);
+            this.searchTabpage4.Size = new System.Drawing.Size(1551, 890);
             this.searchTabpage4.TabIndex = 3;
             this.searchTabpage4.Text = "Vraag 4";
             // 
@@ -606,7 +617,7 @@
             this.searchTabpage5.Controls.Add(this.question5Label);
             this.searchTabpage5.Location = new System.Drawing.Point(4, 29);
             this.searchTabpage5.Name = "searchTabpage5";
-            this.searchTabpage5.Size = new System.Drawing.Size(1551, 834);
+            this.searchTabpage5.Size = new System.Drawing.Size(1551, 890);
             this.searchTabpage5.TabIndex = 4;
             this.searchTabpage5.Text = "Vraag 5";
             // 
@@ -709,17 +720,6 @@
             this.question5Label.Size = new System.Drawing.Size(778, 46);
             this.question5Label.TabIndex = 3;
             this.question5Label.Text = "Welke extra\'s moeten er op de auto zitten?";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(754, 50);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Deze bedragen representeren het bedrag dat u ongeveer zal moeten betalen wanneer\r" +
-    "\n u 100 kilomter heeft gereden met de gehuurde auto.";
             // 
             // searchWizard
             // 

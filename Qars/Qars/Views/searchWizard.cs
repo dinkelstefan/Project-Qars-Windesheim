@@ -29,7 +29,7 @@ namespace Qars.Views
 
 
         private List<Car> copyList = new List<Car>();
-        public List<Car> filteredList = new List<Car>();
+        public  List<Car> filteredList = new List<Car>();
 
         public searchWizard()
         {
@@ -37,7 +37,7 @@ namespace Qars.Views
         }
         private void search()
         {
-            copyList = VisualDemo.carList;
+            copyList = VisualDemo.totalCarList;
 
             //Skip when answerType is empty
             if (answerType != null)
@@ -51,27 +51,15 @@ namespace Qars.Views
                 filteredList = filterTransmission(filteredList);
             }
 
-            //Filter list on price class
+            //Filter list with price class
             filteredList = filterPriceClass(filteredList);
 
-            //Filter list on location
+            //Filter list with location
             filteredList = filterLocation(filteredList);
 
-            //Checks if the list with extras filled with answers
-            //Else skip the filterExtras function
-            bool check = false;
-            for (int i = 0; i < answerExtra.Length; i++)
-            {
-                if (answerExtra[i])
-                {
-                    check = true;
-                }
-            }
+            //filter list with extras
+            filteredList = filterExtras(filteredList);
 
-            if (check)
-            {
-                filteredList = filterExtras(filteredList);
-            }
 
             if (filteredList.Count > 0)
             {
@@ -86,6 +74,10 @@ namespace Qars.Views
                 Console.WriteLine("-------------------------------------------");
             }
 
+            if (filteredList.Count > 0)
+            {
+                VisualDemo.carList = filteredList;
+            }
             setLabelCountNumerOfCarsFound();
         }
         private void selectCarType(object sender, EventArgs e)
@@ -270,6 +262,7 @@ namespace Qars.Views
         private void searchClick(object sender, EventArgs e)
         {
             search();
+            this.Visible = false;
         }
         private List<Car> addCarToList(List<Car> list, Car car)
         {
