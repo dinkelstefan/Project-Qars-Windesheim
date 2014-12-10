@@ -117,7 +117,7 @@ namespace Qars
             base.OnPaint(e);
             graphics = e.Graphics;
             Pen pen = new Pen(Color.Black);
-            SolidBrush brush = new SolidBrush(Color.FromArgb(97, 97, 97));
+            SolidBrush brush = new SolidBrush(Color.FromArgb(180, 180, 180));
 
             //rectangle for the items in the list
             for (int i = 0; i < compareItems.Length; i+=2)
