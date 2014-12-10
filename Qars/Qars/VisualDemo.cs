@@ -18,174 +18,143 @@ namespace Qars
     {
         public int imageWidth = 160;
         public int imageHeigth = 160;
-        public List<MyCheckBox> checkBoxes = new List<MyCheckBox>();
+        public int carNumber = 0; //This has to be the tile number!
+        public HoverPanel hp;
+
+        static public List<Damage> damageList = new List<Damage>();
+        static public List<Establishment> EstablishmentList = new List<Establishment>();
+        static public List<Reservation> reservationList = new List<Reservation>();
+        static public List<Car> carList;
+        static public List<Car> totalCarList { get; private set; }
+
         public List<Car> compareList = new List<Car>();
-        public List<Car> carList = new List<Car>();
-        public int carNumber = 0;
-        public string[] names = { "Fiets", "Audi", "DeLorean", "General Lee", "Maserati", "Sherman" };
-        public string[] prices = { "0.50/km", "10/km", "25/km", "15/km", "40/km", "100/km" };
+
+        public DBConnect db = new DBConnect();
 
         public VisualDemo()
         {
             InitializeComponent();
             DoubleBuffered = true;
+            hp = new HoverPanel(this);
 
-            BuildCars(6);
+            totalCarList = db.FillCars();
+            carList = totalCarList;
 
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Kevin\Desktop\Cars");
-            foreach (Car cr in carList)
-            {
-                try
-                {
-                    this.imageList1.Images.Add(Image.FromFile(cr.picPath));
-                }
-                catch
-                {
-                    Console.WriteLine("This is not an image file");
-                }
-            }
-           
-            this.listView1.View = View.LargeIcon;
-            this.imageList1.ImageSize = new Size(imageWidth, imageHeigth);
-            this.listView1.LargeImageList = this.imageList1;
-           
+            EstablishmentList = db.FillEstablishment();
+            reservationList = db.FillReservation();
+            damageList = db.FillDamage();
 
-            for (int j = 0; j < this.imageList1.Images.Count; j++)
-            {
-                ListViewItem item = new ListViewItem();
-                item.ImageIndex = j;
-                listView1.Items.Add(new ListViewItem { ImageIndex = j });
-                listView1.OwnerDraw = true;
-                //listView1.DrawItem(DrawInformation);
-               
-            }
-  
-             listView1.DrawItem += new DrawListViewItemEventHandler(DrawInformation);
+            updateTileView();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+
+        public void AddCompare(int number)
         {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public CheckBoxState state = CheckBoxState.CheckedPressed;
-        public bool clicked = false;
-        
-
-        public void DrawInformation(object sender, DrawListViewItemEventArgs e)
-        {
-            e.Graphics.FillRectangle(new SolidBrush(Color.White), e.Bounds.X + 15, e.Bounds.Y - 5, imageWidth + 14, imageHeigth + 37);
-            e.Graphics.DrawString(names[(carNumber - 5) * -1] + "\n" + "Prijs: " + prices[(carNumber-5)*-1], new Font("Arial", 10), new SolidBrush(Color.Black), e.Bounds.X + 20, e.Bounds.Y + 162);
-
-            
-            MyCheckBox mb = new MyCheckBox(e.Graphics, e.Bounds.X + 170, e.Bounds.Y + 175, 15, 15, ButtonState.Inactive, carNumber);
-            checkBoxes.Add(mb);
-            Debug.WriteLine(checkBoxes[checkBoxes.Count - 1].productID);
-            //Debug.WriteLine(carNumber);
-
-            carNumber++;
-            ControlPaint.DrawCheckBox(mb.grp, mb.x, mb.y, mb.width, mb.heigth, mb.bt);
-            e.DrawDefault = true;
-        }
-
-        private void listView1_MouseDown(object sender, MouseEventArgs e)
-        {
-            foreach (MyCheckBox mb in checkBoxes)
-            {
-                if (mb.IsHit(e.X, e.Y))
-                {
-                    clicked = !clicked;
-
-                    //if (clicked)
-                    //{
-                    // mb.bt = ButtonState.Checked;
-                    if (!compareList.Contains(carList[(mb.productID - 5) * -1]))
-                    {
-                        compareList.Add(carList[(mb.productID - 5) * -1]);
-                        label3.Text += "" + carList[(mb.productID - 5) * -1].brand + " | ";
-                    }
-                   
-                   // Debug.WriteLine(mb.productID);
-                    //}
-                    //else
-                    //{
-                    //mb.bt = ButtonState.Inactive;
-
-                    //if(carList[mb.productID] != null)
-                    // compareList.Remove(carList[mb.productID]);
-                    //}
-
-
-                    
-                    break;
-                }
-            }
+            compareList.Add(carList[number]);
 
             if (compareList.Count > 1)
-            {
                 button1.Visible = true;
-            }
+
+            UpdateCompareLabel();
         }
 
-        void BuildCars(int amount)
+        public void RemoveCompare(int number)
         {
-            for (int i = 0; i < amount; i++)
+            compareList.Remove(carList[number]);
+
+            if (compareList.Count < 2)
+                button1.Visible = false;
+
+            UpdateCompareLabel();
+
+        }
+
+        public void UpdateCompareLabel()
+        {
+            label3.Text = "";
+
+            if (compareList.Count > 0)
             {
-                Car car = new Car(i, names[i], 60, 25.00, @"C:\Users\Kevin\Desktop\Cars\" + i + ".jpg");
-                carList.Add(car);
+                foreach (Car c in compareList)
+                {
+                    label3.Text += c.brand + " | ";
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel p = new panel(compareList);
+            ComparePanel p = new ComparePanel(compareList);
             this.Controls.Add(p);
-            compareList.Clear();
-            button1.Visible = false;
-            label3.Text = "";
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        public void OpenDetails(int number)
+        {
+            CarDetailPanel cp = new CarDetailPanel(number);
+            this.Controls.Add(cp);
+            cp.BringToFront();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            searchWizard1.Visible = !searchWizard1.Visible; 
+            updateTileView();
+        }
+
+        public void updateTileView()
         {
 
+            int localY = 200;
+            int localX = 10;
+            int checkNumb = 0;
+
+            List<TileListPanel> toRemove = new List<TileListPanel>();
+
+
+            foreach (Control c in TileView.Controls)
+            {
+                if (c.GetType() == typeof(TileListPanel))
+                {
+                    toRemove.Insert(0, c as TileListPanel);
+                }
+            }
+
+            foreach (TileListPanel tile in toRemove)
+            {
+                TileView.Controls.Remove(tile);
+                tile.Dispose();
+            }
+
+            for (int i = 0; i < carList.Count; i++)
+            {
+                TileListPanel tp;
+                if (carList[i].PhotoList.Count > 0)
+                {
+                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this);
+                    TileView.Controls.Add(tp);
+                }
+                localX += 200;
+                checkNumb++;
+
+                if (checkNumb == 5)
+                {
+                    localY += 250;
+                    localX = 10;
+                    checkNumb = 0;
+                }
+
+            }
+        }
+
+        private void showAllCars(object sender, EventArgs e)
+        {
+            if (searchWizard1.Visible == true)
+            {
+                searchWizard1.Visible = false;
+            }
+            carList = db.FillCars();
+            totalCarList = carList;
+            updateTileView();
         }
     }
 }
-
-//Panel carPanel = new Panel();
-//               carPanel.Size = new Size(176, 220);
-
-//               PictureBox localBox = new PictureBox();
-//               localBox.Image = imageList1.Images[0];
-//               localBox.Size = new System.Drawing.Size(160, 160);
-//               localBox.Top = 8;
-//               localBox.Left = 8;
-//               carPanel.Controls.Add(localBox);
-//               carPanel.BackColor = Color.Blue;
-
-//               Label name = new Label();
-//               name.Text = "Auto";
-//               carPanel.Controls.Add(name);
-//               name.Left = 8;
-//               name.Top = 170;
-//               name.Font = new Font("Ariel", 16);
-
-
-//               Label price = new Label();
-//               price.Text = "25/km";
-//               carPanel.Controls.Add(price);
-//               price.Top = 190;
-//               price.Left = 8;
-//               price.Font = new Font("Ariel", 16);
-
-//               CheckBox checkBox = new CheckBox();
-//               carPanel.Controls.Add(checkBox);
-//               checkBox.Top = 145;
-//               checkBox.Left = 145;
-
-//               this.Controls.Add(carPanel);
