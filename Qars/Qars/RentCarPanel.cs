@@ -17,6 +17,7 @@ namespace Qars
 {
     public partial class RentCarPanel : UserControl
     {
+
         DateTime[] bolddates;
         public int carnumber { get; set; }
                        public int countlabel = 0;
@@ -26,6 +27,7 @@ namespace Qars
         DateTime einddatum;
         bool reservationCollision = false;
         bool firstMessage = false;
+        int opvanger { get; set; }
         public RentCarPanel(int carnumber)
         {
             InitializeComponent();
@@ -62,7 +64,6 @@ namespace Qars
                 einddatum = monthCalendar.SelectionStart.Date;
                 secondDateChecked = true;
             }
-
             if (secondDateChecked)
             {
                 if (einddatum < startdatum)
@@ -107,6 +108,7 @@ namespace Qars
                     MessageBox.Show("De datum tussen de datums: "+startdateTextbox.Text+" en "+enddateTextbox.Text+", mogen niet gebruikt worden!");
                     //startdateTextbox.Text = "";
                     enddateTextbox.Text = "";
+                    reservationCollision = false;
 
                 }
             }
@@ -142,7 +144,6 @@ namespace Qars
             if (currentSelectedDateBox == startdateTextbox.Name)
             {
                 monthCalendar.MinDate = DateTime.Today;
-                Console.WriteLine(monthCalendar.MinDate+" Dit is de datum die in het begin wordt geselecteerd! ");
             }
             monthCalendar.Show();
             MaskedTextBox b = (MaskedTextBox)sender;
@@ -318,71 +319,291 @@ namespace Qars
             SpaceLabel.Text = "Ruimte:";
             AutoLabel.Text = "Automaat:";
             label5.Text = "";
-            //label2.Text = "";
+            label2.Text = "";
+            //label9.Text = "";
+            //label4.Text = "";
+            //label6.Text = "";
+
+
+            List<Label> Labels = new List<Label>();        //maak formule met deze gegevens! (boven in staat de formule zo'n beetje)
+            Labels.Add(label2);
+            Labels.Add(label4);
+            Labels.Add(label5);
+            Labels.Add(label6);
+            Labels.Add(label7);
+            Labels.Add(label8);
+            Labels.Add(label9);
+            Labels.Add(label10);
+            Labels.Add(label12);
+
+            foreach (var label in Labels)
+            {
+                if (label.Text.Contains("-1") )    //|| label.Text.Contains("N.V.T")   kan er pas in wanneer de gegevens van de lijst komen...
+                {
+                    label.Text = "";   
+                }
+            }
+
+            int mover;
+            int mover2;
+            int mover3;
+            int mover4;
+            int mover5;
+            int mover6;
+            int mover7;
+            int mover8;
+            int mover9;
+
+            int moverTop;
+            int moverTop2;
+            int moverTop3;
+            int moverTop4;
+            int moverTop5;
+            int moverTop6;
+            int moverTop7;
+            int moverTop8;
+            int moverTop9;
+
             if (label2.Text == "")
             {
-                int random = label2.Top;
-                int random2 = label4.Top;
-                int random3 = label5.Top;
-                int random4 = label6.Top;
-                int random5 = label7.Top;
-                int random6 = label8.Top;
-                int random7 = label9.Top;
-                int random8 = label10.Top;
-                int random9 = label12.Top;
-
-                //List<Label> Labels = new List<Label>();
-                //Labels.Add(label1);
-                //Labels.Add(label2);
-                //Labels.Add(label4);
-                //Labels.Add(label5);
-                //Labels.Add(label6);
-                //Labels.Add(label7);
-                //Labels.Add(label8);
-                //Labels.Add(label9);
-                //Labels.Add(label10);
-                //Labels.Add(label12);
-
-                
                 ModelLabel.Visible = false;
                 label2.Visible = false;
-                 //label4 in en uit -->
-                //label4.Top = random;  
-                
-                //label5.Top = random2;
-                
-                //label6.Top = random3;
-                
-                //label7.Top = random4;
-                
-                //label8.Top = random5;
-                //label9.Top = random6;
-                //label10.Top = random7;
-                //label12.Top = label10.Top;
+                mover = label2.Top;
+                mover2 = label4.Top;
+                mover3 = label5.Top;
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
 
-                SpaceLabel.Top = ModelLabel.Top;
-                /*CategoryLabel.Top = SellingspriceLabel.Top;
-                YearOfBuildLabel.Top = CategoryLabel.Top;
-                AutoLabel.Top = YearOfBuildLabel.Top;
-                KilometerLabel.Top = AutoLabel.Top;
-                PKLabel.Top = KilometerLabel.Top;
-                ApkLabel.Top = PKLabel.Top;
-                SpaceLabel.Top = ApkLabel.Top;*/
+
+                label4.Top = mover;                
+                label5.Top = mover2;
+                label6.Top = mover3;
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop = ModelLabel.Top;
+                moverTop2 = SellingspriceLabel.Top;
+                moverTop3 = CategoryLabel.Top;
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                SellingspriceLabel.Top = moverTop;
+                CategoryLabel.Top = moverTop2;
+                YearOfBuildLabel.Top = moverTop3;
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
             }
-            //if (label4.Text == "")
-            //{
-            //    SellingspriceLabel.Visible = false; 
-            //    label4.Visible = false;
-            //    for (int i = 12; i > 0; i++)
-            //    {
-            //        if (!label[i].Text == "")
-            //        {
+            if (label4.Text == "")
+            {
+                SellingspriceLabel.Visible = false;
+                label4.Visible = false;
 
-            //        }
-            //    }
-            //}
+                mover2 = label4.Top;
+                mover3 = label5.Top;
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
 
+                label5.Top = mover2;
+                label6.Top = mover3;
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
 
+                moverTop2 = SellingspriceLabel.Top;
+                moverTop3 = CategoryLabel.Top;
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                CategoryLabel.Top = moverTop2;
+                YearOfBuildLabel.Top = moverTop3;
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+                
+            }
+            if (label5.Text == "")
+            {
+                CategoryLabel.Visible = false;
+                label5.Visible = false;
+
+                mover3 = label5.Top;
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label6.Top = mover3;
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop3 = CategoryLabel.Top;
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+                moverTop9 = SpaceLabel.Top;
+
+                YearOfBuildLabel.Top = moverTop3;
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label6.Text == "")
+            {
+                YearOfBuildLabel.Visible = false;
+                label6.Visible = false;
+
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label7.Text == "")
+            {
+                AutoLabel.Visible = false;
+                label7.Visible = false;
+
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label8.Text == "")
+            {
+                KilometerLabel.Visible = false;
+                label8.Visible = false;
+
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label9.Text == "")
+            {
+                PKLabel.Visible = false;
+                label9.Visible = false;
+
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+            
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label10.Text == "")
+            {
+                ApkLabel.Visible = false;
+                label10.Visible = false;
+
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop8 = ApkLabel.Top;
+
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label12.Text == "")
+            {
+                SpaceLabel.Visible = false;
+                label12.Visible = false;
+
+                mover8 = label10.Top;
+
+                label12.Top = mover8;
+
+                //moverTop8 = ApkLabel.Top;
+
+                //SpaceLabel.Top = moverTop8;
+            }
 
 
             label2.Text = VisualDemo.carList[carnumber].brand + " " + VisualDemo.carList[carnumber].model;
@@ -404,6 +625,11 @@ namespace Qars
             }
             label10.Text = VisualDemo.carList[carnumber].motdate;
             label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + " Liter";
+            //            if (VisualDemo.carList[carnumber].storagespace == -1)
+            //{
+            //    label12.Text = "N.V.T";
+            //}
+            //label12.Text = VisualDemo.carList[carnumber].storagespace.ToString() + " Liter";
         }
 
 
