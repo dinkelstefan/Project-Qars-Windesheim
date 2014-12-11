@@ -33,10 +33,10 @@ namespace Qars
             InitializeComponent();
             DoubleBuffered = true;
 
-            carList = db.FillCars();
-            EstablishmentList = db.FillEstablishment();
-            reservationList = db.FillReservation();
-            damageList = db.FillDamage();
+            carList = db.SelectCar();
+            EstablishmentList = db.SelectEstablishment();
+            reservationList = db.SelectReservation();
+            damageList = db.SelectDamage();
 
             int localY = 200;
             int localX = 10;
