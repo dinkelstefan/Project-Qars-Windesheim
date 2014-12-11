@@ -57,7 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.searchWizard = new Qars.Views.searchWizard(this);
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -387,14 +386,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
-            // searchWizard
-            // 
-            this.searchWizard.Location = new System.Drawing.Point(331, 121);
-            this.searchWizard.Name = "searchWizard1";
-            this.searchWizard.Size = new System.Drawing.Size(1565, 873);
-            this.searchWizard.TabIndex = 11;
-            this.searchWizard.Visible = false;
-            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -402,7 +393,6 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1896, 1048);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.searchWizard);
             this.Controls.Add(this.TileView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel4);
