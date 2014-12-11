@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace Qars
 {
-    public class Establishment
+    public class Customer
     {
-
-        public int establishmentID { get; set; }
-        public string name { get; set; }
-        public string city { get; set; }
+        public int customerID { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public int age { get; set; }
         public string postalcode { get; set; }
+        public string city { get; set; }
         public string streetname { get; set; }
         public int streetnumber { get; set; }
         public string streetnumbersuffix { get; set; }
         public string phonenumber { get; set; }
         public string emailaddress { get; set; }
-        public string leafletlink { get; set; } //Link naar een folder van een company
-        public string description { get; set; }
+        public string driverslicenselink { get; set; }
 
-        public Establishment()
+
+        public Customer()
         {
         }
+
 
 
     }

@@ -37,12 +37,12 @@ namespace Qars
             DoubleBuffered = true;
             hp = new HoverPanel(this);
 
-            totalCarList = db.FillCars();
+            totalCarList = db.SelectCar();
             carList = totalCarList;
 
-            EstablishmentList = db.FillEstablishment();
-            reservationList = db.FillReservation();
-            damageList = db.FillDamage();
+            EstablishmentList = db.SelectEstablishment();
+            reservationList = db.SelectReservation();
+            damageList = db.SelectDamage();
 
             updateTileView();
         }
@@ -152,7 +152,7 @@ namespace Qars
             {
                 searchWizard.Visible = false;
             }
-            carList = db.FillCars();
+            carList = db.SelectCar();
             totalCarList = carList;
             updateTileView();
         }

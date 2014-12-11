@@ -17,12 +17,16 @@ namespace Qars
 {
     public partial class RentCarPanel : UserControl
     {
+
         DateTime[] bolddates;
         public int carnumber { get; set; }
+        public int countlabel = 0;
         private String currentSelectedDateBox;
         bool secondDateChecked;
-        DateTime datum;
-        DateTime datum2;
+        DateTime startdatum;
+        DateTime einddatum;
+        bool reservationCollision = false;
+        bool firstMessage = false;
         private VisualDemo qarsApplication;
         public RentCarPanel(int carnumber, VisualDemo qarsApp)
         {
@@ -53,42 +57,68 @@ namespace Qars
             if (startdateTextbox.Name == currentSelectedDateBox)
             {
                 startdateTextbox.Text = date;
-                datum = monthCalendar.SelectionStart.Date;
+                startdatum = monthCalendar.SelectionStart.Date;
             }
             else if (enddateTextbox.Name == currentSelectedDateBox)
             {
                 enddateTextbox.Text = date;
-                datum2 = monthCalendar.SelectionStart.Date;
+                einddatum = monthCalendar.SelectionStart.Date;
                 secondDateChecked = true;
             }
-
             if (secondDateChecked)
             {
-                if (datum2 < datum)
+                if (einddatum < startdatum)
                 {
+                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum");
                     enddateTextbox.Text = "";
                 }
             }
-            foreach (var datetimes in bolddates)      //loop through all bolded dates...
+            foreach (var bolddate in bolddates)      //loop through all bolded dates...
             {
-                
-                    if (datum == datetimes)    //if the start WILL be a bolded date...
-	            {
-                    MessageBox.Show("Deze begindatum kan niet worden gebruikt!");
+                if (startdatum == bolddate)    //if the start WILL be a bolded date...
+                {
+                    MessageBox.Show("Deze begindatum kan niet worden gebruikt i.v.m reservering!");
                     startdateTextbox.Text = "";
-	            }
+                    firstMessage = true;
+                }
 
-                    if (datum2 == datetimes)  //if the end date WILL be a bolded date...
+                if (einddatum == bolddate)  //if the end date WILL be a bolded date...
+                {
+                    MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
+                    firstMessage = true;
+                    enddateTextbox.Text = "";
+                }
+                if (startdatum <= einddatum)
+                {
+                    TimeSpan tisp = einddatum - startdatum;
+                    int dateDiffer = tisp.Days;
+                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
                     {
-                        MessageBox.Show("Deze einddatum kan niet worden gebruikt!");
+                        if (startdatum.AddDays(i) == bolddate)
+                        {
+                            //Console.WriteLine("Als datum tussen begin en eind overeenkomen met bolded dan true!");
+                            reservationCollision = true;
+                        }
                     }
+                }
+            }
+            if (!firstMessage)  //checks if there is only 1 messagebox...
+            {
+                if (reservationCollision)
+                {
+                    MessageBox.Show("De datum tussen de datums: " + startdateTextbox.Text + " en " + enddateTextbox.Text + ", mogen niet gebruikt worden!");
+                    //startdateTextbox.Text = "";
+                    enddateTextbox.Text = "";
+                    reservationCollision = false;
+
+                }
             }
         }
 
         private void openCalender(object sender, EventArgs e)
         {
             foreach (var item in this.qarsApplication.reservationList) //loop through all the reservations
-                if (carnumber == item.carID) //Check if there is a reservation for the current car
+                if (carnumber == item.carID && item.confirmed) //Check if there is a reservation for the current car
                 {
                     string startDateString = item.startdate;
                     string endDateString = item.enddate;
@@ -119,6 +149,11 @@ namespace Qars
             monthCalendar.Show();
             MaskedTextBox b = (MaskedTextBox)sender;
             currentSelectedDateBox = b.Name;
+
+            //////if (bolddates.Contains(monthCalendar.MinDate))
+            //////{
+            //////    MessageBox.Show("Deze al geselecteerde datum: " + monthCalendar.MinDate.ToShortDateString() + " is al in gebruik! Zoek een andere datum.");
+            //////}
         }
 
         private void closeCalender(object sender, EventArgs e)
@@ -145,11 +180,11 @@ namespace Qars
                 mail.addTo(emailTextbox.Text);
                 mail.addSubject("Aanvraag van Audi A4");
                 mail.addBody(buildEmailBody());
-
+                /*
                 //insert the reservation in the database
                 DBConnect connection = new DBConnect();
                 connection.insertReservation(reservation);
-
+                */
                 //The email can only be send when the insert function succeed
                 mail.sendEmail();
 
@@ -285,55 +320,291 @@ namespace Qars
             SpaceLabel.Text = "Ruimte:";
             AutoLabel.Text = "Automaat:";
             label5.Text = "";
-            //label2.Text = "";
+            label2.Text = "";
+            //label9.Text = "";
+            //label4.Text = "";
+            //label6.Text = "";
+
+
+            List<Label> Labels = new List<Label>();        //maak formule met deze gegevens! (boven in staat de formule zo'n beetje)
+            Labels.Add(label2);
+            Labels.Add(label4);
+            Labels.Add(label5);
+            Labels.Add(label6);
+            Labels.Add(label7);
+            Labels.Add(label8);
+            Labels.Add(label9);
+            Labels.Add(label10);
+            Labels.Add(label12);
+
+            foreach (var label in Labels)
+            {
+                if (label.Text.Contains("-1"))    //|| label.Text.Contains("N.V.T")   kan er pas in wanneer de gegevens van de lijst komen...
+                {
+                    label.Text = "";
+                }
+            }
+
+            int mover;
+            int mover2;
+            int mover3;
+            int mover4;
+            int mover5;
+            int mover6;
+            int mover7;
+            int mover8;
+            int mover9;
+
+            int moverTop;
+            int moverTop2;
+            int moverTop3;
+            int moverTop4;
+            int moverTop5;
+            int moverTop6;
+            int moverTop7;
+            int moverTop8;
+            int moverTop9;
+
             if (label2.Text == "")
             {
-                int random  = label2.Top;
-                int random2 = label4.Top;
-                int random3 = label5.Top;
-                int random4 = label6.Top;
-                int random5 = label7.Top;
-                int random6 = label8.Top;
-                int random7 = label9.Top;
-                int random8 = label10.Top;
-                int random9 = label12.Top;
-
-
-
                 ModelLabel.Visible = false;
                 label2.Visible = false;
-                label4.Top = random;
-                label5.Top = random2;
-                label6.Top = random3;
-                label7.Top = random4;
-                label8.Top = random5;
-                label9.Top = random6;
-                label10.Top = random7;
-                label12.Top = label10.Top;
+                mover = label2.Top;
+                mover2 = label4.Top;
+                mover3 = label5.Top;
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
 
-                SpaceLabel.Top = ModelLabel.Top;
-                /*CategoryLabel.Top = SellingspriceLabel.Top;
-                YearOfBuildLabel.Top = CategoryLabel.Top;
-                AutoLabel.Top = YearOfBuildLabel.Top;
-                KilometerLabel.Top = AutoLabel.Top;
-                PKLabel.Top = KilometerLabel.Top;
-                ApkLabel.Top = PKLabel.Top;
-                SpaceLabel.Top = ApkLabel.Top;*/
+
+                label4.Top = mover;
+                label5.Top = mover2;
+                label6.Top = mover3;
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop = ModelLabel.Top;
+                moverTop2 = SellingspriceLabel.Top;
+                moverTop3 = CategoryLabel.Top;
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                SellingspriceLabel.Top = moverTop;
+                CategoryLabel.Top = moverTop2;
+                YearOfBuildLabel.Top = moverTop3;
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
             }
-            //if (label4.Text == "")
-            //{
-            //    SellingspriceLabel.Visible = false; 
-            //    label4.Visible = false;
-            //    for (int i = 12; i > 0; i++)
-            //    {
-            //        if (!label[i].Text == "")
-            //        {
+            if (label4.Text == "")
+            {
+                SellingspriceLabel.Visible = false;
+                label4.Visible = false;
 
-            //        }
-            //    }
-            //}
+                mover2 = label4.Top;
+                mover3 = label5.Top;
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label5.Top = mover2;
+                label6.Top = mover3;
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop2 = SellingspriceLabel.Top;
+                moverTop3 = CategoryLabel.Top;
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                CategoryLabel.Top = moverTop2;
+                YearOfBuildLabel.Top = moverTop3;
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+
+            }
+            if (label5.Text == "")
+            {
+                CategoryLabel.Visible = false;
+                label5.Visible = false;
+
+                mover3 = label5.Top;
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label6.Top = mover3;
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop3 = CategoryLabel.Top;
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+                moverTop9 = SpaceLabel.Top;
+
+                YearOfBuildLabel.Top = moverTop3;
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label6.Text == "")
+            {
+                YearOfBuildLabel.Visible = false;
+                label6.Visible = false;
+
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop4 = YearOfBuildLabel.Top;
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                AutoLabel.Top = moverTop4;
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label7.Text == "")
+            {
+                AutoLabel.Visible = false;
+                label7.Visible = false;
+
+                mover4 = label6.Top;
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label7.Top = mover4;
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop5 = AutoLabel.Top;
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                KilometerLabel.Top = moverTop5;
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label8.Text == "")
+            {
+                KilometerLabel.Visible = false;
+                label8.Visible = false;
+
+                mover5 = label7.Top;
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label8.Top = mover5;
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop6 = KilometerLabel.Top;
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                PKLabel.Top = moverTop6;
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label9.Text == "")
+            {
+                PKLabel.Visible = false;
+                label9.Visible = false;
+
+                mover6 = label8.Top;
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label9.Top = mover6;
+                label10.Top = mover7;
+                label12.Top = mover8;
 
 
+                moverTop7 = PKLabel.Top;
+                moverTop8 = ApkLabel.Top;
+
+                ApkLabel.Top = moverTop7;
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label10.Text == "")
+            {
+                ApkLabel.Visible = false;
+                label10.Visible = false;
+
+                mover7 = label9.Top;
+                mover8 = label10.Top;
+
+                label10.Top = mover7;
+                label12.Top = mover8;
+
+                moverTop8 = ApkLabel.Top;
+
+                SpaceLabel.Top = moverTop8;
+            }
+            if (label12.Text == "")
+            {
+                SpaceLabel.Visible = false;
+                label12.Visible = false;
+
+                mover8 = label10.Top;
+
+                label12.Top = mover8;
+
+                //moverTop8 = ApkLabel.Top;
+
+                //SpaceLabel.Top = moverTop8;
+            }
 
 
             label2.Text = this.qarsApplication.carList[carnumber].brand + " " + this.qarsApplication.carList[carnumber].model;

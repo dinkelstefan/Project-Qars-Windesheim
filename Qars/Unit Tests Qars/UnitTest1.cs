@@ -12,7 +12,7 @@ namespace Unit_Tests_Qars
         public void DataBaseCarList()
         {
             DBConnect db = new DBConnect();
-            List<Car> Autolijst = db.FillCars();
+            List<Car> Autolijst = db.SelectCar();
             Assert.IsNotNull(Autolijst);
 
         }
@@ -24,6 +24,5 @@ namespace Unit_Tests_Qars
             naam = "Kat";
             Assert.IsTrue(naam == "Kat");
         }
-
     }
 }

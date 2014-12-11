@@ -22,21 +22,9 @@ namespace Qars
         public bool paid { get; set; }
         public string comment { get; set; }
 
-        public Reservation(int reservation, int carID, int customerID, string startdate, string enddate, bool confirmed, int kilometres, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, bool paid, string comment)
+        public Reservation()
         {
-            this.reservationID = reservationID;
-            this.carID = carID;
-            this.customerID = customerID;
-            this.startdate = startdate;
-            this.enddate = enddate;
-            this.confirmed = confirmed;
-            this.kilometres = kilometres;
-            this.pickupcity = pickupcity;
-            this.pickupstreetname = pickupstreetname;
-            this.pickupstreetnumber = pickupstreetnumber;
-            this.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
-            this.paid = paid;
-            this.comment = comment;
         }
+
     }
 }

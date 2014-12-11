@@ -13,12 +13,8 @@ namespace Qars
         public string description { get; set; }
         public bool repaired { get; set; }
 
-        public Damage(int damageID, int carID, string description, bool repaired)
+        public Damage()
         {
-            this.damageID = damageID;
-            this.carID = carID;
-            this.description = description;
-            this.repaired = repaired;
         }
     }
 }
