@@ -72,38 +72,38 @@ namespace Qars
             }
             foreach (var bolddate in bolddates)      //loop through all bolded dates...
             {
-                    if (startdatum == bolddate)    //if the start WILL be a bolded date...
-	            {
+                if (startdatum == bolddate)    //if the start WILL be a bolded date...
+                {
                     MessageBox.Show("Deze begindatum kan niet worden gebruikt i.v.m reservering!");
                     startdateTextbox.Text = "";
                     firstMessage = true;
-	            }
+                }
 
-                    if (einddatum == bolddate)  //if the end date WILL be a bolded date...
+                if (einddatum == bolddate)  //if the end date WILL be a bolded date...
+                {
+                    MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
+                    firstMessage = true;
+                    enddateTextbox.Text = "";
+                }
+                if (startdatum <= einddatum)
+                {
+                    TimeSpan tisp = einddatum - startdatum;
+                    int dateDiffer = tisp.Days;
+                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
                     {
-                        MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
-                        firstMessage = true;
-                        enddateTextbox.Text = "";
-                    }
-                        if (startdatum <= einddatum)
+                        if (startdatum.AddDays(i) == bolddate)
                         {
-                            TimeSpan tisp = einddatum - startdatum;
-                            int dateDiffer = tisp.Days;
-                            for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
-                            {
-                                if (startdatum.AddDays(i) == bolddate )  
-                                {
-                                    //Console.WriteLine("Als datum tussen begin en eind overeenkomen met bolded dan true!");
-                                    reservationCollision = true;
-                                }
-                            }
+                            //Console.WriteLine("Als datum tussen begin en eind overeenkomen met bolded dan true!");
+                            reservationCollision = true;
                         }
+                    }
+                }
             }
             if (!firstMessage)  //checks if there is only 1 messagebox...
             {
                 if (reservationCollision)
                 {
-                    MessageBox.Show("De datum tussen de datums: "+startdateTextbox.Text+" en "+enddateTextbox.Text+", mogen niet gebruikt worden!");
+                    MessageBox.Show("De datum tussen de datums: " + startdateTextbox.Text + " en " + enddateTextbox.Text + ", mogen niet gebruikt worden!");
                     //startdateTextbox.Text = "";
                     enddateTextbox.Text = "";
 
@@ -141,7 +141,7 @@ namespace Qars
             if (currentSelectedDateBox == startdateTextbox.Name)
             {
                 monthCalendar.MinDate = DateTime.Today;
-                Console.WriteLine(monthCalendar.MinDate+" Dit is de datum die in het begin wordt geselecteerd! ");
+                Console.WriteLine(monthCalendar.MinDate + " Dit is de datum die in het begin wordt geselecteerd! ");
             }
             monthCalendar.Show();
             MaskedTextBox b = (MaskedTextBox)sender;
@@ -178,10 +178,11 @@ namespace Qars
                 mail.addSubject("Aanvraag van Audi A4");
                 mail.addBody(buildEmailBody());
 
+                /*
                 //insert the reservation in the database
                 DBConnect connection = new DBConnect();
                 connection.insertReservation(reservation);
-
+                */
                 //The email can only be send when the insert function succeed
                 mail.sendEmail();
 
@@ -320,7 +321,7 @@ namespace Qars
             //label2.Text = "";
             if (label2.Text == "")
             {
-                int random  = label2.Top;
+                int random = label2.Top;
                 int random2 = label4.Top;
                 int random3 = label5.Top;
                 int random4 = label6.Top;

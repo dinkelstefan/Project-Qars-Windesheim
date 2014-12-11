@@ -13,9 +13,7 @@ namespace Qars
         private List<PictureBox> pbox = new List<PictureBox>();
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
-        private string availableat;
         private PictureBox mainpicture;
-
         public CarDetailPanel(int carNumber)
         {   //properties of the panel
             this.currentCarNumber = carNumber;
@@ -26,6 +24,7 @@ namespace Qars
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
 
+            string availableat = "Verkrijgbaar bij: " + VisualDemo.EstablishmentList[carNumber].name;
             //all the labels, images and buttons
             Label carname = createLabel(VisualDemo.carList[carNumber].brand + " " + VisualDemo.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
             Label beginprice = createLabel("Beginprijs: € " + VisualDemo.carList[carNumber].startprice, 70, 375, 200, 27, 14, FontStyle.Regular);
@@ -119,7 +118,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Categorie", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Categorie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -134,7 +133,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Bouwjaar", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].model.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -149,7 +148,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Automaat", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Automaat:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -165,7 +164,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Versnellingen", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Versnellingen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].gearsamount.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -180,7 +179,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Motor", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Motor:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].motor, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -195,7 +194,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Vermogen", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Vermogen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].horsepower + " PK", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -211,7 +210,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Verbruik", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Verbruik:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].Fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
@@ -226,7 +225,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Kilometers", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Kilometers:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].kilometres.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -241,7 +240,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("APK", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("APK:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].motdate, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -301,7 +300,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Gewicht", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Gewicht:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].weight + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -316,7 +315,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Kleur", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Kleur:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].colour, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -331,7 +330,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Deuren", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Deuren:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].doors.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -346,7 +345,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Stereo", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Stereo:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -361,7 +360,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Bluetooth", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Bluetooth:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -377,7 +376,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Navigatie", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Navigatie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -392,7 +391,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Parkeerhulp", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Parkeerhulp:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -407,7 +406,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("4WD", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("4WD:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -422,7 +421,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Cabrio", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Cabrio:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -437,7 +436,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Airco", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Airco:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -453,7 +452,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Stoelen", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Stoelen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].seats.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -468,7 +467,7 @@ namespace Qars
                         }
                         else
                         {
-                            createLabel("Ruimte", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ruimte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count2++;
@@ -478,7 +477,6 @@ namespace Qars
                 }
             }
         }
-
         public void PictureHover(object sender, EventArgs e)
         {
             PictureBox smallbox = (PictureBox)sender;
@@ -541,4 +539,3 @@ namespace Qars
 
     }
 }
-
