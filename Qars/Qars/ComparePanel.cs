@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    class ComparePanel : Panel
+    public class ComparePanel : Panel
     {
         public List<Car> cars { get; set; }
-        public string[] compareItems = { "rentalprice", "brand", "category", "modelyear", "horsepower", "doors", "seats", "Fuelusage", "motor" };
+        public string[] compareItems = { "startprice","rentalprice", "brand", "model", "category", "modelyear", "horsepower", "doors", "seats", "Fuelusage", "motor" };
         //items in code are given in English. In the application the translation is shown.
-        public string[] compareItemsTranslation = { "Huurprijs", "Merk", "Categorie", "Bouwjaar", "Vermogen", "Deuren", "Stoelen", "Verbruik", "Motor" };
-        public List<string> checkHighest = new List<String>{ "horsepower","seats" };
-        public List<string> checkLowest = new List<String> { "rentalprice","Fuelusage"};
+        public string[] compareItemsTranslation = { "startprijs","Huurprijs", "Merk", "model", "Categorie", "Bouwjaar", "Vermogen", "Deuren", "Stoelen", "Verbruik", "Motor" };
+        public List<string> checkHighest = new List<String>{"modelyear", "horsepower","doors","seats" };
+        public List<string> checkLowest = new List<String> {"startprice","rentalprice","Fuelusage"};
         public List<Label> allLabels { get; set; }
         public List<PictureBox> pictures { get; set; }
         public Graphics graphics;
@@ -29,8 +29,8 @@ namespace Qars
         public ComparePanel(List<Car> list)
         {
             allLabels = new List<Label>();
-            this.Font = new Font("Calibri", 10);
-            sideMargin = 75;
+            this.Font = new Font("Calibri", 14);
+            sideMargin = 100;
             topMargin = 27;
             Height = 570;
             Width = 1045;
@@ -38,7 +38,7 @@ namespace Qars
             pictureHeight = 200;
             pictureMargin = 1;
             labelHeight = 30;
-            this.BackColor = Color.FromArgb(97, 97, 97);
+            this.BackColor = Color.FromArgb(240, 240, 240);
             cars = list;
 
             this.Top = 70;
@@ -63,7 +63,7 @@ namespace Qars
                 Label tempLabel = new Label();
                 tempLabel.Text = compareItemsTranslation[i];
                 tempLabel.Top = topMargin + pictureHeight + labelHeight * i;
-                tempLabel.Width = 75;
+                tempLabel.Width = 100;
                 tempLabel.Height = labelHeight;
                 tempLabel.TextAlign = ContentAlignment.MiddleLeft;
                 tempLabel.BackColor = Color.Transparent;
@@ -82,7 +82,7 @@ namespace Qars
                     pictures[i].Width = columnWidth - pictureMargin * 2;
                     pictures[i].Top = topMargin;
                     pictures[i].Height = pictureHeight;
-                    pictures[i].SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictures[i].SizeMode = PictureBoxSizeMode.Zoom;
                     pictures[i].BorderStyle = BorderStyle.FixedSingle;
                     this.Controls.Add(pictures[i]);
                 }
@@ -117,7 +117,7 @@ namespace Qars
             base.OnPaint(e);
             graphics = e.Graphics;
             Pen pen = new Pen(Color.Black);
-            SolidBrush brush = new SolidBrush(Color.FromArgb(224, 224, 224));
+            SolidBrush brush = new SolidBrush(Color.FromArgb(180, 180, 180));
 
             //rectangle for the items in the list
             for (int i = 0; i < compareItems.Length; i+=2)
@@ -149,7 +149,7 @@ namespace Qars
             double maxValue = compare.Max();
             if (maxValue == Convert.ToDouble(GetPropValue(car,item))){
                 label.Text = label.Text + " \u221A";
-                label.Font = new Font("Calibri", 10, FontStyle.Bold);
+                label.Font = new Font("Calibri", 14, FontStyle.Bold);
             }
         }
 
@@ -162,7 +162,7 @@ namespace Qars
             double maxValue = compare.Min();
             if (maxValue == Convert.ToDouble(GetPropValue(car, item))){
                 label.Text = label.Text + " \u221A";
-                label.Font = new Font("Calibri", 10, FontStyle.Bold);
+                label.Font = new Font("Calibri", 14, FontStyle.Bold);
             }
         }
 

@@ -21,8 +21,10 @@ namespace Qars
         public int carnumber { get; set; }
         private String currentSelectedDateBox;
         bool secondDateChecked;
-        DateTime datum;
-        DateTime datum2;
+        DateTime startdatum;
+        DateTime einddatum;
+        bool reservationCollision = false;
+        bool firstMessage = false;
         public RentCarPanel(int carnumber)
         {
             InitializeComponent();
@@ -51,42 +53,68 @@ namespace Qars
             if (startdateTextbox.Name == currentSelectedDateBox)
             {
                 startdateTextbox.Text = date;
-                datum = monthCalendar.SelectionStart.Date;
+                startdatum = monthCalendar.SelectionStart.Date;
             }
             else if (enddateTextbox.Name == currentSelectedDateBox)
             {
                 enddateTextbox.Text = date;
-                datum2 = monthCalendar.SelectionStart.Date;
+                einddatum = monthCalendar.SelectionStart.Date;
                 secondDateChecked = true;
             }
 
             if (secondDateChecked)
             {
-                if (datum2 < datum)
+                if (einddatum < startdatum)
                 {
+                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum!");
                     enddateTextbox.Text = "";
                 }
             }
-            foreach (var datetimes in bolddates)      //loop through all bolded dates...
+            foreach (var bolddate in bolddates)      //loop through all bolded dates...
             {
-                
-                    if (datum == datetimes)    //if the start WILL be a bolded date...
+                    if (startdatum == bolddate)    //if the start WILL be a bolded date...
 	            {
-                    MessageBox.Show("Deze begindatum kan niet worden gebruikt!");
+                    MessageBox.Show("Deze begindatum kan niet worden gebruikt i.v.m reservering!");
                     startdateTextbox.Text = "";
+                    firstMessage = true;
 	            }
 
-                    if (datum2 == datetimes)  //if the end date WILL be a bolded date...
+                    if (einddatum == bolddate)  //if the end date WILL be a bolded date...
                     {
-                        MessageBox.Show("Deze einddatum kan niet worden gebruikt!");
+                        MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
+                        firstMessage = true;
+                        enddateTextbox.Text = "";
                     }
+                        if (startdatum <= einddatum)
+                        {
+                            TimeSpan tisp = einddatum - startdatum;
+                            int dateDiffer = tisp.Days;
+                            for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
+                            {
+                                if (startdatum.AddDays(i) == bolddate )  
+                                {
+                                    //Console.WriteLine("Als datum tussen begin en eind overeenkomen met bolded dan true!");
+                                    reservationCollision = true;
+                                }
+                            }
+                        }
+            }
+            if (!firstMessage)  //checks if there is only 1 messagebox...
+            {
+                if (reservationCollision)
+                {
+                    MessageBox.Show("De datum tussen de datums: "+startdateTextbox.Text+" en "+enddateTextbox.Text+", mogen niet gebruikt worden!");
+                    //startdateTextbox.Text = "";
+                    enddateTextbox.Text = "";
+
+                }
             }
         }
 
         private void openCalender(object sender, EventArgs e)
         {
             foreach (var item in VisualDemo.reservationList) //loop through all the reservations
-                if (carnumber == item.carID) //Check if there is a reservation for the current car
+                if (carnumber == item.carID && item.confirmed) //Check if there is a reservation for the current car
                 {
                     string startDateString = item.startdate;
                     string endDateString = item.enddate;
@@ -113,10 +141,16 @@ namespace Qars
             if (currentSelectedDateBox == startdateTextbox.Name)
             {
                 monthCalendar.MinDate = DateTime.Today;
+                Console.WriteLine(monthCalendar.MinDate+" Dit is de datum die in het begin wordt geselecteerd! ");
             }
             monthCalendar.Show();
             MaskedTextBox b = (MaskedTextBox)sender;
             currentSelectedDateBox = b.Name;
+
+            //////if (bolddates.Contains(monthCalendar.MinDate))
+            //////{
+            //////    MessageBox.Show("Deze al geselecteerde datum: " + monthCalendar.MinDate.ToShortDateString() + " is al in gebruik! Zoek een andere datum.");
+            //////}
         }
 
         private void closeCalender(object sender, EventArgs e)

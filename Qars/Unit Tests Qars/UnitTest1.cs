@@ -24,6 +24,5 @@ namespace Unit_Tests_Qars
             naam = "Kat";
             Assert.IsTrue(naam == "Kat");
         }
-
     }
 }
