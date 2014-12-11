@@ -45,6 +45,9 @@ namespace Qars
             damageList = db.SelectDamage();
 
             updateTileView();
+
+            this.Controls.Add(hp);
+            hp.BringToFront();
         }
 
 
