@@ -17,9 +17,8 @@ namespace Qars
 {
     public partial class RentCarPanel : UserControl
     {
-
         DateTime[] bolddates;
-        public int carnumber { get; set; }
+        public int carID { get; set; }
         public int countlabel = 0;
         private String currentSelectedDateBox;
         bool secondDateChecked;
@@ -28,15 +27,13 @@ namespace Qars
         bool reservationCollision = false;
         bool firstMessage = false;
         private VisualDemo qarsApplication;
-        public RentCarPanel(int carnumber, VisualDemo qarsApp)
+        public RentCarPanel(int carID, VisualDemo qarsApp)
         {
             this.qarsApplication = qarsApp;
             InitializeComponent();
-            this.carnumber = carnumber;
-            fillCarInfoPanel();
+            this.carID = carID;
+            createSpecInfo(qarsApplication.carList, carID);
         }
-
-
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             string day = monthCalendar.SelectionStart.Day.ToString();
@@ -101,6 +98,7 @@ namespace Qars
                         }
                     }
                 }
+
             }
             if (!firstMessage)  //checks if there is only 1 messagebox...
             {
@@ -114,11 +112,10 @@ namespace Qars
                 }
             }
         }
-
         private void openCalender(object sender, EventArgs e)
         {
             foreach (var item in this.qarsApplication.reservationList) //loop through all the reservations
-                if (carnumber == item.carID && item.confirmed) //Check if there is a reservation for the current car
+                if (carID == item.carID && item.confirmed) //Check if there is a reservation for the current car
                 {
                     string startDateString = item.startdate;
                     string endDateString = item.enddate;
@@ -149,11 +146,6 @@ namespace Qars
             monthCalendar.Show();
             MaskedTextBox b = (MaskedTextBox)sender;
             currentSelectedDateBox = b.Name;
-
-            //////if (bolddates.Contains(monthCalendar.MinDate))
-            //////{
-            //////    MessageBox.Show("Deze al geselecteerde datum: " + monthCalendar.MinDate.ToShortDateString() + " is al in gebruik! Zoek een andere datum.");
-            //////}
         }
 
         private void closeCalender(object sender, EventArgs e)
@@ -161,7 +153,6 @@ namespace Qars
             monthCalendar.Hide();
 
         }
-
         private void rentCarClick(object sender, EventArgs e)
         {
 
@@ -172,28 +163,35 @@ namespace Qars
                 MailAddress email = new MailAddress(emailTextbox.Text);
 
                 //this has to become the new Reservation Class
-                Models.Reservation2 reservation = new Models.Reservation2(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, streetnumber, streetnumbersuffixTextbox.Text, postalcodeTextbox.Text, cityTextbox.Text, email, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text);
-                //Models.Customer customer = new Customer(Insert everything BUT the comment, startdate and enddate here!)
+                Reservation reservation = new Reservation();
+                reservation.carID = carID;
+                reservation.customerID = -1; //CUSTOMER LOGGED IN NUMBER
+                reservation.startdate = startdateTextbox.Text;
+                reservation.enddate = enddateTextbox.Text;
+                reservation.confirmed = false;
+                reservation.kilometres = Convert.ToInt32(KilometerTextBox.Text);
+                reservation.pickupcity = pickupCityTextbox.Text;
+                reservation.pickupstreetname = pickupStreetTextbox.Text;
+                reservation.pickupstreetnumber = Convert.ToInt32(pickupStreetnumberTextbox.Text);
+                reservation.pickupstreetnumbersuffix = pickupStreetnumberSuffixTextbox.Text;
+                reservation.paid = false;
+                reservation.comment = commentTextbox.Text;
 
+                DBConnect connection = new DBConnect();
+                connection.InsertReservation(reservation);
                 //This creates the email
                 Util.Mail mail = new Util.Mail();
                 mail.addTo(emailTextbox.Text);
-                mail.addSubject("Aanvraag van Audi A4");
-                mail.addBody(buildEmailBody());
-                /*
-                //insert the reservation in the database
-                DBConnect connection = new DBConnect();
-                connection.insertReservation(reservation);
-                */
-                //The email can only be send when the insert function succeed
+                mail.addSubject("Aanvraag van" + qarsApplication.carList[carID].brand + qarsApplication.carList[carID].model);
+                mail.addBody(buildEmailBody(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text));
                 mail.sendEmail();
 
                 MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
             }
 
-            catch (DbException)
+            catch (DbException dbe)
             {
-                MessageBox.Show("Fout tijdens het verwerken van uw aanvraag");
+                MessageBox.Show("Fout tijdens het verwerken van uw aanvraag\n" + dbe.HelpLink + dbe.Message);
             }
             catch (ArgumentException)
             {
@@ -248,7 +246,7 @@ namespace Qars
             {
                 MessageBox.Show("De opgegeven email is niet correct!");
             }
-            if (radioYesButton.Checked == true)
+            if (collectRadioButtonYes.Checked == true)
             {
                 if (!pickupCity.IsMatch(pickupCityTextbox.Text))
                 {
@@ -269,30 +267,41 @@ namespace Qars
             }
 
         }
-
-        private string buildEmailBody()
+        private string buildEmailBody(string firstname, string lastname, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string comment)
         {
             StringBuilder builder = new StringBuilder();
             //This part can be edited by the admin
-            builder.AppendLine(String.Format("Beste meneer/mevrouw {0}", lastnameTextbox.Text));
+            builder.AppendLine(String.Format("Beste meneer/mevrouw {0}", lastname));
             builder.AppendLine("");
             builder.AppendLine("Bedank voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel");
-            builder.AppendLine("mogelijk te verwerken. Zodra uw verzoek is goed gekeurd ontvangt u een bestiging");
+            builder.AppendLine("mogelijk te verwerken. Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging");
             builder.AppendLine("");
 
-            builder.AppendLine(String.Format("Voornaam:\t{0}", firstnameTextbox.Text));
-            builder.AppendLine(String.Format("Achternaam:\t{0}", lastnameTextbox.Text));
-            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text));
-            builder.AppendLine(String.Format("Woonplaats:\t{0}", cityTextbox.Text));
-            builder.AppendLine(String.Format("Postcode:\t{0}", postalcodeTextbox.Text));
-            builder.AppendLine(String.Format("Email:\t\t{0}", emailTextbox.Text));
-            builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumberTextbox.Text));
+            builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
+            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
+            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
+            builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
+            builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
+            builder.AppendLine(String.Format("Email:\t\t{0}", email));
+            builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
             builder.Append("\n");
-            builder.AppendLine(String.Format("Begin datum:\t{0}", startdateTextbox.Text));
-            builder.AppendLine(String.Format("Eind datum:\t{0}", enddateTextbox.Text));
+            builder.AppendLine(String.Format("Begin datum:\t{0}", startdate));
+            builder.AppendLine(String.Format("Eind datum:\t{0}", enddate));
+            if (collectRadioButtonYes.Checked && pickupCityTextbox.Text != "" && pickupStreetnumberTextbox.Text != "" && pickupStreetnumberSuffixTextbox.Text != "")//If pickupstreetnumber(suffix).textbox.text = empty, text = "". 
+            {
+                builder.AppendLine(String.Format("De auto zal op {0} worden opgehaald op het volgende adres:"));
+                if (streetnumbersuffixTextbox.Text != "")
+                {
+                    builder.AppendLine(String.Format(pickupStreetTextbox.Text + " " + pickupStreetnumberTextbox.Text + pickupStreetnumberSuffixTextbox.Text + " te " + pickupCityTextbox.Text));
+                }
+                else
+                {
+                    builder.AppendLine(String.Format(pickupStreetTextbox.Text + " " + pickupStreetnumberTextbox.Text + " te " + pickupCityTextbox.Text));
+                }
+            }
             builder.Append("\n");
             builder.AppendLine("Opmerking:");
-            builder.AppendLine(commentTextbox.Text);
+            builder.AppendLine(comment);
 
             //this part can be edited by the admin
             builder.Append("\n\n");
@@ -302,378 +311,92 @@ namespace Qars
 
             return builder.ToString();
         }
-
         private void closeRentCarPanel(object sender, EventArgs e)
         {
-            this.Visible = !this.Visible;
+            this.Dispose();
         }
-
-        public void fillCarInfoPanel()
-        {
-
-            //this.qarsApplication.carList[carnumber].(info);
-            ModelLabel.Text = "Model:";
-            CategoryLabel.Text = "Categorie:";
-            YearOfBuildLabel.Text = "Bouwjaar:";
-            KilometerLabel.Text = "Kilometer:";
-            PKLabel.Text = "Pk:";
-            SpaceLabel.Text = "Ruimte:";
-            AutoLabel.Text = "Automaat:";
-            label5.Text = "";
-            label2.Text = "";
-            //label9.Text = "";
-            //label4.Text = "";
-            //label6.Text = "";
-
-
-            List<Label> Labels = new List<Label>();        //maak formule met deze gegevens! (boven in staat de formule zo'n beetje)
-            Labels.Add(label2);
-            Labels.Add(label4);
-            Labels.Add(label5);
-            Labels.Add(label6);
-            Labels.Add(label7);
-            Labels.Add(label8);
-            Labels.Add(label9);
-            Labels.Add(label10);
-            Labels.Add(label12);
-
-            foreach (var label in Labels)
-            {
-                if (label.Text.Contains("-1"))    //|| label.Text.Contains("N.V.T")   kan er pas in wanneer de gegevens van de lijst komen...
-                {
-                    label.Text = "";
-                }
-            }
-
-            int mover;
-            int mover2;
-            int mover3;
-            int mover4;
-            int mover5;
-            int mover6;
-            int mover7;
-            int mover8;
-            int mover9;
-
-            int moverTop;
-            int moverTop2;
-            int moverTop3;
-            int moverTop4;
-            int moverTop5;
-            int moverTop6;
-            int moverTop7;
-            int moverTop8;
-            int moverTop9;
-
-            if (label2.Text == "")
-            {
-                ModelLabel.Visible = false;
-                label2.Visible = false;
-                mover = label2.Top;
-                mover2 = label4.Top;
-                mover3 = label5.Top;
-                mover4 = label6.Top;
-                mover5 = label7.Top;
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-
-                label4.Top = mover;
-                label5.Top = mover2;
-                label6.Top = mover3;
-                label7.Top = mover4;
-                label8.Top = mover5;
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop = ModelLabel.Top;
-                moverTop2 = SellingspriceLabel.Top;
-                moverTop3 = CategoryLabel.Top;
-                moverTop4 = YearOfBuildLabel.Top;
-                moverTop5 = AutoLabel.Top;
-                moverTop6 = KilometerLabel.Top;
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-
-                SellingspriceLabel.Top = moverTop;
-                CategoryLabel.Top = moverTop2;
-                YearOfBuildLabel.Top = moverTop3;
-                AutoLabel.Top = moverTop4;
-                KilometerLabel.Top = moverTop5;
-                PKLabel.Top = moverTop6;
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label4.Text == "")
-            {
-                SellingspriceLabel.Visible = false;
-                label4.Visible = false;
-
-                mover2 = label4.Top;
-                mover3 = label5.Top;
-                mover4 = label6.Top;
-                mover5 = label7.Top;
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label5.Top = mover2;
-                label6.Top = mover3;
-                label7.Top = mover4;
-                label8.Top = mover5;
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop2 = SellingspriceLabel.Top;
-                moverTop3 = CategoryLabel.Top;
-                moverTop4 = YearOfBuildLabel.Top;
-                moverTop5 = AutoLabel.Top;
-                moverTop6 = KilometerLabel.Top;
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-
-                CategoryLabel.Top = moverTop2;
-                YearOfBuildLabel.Top = moverTop3;
-                AutoLabel.Top = moverTop4;
-                KilometerLabel.Top = moverTop5;
-                PKLabel.Top = moverTop6;
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-
-            }
-            if (label5.Text == "")
-            {
-                CategoryLabel.Visible = false;
-                label5.Visible = false;
-
-                mover3 = label5.Top;
-                mover4 = label6.Top;
-                mover5 = label7.Top;
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label6.Top = mover3;
-                label7.Top = mover4;
-                label8.Top = mover5;
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop3 = CategoryLabel.Top;
-                moverTop4 = YearOfBuildLabel.Top;
-                moverTop5 = AutoLabel.Top;
-                moverTop6 = KilometerLabel.Top;
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-                moverTop9 = SpaceLabel.Top;
-
-                YearOfBuildLabel.Top = moverTop3;
-                AutoLabel.Top = moverTop4;
-                KilometerLabel.Top = moverTop5;
-                PKLabel.Top = moverTop6;
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label6.Text == "")
-            {
-                YearOfBuildLabel.Visible = false;
-                label6.Visible = false;
-
-                mover4 = label6.Top;
-                mover5 = label7.Top;
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label7.Top = mover4;
-                label8.Top = mover5;
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop4 = YearOfBuildLabel.Top;
-                moverTop5 = AutoLabel.Top;
-                moverTop6 = KilometerLabel.Top;
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-
-                AutoLabel.Top = moverTop4;
-                KilometerLabel.Top = moverTop5;
-                PKLabel.Top = moverTop6;
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label7.Text == "")
-            {
-                AutoLabel.Visible = false;
-                label7.Visible = false;
-
-                mover4 = label6.Top;
-                mover5 = label7.Top;
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label7.Top = mover4;
-                label8.Top = mover5;
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop5 = AutoLabel.Top;
-                moverTop6 = KilometerLabel.Top;
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-
-                KilometerLabel.Top = moverTop5;
-                PKLabel.Top = moverTop6;
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label8.Text == "")
-            {
-                KilometerLabel.Visible = false;
-                label8.Visible = false;
-
-                mover5 = label7.Top;
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label8.Top = mover5;
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop6 = KilometerLabel.Top;
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-
-                PKLabel.Top = moverTop6;
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label9.Text == "")
-            {
-                PKLabel.Visible = false;
-                label9.Visible = false;
-
-                mover6 = label8.Top;
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label9.Top = mover6;
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-
-                moverTop7 = PKLabel.Top;
-                moverTop8 = ApkLabel.Top;
-
-                ApkLabel.Top = moverTop7;
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label10.Text == "")
-            {
-                ApkLabel.Visible = false;
-                label10.Visible = false;
-
-                mover7 = label9.Top;
-                mover8 = label10.Top;
-
-                label10.Top = mover7;
-                label12.Top = mover8;
-
-                moverTop8 = ApkLabel.Top;
-
-                SpaceLabel.Top = moverTop8;
-            }
-            if (label12.Text == "")
-            {
-                SpaceLabel.Visible = false;
-                label12.Visible = false;
-
-                mover8 = label10.Top;
-
-                label12.Top = mover8;
-
-                //moverTop8 = ApkLabel.Top;
-
-                //SpaceLabel.Top = moverTop8;
-            }
-
-
-            label2.Text = this.qarsApplication.carList[carnumber].brand + " " + this.qarsApplication.carList[carnumber].model;
-            //label4 (?)
-            label5.Text = this.qarsApplication.carList[carnumber].category;
-            label6.Text = this.qarsApplication.carList[carnumber].modelyear.ToString();
-            label7.Text = this.qarsApplication.carList[carnumber].automatic.ToString();
-            label8.Text = this.qarsApplication.carList[carnumber].kilometres.ToString();
-            label9.Text = this.qarsApplication.carList[carnumber].horsepower.ToString();  //deze 
-
-            if (this.qarsApplication.carList[carnumber].automatic)
-            {
-                label7.Text = "Ja";
-
-            }
-            else
-            {
-                label7.Text = "Nee";
-            }
-            label10.Text = this.qarsApplication.carList[carnumber].motdate;
-            label12.Text = this.qarsApplication.carList[carnumber].storagespace.ToString() + " Liter";
-        }
-
-
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioYesButton_CheckedChanged(object sender, EventArgs e)
         {
             pickupCityTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupCityTextbox.ReadOnly = false;
+            pickupCityTextbox.Enabled = !pickupCityTextbox.Enabled;
 
             pickupStreetTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupStreetTextbox.ReadOnly = false;
+            pickupStreetTextbox.Enabled = !pickupStreetnumberTextbox.Enabled;
 
             pickupStreetnumberTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupStreetnumberTextbox.ReadOnly = false;
+            pickupStreetnumberTextbox.Enabled = !pickupStreetnumberTextbox.Enabled;
 
             pickupStreetnumberSuffixTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupStreetnumberSuffixTextbox.ReadOnly = false;
+            pickupStreetnumberSuffixTextbox.Enabled = !pickupStreetnumberSuffixTextbox.Enabled;
         }
-
         private void radioNoButton_CheckedChanged(object sender, EventArgs e)
         {
             pickupCityTextbox.BackColor = Color.Gray;
-            pickupCityTextbox.ReadOnly = true;
+            pickupCityTextbox.Enabled = !pickupCityTextbox.Enabled;
 
             pickupStreetTextbox.BackColor = Color.Gray;
-            pickupStreetTextbox.ReadOnly = true;
+            pickupStreetTextbox.Enabled = !pickupStreetTextbox.Enabled;
 
             pickupStreetnumberTextbox.BackColor = Color.Gray;
-            pickupStreetnumberTextbox.ReadOnly = true;
+            pickupStreetnumberTextbox.Enabled = !pickupStreetnumberTextbox.Enabled;
 
             pickupStreetnumberSuffixTextbox.BackColor = Color.Gray;
-            pickupStreetnumberSuffixTextbox.ReadOnly = true;
+            pickupStreetnumberSuffixTextbox.Enabled = pickupStreetnumberSuffixTextbox.Enabled;
         }
+        private void createSpecInfo(List<Car> list, int carNumber)
+        {
+
+            InfoModelLabel.Text = qarsApplication.carList[carNumber].model + " " + qarsApplication.carList[carNumber].brand;
+            InfoModelYearLabel.Text = qarsApplication.carList[carNumber].modelyear.ToString();
+            InfoStartPriceLabel.Text = "€ " + qarsApplication.carList[carNumber].startprice;
+            InfoCategoryLabel.Text = qarsApplication.carList[carNumber].category;
+            if (qarsApplication.carList[carNumber].automatic)
+            {
+                InfoAutomaticLabel.Text = "Ja";
+            }
+            else
+            {
+                InfoAutomaticLabel.Text = "Nee";
+            }
+            if (qarsApplication.carList[carNumber].cruisecontrol)
+            {
+                InfoCruiseControlLabel.Text = "Ja";
+            }
+            if (qarsApplication.carList[carNumber].kilometres == -1)
+            {
+                InfoKilometresLabel.Text = "N.V.T";
+            }
+            else
+            {
+                InfoKilometresLabel.Text = qarsApplication.carList[carNumber].kilometres.ToString();
+
+            }
+            if (qarsApplication.carList[carNumber].horsepower == -1)
+            {
+                InfoHorsePowerLabel.Text = "N.V.T";
+            }
+            else
+            {
+                InfoHorsePowerLabel.Text = qarsApplication.carList[carNumber].horsepower + " PK";
+            }
+            if (qarsApplication.carList[carNumber].motdate == "")
+            {
+                InfoMOTDateLabel.Text = "N.V.T";
+            }
+            else
+            {
+                InfoMOTDateLabel.Text = qarsApplication.carList[carNumber].motdate;
+            }
+            if (qarsApplication.carList[carNumber].storagespace == -1)
+            {
+                InfoStorageSpaceLabel.Text = "N.V.T";
+            }
+            else
+            {
+                InfoStorageSpaceLabel.Text = qarsApplication.carList[carNumber].storagespace + " Liter";
+            }
+
+        }
+
     }
 }
-

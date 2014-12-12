@@ -15,7 +15,7 @@ namespace Qars
         private int currentCarNumber;
         private PictureBox mainpicture;
         private VisualDemo qarsApplication;
-
+        private string availableat;
         public CarDetailPanel(int carNumber, VisualDemo qarsApp)
         {   //properties of the panel
             this.currentCarNumber = carNumber;
@@ -28,7 +28,14 @@ namespace Qars
 
             this.qarsApplication = qarsApp;
 
-            string availableat = "Verkrijgbaar bij: " + qarsApplication.EstablishmentList[carNumber].name;
+            //Look up where the Car is available
+            foreach (var company in this.qarsApplication.EstablishmentList)
+            {
+                if (this.qarsApplication.carList[carNumber].establishmentID == company.establishmentID)
+                {
+                    availableat = "Verkrijgbaar bij: " + company.name;
+                }
+            }
 
             //all the labels, images and buttons
             Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
@@ -44,14 +51,7 @@ namespace Qars
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
             CreateSpecInfo(this.qarsApplication.carList, carNumber);
 
-            //Look up where the Car is available
-            foreach (var company in this.qarsApplication.EstablishmentList)
-            {
-                if (this.qarsApplication.carList[carNumber].establishmentID == company.establishmentID)
-                {
-                    availableat = "Verkrijgbaar bij: " + company.name;
-                }
-            }
+
 
             //look up if the car is available
             foreach (var res in this.qarsApplication.reservationList)
@@ -69,7 +69,8 @@ namespace Qars
                 {
                     if (rep.carID == carNumber && rep.repaired == false)
                     {
-                        hire.Text = "Reparatie";
+                        //if(customer rank = beheerder){hire.text = "Reparatie"}else{hire.text=Niet beschikbaar}
+                        hire.Text = "Niet beschikbaar";
                         hire.BackColor = Color.Red;
                         hire.Enabled = false;
                     }
@@ -105,7 +106,7 @@ namespace Qars
 
             for (int i = 0; i < 24; i++)
             {
-                if (count2 == 7 || count2 == 14 || count2 == 21)
+                if (count2 == 7 || count2 == 14)
                 {
                     top = 355;
                     left += 240;
@@ -139,7 +140,7 @@ namespace Qars
                         else
                         {
                             createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].model.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(list[carnumber].modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             count++;
                             count2++;
@@ -389,6 +390,21 @@ namespace Qars
                             break;
                         }
                     case 18:
+                        if (!list[carnumber].cruisecontrol)
+                        {
+                            count++;
+                            continue;
+                        }
+                        else
+                        {
+                            createLabel("Cruise Control:", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            top += 30;
+                            count2++;
+                            count++;
+                            break;
+                        }
+                    case 19:
                         if (!list[carnumber].parkingAssist)
                         {
                             count++;
@@ -403,7 +419,7 @@ namespace Qars
                             count++;
                             break;
                         }
-                    case 19:
+                    case 20:
                         if (!list[carnumber].fourwheeldrive)
                         {
                             count++;
@@ -418,7 +434,7 @@ namespace Qars
                             count++;
                             break;
                         }
-                    case 20:
+                    case 21:
                         if (!list[carnumber].cabrio)
                         {
                             count++;
@@ -433,7 +449,7 @@ namespace Qars
                             count++;
                             break;
                         }
-                    case 21:
+                    case 22:
                         if (!list[carnumber].airco)
                         {
                             count++;
@@ -449,7 +465,7 @@ namespace Qars
                             break;
                         }
 
-                    case 22:
+                    case 23:
                         if (list[carnumber].seats == -1)
                         {
                             count++;
@@ -464,7 +480,7 @@ namespace Qars
                             count++;
                             break;
                         }
-                    case 23:
+                    case 24:
                         if (list[carnumber].storagespace == -1)
                         {
                             count++;
