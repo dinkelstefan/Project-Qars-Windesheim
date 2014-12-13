@@ -101,12 +101,14 @@ namespace Qars
             int width = 105;
             int height = 30;
 
-            int count = 0;
-            int count2 = 0;
+            int countFailure = 0;
+            int countSuccess = 0;
 
             for (int i = 0; i < 24; i++)
             {
-                if (count2 == 7 || count2 == 14)
+                Console.WriteLine("Het gaat goed, nummer " + countSuccess);
+                Console.WriteLine("Het gaat fout, nummer " + countFailure);
+                if (countSuccess == 7 || countSuccess == 14 || countSuccess == 21)
                 {
                     top = 355;
                     left += 240;
@@ -114,104 +116,105 @@ namespace Qars
                 }
 
 
-                switch (count)
+                switch (countFailure)
                 {
                     case 0:
                         if (list[carnumber].category == "")
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Categorie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 1:
                         if (list[carnumber].modelyear == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 2:
                         if (!list[carnumber].automatic)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Automaat:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 3:
 
                         if (!list[carnumber].automatic)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Versnellingen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].gearsamount.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
+                            ;
                             break;
                         }
                     case 4:
                         if (list[carnumber].motor == "")
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Motor:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].motor, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 5:
                         if (list[carnumber].horsepower == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Vermogen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].horsepower + " PK", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 6:
                         if (list[carnumber].Fuelusage == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
 
                         }
                         else
@@ -219,280 +222,280 @@ namespace Qars
                             createLabel("Verbruik:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].Fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count++;
-                            count2++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 7:
                         if (list[carnumber].kilometres == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Kilometers:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].kilometres.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 8:
                         if (list[carnumber].motdate == "")
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("APK:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].motdate, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 9:
                         if (list[carnumber].length == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Lengte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].length + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 10:
                         if (list[carnumber].width == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Breedte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].width + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 11:
                         if (list[carnumber].height == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Hoogte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].height + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 12:
                         if (list[carnumber].weight == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Gewicht:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].weight + " cm", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 13:
                         if (list[carnumber].colour == "")
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Kleur:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].colour, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 14:
                         if (list[carnumber].doors == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Deuren:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].doors.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 15:
                         if (!list[carnumber].stereo)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Stereo:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 16:
                         if (!list[carnumber].bluetooth)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Bluetooth:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
 
                             break;
                         }
                     case 17:
                         if (!list[carnumber].navigation)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Navigatie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 18:
                         if (!list[carnumber].cruisecontrol)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Cruise Control:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 19:
                         if (!list[carnumber].parkingAssist)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Parkeerhulp:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 20:
                         if (!list[carnumber].fourwheeldrive)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("4WD:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 21:
                         if (!list[carnumber].cabrio)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Cabrio:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 22:
                         if (!list[carnumber].airco)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Airco:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
 
                     case 23:
                         if (list[carnumber].seats == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Stoelen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].seats.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                     case 24:
                         if (list[carnumber].storagespace == -1)
                         {
-                            count++;
-                            continue;
+                            countFailure++;
+                            break;
                         }
                         else
                         {
                             createLabel("Ruimte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
-                            count2++;
-                            count++;
+                            countFailure++;
+                            countSuccess++;
                             break;
                         }
                 }
