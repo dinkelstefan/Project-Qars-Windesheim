@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Qars_Admin
 {
-    public partial class Form1 : Form
+    public partial class signInForm : Form
     {
-        public Form1()
+        public signInForm()
         {
             InitializeComponent();
         }
