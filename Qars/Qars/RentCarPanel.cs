@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -26,6 +27,7 @@ namespace Qars
         DateTime einddatum;
         bool reservationCollision = false;
         bool firstMessage = false;
+        bool emailInvalid;
         private VisualDemo qarsApplication;
         public RentCarPanel(int carID, VisualDemo qarsApp)
         {
@@ -33,6 +35,91 @@ namespace Qars
             InitializeComponent();
             this.carID = carID;
             createSpecInfo(qarsApplication.carList, carID);
+        }
+        /*TO DO
+         * If(User is logged in)
+         * {
+         * Insert all customer info into text fields
+         * Disable all textfields except collect car and comment
+         * }else{
+         * MessageBox.Show("U moet ingelogd zijn om een auto te kunnen huren" Button = Registreer/Log in.
+         * }
+         * 
+         * OTHER STUFF:
+         * Validate Input
+         * Send Email
+         * Add reservation to database
+         * Fix Calendar
+         * */
+        private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        {
+            List<String> InputInfo = new List<String>();
+            List<Regex> RegExList = new List<Regex>();
+            bool validInput = true;
+            string streetnumberCV = streetnumberTextbox.Text;
+
+            //Regexes
+            Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{1,46}$");
+            Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
+            Regex ageRegEx = new Regex("^[0-9]{1,3}$");
+            Regex streetNameRegEx = new Regex("^[a-zAZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,95}$"); //(pickup)Streetname
+            Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
+            Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
+            Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
+            Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7,7}");
+            Regex phoneNumberRegEx = new Regex("^[0-9-]{11,11})");
+            //Email will be checked later
+            Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
+            Regex commentRegEx = new Regex(".{0,4294967295}$");
+
+            RegExList.Add(firstnameRegEx);
+            RegExList.Add(lastNameRegEx);
+            RegExList.Add(ageRegEx);
+            RegExList.Add(streetNameRegEx);
+            RegExList.Add(streetNumberRegEx);
+            RegExList.Add(streetNumberSuffixRegEx);
+            RegExList.Add(cityRegEx);
+            RegExList.Add(postalCodeRegEx);
+            RegExList.Add(phoneNumberRegEx);
+            //Email will be checked later
+            RegExList.Add(dateRegEx);
+            RegExList.Add(dateRegEx);
+            RegExList.Add(streetNameRegEx);
+            RegExList.Add(streetNumberRegEx);
+            RegExList.Add(streetNumberSuffixRegEx);
+
+            InputInfo.Add(firstname);
+            InputInfo.Add(lastname);
+            InputInfo.Add(age);
+            InputInfo.Add(streetname); //Convert it to int32!
+            InputInfo.Add(streetnumber);
+            InputInfo.Add(streetnumbersuffix);
+            InputInfo.Add(postalcode);
+            InputInfo.Add(phonenumber);
+            InputInfo.Add(email);
+            InputInfo.Add(startdate);
+            InputInfo.Add(enddate);
+            InputInfo.Add(pickupcity);
+            InputInfo.Add(pickupstreetname);
+            InputInfo.Add(pickupstreetnumber);
+            InputInfo.Add(pickupstreetnumbersuffix);
+            InputInfo.Add(comment);
+
+        //loop through the list, checking everything.
+        //if(validinput == false, continue looping and in the end colour all the false ones RED and show 1 messagebox saying "Wrong input"
+        http://stackoverflow.com/questions/8518761/how-to-iterate-through-two-collections-of-the-same-length-using-a-single-foreach
+
+
+            //check if Email is OK
+            if (IsValidEmail(email))
+            {
+                MessageBox.Show("Email is goed");
+            }
+            else
+            {
+                MessageBox.Show("Verkeerd Emailadres");//Verander dit?
+            }
+
         }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -183,7 +270,7 @@ namespace Qars
                 Util.Mail mail = new Util.Mail();
                 mail.addTo(emailTextbox.Text);
                 mail.addSubject("Aanvraag van" + qarsApplication.carList[carID].brand + qarsApplication.carList[carID].model);
-                mail.addBody(buildEmailBody(firstnameTextbox.Text, lastnameTextbox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text));
+                mail.addBody(buildEmailBody(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text));
                 mail.sendEmail();
 
                 MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
@@ -206,7 +293,7 @@ namespace Qars
                 MessageBox.Show("U heeft niet alle velden correct ingevuld");
             }
             Regex firstname = new Regex("^[a-zA-Z]{1,20}$");
-            Regex lastname = new Regex("^[a-zA-Z]{1,20}$");
+            Regex lastname = new Regex("^[a-zA-Z ]{1,20}$");
             Regex streetname = new Regex("^[a-zA-Z]{1,20}$");
             Regex streetNumber = new Regex("^[0-9]{1,3}$");
             Regex streetNumberSuffix = new Regex("^[a-zA-Z]{0,1}$");
@@ -267,7 +354,7 @@ namespace Qars
             }
 
         }
-        private string buildEmailBody(string firstname, string lastname, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string comment)
+        private string buildEmailBody(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string comment)
         {
             StringBuilder builder = new StringBuilder();
             //This part can be edited by the admin
@@ -278,6 +365,8 @@ namespace Qars
             builder.AppendLine("");
 
             builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
+            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
+            builder.AppendLine(String.Format("Leeftijd:\t{0}", age));
             builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
             builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
             builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
@@ -396,6 +485,56 @@ namespace Qars
                 InfoStorageSpaceLabel.Text = qarsApplication.carList[carNumber].storagespace + " Liter";
             }
 
+        }
+        public bool IsValidEmail(string strIn)
+        {
+            emailInvalid = false;
+            if (String.IsNullOrEmpty(strIn))
+                return false;
+
+            // Use IdnMapping class to convert Unicode domain names. 
+            try
+            {
+                strIn = Regex.Replace(strIn, @"(@)(.+)$", this.DomainMapper,
+                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+
+            if (emailInvalid)
+                return false;
+
+            // Return true if strIn is in valid e-mail format. 
+            try
+            {
+                return Regex.IsMatch(strIn,
+                      @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                      @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                      RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        private string DomainMapper(Match match)
+        {
+            // IdnMapping class with default property values.
+            IdnMapping idn = new IdnMapping();
+
+            string domainName = match.Groups[2].Value;
+            try
+            {
+                domainName = idn.GetAscii(domainName);
+            }
+            catch (ArgumentException)
+            {
+                emailInvalid = true;
+            }
+            return match.Groups[1].Value + domainName;
         }
 
     }

@@ -104,10 +104,10 @@ namespace Qars
             int countFailure = 0;
             int countSuccess = 0;
 
-            for (int i = 0; i < 24; i++)
+            for (int i = 0; i < 25; i++)
             {
-                Console.WriteLine("Het gaat goed, nummer " + countSuccess);
-                Console.WriteLine("Het gaat fout, nummer " + countFailure);
+                Console.WriteLine(list[carnumber].storagespace);
+
                 if (countSuccess == 7 || countSuccess == 14 || countSuccess == 21)
                 {
                     top = 355;
@@ -126,6 +126,7 @@ namespace Qars
                         }
                         else
                         {
+                            Console.WriteLine(list[carnumber].category);
                             createLabel("Categorie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
@@ -141,6 +142,7 @@ namespace Qars
                         }
                         else
                         {
+                            Console.WriteLine(list[carnumber].modelyear.ToString());
                             createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
@@ -177,7 +179,7 @@ namespace Qars
                             top += 30;
                             countFailure++;
                             countSuccess++;
-                            ;
+
                             break;
                         }
                     case 4:
@@ -508,7 +510,7 @@ namespace Qars
         }
         public void BackButtonClick(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Dispose();
         }
 
         public void hireButtonClick(object sender, EventArgs e)
