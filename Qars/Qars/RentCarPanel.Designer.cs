@@ -33,7 +33,7 @@ namespace Qars
             this.firstnameLabel = new System.Windows.Forms.Label();
             this.lastnameLabel = new System.Windows.Forms.Label();
             this.enddateLabel = new System.Windows.Forms.Label();
-            this.startdataLabel = new System.Windows.Forms.Label();
+            this.startdateLabel = new System.Windows.Forms.Label();
             this.postalcodeLabel = new System.Windows.Forms.Label();
             this.streetnumberLabel = new System.Windows.Forms.Label();
             this.streetnameLabel = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@ namespace Qars
             this.streetnumberTextbox = new System.Windows.Forms.TextBox();
             this.streetnumbersuffixTextbox = new System.Windows.Forms.TextBox();
             this.postalcodeTextbox = new System.Windows.Forms.MaskedTextBox();
-            this.phonenumberTextbox = new System.Windows.Forms.MaskedTextBox();
             this.startdateTextbox = new System.Windows.Forms.MaskedTextBox();
             this.emailTextbox = new System.Windows.Forms.TextBox();
             this.enddateTextbox = new System.Windows.Forms.MaskedTextBox();
@@ -58,15 +57,13 @@ namespace Qars
             this.button2 = new System.Windows.Forms.Button();
             this.commentTextbox = new System.Windows.Forms.RichTextBox();
             this.commentLabel = new System.Windows.Forms.Label();
-            this.collectRadioButtonNo = new System.Windows.Forms.RadioButton();
-            this.collectRadioButtonYes = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.PickUpFromLabel = new System.Windows.Forms.Label();
+            this.pickupCityLabel = new System.Windows.Forms.Label();
+            this.pickupstreetnameLabel = new System.Windows.Forms.Label();
+            this.pickupstreetnumberLabel = new System.Windows.Forms.Label();
             this.pickupCityTextbox = new System.Windows.Forms.TextBox();
-            this.pickupStreetTextbox = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.pickupStreetNameTextbox = new System.Windows.Forms.TextBox();
+            this.pickupstreetnumbersuffixLabel = new System.Windows.Forms.Label();
             this.pickupStreetnumberTextbox = new System.Windows.Forms.TextBox();
             this.pickupStreetnumberSuffixTextbox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -96,6 +93,9 @@ namespace Qars
             this.CruiseControlLabel = new System.Windows.Forms.Label();
             this.ageLabel = new System.Windows.Forms.Label();
             this.ageTextBox = new System.Windows.Forms.TextBox();
+            this.phonenumberTextbox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PersonalInfoLabel = new System.Windows.Forms.Label();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,23 +126,23 @@ namespace Qars
             // 
             this.enddateLabel.AutoSize = true;
             this.enddateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.enddateLabel.Location = new System.Drawing.Point(27, 358);
+            this.enddateLabel.Location = new System.Drawing.Point(27, 377);
             this.enddateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.enddateLabel.Name = "enddateLabel";
             this.enddateLabel.Size = new System.Drawing.Size(88, 18);
             this.enddateLabel.TabIndex = 9;
             this.enddateLabel.Text = "Einddatum*:";
             // 
-            // startdataLabel
+            // startdateLabel
             // 
-            this.startdataLabel.AutoSize = true;
-            this.startdataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.startdataLabel.Location = new System.Drawing.Point(28, 335);
-            this.startdataLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.startdataLabel.Name = "startdataLabel";
-            this.startdataLabel.Size = new System.Drawing.Size(96, 18);
-            this.startdataLabel.TabIndex = 10;
-            this.startdataLabel.Text = "Begindatum*:";
+            this.startdateLabel.AutoSize = true;
+            this.startdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.startdateLabel.Location = new System.Drawing.Point(28, 354);
+            this.startdateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.startdateLabel.Name = "startdateLabel";
+            this.startdateLabel.Size = new System.Drawing.Size(96, 18);
+            this.startdateLabel.TabIndex = 10;
+            this.startdateLabel.Text = "Begindatum*:";
             // 
             // postalcodeLabel
             // 
@@ -151,9 +151,9 @@ namespace Qars
             this.postalcodeLabel.Location = new System.Drawing.Point(26, 239);
             this.postalcodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.postalcodeLabel.Name = "postalcodeLabel";
-            this.postalcodeLabel.Size = new System.Drawing.Size(85, 18);
+            this.postalcodeLabel.Size = new System.Drawing.Size(89, 18);
             this.postalcodeLabel.TabIndex = 11;
-            this.postalcodeLabel.Text = "+ Postcode";
+            this.postalcodeLabel.Text = "+ Postcode:";
             // 
             // streetnumberLabel
             // 
@@ -181,29 +181,29 @@ namespace Qars
             // 
             this.phonenumberLabel.AutoSize = true;
             this.phonenumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.phonenumberLabel.Location = new System.Drawing.Point(26, 300);
+            this.phonenumberLabel.Location = new System.Drawing.Point(26, 288);
             this.phonenumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phonenumberLabel.Name = "phonenumberLabel";
-            this.phonenumberLabel.Size = new System.Drawing.Size(70, 18);
+            this.phonenumberLabel.Size = new System.Drawing.Size(76, 18);
             this.phonenumberLabel.TabIndex = 14;
-            this.phonenumberLabel.Text = "Telefoon:";
+            this.phonenumberLabel.Text = "Telefoon:*";
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.emailLabel.Location = new System.Drawing.Point(27, 281);
+            this.emailLabel.Location = new System.Drawing.Point(27, 265);
             this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(86, 18);
+            this.emailLabel.Size = new System.Drawing.Size(92, 18);
             this.emailLabel.TabIndex = 15;
-            this.emailLabel.Text = "Emailadres:";
+            this.emailLabel.Text = "Emailadres:*";
             // 
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.titleLabel.Location = new System.Drawing.Point(123, -3);
+            this.titleLabel.Location = new System.Drawing.Point(420, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(170, 31);
@@ -216,7 +216,7 @@ namespace Qars
             this.firstnameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.firstnameTextbox.Name = "firstnameTextbox";
             this.firstnameTextbox.Size = new System.Drawing.Size(163, 20);
-            this.firstnameTextbox.TabIndex = 17;
+            this.firstnameTextbox.TabIndex = 1;
             // 
             // lastnameTextbox
             // 
@@ -224,7 +224,7 @@ namespace Qars
             this.lastnameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.lastnameTextbox.Name = "lastnameTextbox";
             this.lastnameTextbox.Size = new System.Drawing.Size(163, 20);
-            this.lastnameTextbox.TabIndex = 18;
+            this.lastnameTextbox.TabIndex = 2;
             // 
             // streetnameTextbox
             // 
@@ -232,15 +232,15 @@ namespace Qars
             this.streetnameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnameTextbox.Name = "streetnameTextbox";
             this.streetnameTextbox.Size = new System.Drawing.Size(163, 20);
-            this.streetnameTextbox.TabIndex = 19;
+            this.streetnameTextbox.TabIndex = 4;
             // 
             // streetnumberTextbox
             // 
             this.streetnumberTextbox.Location = new System.Drawing.Point(128, 181);
             this.streetnumberTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnumberTextbox.Name = "streetnumberTextbox";
-            this.streetnumberTextbox.Size = new System.Drawing.Size(99, 20);
-            this.streetnumberTextbox.TabIndex = 20;
+            this.streetnumberTextbox.Size = new System.Drawing.Size(58, 20);
+            this.streetnumberTextbox.TabIndex = 5;
             // 
             // streetnumbersuffixTextbox
             // 
@@ -248,7 +248,7 @@ namespace Qars
             this.streetnumbersuffixTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnumbersuffixTextbox.Name = "streetnumbersuffixTextbox";
             this.streetnumbersuffixTextbox.Size = new System.Drawing.Size(57, 20);
-            this.streetnumbersuffixTextbox.TabIndex = 21;
+            this.streetnumbersuffixTextbox.TabIndex = 6;
             // 
             // postalcodeTextbox
             // 
@@ -257,45 +257,36 @@ namespace Qars
             this.postalcodeTextbox.Mask = "0000 LL";
             this.postalcodeTextbox.Name = "postalcodeTextbox";
             this.postalcodeTextbox.Size = new System.Drawing.Size(52, 20);
-            this.postalcodeTextbox.TabIndex = 23;
-            // 
-            // phonenumberTextbox
-            // 
-            this.phonenumberTextbox.Location = new System.Drawing.Point(128, 304);
-            this.phonenumberTextbox.Margin = new System.Windows.Forms.Padding(2);
-            this.phonenumberTextbox.Mask = "000-0000000";
-            this.phonenumberTextbox.Name = "phonenumberTextbox";
-            this.phonenumberTextbox.Size = new System.Drawing.Size(163, 20);
-            this.phonenumberTextbox.TabIndex = 25;
+            this.postalcodeTextbox.TabIndex = 8;
             // 
             // startdateTextbox
             // 
-            this.startdateTextbox.Location = new System.Drawing.Point(128, 337);
+            this.startdateTextbox.Location = new System.Drawing.Point(128, 356);
             this.startdateTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.startdateTextbox.Mask = "00/00/0000";
             this.startdateTextbox.Name = "startdateTextbox";
             this.startdateTextbox.Size = new System.Drawing.Size(73, 20);
-            this.startdateTextbox.TabIndex = 26;
+            this.startdateTextbox.TabIndex = 11;
             this.startdateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.startdateTextbox.ValidatingType = typeof(System.DateTime);
             this.startdateTextbox.Enter += new System.EventHandler(this.openCalender);
             // 
             // emailTextbox
             // 
-            this.emailTextbox.Location = new System.Drawing.Point(128, 282);
+            this.emailTextbox.Location = new System.Drawing.Point(128, 266);
             this.emailTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.emailTextbox.Name = "emailTextbox";
             this.emailTextbox.Size = new System.Drawing.Size(163, 20);
-            this.emailTextbox.TabIndex = 24;
+            this.emailTextbox.TabIndex = 9;
             // 
             // enddateTextbox
             // 
-            this.enddateTextbox.Location = new System.Drawing.Point(128, 358);
+            this.enddateTextbox.Location = new System.Drawing.Point(128, 377);
             this.enddateTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.enddateTextbox.Mask = "00/00/0000";
             this.enddateTextbox.Name = "enddateTextbox";
             this.enddateTextbox.Size = new System.Drawing.Size(73, 20);
-            this.enddateTextbox.TabIndex = 27;
+            this.enddateTextbox.TabIndex = 12;
             this.enddateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.enddateTextbox.ValidatingType = typeof(System.DateTime);
             this.enddateTextbox.Enter += new System.EventHandler(this.openCalender);
@@ -303,7 +294,7 @@ namespace Qars
             // monthCalendar
             // 
             this.monthCalendar.BackColor = System.Drawing.SystemColors.Window;
-            this.monthCalendar.Location = new System.Drawing.Point(208, 220);
+            this.monthCalendar.Location = new System.Drawing.Point(208, 235);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(6);
             this.monthCalendar.MinDate = new System.DateTime(2014, 12, 3, 0, 0, 0, 0);
             this.monthCalendar.Name = "monthCalendar";
@@ -340,7 +331,7 @@ namespace Qars
             this.cityTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.cityTextbox.Name = "cityTextbox";
             this.cityTextbox.Size = new System.Drawing.Size(108, 20);
-            this.cityTextbox.TabIndex = 22;
+            this.cityTextbox.TabIndex = 7;
             // 
             // button1
             // 
@@ -348,7 +339,7 @@ namespace Qars
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 25);
-            this.button1.TabIndex = 32;
+            this.button1.TabIndex = 21;
             this.button1.Text = "Auto huren";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.rentCarClick);
@@ -359,7 +350,7 @@ namespace Qars
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 25);
-            this.button2.TabIndex = 33;
+            this.button2.TabIndex = 22;
             this.button2.Text = "Annuleren";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.closeRentCarPanel);
@@ -370,7 +361,7 @@ namespace Qars
             this.commentTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.commentTextbox.Name = "commentTextbox";
             this.commentTextbox.Size = new System.Drawing.Size(440, 199);
-            this.commentTextbox.TabIndex = 34;
+            this.commentTextbox.TabIndex = 20;
             this.commentTextbox.Text = "";
             // 
             // commentLabel
@@ -384,126 +375,96 @@ namespace Qars
             this.commentLabel.TabIndex = 1000;
             this.commentLabel.Text = "Opmerkingen:";
             // 
-            // collectRadioButtonNo
+            // PickUpFromLabel
             // 
-            this.collectRadioButtonNo.AutoSize = true;
-            this.collectRadioButtonNo.Checked = true;
-            this.collectRadioButtonNo.Location = new System.Drawing.Point(218, 431);
-            this.collectRadioButtonNo.Margin = new System.Windows.Forms.Padding(2);
-            this.collectRadioButtonNo.Name = "collectRadioButtonNo";
-            this.collectRadioButtonNo.Size = new System.Drawing.Size(43, 17);
-            this.collectRadioButtonNo.TabIndex = 1001;
-            this.collectRadioButtonNo.TabStop = true;
-            this.collectRadioButtonNo.Text = "nee";
-            this.collectRadioButtonNo.UseVisualStyleBackColor = true;
-            this.collectRadioButtonNo.CheckedChanged += new System.EventHandler(this.radioNoButton_CheckedChanged);
+            this.PickUpFromLabel.AutoSize = true;
+            this.PickUpFromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickUpFromLabel.Location = new System.Drawing.Point(99, 438);
+            this.PickUpFromLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PickUpFromLabel.Name = "PickUpFromLabel";
+            this.PickUpFromLabel.Size = new System.Drawing.Size(235, 20);
+            this.PickUpFromLabel.TabIndex = 1003;
+            this.PickUpFromLabel.Text = "Ophalen van specifiek adres";
             // 
-            // collectRadioButtonYes
+            // pickupCityLabel
             // 
-            this.collectRadioButtonYes.AutoSize = true;
-            this.collectRadioButtonYes.Location = new System.Drawing.Point(181, 431);
-            this.collectRadioButtonYes.Margin = new System.Windows.Forms.Padding(2);
-            this.collectRadioButtonYes.Name = "collectRadioButtonYes";
-            this.collectRadioButtonYes.Size = new System.Drawing.Size(33, 17);
-            this.collectRadioButtonYes.TabIndex = 1002;
-            this.collectRadioButtonYes.Text = "ja";
-            this.collectRadioButtonYes.UseVisualStyleBackColor = true;
-            this.collectRadioButtonYes.CheckedChanged += new System.EventHandler(this.radioYesButton_CheckedChanged);
+            this.pickupCityLabel.AutoSize = true;
+            this.pickupCityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickupCityLabel.Location = new System.Drawing.Point(26, 475);
+            this.pickupCityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pickupCityLabel.Name = "pickupCityLabel";
+            this.pickupCityLabel.Size = new System.Drawing.Size(42, 18);
+            this.pickupCityLabel.TabIndex = 1005;
+            this.pickupCityLabel.Text = "Stad:";
             // 
-            // label3
+            // pickupstreetnameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 432);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 18);
-            this.label3.TabIndex = 1003;
-            this.label3.Text = "Ophalen van locatie? ";
+            this.pickupstreetnameLabel.AutoSize = true;
+            this.pickupstreetnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickupstreetnameLabel.Location = new System.Drawing.Point(26, 495);
+            this.pickupstreetnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pickupstreetnameLabel.Name = "pickupstreetnameLabel";
+            this.pickupstreetnameLabel.Size = new System.Drawing.Size(88, 18);
+            this.pickupstreetnameLabel.TabIndex = 1006;
+            this.pickupstreetnameLabel.Text = "Straatnaam:";
             // 
-            // label14
+            // pickupstreetnumberLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(26, 458);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 18);
-            this.label14.TabIndex = 1005;
-            this.label14.Text = "Stad:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(26, 478);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 18);
-            this.label15.TabIndex = 1006;
-            this.label15.Text = "Straatnaam:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(27, 497);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 18);
-            this.label16.TabIndex = 1007;
-            this.label16.Text = "Huisnummer:";
+            this.pickupstreetnumberLabel.AutoSize = true;
+            this.pickupstreetnumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickupstreetnumberLabel.Location = new System.Drawing.Point(27, 514);
+            this.pickupstreetnumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pickupstreetnumberLabel.Name = "pickupstreetnumberLabel";
+            this.pickupstreetnumberLabel.Size = new System.Drawing.Size(97, 18);
+            this.pickupstreetnumberLabel.TabIndex = 1007;
+            this.pickupstreetnumberLabel.Text = "Huisnummer:";
             // 
             // pickupCityTextbox
             // 
-            this.pickupCityTextbox.BackColor = System.Drawing.SystemColors.GrayText;
-            this.pickupCityTextbox.Location = new System.Drawing.Point(128, 452);
+            this.pickupCityTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pickupCityTextbox.Location = new System.Drawing.Point(128, 469);
             this.pickupCityTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.pickupCityTextbox.Name = "pickupCityTextbox";
-            this.pickupCityTextbox.ReadOnly = true;
             this.pickupCityTextbox.Size = new System.Drawing.Size(162, 20);
-            this.pickupCityTextbox.TabIndex = 1008;
+            this.pickupCityTextbox.TabIndex = 16;
             // 
-            // pickupStreetTextbox
+            // pickupStreetNameTextbox
             // 
-            this.pickupStreetTextbox.BackColor = System.Drawing.SystemColors.GrayText;
-            this.pickupStreetTextbox.Location = new System.Drawing.Point(128, 479);
-            this.pickupStreetTextbox.Margin = new System.Windows.Forms.Padding(2);
-            this.pickupStreetTextbox.Name = "pickupStreetTextbox";
-            this.pickupStreetTextbox.ReadOnly = true;
-            this.pickupStreetTextbox.Size = new System.Drawing.Size(162, 20);
-            this.pickupStreetTextbox.TabIndex = 1009;
+            this.pickupStreetNameTextbox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pickupStreetNameTextbox.Location = new System.Drawing.Point(128, 496);
+            this.pickupStreetNameTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.pickupStreetNameTextbox.Name = "pickupStreetNameTextbox";
+            this.pickupStreetNameTextbox.Size = new System.Drawing.Size(162, 20);
+            this.pickupStreetNameTextbox.TabIndex = 17;
             // 
-            // label17
+            // pickupstreetnumbersuffixLabel
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label17.Location = new System.Drawing.Point(28, 517);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 18);
-            this.label17.TabIndex = 1010;
-            this.label17.Text = "+ Toevoeging";
+            this.pickupstreetnumbersuffixLabel.AutoSize = true;
+            this.pickupstreetnumbersuffixLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.pickupstreetnumbersuffixLabel.Location = new System.Drawing.Point(28, 534);
+            this.pickupstreetnumbersuffixLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pickupstreetnumbersuffixLabel.Name = "pickupstreetnumbersuffixLabel";
+            this.pickupstreetnumbersuffixLabel.Size = new System.Drawing.Size(98, 18);
+            this.pickupstreetnumbersuffixLabel.TabIndex = 1010;
+            this.pickupstreetnumbersuffixLabel.Text = "+ Toevoeging";
             // 
             // pickupStreetnumberTextbox
             // 
-            this.pickupStreetnumberTextbox.BackColor = System.Drawing.SystemColors.GrayText;
-            this.pickupStreetnumberTextbox.Location = new System.Drawing.Point(128, 505);
+            this.pickupStreetnumberTextbox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pickupStreetnumberTextbox.Location = new System.Drawing.Point(128, 522);
             this.pickupStreetnumberTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.pickupStreetnumberTextbox.Name = "pickupStreetnumberTextbox";
-            this.pickupStreetnumberTextbox.ReadOnly = true;
             this.pickupStreetnumberTextbox.Size = new System.Drawing.Size(99, 20);
-            this.pickupStreetnumberTextbox.TabIndex = 1011;
+            this.pickupStreetnumberTextbox.TabIndex = 18;
             // 
             // pickupStreetnumberSuffixTextbox
             // 
-            this.pickupStreetnumberSuffixTextbox.BackColor = System.Drawing.SystemColors.GrayText;
-            this.pickupStreetnumberSuffixTextbox.Location = new System.Drawing.Point(232, 505);
+            this.pickupStreetnumberSuffixTextbox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pickupStreetnumberSuffixTextbox.Location = new System.Drawing.Point(232, 522);
             this.pickupStreetnumberSuffixTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.pickupStreetnumberSuffixTextbox.Name = "pickupStreetnumberSuffixTextbox";
-            this.pickupStreetnumberSuffixTextbox.ReadOnly = true;
             this.pickupStreetnumberSuffixTextbox.Size = new System.Drawing.Size(58, 20);
-            this.pickupStreetnumberSuffixTextbox.TabIndex = 1012;
+            this.pickupStreetnumberSuffixTextbox.TabIndex = 19;
             // 
             // contextMenuStrip1
             // 
@@ -514,26 +475,26 @@ namespace Qars
             // 
             this.AmountofKilometerLabel.AutoSize = true;
             this.AmountofKilometerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.AmountofKilometerLabel.Location = new System.Drawing.Point(28, 388);
+            this.AmountofKilometerLabel.Location = new System.Drawing.Point(28, 407);
             this.AmountofKilometerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AmountofKilometerLabel.Name = "AmountofKilometerLabel";
-            this.AmountofKilometerLabel.Size = new System.Drawing.Size(83, 18);
+            this.AmountofKilometerLabel.Size = new System.Drawing.Size(89, 18);
             this.AmountofKilometerLabel.TabIndex = 1013;
-            this.AmountofKilometerLabel.Text = "Kilometers:";
+            this.AmountofKilometerLabel.Text = "Kilometers:*";
             // 
             // KilometerTextBox
             // 
-            this.KilometerTextBox.Location = new System.Drawing.Point(126, 389);
+            this.KilometerTextBox.Location = new System.Drawing.Point(126, 408);
             this.KilometerTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.KilometerTextBox.Name = "KilometerTextBox";
             this.KilometerTextBox.Size = new System.Drawing.Size(75, 20);
-            this.KilometerTextBox.TabIndex = 1014;
+            this.KilometerTextBox.TabIndex = 13;
             // 
             // KilometerSpecialLabel
             // 
             this.KilometerSpecialLabel.AutoSize = true;
             this.KilometerSpecialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KilometerSpecialLabel.Location = new System.Drawing.Point(205, 393);
+            this.KilometerSpecialLabel.Location = new System.Drawing.Point(205, 412);
             this.KilometerSpecialLabel.Name = "KilometerSpecialLabel";
             this.KilometerSpecialLabel.Size = new System.Drawing.Size(189, 15);
             this.KilometerSpecialLabel.TabIndex = 1015;
@@ -636,9 +597,9 @@ namespace Qars
             this.InfoModelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoModelLabel.Location = new System.Drawing.Point(257, 16);
             this.InfoModelLabel.Name = "InfoModelLabel";
-            this.InfoModelLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoModelLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoModelLabel.TabIndex = 9;
-            this.InfoModelLabel.Text = "Model";
+            this.InfoModelLabel.Text = "N.V.T";
             // 
             // InfoCategoryLabel
             // 
@@ -646,9 +607,9 @@ namespace Qars
             this.InfoCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoCategoryLabel.Location = new System.Drawing.Point(257, 56);
             this.InfoCategoryLabel.Name = "InfoCategoryLabel";
-            this.InfoCategoryLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoCategoryLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoCategoryLabel.TabIndex = 13;
-            this.InfoCategoryLabel.Text = "Model";
+            this.InfoCategoryLabel.Text = "N.V.T";
             // 
             // InfoStartPriceLabel
             // 
@@ -656,9 +617,9 @@ namespace Qars
             this.InfoStartPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoStartPriceLabel.Location = new System.Drawing.Point(257, 36);
             this.InfoStartPriceLabel.Name = "InfoStartPriceLabel";
-            this.InfoStartPriceLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoStartPriceLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoStartPriceLabel.TabIndex = 14;
-            this.InfoStartPriceLabel.Text = "Model";
+            this.InfoStartPriceLabel.Text = "N.V.T";
             // 
             // InfoStorageSpaceLabel
             // 
@@ -666,9 +627,9 @@ namespace Qars
             this.InfoStorageSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoStorageSpaceLabel.Location = new System.Drawing.Point(257, 196);
             this.InfoStorageSpaceLabel.Name = "InfoStorageSpaceLabel";
-            this.InfoStorageSpaceLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoStorageSpaceLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoStorageSpaceLabel.TabIndex = 15;
-            this.InfoStorageSpaceLabel.Text = "Model";
+            this.InfoStorageSpaceLabel.Text = "N.V.T";
             // 
             // InfoMOTDateLabel
             // 
@@ -676,9 +637,9 @@ namespace Qars
             this.InfoMOTDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoMOTDateLabel.Location = new System.Drawing.Point(257, 176);
             this.InfoMOTDateLabel.Name = "InfoMOTDateLabel";
-            this.InfoMOTDateLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoMOTDateLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoMOTDateLabel.TabIndex = 16;
-            this.InfoMOTDateLabel.Text = "Model";
+            this.InfoMOTDateLabel.Text = "N.V.T";
             // 
             // InfoHorsePowerLabel
             // 
@@ -686,9 +647,9 @@ namespace Qars
             this.InfoHorsePowerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoHorsePowerLabel.Location = new System.Drawing.Point(257, 156);
             this.InfoHorsePowerLabel.Name = "InfoHorsePowerLabel";
-            this.InfoHorsePowerLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoHorsePowerLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoHorsePowerLabel.TabIndex = 17;
-            this.InfoHorsePowerLabel.Text = "Model";
+            this.InfoHorsePowerLabel.Text = "N.V.T";
             // 
             // InfoKilometresLabel
             // 
@@ -696,9 +657,9 @@ namespace Qars
             this.InfoKilometresLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoKilometresLabel.Location = new System.Drawing.Point(257, 136);
             this.InfoKilometresLabel.Name = "InfoKilometresLabel";
-            this.InfoKilometresLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoKilometresLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoKilometresLabel.TabIndex = 18;
-            this.InfoKilometresLabel.Text = "Model";
+            this.InfoKilometresLabel.Text = "N.V.T";
             // 
             // InfoModelYearLabel
             // 
@@ -706,9 +667,9 @@ namespace Qars
             this.InfoModelYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoModelYearLabel.Location = new System.Drawing.Point(257, 116);
             this.InfoModelYearLabel.Name = "InfoModelYearLabel";
-            this.InfoModelYearLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoModelYearLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoModelYearLabel.TabIndex = 19;
-            this.InfoModelYearLabel.Text = "Model";
+            this.InfoModelYearLabel.Text = "N.V.T";
             // 
             // InfoAutomaticLabel
             // 
@@ -716,9 +677,9 @@ namespace Qars
             this.InfoAutomaticLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoAutomaticLabel.Location = new System.Drawing.Point(257, 76);
             this.InfoAutomaticLabel.Name = "InfoAutomaticLabel";
-            this.InfoAutomaticLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoAutomaticLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoAutomaticLabel.TabIndex = 20;
-            this.InfoAutomaticLabel.Text = "Model";
+            this.InfoAutomaticLabel.Text = "N.V.T";
             // 
             // SpecBox
             // 
@@ -755,9 +716,9 @@ namespace Qars
             this.InfoCruiseControlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoCruiseControlLabel.Location = new System.Drawing.Point(257, 96);
             this.InfoCruiseControlLabel.Name = "InfoCruiseControlLabel";
-            this.InfoCruiseControlLabel.Size = new System.Drawing.Size(52, 20);
+            this.InfoCruiseControlLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoCruiseControlLabel.TabIndex = 22;
-            this.InfoCruiseControlLabel.Text = "Model";
+            this.InfoCruiseControlLabel.Text = "N.V.T";
             // 
             // CruiseControlLabel
             // 
@@ -776,10 +737,9 @@ namespace Qars
             this.ageLabel.Location = new System.Drawing.Point(26, 113);
             this.ageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(60, 18);
+            this.ageLabel.Size = new System.Drawing.Size(64, 18);
             this.ageLabel.TabIndex = 1017;
-            this.ageLabel.Text = "Leeftijd*";
-            this.ageLabel.Click += new System.EventHandler(this.label1_Click);
+            this.ageLabel.Text = "Leeftijd*:";
             // 
             // ageTextBox
             // 
@@ -787,12 +747,45 @@ namespace Qars
             this.ageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ageTextBox.Name = "ageTextBox";
             this.ageTextBox.Size = new System.Drawing.Size(49, 20);
-            this.ageTextBox.TabIndex = 1018;
+            this.ageTextBox.TabIndex = 3;
+            // 
+            // phonenumberTextbox
+            // 
+            this.phonenumberTextbox.Location = new System.Drawing.Point(128, 288);
+            this.phonenumberTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.phonenumberTextbox.Name = "phonenumberTextbox";
+            this.phonenumberTextbox.Size = new System.Drawing.Size(163, 20);
+            this.phonenumberTextbox.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(110, 317);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.TabIndex = 1018;
+            this.label1.Text = "Huuropties";
+            // 
+            // PersonalInfoLabel
+            // 
+            this.PersonalInfoLabel.AutoSize = true;
+            this.PersonalInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PersonalInfoLabel.Location = new System.Drawing.Point(99, 11);
+            this.PersonalInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PersonalInfoLabel.Name = "PersonalInfoLabel";
+            this.PersonalInfoLabel.Size = new System.Drawing.Size(188, 20);
+            this.PersonalInfoLabel.TabIndex = 1019;
+            this.PersonalInfoLabel.Text = "Persoonlijke gegevens";
             // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.PersonalInfoLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ageTextBox);
             this.Controls.Add(this.ageLabel);
             this.Controls.Add(this.SpecBox);
@@ -801,16 +794,14 @@ namespace Qars
             this.Controls.Add(this.AmountofKilometerLabel);
             this.Controls.Add(this.pickupStreetnumberSuffixTextbox);
             this.Controls.Add(this.pickupStreetnumberTextbox);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.pickupStreetTextbox);
+            this.Controls.Add(this.pickupstreetnumbersuffixLabel);
+            this.Controls.Add(this.pickupStreetNameTextbox);
             this.Controls.Add(this.pickupCityTextbox);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.pickupstreetnumberLabel);
+            this.Controls.Add(this.pickupstreetnameLabel);
+            this.Controls.Add(this.pickupCityLabel);
             this.Controls.Add(this.monthCalendar);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.collectRadioButtonYes);
-            this.Controls.Add(this.collectRadioButtonNo);
+            this.Controls.Add(this.PickUpFromLabel);
             this.Controls.Add(this.commentLabel);
             this.Controls.Add(this.commentTextbox);
             this.Controls.Add(this.button2);
@@ -834,7 +825,7 @@ namespace Qars
             this.Controls.Add(this.streetnameLabel);
             this.Controls.Add(this.streetnumberLabel);
             this.Controls.Add(this.postalcodeLabel);
-            this.Controls.Add(this.startdataLabel);
+            this.Controls.Add(this.startdateLabel);
             this.Controls.Add(this.enddateLabel);
             this.Controls.Add(this.lastnameLabel);
             this.Controls.Add(this.firstnameLabel);
@@ -853,7 +844,7 @@ namespace Qars
         private System.Windows.Forms.Label firstnameLabel;
         private System.Windows.Forms.Label lastnameLabel;
         private System.Windows.Forms.Label enddateLabel;
-        private System.Windows.Forms.Label startdataLabel;
+        private System.Windows.Forms.Label startdateLabel;
         private System.Windows.Forms.Label postalcodeLabel;
         private System.Windows.Forms.Label streetnumberLabel;
         private System.Windows.Forms.Label streetnameLabel;
@@ -866,7 +857,6 @@ namespace Qars
         private System.Windows.Forms.TextBox streetnumberTextbox;
         private System.Windows.Forms.TextBox streetnumbersuffixTextbox;
         private System.Windows.Forms.MaskedTextBox postalcodeTextbox;
-        private System.Windows.Forms.MaskedTextBox phonenumberTextbox;
         private System.Windows.Forms.MaskedTextBox startdateTextbox;
         private System.Windows.Forms.TextBox emailTextbox;
         private System.Windows.Forms.MaskedTextBox enddateTextbox;
@@ -878,15 +868,13 @@ namespace Qars
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox commentTextbox;
         private System.Windows.Forms.Label commentLabel;
-        private System.Windows.Forms.RadioButton collectRadioButtonNo;
-        private System.Windows.Forms.RadioButton collectRadioButtonYes;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label PickUpFromLabel;
+        private System.Windows.Forms.Label pickupCityLabel;
+        private System.Windows.Forms.Label pickupstreetnameLabel;
+        private System.Windows.Forms.Label pickupstreetnumberLabel;
         private System.Windows.Forms.TextBox pickupCityTextbox;
-        private System.Windows.Forms.TextBox pickupStreetTextbox;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox pickupStreetNameTextbox;
+        private System.Windows.Forms.Label pickupstreetnumbersuffixLabel;
         private System.Windows.Forms.TextBox pickupStreetnumberTextbox;
         private System.Windows.Forms.TextBox pickupStreetnumberSuffixTextbox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -916,6 +904,9 @@ namespace Qars
         private System.Windows.Forms.Label InfoCruiseControlLabel;
         private System.Windows.Forms.Label ageLabel;
         private System.Windows.Forms.TextBox ageTextBox;
+        private System.Windows.Forms.TextBox phonenumberTextbox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PersonalInfoLabel;
 
 
     }

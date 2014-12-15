@@ -106,7 +106,6 @@ namespace Qars
 
             for (int i = 0; i < 25; i++)
             {
-                Console.WriteLine(list[carnumber].storagespace);
 
                 if (countSuccess == 7 || countSuccess == 14 || countSuccess == 21)
                 {
@@ -126,7 +125,6 @@ namespace Qars
                         }
                         else
                         {
-                            Console.WriteLine(list[carnumber].category);
                             createLabel("Categorie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
@@ -142,7 +140,6 @@ namespace Qars
                         }
                         else
                         {
-                            Console.WriteLine(list[carnumber].modelyear.ToString());
                             createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
                             top += 30;

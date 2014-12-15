@@ -328,36 +328,39 @@ namespace Qars
             int ReservationID = 0;
             string query = "SELECT max(ReservationID) FROM Reservation";
 
-            if (this.OpenConnection() == true)
+            if (this.OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 ReservationID = (Int32)cmd.ExecuteScalar();
                 CloseConnection();
             }
-            ReservationID++;
-            string query2 = string.Format("INSERT INTO Reservation (ReservationID, CarID, CustomerID, Startdate, Enddate, Confirmed, Kilometres, Pickupcity, Pickupstreetname, Pickupstreetnumber, Pickupstreetnumbersuffix, Paid, Comment)VALUES(@reservationid, @carid,@customerid,@startdate,@enddate, @confirmed, @Kilometres, @pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid, @comment");
 
+            ReservationID++;
+            string query2 = "INSERT INTO `Reservation`(`ReservationID`, `CarID`, `CustomerID`, `Startdate`, `Enddate`, `Confirmed`, `Kilometres`, `Pickupcity`, `Pickupstreetname`, `Pickupstreetnumber`, `Pickupstreetnumbersuffix`, `Paid`, `Comment`) VALUES(@reservationid,@carid,@customerid,@startdate,@enddate,@confirmed,@Kilometres,@pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid,@comment)";
             if (this.OpenConnection())
             {
+                int convertConfirmedToInt = 0;
+                int convertPaidtoInt = 0;
                 MySqlCommand cmd = new MySqlCommand(query2, connection);
-                cmd.Parameters.AddWithValue("@reservationid", SafeInsertInt(ReservationID));
-                cmd.Parameters.AddWithValue("@carid", SafeInsertInt(reservation.carID));
-                cmd.Parameters.AddWithValue("@customerid", SafeInsertInt(reservation.customerID));
-                cmd.Parameters.AddWithValue("@startdate", SafeInsertString(reservation.startdate));
-                cmd.Parameters.AddWithValue("@enddate", SafeInsertString(reservation.enddate));
-                cmd.Parameters.AddWithValue("@confirmed", reservation.confirmed);
-                cmd.Parameters.AddWithValue("@Kilometres", SafeInsertInt(reservation.kilometres));
-                cmd.Parameters.AddWithValue("@pickupcity", SafeInsertString(reservation.pickupcity));
-                cmd.Parameters.AddWithValue("@pickupstreetname", SafeInsertString(reservation.pickupstreetname));
-                cmd.Parameters.AddWithValue("@pickupnumber", SafeInsertInt(reservation.pickupstreetnumber));
-                cmd.Parameters.AddWithValue("@pickupnumbersuffix", SafeInsertString(reservation.pickupstreetnumbersuffix));
-                cmd.Parameters.AddWithValue("@paid", reservation.paid);
-                cmd.Parameters.AddWithValue("@comment", SafeInsertString(reservation.comment));
+                cmd.Parameters.AddWithValue("@reservationid", ReservationID);
+                cmd.Parameters.AddWithValue("@carid", reservation.carID);
+                cmd.Parameters.AddWithValue("@customerid", reservation.customerID);
+                cmd.Parameters.AddWithValue("@startdate", reservation.startdate);
+                cmd.Parameters.AddWithValue("@enddate", reservation.enddate);
+                cmd.Parameters.AddWithValue("@confirmed", convertConfirmedToInt);
+                cmd.Parameters.AddWithValue("@Kilometres", reservation.kilometres);
+                cmd.Parameters.AddWithValue("@pickupcity", reservation.pickupcity);
+                cmd.Parameters.AddWithValue("@pickupstreetname", reservation.pickupstreetname);
+                cmd.Parameters.AddWithValue("@pickupnumber", reservation.pickupstreetnumber);
+                cmd.Parameters.AddWithValue("@pickupnumbersuffix", reservation.pickupstreetnumbersuffix);
+                cmd.Parameters.AddWithValue("@paid", convertPaidtoInt);
+                cmd.Parameters.AddWithValue("@comment", reservation.comment);
 
 
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
+
         }
         public void InsertCustomer(Customer customer)
         {

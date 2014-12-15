@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,7 @@ namespace Qars
             InitializeComponent();
             this.carID = carID;
             createSpecInfo(qarsApplication.carList, carID);
+
         }
         /*TO DO
          * If(User is logged in)
@@ -46,32 +48,61 @@ namespace Qars
          * }
          * 
          * OTHER STUFF:
-         * Validate Input
+         * Validate Input(ON INPUT)
          * Send Email
          * Add reservation to database
          * Fix Calendar
          * */
-        private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-            List<String> InputInfo = new List<String>();
+            int validinput = 0;
+            if (pickupcity != "" || pickupstreetname != "" || pickupstreetnumber != "" || pickupstreetnumbersuffix != "")
+            {
+                //everything needs to be valid
+            }
+            //create 3 lists for the labels, input and regEx
+            List<Label> LabelList = new List<Label>();
+            List<String> InputList = new List<String>();
             List<Regex> RegExList = new List<Regex>();
-            bool validInput = true;
-            string streetnumberCV = streetnumberTextbox.Text;
+
+
+            //Put labels in list
+            LabelList.Add(firstnameLabel);
+            LabelList.Add(lastnameLabel);
+            LabelList.Add(ageLabel);
+            LabelList.Add(streetnameLabel);
+            LabelList.Add(streetnumberLabel);
+            LabelList.Add(streetnumbersuffixlabel);
+            LabelList.Add(citylabel);
+            LabelList.Add(postalcodeLabel);
+            LabelList.Add(phonenumberLabel);
+            LabelList.Add(startdateLabel);
+            LabelList.Add(enddateLabel);
+            LabelList.Add(AmountofKilometerLabel);
+            LabelList.Add(pickupCityLabel);
+            LabelList.Add(pickupstreetnameLabel);
+            LabelList.Add(pickupstreetnumberLabel);
+            LabelList.Add(pickupstreetnumbersuffixLabel);
+
 
             //Regexes
-            Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{1,46}$");
+            Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,46}$");
             Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
             Regex ageRegEx = new Regex("^[0-9]{1,3}$");
-            Regex streetNameRegEx = new Regex("^[a-zAZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,95}$"); //(pickup)Streetname
+            Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$"); //(pickup)Streetname
             Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
             Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
             Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
-            Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7,7}");
-            Regex phoneNumberRegEx = new Regex("^[0-9-]{11,11})");
-            //Email will be checked later
+            Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
+            Regex phoneNumberRegEx = new Regex("^[0-9-+]{7,14}$");
             Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
-            Regex commentRegEx = new Regex(".{0,4294967295}$");
+            Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
+            Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
+            Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$"); //(pickup)streetnumber
+            Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");//(pickup)streetnumbersuffix
+            Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$")); //(pickup)City
 
+            //Add RegEx to List
             RegExList.Add(firstnameRegEx);
             RegExList.Add(lastNameRegEx);
             RegExList.Add(ageRegEx);
@@ -81,356 +112,97 @@ namespace Qars
             RegExList.Add(cityRegEx);
             RegExList.Add(postalCodeRegEx);
             RegExList.Add(phoneNumberRegEx);
-            //Email will be checked later
             RegExList.Add(dateRegEx);
             RegExList.Add(dateRegEx);
-            RegExList.Add(streetNameRegEx);
-            RegExList.Add(streetNumberRegEx);
-            RegExList.Add(streetNumberSuffixRegEx);
+            RegExList.Add(kilometerRegEx);
+            RegExList.Add(pickupcityRegEx);
+            RegExList.Add(pickupstreetNameRegEx);
+            RegExList.Add(pickupstreetNumberRegEx);
+            RegExList.Add(pickupstreetNumberSuffixRegEx);
 
-            InputInfo.Add(firstname);
-            InputInfo.Add(lastname);
-            InputInfo.Add(age);
-            InputInfo.Add(streetname); //Convert it to int32!
-            InputInfo.Add(streetnumber);
-            InputInfo.Add(streetnumbersuffix);
-            InputInfo.Add(postalcode);
-            InputInfo.Add(phonenumber);
-            InputInfo.Add(email);
-            InputInfo.Add(startdate);
-            InputInfo.Add(enddate);
-            InputInfo.Add(pickupcity);
-            InputInfo.Add(pickupstreetname);
-            InputInfo.Add(pickupstreetnumber);
-            InputInfo.Add(pickupstreetnumbersuffix);
-            InputInfo.Add(comment);
+            //Insert Information in list
+            InputList.Add(firstname);
+            InputList.Add(lastname);
+            InputList.Add(age);
+            InputList.Add(streetname);
+            InputList.Add(streetnumber);
+            InputList.Add(streetnumbersuffix);
+            InputList.Add(city);
+            InputList.Add(postalcode);
+            InputList.Add(phonenumber);
+            InputList.Add(startdate);
+            InputList.Add(enddate);
+            InputList.Add(kilometres);
+            InputList.Add(pickupcity);
+            InputList.Add(pickupstreetname);
+            InputList.Add(pickupstreetnumber);
+            InputList.Add(pickupstreetnumbersuffix);
 
-        //loop through the list, checking everything.
-        //if(validinput == false, continue looping and in the end colour all the false ones RED and show 1 messagebox saying "Wrong input"
-        http://stackoverflow.com/questions/8518761/how-to-iterate-through-two-collections-of-the-same-length-using-a-single-foreach
-
-
-            //check if Email is OK
-            if (IsValidEmail(email))
+            foreach (var item in LabelList)
             {
-                MessageBox.Show("Email is goed");
+                item.ForeColor = Color.Black;
             }
-            else
+            int counter = 0;
+            //Validate input
+            foreach (var item in RegExList)
             {
-                MessageBox.Show("Verkeerd Emailadres");//Verander dit?
-            }
-
-        }
-        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            string day = monthCalendar.SelectionStart.Day.ToString();
-            string month = monthCalendar.SelectionStart.Month.ToString();
-
-            if (day.Length == 1)
-            {
-                day = "0" + day;
-            }
-
-            if (month.Length == 1)
-            {
-                month = "0" + month;
-            }
-
-            string date = day + month + monthCalendar.SelectionStart.Year.ToString();
-
-            if (startdateTextbox.Name == currentSelectedDateBox)
-            {
-                startdateTextbox.Text = date;
-                startdatum = monthCalendar.SelectionStart.Date;
-            }
-            else if (enddateTextbox.Name == currentSelectedDateBox)
-            {
-                enddateTextbox.Text = date;
-                einddatum = monthCalendar.SelectionStart.Date;
-                secondDateChecked = true;
-            }
-            if (secondDateChecked)
-            {
-                if (einddatum < startdatum)
+                if (item.IsMatch(InputList[counter]))
                 {
-                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum");
-                    enddateTextbox.Text = "";
-                }
-            }
-            foreach (var bolddate in bolddates)      //loop through all bolded dates...
-            {
-                if (startdatum == bolddate)    //if the start WILL be a bolded date...
-                {
-                    MessageBox.Show("Deze begindatum kan niet worden gebruikt i.v.m reservering!");
-                    startdateTextbox.Text = "";
-                    firstMessage = true;
-                }
-
-                if (einddatum == bolddate)  //if the end date WILL be a bolded date...
-                {
-                    MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
-                    firstMessage = true;
-                    enddateTextbox.Text = "";
-                }
-                if (startdatum <= einddatum)
-                {
-                    TimeSpan tisp = einddatum - startdatum;
-                    int dateDiffer = tisp.Days;
-                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
-                    {
-                        if (startdatum.AddDays(i) == bolddate)
-                        {
-                            //Console.WriteLine("Als datum tussen begin en eind overeenkomen met bolded dan true!");
-                            reservationCollision = true;
-                        }
-                    }
-                }
-
-            }
-            if (!firstMessage)  //checks if there is only 1 messagebox...
-            {
-                if (reservationCollision)
-                {
-                    MessageBox.Show("De datum tussen de datums: " + startdateTextbox.Text + " en " + enddateTextbox.Text + ", mogen niet gebruikt worden!");
-                    //startdateTextbox.Text = "";
-                    enddateTextbox.Text = "";
-                    reservationCollision = false;
-
-                }
-            }
-        }
-        private void openCalender(object sender, EventArgs e)
-        {
-            foreach (var item in this.qarsApplication.reservationList) //loop through all the reservations
-                if (carID == item.carID && item.confirmed) //Check if there is a reservation for the current car
-                {
-                    string startDateString = item.startdate;
-                    string endDateString = item.enddate;
-                    DateTime startDate = Convert.ToDateTime(startDateString);
-                    DateTime endDate = Convert.ToDateTime(endDateString);
-
-                    TimeSpan ts = endDate - startDate;
-                    int differenceInDays = ts.Days;
-                    Console.WriteLine(ts);
-                    for (int i = 1; i <= differenceInDays; i++)
-                    {
-                        monthCalendar.AddBoldedDate(startDate.AddDays(i));   //makes all dates between start and end bolded in calendar... 
-                        if (i == differenceInDays)
-                        {
-                            monthCalendar.AddBoldedDate(startDate.AddDays(i + 1));  //makes the day after the end date of reservation bolded in calendar...
-                        }
-                    }
-
-                    bolddates = monthCalendar.BoldedDates;       //put all bolded dates in DateTime array...
-                }
-
-            monthCalendar.UpdateBoldedDates();
-
-            if (currentSelectedDateBox == startdateTextbox.Name)
-            {
-                monthCalendar.MinDate = DateTime.Today;
-            }
-            monthCalendar.Show();
-            MaskedTextBox b = (MaskedTextBox)sender;
-            currentSelectedDateBox = b.Name;
-        }
-
-        private void closeCalender(object sender, EventArgs e)
-        {
-            monthCalendar.Hide();
-
-        }
-        private void rentCarClick(object sender, EventArgs e)
-        {
-
-            try
-            {
-                //little check if the input is valid
-                int streetnumber = Convert.ToInt32(streetnumberTextbox.Text);
-                MailAddress email = new MailAddress(emailTextbox.Text);
-
-                //this has to become the new Reservation Class
-                Reservation reservation = new Reservation();
-                reservation.carID = carID;
-                reservation.customerID = -1; //CUSTOMER LOGGED IN NUMBER
-                reservation.startdate = startdateTextbox.Text;
-                reservation.enddate = enddateTextbox.Text;
-                reservation.confirmed = false;
-                reservation.kilometres = Convert.ToInt32(KilometerTextBox.Text);
-                reservation.pickupcity = pickupCityTextbox.Text;
-                reservation.pickupstreetname = pickupStreetTextbox.Text;
-                reservation.pickupstreetnumber = Convert.ToInt32(pickupStreetnumberTextbox.Text);
-                reservation.pickupstreetnumbersuffix = pickupStreetnumberSuffixTextbox.Text;
-                reservation.paid = false;
-                reservation.comment = commentTextbox.Text;
-
-                DBConnect connection = new DBConnect();
-                connection.InsertReservation(reservation);
-                //This creates the email
-                Util.Mail mail = new Util.Mail();
-                mail.addTo(emailTextbox.Text);
-                mail.addSubject("Aanvraag van" + qarsApplication.carList[carID].brand + qarsApplication.carList[carID].model);
-                mail.addBody(buildEmailBody(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, commentTextbox.Text));
-                mail.sendEmail();
-
-                MessageBox.Show("Er is email verstuurd met daarin uw gegevens");
-            }
-
-            catch (DbException dbe)
-            {
-                MessageBox.Show("Fout tijdens het verwerken van uw aanvraag\n" + dbe.HelpLink + dbe.Message);
-            }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("U heeft niet alle velden ingevuld");
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("U heeft geen geldig emailadres ingevuld");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("U heeft niet alle velden correct ingevuld");
-            }
-            Regex firstname = new Regex("^[a-zA-Z]{1,20}$");
-            Regex lastname = new Regex("^[a-zA-Z ]{1,20}$");
-            Regex streetname = new Regex("^[a-zA-Z]{1,20}$");
-            Regex streetNumber = new Regex("^[0-9]{1,3}$");
-            Regex streetNumberSuffix = new Regex("^[a-zA-Z]{0,1}$");
-            Regex city = new Regex("^[a-zA-Z]{1,20}$");
-            Regex rxEmail = new Regex("^[a-zA-Z0-9]{1,20}@[a-zA-Z0-9]{1,20}.[a-zA-Z]{2,3}$");
-            Regex pickupCity = new Regex("^[a-zA-Z]{1,20}$");
-            Regex pickupStreet = new Regex("^[a-zA-Z]{1,20}$");
-            Regex pickupStreetnumber = new Regex("^[0-9]{1,3}$");
-            Regex pickupStreetnumberSuffix = new Regex("^[a-zA-Z]{0,1}$");
-
-
-            if (!firstname.IsMatch(firstnameTextbox.Text))     //dit zou vervangen kunnen worden door switch... en try-catch kan weg?
-            {
-                MessageBox.Show("De opgegeven vooraam is niet correct!");
-            }
-            if (!lastname.IsMatch(lastnameTextbox.Text))
-            {
-                MessageBox.Show("De opgegeven achternaam is niet correct!");
-            }
-            if (!streetname.IsMatch(streetnameTextbox.Text))
-            {
-                MessageBox.Show("De opgegeven straat is niet correct!");
-            }
-            if (!streetNumber.IsMatch(streetnumberTextbox.Text))
-            {
-                MessageBox.Show("Het opgegeven straatnummer is niet correct!");
-            }
-            if (!streetNumberSuffix.IsMatch(streetnumbersuffixTextbox.Text))
-            {
-                MessageBox.Show("De opgegeven toevoeging van het straatnummer is niet correct!");
-            }
-            if (!city.IsMatch(cityTextbox.Text))
-            {
-                MessageBox.Show("De opgegeven woonplaats is niet correct!");
-            }
-            if (!rxEmail.IsMatch(emailTextbox.Text))
-            {
-                MessageBox.Show("De opgegeven email is niet correct!");
-            }
-            if (collectRadioButtonYes.Checked == true)
-            {
-                if (!pickupCity.IsMatch(pickupCityTextbox.Text))
-                {
-                    MessageBox.Show("De opgegeven plaats (voor afhalen) is niet correct!");
-                }
-                if (!pickupStreet.IsMatch(pickupStreetTextbox.Text))
-                {
-                    MessageBox.Show("De opgegeven straat (voor afhalen) is niet correct!");
-                }
-                if (!pickupStreetnumber.IsMatch(pickupStreetnumberTextbox.Text))
-                {
-                    MessageBox.Show("Het opgegeven straatnummer (voor afhalen) is niet correct!");
-                }
-                if (!pickupStreetnumberSuffix.IsMatch(pickupStreetnumberSuffixTextbox.Text))
-                {
-                    MessageBox.Show("De opgegeven toevoeging van het straatnummer (voor afhalen) is niet correct!");
-                }
-            }
-
-        }
-        private string buildEmailBody(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string comment)
-        {
-            StringBuilder builder = new StringBuilder();
-            //This part can be edited by the admin
-            builder.AppendLine(String.Format("Beste meneer/mevrouw {0}", lastname));
-            builder.AppendLine("");
-            builder.AppendLine("Bedank voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel");
-            builder.AppendLine("mogelijk te verwerken. Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging");
-            builder.AppendLine("");
-
-            builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
-            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
-            builder.AppendLine(String.Format("Leeftijd:\t{0}", age));
-            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
-            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
-            builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
-            builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
-            builder.AppendLine(String.Format("Email:\t\t{0}", email));
-            builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
-            builder.Append("\n");
-            builder.AppendLine(String.Format("Begin datum:\t{0}", startdate));
-            builder.AppendLine(String.Format("Eind datum:\t{0}", enddate));
-            if (collectRadioButtonYes.Checked && pickupCityTextbox.Text != "" && pickupStreetnumberTextbox.Text != "" && pickupStreetnumberSuffixTextbox.Text != "")//If pickupstreetnumber(suffix).textbox.text = empty, text = "". 
-            {
-                builder.AppendLine(String.Format("De auto zal op {0} worden opgehaald op het volgende adres:"));
-                if (streetnumbersuffixTextbox.Text != "")
-                {
-                    builder.AppendLine(String.Format(pickupStreetTextbox.Text + " " + pickupStreetnumberTextbox.Text + pickupStreetnumberSuffixTextbox.Text + " te " + pickupCityTextbox.Text));
+                    validinput += 1;
                 }
                 else
                 {
-                    builder.AppendLine(String.Format(pickupStreetTextbox.Text + " " + pickupStreetnumberTextbox.Text + " te " + pickupCityTextbox.Text));
+                    LabelList[counter].ForeColor = Color.Red;
+                }
+                counter++;
+            }
+            if (IsValidEmail(email))
+            {
+                Console.WriteLine(validinput);
+                if (validinput == 16)
+                {
+                    InsertIntoDatabase(carID, /*customerID FIX*/ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, Convert.ToInt32(pickupstreetnumber), pickupstreetnumbersuffix, comment);
+                    SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, pickupcity, pickupstreetname, Int32.Parse(pickupstreetnumber), pickupstreetnumbersuffix, comment);
+                    MessageBox.Show("U ontvangt z.s.m een email met daarin uw reserveringbewijs");
+                }
+                else
+                {
+                    MessageBox.Show("Er ging iets verkeerd met het verzenden van uw gegevens!");
                 }
             }
-            builder.Append("\n");
-            builder.AppendLine("Opmerking:");
-            builder.AppendLine(comment);
-
-            //this part can be edited by the admin
-            builder.Append("\n\n");
-            builder.AppendLine("Met vriendelijke groeten,");
-            builder.AppendLine("");
-            builder.AppendLine("Qars");
-
-            return builder.ToString();
+            else
+            {
+                MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+                emailLabel.ForeColor = Color.Red;
+            }
         }
-        private void closeRentCarPanel(object sender, EventArgs e)
+        private void InsertIntoDatabase(int carID, int customerID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-            this.Dispose();
+            Reservation reservation = new Reservation();
+
+            reservation.carID = carID;
+            reservation.customerID = customerID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
+            reservation.startdate = startdate;
+            reservation.enddate = enddate;
+            reservation.confirmed = false;
+            reservation.kilometres = kilometres;
+            reservation.pickupcity = pickupcity;
+            reservation.pickupstreetname = pickupstreetname;
+            reservation.pickupstreetnumber = pickupstreetnumber;
+            reservation.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
+            reservation.paid = false;
+            reservation.comment = comment;
+
+            DBConnect connection = new DBConnect();
+            connection.InsertReservation(reservation);
         }
-        private void radioYesButton_CheckedChanged(object sender, EventArgs e)
+        private void SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-            pickupCityTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupCityTextbox.Enabled = !pickupCityTextbox.Enabled;
-
-            pickupStreetTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupStreetTextbox.Enabled = !pickupStreetnumberTextbox.Enabled;
-
-            pickupStreetnumberTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupStreetnumberTextbox.Enabled = !pickupStreetnumberTextbox.Enabled;
-
-            pickupStreetnumberSuffixTextbox.BackColor = TextBox.DefaultBackColor;
-            pickupStreetnumberSuffixTextbox.Enabled = !pickupStreetnumberSuffixTextbox.Enabled;
-        }
-        private void radioNoButton_CheckedChanged(object sender, EventArgs e)
-        {
-            pickupCityTextbox.BackColor = Color.Gray;
-            pickupCityTextbox.Enabled = !pickupCityTextbox.Enabled;
-
-            pickupStreetTextbox.BackColor = Color.Gray;
-            pickupStreetTextbox.Enabled = !pickupStreetTextbox.Enabled;
-
-            pickupStreetnumberTextbox.BackColor = Color.Gray;
-            pickupStreetnumberTextbox.Enabled = !pickupStreetnumberTextbox.Enabled;
-
-            pickupStreetnumberSuffixTextbox.BackColor = Color.Gray;
-            pickupStreetnumberSuffixTextbox.Enabled = pickupStreetnumberSuffixTextbox.Enabled;
+            Util.Mail mail = new Util.Mail();
+            mail.addTo(email);
+            mail.addSubject("Aanvraag van " + qarsApplication.carList[carID].brand + " " + qarsApplication.carList[carID].model);
+            mail.addBody(buildEmailBody(firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment));
+            mail.sendEmail();
         }
         private void createSpecInfo(List<Car> list, int carNumber)
         {
@@ -519,7 +291,6 @@ namespace Qars
                 return false;
             }
         }
-
         private string DomainMapper(Match match)
         {
             // IdnMapping class with default property values.
@@ -536,6 +307,177 @@ namespace Qars
             }
             return match.Groups[1].Value + domainName;
         }
+        private string buildEmailBody(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        {
+            StringBuilder builder = new StringBuilder();
+            //This part can be edited by the admin
+            builder.AppendLine(String.Format("Beste meneer/mevrouw {0}", lastname));
+            builder.AppendLine("");
+            builder.AppendLine("Bedank voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel");
+            builder.AppendLine("mogelijk te verwerken. Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging");
+            builder.AppendLine("");
 
+            builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
+            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
+            builder.AppendLine(String.Format("Leeftijd:\t{0}", age));
+            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
+            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
+            builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
+            builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
+            builder.AppendLine(String.Format("Email:\t\t{0}", email));
+            builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
+            builder.Append("\n");
+            builder.AppendLine(String.Format("Begin datum:\t{0}", startdate));
+            builder.AppendLine(String.Format("Eind datum:\t{0}", enddate));
+            if (pickupcity == "" && pickupstreetname != "" && pickupstreetnumber != 0)
+            {
+                builder.AppendLine(String.Format("De auto zal op {0} worden opgehaald op het volgende adres:", enddate));
+                if (streetnumbersuffix != "")
+                {
+                    builder.AppendLine(String.Format(pickupStreetNameTextbox.Text + " " + pickupStreetnumberTextbox.Text + pickupStreetnumberSuffixTextbox.Text + " te " + pickupCityTextbox.Text));
+                }
+                else
+                {
+                    builder.AppendLine(String.Format(pickupStreetNameTextbox.Text + " " + pickupStreetnumberTextbox.Text + " te " + pickupCityTextbox.Text));
+                }
+            }
+            builder.Append("\n");
+            if (comment != "")
+            {
+                builder.AppendLine("Opmerking:");
+                builder.AppendLine(comment);
+            }
+            //this part can be edited by the admin
+            builder.Append("\n\n");
+            builder.AppendLine("Met vriendelijke groeten,");
+            builder.AppendLine("");
+            builder.AppendLine("Qars");
+
+            return builder.ToString();
+        }
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            string day = monthCalendar.SelectionStart.Day.ToString();
+            string month = monthCalendar.SelectionStart.Month.ToString();
+
+            if (day.Length == 1)
+            {
+                day = "0" + day;
+            }
+
+            if (month.Length == 1)
+            {
+                month = "0" + month;
+            }
+
+            string date = day + month + monthCalendar.SelectionStart.Year.ToString();
+
+            if (startdateTextbox.Name == currentSelectedDateBox)
+            {
+                startdateTextbox.Text = date;
+                startdatum = monthCalendar.SelectionStart.Date;
+            }
+            else if (enddateTextbox.Name == currentSelectedDateBox)
+            {
+                enddateTextbox.Text = date;
+                einddatum = monthCalendar.SelectionStart.Date;
+                secondDateChecked = true;
+            }
+            if (secondDateChecked)
+            {
+                if (einddatum < startdatum)
+                {
+                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum");
+                    enddateTextbox.Text = "";
+                }
+            }/*
+            foreach (var bolddate in bolddates)      //loop through all bolded dates...
+            {
+                if (startdatum == bolddate)    //if the start WILL be a bolded date...
+                {
+                    MessageBox.Show("Deze begindatum kan niet worden gebruikt i.v.m reservering!");
+                    startdateTextbox.Text = "";
+                    firstMessage = true;
+                }
+
+                if (einddatum == bolddate)  //if the end date WILL be a bolded date...
+                {
+                    MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
+                    firstMessage = true;
+                    enddateTextbox.Text = "";
+                }
+                if (startdatum <= einddatum)
+                {
+                    TimeSpan tisp = einddatum - startdatum;
+                    int dateDiffer = tisp.Days;
+                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
+                    {
+                        if (startdatum.AddDays(i) == bolddate)
+                        {
+                            reservationCollision = true;
+                        }
+                    }
+                }
+
+            }
+            if (!firstMessage)  //checks if there is only 1 messagebox...
+            {
+                if (reservationCollision)
+                {
+                    MessageBox.Show("De datum tussen de datums: " + startdateTextbox.Text + " en " + enddateTextbox.Text + ", mogen niet gebruikt worden!");
+                    //startdateTextbox.Text = "";
+                    enddateTextbox.Text = "";
+                    reservationCollision = false;
+
+                }
+            }*/
+        }
+        private void openCalender(object sender, EventArgs e)
+        {
+            foreach (var item in this.qarsApplication.reservationList) //loop through all the reservations
+                if (carID == item.carID && item.confirmed) //Check if there is a reservation for the current car
+                {
+                    string startDateString = item.startdate;
+                    string endDateString = item.enddate;
+                    DateTime startDate = Convert.ToDateTime(startDateString);
+                    DateTime endDate = Convert.ToDateTime(endDateString);
+
+                    TimeSpan ts = endDate - startDate;
+                    int differenceInDays = ts.Days;
+                    for (int i = 1; i <= differenceInDays; i++)
+                    {
+                        monthCalendar.AddBoldedDate(startDate.AddDays(i));   //makes all dates between start and end bolded in calendar... 
+                        if (i == differenceInDays)
+                        {
+                            monthCalendar.AddBoldedDate(startDate.AddDays(i + 1));  //makes the day after the end date of reservation bolded in calendar...
+                        }
+                    }
+
+                    bolddates = monthCalendar.BoldedDates;       //put all bolded dates in DateTime array...
+                }
+
+            monthCalendar.UpdateBoldedDates();
+
+            if (currentSelectedDateBox == startdateTextbox.Name)
+            {
+                monthCalendar.MinDate = DateTime.Today;
+            }
+            monthCalendar.Show();
+            MaskedTextBox b = (MaskedTextBox)sender;
+            currentSelectedDateBox = b.Name;
+        }
+        private void closeCalender(object sender, EventArgs e)
+        {
+            monthCalendar.Hide();
+        }
+        private void rentCarClick(object sender, EventArgs e)
+        {
+            ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text,
+                startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+        }
+        private void closeRentCarPanel(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
