@@ -76,6 +76,40 @@ namespace Qars
                 return false;
             }
         }
+
+
+        public int CheckUser(string username, string password) {
+            // returns -3 if there is no connection
+            // returns -2 if account does not excist
+            // returns -1 if password is wrong
+            // returns 0 or higher if user and password are valid. This number identifies the type of account
+                // 0 = user
+                // 1 = location employee
+
+            string query = " SELECT * FROM Customer ";
+
+            // check connection and execure query
+            if (this.OpenConnection() == true) {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read()) {
+                    // check if we are reading a new car
+                    if (CompareStrings(username, dataReader.GetString("Username"))) {
+                        if (CompareStrings(password, dataReader.GetString("Password"))) {
+                            return 0;
+                        } else {
+                            return -1;
+                        }
+                    }
+                }
+                return -2;
+            }
+
+
+            return -3;
+        }
+
         public List<Car> SelectCar()
         {
             string query = " SELECT * FROM Car A LEFT JOIN Photo B ON A.CarID = B.CarID ORDER BY A.CarID ";
@@ -473,6 +507,11 @@ namespace Qars
             }
             return returnValue.ToString();
         }
+
+        // method to compare strings
+        private bool CompareStrings(string string1, string string2){  
+	        return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;  
+	    } 
     }
 }
 
