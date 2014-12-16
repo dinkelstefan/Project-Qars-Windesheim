@@ -86,8 +86,6 @@ namespace Qars
             cb.Left = 160;
             cb.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
             this.Controls.Add(cb);
-
-
         }
 
         protected void pb_MouseHover(object sender, EventArgs e)
