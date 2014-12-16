@@ -19,6 +19,9 @@ namespace Qars_Admin
 
         private void SignInButton_Click(object sender, EventArgs e) {
 
+            AdminForm admin = new AdminForm();
+            admin.Show();
+            this.Hide();
         }
     }
 }

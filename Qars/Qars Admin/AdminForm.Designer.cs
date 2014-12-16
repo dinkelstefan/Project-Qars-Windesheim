@@ -47,7 +47,8 @@
             this.ClientSize = new System.Drawing.Size(1520, 869);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdminForm";
-            this.Text = "AdminForm";
+            this.ShowIcon = false;
+            this.Text = "Qars Administratie";
             this.ResumeLayout(false);
 
         }
