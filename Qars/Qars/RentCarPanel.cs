@@ -49,23 +49,47 @@ namespace Qars
          * 
          * OTHER STUFF:
          * Validate Input(ON INPUT)
-         * Send Email
          * Add reservation to database
          * Fix Calendar
          * */
         private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-            int validinput = 0;
-            if (pickupcity != "" || pickupstreetname != "" || pickupstreetnumber != "" || pickupstreetnumbersuffix != "")
-            {
-                //everything needs to be valid
-            }
-            //create 3 lists for the labels, input and regEx
             List<Label> LabelList = new List<Label>();
             List<String> InputList = new List<String>();
             List<Regex> RegExList = new List<Regex>();
+            int validinput = 0;
 
+            Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,46}$");
+            Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
+            Regex ageRegEx = new Regex("^[0-9]{1,3}$");
+            Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$"); //(pickup)Streetname
+            Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
+            Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
+            Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
+            Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
+            Regex emailRegEx = new Regex("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+            Regex phoneNumberRegEx = new Regex("^[0-9-+]{7,14}$");
+            Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
+            Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
+            Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
+            Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$"); //(pickup)streetnumber
+            Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");//(pickup)streetnumbersuffix
+            Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$")); //(pickup)City
 
+            if (pickupcity != "" || pickupstreetname != "" || pickupstreetnumber != "" || pickupstreetnumbersuffix != "")
+            {
+                pickupcityRegEx = new Regex("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+$");
+                pickupstreetNameRegEx = new Regex("^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
+                pickupstreetNumberRegEx = new Regex("^\\d{1,5}$"); //(pickup)streetnumber
+                pickupstreetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
+            }
+            else
+            {
+                //create 3 lists for the labels, input and regEx
+
+                //Regexes
+
+            }
             //Put labels in list
             LabelList.Add(firstnameLabel);
             LabelList.Add(lastnameLabel);
@@ -75,6 +99,7 @@ namespace Qars
             LabelList.Add(streetnumbersuffixlabel);
             LabelList.Add(citylabel);
             LabelList.Add(postalcodeLabel);
+            LabelList.Add(emailLabel);
             LabelList.Add(phonenumberLabel);
             LabelList.Add(startdateLabel);
             LabelList.Add(enddateLabel);
@@ -85,22 +110,6 @@ namespace Qars
             LabelList.Add(pickupstreetnumbersuffixLabel);
 
 
-            //Regexes
-            Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,46}$");
-            Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
-            Regex ageRegEx = new Regex("^[0-9]{1,3}$");
-            Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$"); //(pickup)Streetname
-            Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
-            Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
-            Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
-            Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
-            Regex phoneNumberRegEx = new Regex("^[0-9-+]{7,14}$");
-            Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
-            Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
-            Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
-            Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$"); //(pickup)streetnumber
-            Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");//(pickup)streetnumbersuffix
-            Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$")); //(pickup)City
 
             //Add RegEx to List
             RegExList.Add(firstnameRegEx);
@@ -111,6 +120,7 @@ namespace Qars
             RegExList.Add(streetNumberSuffixRegEx);
             RegExList.Add(cityRegEx);
             RegExList.Add(postalCodeRegEx);
+            RegExList.Add(emailRegEx);
             RegExList.Add(phoneNumberRegEx);
             RegExList.Add(dateRegEx);
             RegExList.Add(dateRegEx);
@@ -129,6 +139,7 @@ namespace Qars
             InputList.Add(streetnumbersuffix);
             InputList.Add(city);
             InputList.Add(postalcode);
+            InputList.Add(email);
             InputList.Add(phonenumber);
             InputList.Add(startdate);
             InputList.Add(enddate);
@@ -149,6 +160,7 @@ namespace Qars
                 if (item.IsMatch(InputList[counter]))
                 {
                     validinput += 1;
+                    Console.WriteLine(validinput);
                 }
                 else
                 {
@@ -158,11 +170,10 @@ namespace Qars
             }
             if (IsValidEmail(email))
             {
-                Console.WriteLine(validinput);
-                if (validinput == 16)
+                if (validinput == 17)
                 {
-                    InsertIntoDatabase(carID, /*customerID FIX*/ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, Convert.ToInt32(pickupstreetnumber), pickupstreetnumbersuffix, comment);
-                    SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, pickupcity, pickupstreetname, Int32.Parse(pickupstreetnumber), pickupstreetnumbersuffix, comment);
+                    InsertIntoDatabase(carID, /*customerID FIX*/ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
+                    SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
                     MessageBox.Show("U ontvangt z.s.m een email met daarin uw reserveringbewijs");
                 }
                 else
@@ -176,10 +187,18 @@ namespace Qars
                 emailLabel.ForeColor = Color.Red;
             }
         }
-        private void InsertIntoDatabase(int carID, int customerID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private void InsertIntoDatabase(int carID, int customerID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
+            int pickupstreetnumberint = 0;
             Reservation reservation = new Reservation();
-
+            if (pickupstreetnumber == "")
+            {
+                pickupstreetnumberint = 0;
+            }
+            else
+            {
+                pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
+            }
             reservation.carID = carID;
             reservation.customerID = customerID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
             reservation.startdate = startdate;
@@ -188,7 +207,7 @@ namespace Qars
             reservation.kilometres = kilometres;
             reservation.pickupcity = pickupcity;
             reservation.pickupstreetname = pickupstreetname;
-            reservation.pickupstreetnumber = pickupstreetnumber;
+            reservation.pickupstreetnumber = pickupstreetnumberint;
             reservation.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
             reservation.paid = false;
             reservation.comment = comment;
@@ -196,8 +215,17 @@ namespace Qars
             DBConnect connection = new DBConnect();
             connection.InsertReservation(reservation);
         }
-        private void SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private void SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
+            int pickupstreetnumberint = 0;
+            if (pickupstreetnumber == "")
+            {
+                pickupstreetnumberint = 0;
+            }
+            else
+            {
+                Convert.ToInt32(pickupstreetnumberint);
+            }
             Util.Mail mail = new Util.Mail();
             mail.addTo(email);
             mail.addSubject("Aanvraag van " + qarsApplication.carList[carID].brand + " " + qarsApplication.carList[carID].model);
@@ -307,8 +335,17 @@ namespace Qars
             }
             return match.Groups[1].Value + domainName;
         }
-        private string buildEmailBody(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, int pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private string buildEmailBody(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
+            int pickupstreetnumberint = 0;
+            if (pickupstreetnumber == "")
+            {
+                pickupstreetnumberint = 0;
+            }
+            else
+            {
+                Convert.ToInt32(pickupstreetnumberint);
+            }
             StringBuilder builder = new StringBuilder();
             //This part can be edited by the admin
             builder.AppendLine(String.Format("Beste meneer/mevrouw {0}", lastname));
@@ -329,7 +366,7 @@ namespace Qars
             builder.Append("\n");
             builder.AppendLine(String.Format("Begin datum:\t{0}", startdate));
             builder.AppendLine(String.Format("Eind datum:\t{0}", enddate));
-            if (pickupcity == "" && pickupstreetname != "" && pickupstreetnumber != 0)
+            if (pickupcity == "" && pickupstreetname != "" && pickupstreetnumberint == 0)
             {
                 builder.AppendLine(String.Format("De auto zal op {0} worden opgehaald op het volgende adres:", enddate));
                 if (streetnumbersuffix != "")
@@ -347,7 +384,7 @@ namespace Qars
                 builder.AppendLine("Opmerking:");
                 builder.AppendLine(comment);
             }
-            //this part can be edited by the admin
+            //TO DO: EDITABLE BY ADMIN
             builder.Append("\n\n");
             builder.AppendLine("Met vriendelijke groeten,");
             builder.AppendLine("");
