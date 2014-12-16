@@ -20,6 +20,7 @@ namespace Qars
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
         public HoverPanel hp;
+        public AccountInterface ai;
 
         public List<Damage> damageList = new List<Damage>();
         public List<Establishment> EstablishmentList = new List<Establishment>();
@@ -36,6 +37,7 @@ namespace Qars
             InitializeComponent();
             DoubleBuffered = true;
             hp = new HoverPanel(this);
+            ai = new AccountInterface();
 
             totalCarList = db.SelectCar();
             carList = totalCarList;
@@ -47,7 +49,9 @@ namespace Qars
             updateTileView();
 
             this.Controls.Add(hp);
+            this.Controls.Add(ai);
             hp.BringToFront();
+            ai.BringToFront();
         }
 
 
