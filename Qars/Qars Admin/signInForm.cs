@@ -19,7 +19,8 @@ namespace Qars_Admin
             InitializeComponent();
         }
 
-        private void SignInButton_Click(object sender, EventArgs e) {
+        private void SignInButton_Click(object sender, EventArgs e)
+        {
 
             this.SignInButton.Enabled = false;
             this.usernameTextBox.Enabled = false;
@@ -34,13 +35,19 @@ namespace Qars_Admin
             string password = this.passwordTextBox.Text;
 
 
-            Console.WriteLine(databaseConnect.CheckUser(username, password));
-
-            this.passwordTextBox.Clear();
-            this.SignInButton.Enabled = true;
-            this.usernameTextBox.Enabled = true;
-            this.passwordTextBox.Enabled = true;
-
+            if (databaseConnect.CheckUser(username, password) >= 0)
+            {
+                AdminForm admin = new AdminForm();
+                admin.Show();
+                this.Hide();
+            }
+            else
+            {
+                this.passwordTextBox.Clear();
+                this.SignInButton.Enabled = true;
+                this.usernameTextBox.Enabled = true;
+                this.passwordTextBox.Enabled = true;
+            }
         }
     }
 }
