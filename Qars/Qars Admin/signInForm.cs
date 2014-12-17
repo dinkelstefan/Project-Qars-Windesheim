@@ -17,6 +17,8 @@ namespace Qars_Admin
         public signInForm()
         {
             InitializeComponent();
+            this.usernameTextBox.Text = "admin";
+            this.passwordTextBox.Text = "1234";
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace Qars_Admin
 
             if (checkedUser.accountLevel >= 0)
             {
-                AdminForm admin = new AdminForm(checkedUser);
+                AdminForm admin = new AdminForm(checkedUser, databaseConnect);
                 admin.Show();
                 this.Hide();
             }

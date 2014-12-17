@@ -22,14 +22,30 @@ namespace Qars_Admin
     {
 
         private User currentUser;
+        private DBConnect databaseConnection;
         private List<Button> categories = new List<Button>();
+
+        private CarAdminPanel carAdminPanel;
+
+        private System.Drawing.Point adminPanelPosition = new System.Drawing.Point(225, 8);
+
         private int yCoordinate = 50;
 
-        public AdminForm(User currentUser)
-        {
+        public AdminForm(User currentUser, DBConnect dbConnect) {
             this.currentUser = currentUser;
-            InitializeComponent();
+            this.databaseConnection = dbConnect;
             addCategories();
+
+
+            // make a car adminPanel
+            this.carAdminPanel = new CarAdminPanel(this.databaseConnection);
+            this.carAdminPanel.Location = this.adminPanelPosition;
+            this.carAdminPanel.Size = new System.Drawing.Size(768, 509);
+            this.carAdminPanel.TabIndex = 5;
+            this.Controls.Add(this.carAdminPanel);
+            InitializeComponent();
+
+
         }
 
         private void addCategories()

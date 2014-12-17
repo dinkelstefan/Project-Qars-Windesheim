@@ -34,9 +34,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(338, 12);
+            this.groupBox1.Location = new System.Drawing.Point(225, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1172, 844);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(768, 550);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -45,19 +47,21 @@
             // 
             this.categoriesLabel.AutoSize = true;
             this.categoriesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoriesLabel.Location = new System.Drawing.Point(12, 12);
+            this.categoriesLabel.Location = new System.Drawing.Point(8, 8);
+            this.categoriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.categoriesLabel.Name = "categoriesLabel";
-            this.categoriesLabel.Size = new System.Drawing.Size(183, 37);
+            this.categoriesLabel.Size = new System.Drawing.Size(128, 26);
             this.categoriesLabel.TabIndex = 1;
             this.categoriesLabel.Text = "Categoriën";
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1520, 869);
+            this.ClientSize = new System.Drawing.Size(1013, 565);
             this.Controls.Add(this.categoriesLabel);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminForm";
             this.ShowIcon = false;
             this.Text = "Qars Administratie";
