@@ -42,6 +42,8 @@ namespace Qars_Admin
                 {
                     if (levels[i] == currentUser.accountLevel)
                     {
+                        button.Location = new Point(10, yCoordinate);
+                        yCoordinate += 50;
                         Controls.Add(button);
                     }
                 }
@@ -54,7 +56,6 @@ namespace Qars_Admin
 
             button.Size = new Size(200, 40);
             button.Location = new Point(10, yCoordinate);
-            yCoordinate += 50;
 
             button.Text = buttonText;
             button.Name = buttonName;
@@ -65,7 +66,7 @@ namespace Qars_Admin
 
         private void fillButtonList()
         {
-            categories.Add(this.createButton("Autos beheren", "autoBeheren", new[] {1,2} ));
+            categories.Add(this.createButton("Autos beheren", "autoBeheren", new[] {1, 2, 3} ));
             categories.Add(this.createButton("Reserveringen beheren", "reserveringBeheren", new[] { 3, 4 }));
 
             
