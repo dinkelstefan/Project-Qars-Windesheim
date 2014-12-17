@@ -11,6 +11,13 @@ using System.Windows.Forms;
 
 namespace Qars_Admin
 {
+    //Beheerder             1
+    //Backoffice            2
+    //Franchisenemer        3
+    //Allocatiemedewerker   4
+    //Medewerker            5
+    //Klant                 6
+
     public partial class AdminForm : Form
     {
 
@@ -27,18 +34,21 @@ namespace Qars_Admin
 
         private void addCategories()
         {
-            categories.Add(this.createButton("Autos beheren", "autoBeheren", 1));
-            categories.Add(this.createButton("Reserveringen beheren", "reserveringBeheren", 3));
-            categories.Add(this.createButton("Vestigingen beheren", "vestigignBeheren", 5));
-
-            foreach (Button panel in categories)
+            fillButtonList();
+            foreach (Button button in categories)
             {
-                Controls.Add(panel);
+                int[] levels = (int[])button.Tag;
+                for (int i = 0; i < levels.Length; i++)
+                {
+                    if (levels[i] == currentUser.accountLevel)
+                    {
+                        Controls.Add(button);
+                    }
+                }
             }
-
         }
 
-        private Button createButton(string buttonText, string buttonName, int userLevel)
+        private Button createButton(string buttonText, string buttonName, int[] userLevel)
         {
             Button button = new Button();
 
@@ -51,6 +61,17 @@ namespace Qars_Admin
             button.Tag = userLevel;
 
             return button;
+        }
+
+        private void fillButtonList()
+        {
+            categories.Add(this.createButton("Autos beheren", "autoBeheren", new[] {1,2} ));
+            categories.Add(this.createButton("Reserveringen beheren", "reserveringBeheren", new[] { 3, 4 }));
+
+            
+
+
+
         }
     }
 }
