@@ -25,6 +25,7 @@ namespace Qars
         public List<Establishment> EstablishmentList = new List<Establishment>();
         public List<Reservation> reservationList = new List<Reservation>();
         public List<Car> carList;
+        public List<Customer> customerList;
         public List<Car> totalCarList { get; private set; }
 
         public List<Car> compareList = new List<Car>();
@@ -57,6 +58,7 @@ namespace Qars
             EstablishmentList = db.SelectEstablishment();
             reservationList = db.SelectReservation();
             damageList = db.SelectDamage();
+            customerList = db.SelectCustomer();
 
             updateTileView();
 
@@ -114,7 +116,7 @@ namespace Qars
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            searchWizard.Visible = !searchWizard.Visible; 
+            searchWizard.Visible = !searchWizard.Visible;
             updateTileView();
         }
 
