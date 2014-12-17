@@ -39,7 +39,7 @@ namespace Qars_Admin
 
             if (checkedUser.accountLevel >= 0)
             {
-                AdminForm admin = new AdminForm();
+                AdminForm admin = new AdminForm(checkedUser);
                 admin.Show();
                 this.Hide();
             }
