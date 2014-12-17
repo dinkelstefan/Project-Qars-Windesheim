@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Qars;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,12 @@ namespace Qars_Admin
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+
+        private User currentUser;
+
+        public AdminForm(User currentUser)
         {
+            this.currentUser = currentUser;
             InitializeComponent();
         }
     }

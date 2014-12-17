@@ -35,7 +35,9 @@ namespace Qars_Admin
             string password = this.passwordTextBox.Text;
 
 
-            if (databaseConnect.CheckUser(username, password) >= 0)
+            User checkedUser = databaseConnect.CheckUser(username, password);
+
+            if (checkedUser.accountLevel >= 0)
             {
                 AdminForm admin = new AdminForm();
                 admin.Show();
