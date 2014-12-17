@@ -69,7 +69,15 @@ namespace Qars
                 {
                     if (rep.carID == carNumber && rep.repaired == false)
                     {
-                        //if(customer rank = beheerder){hire.text = "Reparatie"}else{hire.text=Niet beschikbaar}
+                        /*if(customerList.rank = beheerder)
+                        {
+                         hire.text = "Reparatie"
+                         }
+                         else
+                         {
+                         hire.text=Niet beschikbaar
+                         }
+                         * */
                         hire.Text = "Niet beschikbaar";
                         hire.BackColor = Color.Red;
                         hire.Enabled = false;

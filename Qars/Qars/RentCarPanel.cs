@@ -49,7 +49,6 @@ namespace Qars
          * 
          * OTHER STUFF:
          * Validate Input(ON INPUT)
-         * Add reservation to database
          * Fix Calendar
          * */
         private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
@@ -83,13 +82,6 @@ namespace Qars
                 pickupstreetNumberRegEx = new Regex("^\\d{1,5}$"); //(pickup)streetnumber
                 pickupstreetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
             }
-            else
-            {
-                //create 3 lists for the labels, input and regEx
-
-                //Regexes
-
-            }
             //Put labels in list
             LabelList.Add(firstnameLabel);
             LabelList.Add(lastnameLabel);
@@ -108,8 +100,6 @@ namespace Qars
             LabelList.Add(pickupstreetnameLabel);
             LabelList.Add(pickupstreetnumberLabel);
             LabelList.Add(pickupstreetnumbersuffixLabel);
-
-
 
             //Add RegEx to List
             RegExList.Add(firstnameRegEx);
@@ -394,40 +384,17 @@ namespace Qars
         }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
+
             string day = monthCalendar.SelectionStart.Day.ToString();
             string month = monthCalendar.SelectionStart.Month.ToString();
+            string date = day + month + monthCalendar.SelectionStart.Year.ToString(); //Date selected
 
-            if (day.Length == 1)
-            {
-                day = "0" + day;
-            }
+            /*
+             * Date != Bolddate
+             * Einddate mag niet kleiner zijn dan startdatum (zorg ervoor dat enddate mindate = startdate selected)
+             * Startdate mag niet groter zijn dan enddate
+             */
 
-            if (month.Length == 1)
-            {
-                month = "0" + month;
-            }
-
-            string date = day + month + monthCalendar.SelectionStart.Year.ToString();
-
-            if (startdateTextbox.Name == currentSelectedDateBox)
-            {
-                startdateTextbox.Text = date;
-                startdatum = monthCalendar.SelectionStart.Date;
-            }
-            else if (enddateTextbox.Name == currentSelectedDateBox)
-            {
-                enddateTextbox.Text = date;
-                einddatum = monthCalendar.SelectionStart.Date;
-                secondDateChecked = true;
-            }
-            if (secondDateChecked)
-            {
-                if (einddatum < startdatum)
-                {
-                    MessageBox.Show("De einddatum mag niet kleiner zijn dan de start datum");
-                    enddateTextbox.Text = "";
-                }
-            }/*
             foreach (var bolddate in bolddates)      //loop through all bolded dates...
             {
                 if (startdatum == bolddate)    //if the start WILL be a bolded date...
@@ -467,12 +434,15 @@ namespace Qars
                     reservationCollision = false;
 
                 }
-            }*/
+            }
         }
         private void openCalender(object sender, EventArgs e)
         {
-            foreach (var item in this.qarsApplication.reservationList) //loop through all the reservations
-                if (carID == item.carID && item.confirmed) //Check if there is a reservation for the current car
+            monthCalendar.MinDate = DateTime.Today;
+
+            foreach (var item in qarsApplication.reservationList)
+            {
+                if (carID == item.carID && item.confirmed)
                 {
                     string startDateString = item.startdate;
                     string endDateString = item.enddate;
@@ -489,19 +459,14 @@ namespace Qars
                             monthCalendar.AddBoldedDate(startDate.AddDays(i + 1));  //makes the day after the end date of reservation bolded in calendar...
                         }
                     }
-
-                    bolddates = monthCalendar.BoldedDates;       //put all bolded dates in DateTime array...
                 }
-
-            monthCalendar.UpdateBoldedDates();
-
-            if (currentSelectedDateBox == startdateTextbox.Name)
-            {
-                monthCalendar.MinDate = DateTime.Today;
+                monthCalendar.UpdateBoldedDates();
+                monthCalendar.Show();
+                MaskedTextBox b = (MaskedTextBox)sender;
+                currentSelectedDateBox = b.Name;
             }
-            monthCalendar.Show();
-            MaskedTextBox b = (MaskedTextBox)sender;
-            currentSelectedDateBox = b.Name;
+
+
         }
         private void closeCalender(object sender, EventArgs e)
         {
