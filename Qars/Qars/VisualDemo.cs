@@ -25,7 +25,7 @@ namespace Qars
         public List<Establishment> EstablishmentList = new List<Establishment>();
         public List<Reservation> reservationList = new List<Reservation>();
         public List<Car> carList;
-        public List<Customer> customerList;
+        public List<User> customerList;
         public List<Car> totalCarList { get; private set; }
 
         public List<Car> compareList = new List<Car>();
@@ -34,6 +34,20 @@ namespace Qars
 
         public VisualDemo()
         {
+
+            this.searchWizard = new Qars.Views.searchWizard(this);
+            // 
+            // searchWizard
+            // 
+            this.searchWizard.Location = new System.Drawing.Point(331, 121);
+            this.searchWizard.Name = "searchWizard1";
+            this.searchWizard.Size = new System.Drawing.Size(1565, 873);
+            this.searchWizard.TabIndex = 11;
+            this.searchWizard.Visible = false;
+            this.Controls.Add(this.searchWizard);
+
+
+
             InitializeComponent();
             DoubleBuffered = true;
             hp = new HoverPanel(this);
@@ -44,7 +58,7 @@ namespace Qars
             EstablishmentList = db.SelectEstablishment();
             reservationList = db.SelectReservation();
             damageList = db.SelectDamage();
-            customerList = db.SelectCustomer();
+            customerList = db.SelectUsers();
 
             updateTileView();
 
