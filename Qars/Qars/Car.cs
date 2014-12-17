@@ -26,6 +26,7 @@ namespace Qars
         public int height { get; set; }
         public int weight { get; set; }
         public bool navigation { get; set; }
+        public bool cruisecontrol { get; set; }
         public bool parkingAssist { get; set; }
         public bool fourwheeldrive { get; set; }
         public bool cabrio { get; set; }

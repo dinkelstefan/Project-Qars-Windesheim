@@ -8,7 +8,6 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Net.Mail;
-using Qars.Models;
 using System.Security.Cryptography;
 namespace Qars
 {
@@ -147,26 +146,27 @@ namespace Qars
                         newCar.width = SafeGetInt(dataReader, 15);
                         newCar.weight = SafeGetInt(dataReader, 16);
                         newCar.navigation = SafeGetBoolean(dataReader, 17);
-                        newCar.parkingAssist = SafeGetBoolean(dataReader, 18);
-                        newCar.fourwheeldrive = SafeGetBoolean(dataReader, 19);
-                        newCar.cabrio = SafeGetBoolean(dataReader, 20);
-                        newCar.airco = SafeGetBoolean(dataReader, 21);
-                        newCar.seats = SafeGetInt(dataReader, 22);
-                        newCar.motdate = SafeGetString(dataReader, 23);
-                        newCar.storagespace = SafeGetDouble(dataReader, 24);
-                        newCar.gearsamount = SafeGetInt(dataReader, 25);
-                        newCar.motor = SafeGetString(dataReader, 26);
-                        newCar.Fuelusage = SafeGetInt(dataReader, 27);
-                        newCar.startprice = SafeGetInt(dataReader, 28);
-                        newCar.rentalprice = SafeGetDouble(dataReader, 29);
-                        newCar.sellingprice = SafeGetDouble(dataReader, 30);
-                        newCar.available = SafeGetBoolean(dataReader, 31);
-                        newCar.description = SafeGetString(dataReader, 32);
+                        newCar.cruisecontrol = SafeGetBoolean(dataReader, 18);
+                        newCar.parkingAssist = SafeGetBoolean(dataReader, 19);
+                        newCar.fourwheeldrive = SafeGetBoolean(dataReader, 20);
+                        newCar.cabrio = SafeGetBoolean(dataReader, 21);
+                        newCar.airco = SafeGetBoolean(dataReader, 22);
+                        newCar.seats = SafeGetInt(dataReader, 23);
+                        newCar.motdate = SafeGetString(dataReader, 24);
+                        newCar.storagespace = SafeGetDouble(dataReader, 25);
+                        newCar.gearsamount = SafeGetInt(dataReader, 26);
+                        newCar.motor = SafeGetString(dataReader, 27);
+                        newCar.Fuelusage = SafeGetInt(dataReader, 28);
+                        newCar.startprice = SafeGetInt(dataReader, 29);
+                        newCar.rentalprice = SafeGetDouble(dataReader, 30);
+                        newCar.sellingprice = SafeGetDouble(dataReader, 31);
+                        newCar.available = SafeGetBoolean(dataReader, 32);
+                        newCar.description = SafeGetString(dataReader, 33);
 
                         // see if the car has photos, and at the first one to the list
                         try
                         {
-                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 33), SafeGetInt(dataReader, 34), SafeGetString(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38)));
+                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 34), SafeGetInt(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39)));
                         }
                         catch (System.Data.SqlTypes.SqlNullValueException)
                         {
@@ -184,7 +184,7 @@ namespace Qars
                             {
                                 try
                                 {
-                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 33), SafeGetInt(dataReader, 34), SafeGetString(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38)));
+                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 34), SafeGetInt(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39)));
                                 }
                                 catch (System.Data.SqlTypes.SqlNullValueException)
                                 {
@@ -360,36 +360,39 @@ namespace Qars
             int ReservationID = 0;
             string query = "SELECT max(ReservationID) FROM Reservation";
 
-            if (this.OpenConnection() == true)
+            if (this.OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 ReservationID = (Int32)cmd.ExecuteScalar();
                 CloseConnection();
             }
-            ReservationID++;
-            string query2 = string.Format("INSERT INTO Reservation (ReservationID, CarID, CustomerID, Startdate, Enddate, Confirmed, Kilometres, Pickupcity, Pickupstreetname, Pickupstreetnumber, Pickupstreetnumbersuffix, Paid, Comment)VALUES(@reservationid, @carid,@customerid,@startdate,@enddate, @confirmed, @Kilometres, @pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid, @comment");
 
+            ReservationID++;
+            string query2 = "INSERT INTO `Reservation`(`ReservationID`, `CarID`, `CustomerID`, `Startdate`, `Enddate`, `Confirmed`, `Kilometres`, `Pickupcity`, `Pickupstreetname`, `Pickupstreetnumber`, `Pickupstreetnumbersuffix`, `Paid`, `Comment`) VALUES(@reservationid,@carid,@customerid,@startdate,@enddate,@confirmed,@Kilometres,@pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid,@comment)";
             if (this.OpenConnection())
             {
+                int convertConfirmedToInt = 0;
+                int convertPaidtoInt = 0;
                 MySqlCommand cmd = new MySqlCommand(query2, connection);
-                cmd.Parameters.AddWithValue("@reservationid", SafeInsertInt(ReservationID));
-                cmd.Parameters.AddWithValue("@carid", SafeInsertInt(reservation.carID));
-                cmd.Parameters.AddWithValue("@customerid", SafeInsertInt(reservation.customerID));
-                cmd.Parameters.AddWithValue("@startdate", SafeInsertString(reservation.startdate));
-                cmd.Parameters.AddWithValue("@enddate", SafeInsertString(reservation.enddate));
-                cmd.Parameters.AddWithValue("@confirmed", reservation.confirmed);
-                cmd.Parameters.AddWithValue("@Kilometres", SafeInsertInt(reservation.kilometres));
-                cmd.Parameters.AddWithValue("@pickupcity", SafeInsertString(reservation.pickupcity));
-                cmd.Parameters.AddWithValue("@pickupstreetname", SafeInsertString(reservation.pickupstreetname));
-                cmd.Parameters.AddWithValue("@pickupnumber", SafeInsertInt(reservation.pickupstreetnumber));
-                cmd.Parameters.AddWithValue("@pickupnumbersuffix", SafeInsertString(reservation.pickupstreetnumbersuffix));
-                cmd.Parameters.AddWithValue("@paid", reservation.paid);
-                cmd.Parameters.AddWithValue("@comment", SafeInsertString(reservation.comment));
+                cmd.Parameters.AddWithValue("@reservationid", ReservationID);
+                cmd.Parameters.AddWithValue("@carid", reservation.carID);
+                cmd.Parameters.AddWithValue("@customerid", reservation.customerID);
+                cmd.Parameters.AddWithValue("@startdate", reservation.startdate);
+                cmd.Parameters.AddWithValue("@enddate", reservation.enddate);
+                cmd.Parameters.AddWithValue("@confirmed", convertConfirmedToInt);
+                cmd.Parameters.AddWithValue("@Kilometres", reservation.kilometres);
+                cmd.Parameters.AddWithValue("@pickupcity", reservation.pickupcity);
+                cmd.Parameters.AddWithValue("@pickupstreetname", reservation.pickupstreetname);
+                cmd.Parameters.AddWithValue("@pickupnumber", reservation.pickupstreetnumber);
+                cmd.Parameters.AddWithValue("@pickupnumbersuffix", reservation.pickupstreetnumbersuffix);
+                cmd.Parameters.AddWithValue("@paid", convertPaidtoInt);
+                cmd.Parameters.AddWithValue("@comment", reservation.comment);
 
 
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
+
         }
         public void InsertCustomer(User customer)
         {
@@ -428,7 +431,6 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))
@@ -450,7 +452,7 @@ namespace Qars
         }
         public static int SafeInsertInt(int input)
         {
-            if (input == null || input == 0)
+            if (input == 0)
             {
                 input = 0;
                 return input;
@@ -462,7 +464,7 @@ namespace Qars
         }
         public static double SafeInsertDouble(double input)
         {
-            if (input == null || input == 0)
+            if (input == 0.00 || input == 0)
             {
                 input = 0;
                 return input;
