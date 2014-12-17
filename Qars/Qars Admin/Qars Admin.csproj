@@ -54,6 +54,18 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminModule\Car.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminModule\Car.Designer.cs">
+      <DependentUpon>Car.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\Reservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminModule\Reservation.Designer.cs">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="signInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Qars\Qars.csproj">
