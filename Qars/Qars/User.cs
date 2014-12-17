@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Qars
 {
-    public class Customer
+    public class User
     {
         public int customerID { get; set; }
+        public int accountLevel { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public string firstname { get; set; }
@@ -24,11 +25,8 @@ namespace Qars
         public string driverslicenselink { get; set; }
 
 
-        public Customer()
+        public User()
         {
         }
-
-
-
     }
 }

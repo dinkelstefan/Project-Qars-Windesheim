@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{272D6397-E2BA-4C9B-A457-DB1877711075}</ProjectGuid>
+    <ProjectGuid>{222F9280-91C8-4B67-8549-3BB87C4F7017}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Qars</RootNamespace>
-    <AssemblyName>Qars</AssemblyName>
+    <RootNamespace>Qars_Admin</RootNamespace>
+    <AssemblyName>Qars Admin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,7 +34,7 @@
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>..\Qars\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,52 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="CarDetailPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CarPhoto.cs" />
-    <Compile Include="ComparePanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ComparePricePanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="Damage.cs" />
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="Establishment.cs" />
-    <Compile Include="HoverPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Models\Reservation2.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RentCarPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RentCarPanel.Designer.cs">
-      <DependentUpon>RentCarPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reservation.cs" />
-    <Compile Include="TileListPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Util\Mail.cs" />
-    <Compile Include="Views\searchWizard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\searchWizard.Designer.cs">
-      <DependentUpon>searchWizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VisualDemo.cs">
+    <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualDemo.Designer.cs">
-      <DependentUpon>VisualDemo.cs</DependentUpon>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CarDetailPanel.resx">
-      <DependentUpon>CarDetailPanel.cs</DependentUpon>
+    <Compile Include="signInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="signInForm.Designer.cs">
+      <DependentUpon>signInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signInForm.resx">
+      <DependentUpon>signInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,18 +77,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RentCarPanel.resx">
-      <DependentUpon>RentCarPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TileListPanel.resx">
-      <DependentUpon>TileListPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\searchWizard.resx">
-      <DependentUpon>searchWizard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VisualDemo.resx">
-      <DependentUpon>VisualDemo.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Qars\Qars.csproj">
+      <Project>{272d6397-e2ba-4c9b-a457-db1877711075}</Project>
+      <Name>Qars</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

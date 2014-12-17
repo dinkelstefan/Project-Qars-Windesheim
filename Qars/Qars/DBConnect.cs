@@ -76,6 +76,37 @@ namespace Qars
                 return false;
             }
         }
+
+        // returns the logged in user
+        // returns an empty user with an accountlevel of -2 if the user doesnt exsist
+        // returns an empty user with an accountlevel of -1 if the password is wrong
+        public User CheckUser(string username, string password) {
+            // get the userlist from the DB
+            List<User> userList = this.SelectUsers();
+
+
+            // make an incorrectuser to return if account or password is false
+            User incorrectUser = new User();
+            // set the incorrect user withusername that doesnt exsist
+            incorrectUser.accountLevel = -2;
+
+            //loop trough users
+            foreach (User user in userList) {
+                // check if username exsists
+                if (username == user.username) {
+                    // check if password is correct
+                    if (password == user.password) {
+                        //return the correct user
+                        return user;
+                    } else {
+                        // set incorrect user with false password
+                        incorrectUser.accountLevel = -1;
+                    }
+                }
+            }
+            return incorrectUser;
+        }
+
         public List<Car> SelectCar()
         {
             string query = " SELECT * FROM Car A LEFT JOIN Photo B ON A.CarID = B.CarID ORDER BY A.CarID ";
@@ -282,10 +313,10 @@ namespace Qars
                 return null;
             }
         }
-        public List<Customer> SelectCustomer()
+        public List<User> SelectUsers()
         {
-            string query = " SELECT * FROM Customer ";
-            List<Customer> localCustomerList = new List<Customer>();
+            string query = " SELECT * FROM User ";
+            List<User> localUserList = new List<User>();
 
             if (this.OpenConnection() == true)
             {
@@ -293,30 +324,31 @@ namespace Qars
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    Customer newCustomer = new Customer();
+                    User newUser = new User();
 
-                    newCustomer.customerID = SafeGetInt(dataReader, 0);
-                    newCustomer.username = SafeGetString(dataReader, 1);
-                    newCustomer.password = SafeGetString(dataReader, 2);
-                    newCustomer.firstname = SafeGetString(dataReader, 3);
-                    newCustomer.lastname = SafeGetString(dataReader, 4);
-                    newCustomer.age = SafeGetInt(dataReader, 5);
-                    newCustomer.postalcode = SafeGetString(dataReader, 6);
-                    newCustomer.city = SafeGetString(dataReader, 7);
-                    newCustomer.streetname = SafeGetString(dataReader, 8);
-                    newCustomer.streetnumber = SafeGetInt(dataReader, 9);
-                    newCustomer.streetnumbersuffix = SafeGetString(dataReader, 10);
-                    newCustomer.phonenumber = SafeGetString(dataReader, 11);
-                    newCustomer.emailaddress = SafeGetString(dataReader, 12);
-                    newCustomer.driverslicenselink = SafeGetString(dataReader, 13);
+                    newUser.customerID = SafeGetInt(dataReader, 0);
+                    newUser.accountLevel = SafeGetInt(dataReader, 1);
+                    newUser.username = SafeGetString(dataReader, 2);
+                    newUser.password = SafeGetString(dataReader, 3);
+                    newUser.firstname = SafeGetString(dataReader, 4);
+                    newUser.lastname = SafeGetString(dataReader, 5);
+                    newUser.age = SafeGetInt(dataReader, 6);
+                    newUser.postalcode = SafeGetString(dataReader, 7);
+                    newUser.city = SafeGetString(dataReader, 8);
+                    newUser.streetname = SafeGetString(dataReader, 9);
+                    newUser.streetnumber = SafeGetInt(dataReader, 10);
+                    newUser.streetnumbersuffix = SafeGetString(dataReader, 11);
+                    newUser.phonenumber = SafeGetString(dataReader, 12);
+                    newUser.emailaddress = SafeGetString(dataReader, 13);
+                    newUser.driverslicenselink = SafeGetString(dataReader, 14);
 
-                    localCustomerList.Add(newCustomer);
+                    localUserList.Add(newUser);
                 }
 
                 dataReader.Close();
                 this.CloseConnection();
 
-                return localCustomerList;
+                return localUserList;
             }
             else
             {
@@ -359,7 +391,7 @@ namespace Qars
                 this.CloseConnection();
             }
         }
-        public void InsertCustomer(Customer customer)
+        public void InsertCustomer(User customer)
         {
             int CustomerID = 0;
             string query = "SELECT max(CustomerID) FROM Customer";
@@ -473,6 +505,11 @@ namespace Qars
             }
             return returnValue.ToString();
         }
+
+        // method to compare strings
+        private bool CompareStrings(string string1, string string2){  
+	        return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;  
+	    } 
     }
 }
 
