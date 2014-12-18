@@ -20,7 +20,6 @@ namespace Qars_Admin
 
     public partial class AdminForm : Form
     {
-
         private User currentUser;
         private DBConnect databaseConnection;
         private List<Button> categories = new List<Button>();
@@ -66,15 +65,13 @@ namespace Qars_Admin
             }
         }
 
-        private Button createButton(string buttonText, string buttonName, int[] userLevel)
+        private Button createButton(string buttonText, int[] userLevel)
         {
             Button button = new Button();
 
             button.Size = new Size(200, 40);
-            button.Location = new Point(10, yCoordinate);
 
             button.Text = buttonText;
-            button.Name = buttonName;
             button.Tag = userLevel;
 
             return button;
@@ -82,13 +79,12 @@ namespace Qars_Admin
 
         private void fillButtonList()
         {
-            categories.Add(this.createButton("Autos beheren", "autoBeheren", new[] {1, 2, 3} ));
-            categories.Add(this.createButton("Reserveringen beheren", "reserveringBeheren", new[] { 3, 4 }));
-
-            
-
-
-
+            categories.Add(this.createButton("Autos beheren", new[] {1, 2, 3, 4} ));
+            categories.Add(this.createButton("Reserveringen beheren", new[] { 3, 4 }));
+            categories.Add(this.createButton("Klanten beheren", new[] { 3, 4 }));
+            categories.Add(this.createButton("Algemene Voorwaarden beheren", new[] { 3, 4 }));
+            categories.Add(this.createButton("Schade melden", new[] { 3, 4 }));
+            categories.Add(this.createButton("Forecast weergeven", new[] { 3, 4 }));
         }
     }
 }
