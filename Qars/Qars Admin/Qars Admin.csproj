@@ -68,17 +68,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CarAdminPanel.cs">
+    <Compile Include="Panels\CarAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CarAdminPanel.Designer.cs">
+    <Compile Include="Panels\CarAdminPanel.Designer.cs">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="SimpleCar.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CarAdminPanel.resx">
+    <EmbeddedResource Include="Panels\CarAdminPanel.resx">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\reservationAdminPanel.resx">
