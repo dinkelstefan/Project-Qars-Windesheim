@@ -65,6 +65,7 @@
             this.Name = "AdminForm";
             this.ShowIcon = false;
             this.Text = "Qars Administratie";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

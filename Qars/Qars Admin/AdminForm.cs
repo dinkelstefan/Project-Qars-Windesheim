@@ -86,5 +86,14 @@ namespace Qars_Admin
             categories.Add(this.createButton("Schade melden", new[] { 3, 4 }));
             categories.Add(this.createButton("Forecast weergeven", new[] { 3, 4 }));
         }
+
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Wilt u het programma afsluiten?", "Qars Administratie", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
