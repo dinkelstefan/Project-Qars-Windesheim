@@ -16,10 +16,6 @@ namespace Qars_Admin {
             this.dataGridView1.DataSource = dbConnect.SelectCar();
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
-            Console.WriteLine(12);
-        }
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
             Console.WriteLine(123);
         }
