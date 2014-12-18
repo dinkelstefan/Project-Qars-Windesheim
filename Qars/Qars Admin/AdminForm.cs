@@ -47,6 +47,22 @@ namespace Qars_Admin
 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            //base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+
+            // Confirm user wants to close
+            switch (MessageBox.Show("Wilt u het programma afsluiten?", "Qars Administratie", MessageBoxButtons.YesNo)) {
+                case DialogResult.No:
+                    e.Cancel = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void addCategories()
         {
             fillButtonList();
@@ -87,13 +103,8 @@ namespace Qars_Admin
             categories.Add(this.createButton("Forecast weergeven", new[] { 3, 4 }));
         }
 
-        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Wilt u het programma afsluiten?", "Qars Administratie", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e) {
+            Application.Exit();
         }
     }
 }
