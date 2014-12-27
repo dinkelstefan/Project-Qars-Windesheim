@@ -8,7 +8,7 @@ namespace Qars
 {
     public class User
     {
-        public int customerID { get; set; }
+        public int UserID { get; set; }
         public int accountLevel { get; set; }
         public string username { get; set; }
         public string password { get; set; }

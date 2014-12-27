@@ -23,11 +23,11 @@ namespace Qars
         public int carID { get; set; }
         public int countlabel = 0;
         private String currentSelectedDateBox;
-        bool secondDateChecked;
-        DateTime startdatum;
-        DateTime einddatum;
+        DateTime startdate = DateTime.Today;
+        DateTime enddate = DateTime.Today;
         bool reservationCollision = false;
-        bool firstMessage = false;
+        bool secondDateChecked;
+        bool carHasReservation = true;
         bool emailInvalid;
         private VisualDemo qarsApplication;
         public RentCarPanel(int carID, VisualDemo qarsApp)
@@ -36,7 +36,6 @@ namespace Qars
             InitializeComponent();
             this.carID = carID;
             createSpecInfo(qarsApplication.carList, carID);
-
         }
         /*TO DO
          * If(User is logged in)
@@ -177,7 +176,7 @@ namespace Qars
                 emailLabel.ForeColor = Color.Red;
             }
         }
-        private void InsertIntoDatabase(int carID, int customerID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private void InsertIntoDatabase(int carID, int UserID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
             int pickupstreetnumberint = 0;
             Reservation reservation = new Reservation();
@@ -190,7 +189,7 @@ namespace Qars
                 pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
             }
             reservation.carID = carID;
-            reservation.customerID = customerID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
+            reservation.UserID = UserID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
             reservation.startdate = startdate;
             reservation.enddate = enddate;
             reservation.confirmed = false;
@@ -338,25 +337,26 @@ namespace Qars
             }
             StringBuilder builder = new StringBuilder();
             //This part can be edited by the admin
-            builder.AppendLine(String.Format("Beste meneer/mevrouw {0}", lastname));
+            builder.AppendLine(String.Format("Beste meneer/mevrouw {0},", lastname));
             builder.AppendLine("");
-            builder.AppendLine("Bedank voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel");
-            builder.AppendLine("mogelijk te verwerken. Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging");
+            builder.AppendLine("bedankt voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel mogelijk te verwerken.");
+            builder.AppendLine("Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging.");
+            builder.AppendLine("");
+            builder.AppendLine("Uw persoonlijke gegevens:");
             builder.AppendLine("");
 
-            builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
-            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
-            builder.AppendLine(String.Format("Leeftijd:\t{0}", age));
-            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
-            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
-            builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
-            builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
-            builder.AppendLine(String.Format("Email:\t\t{0}", email));
-            builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
+            builder.AppendLine(String.Format("Voornaam: \t {0}", firstname));
+            builder.AppendLine(String.Format("Achternaam: \t {0}", lastname));
+            builder.AppendLine(String.Format("Leeftijd: \t {0}", age));
+            builder.AppendLine(String.Format("Adres: \t \t {0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
+            builder.AppendLine(String.Format("Woonplaats: \t {0}", city));
+            builder.AppendLine(String.Format("Postcode: \t {0}", postalcode));
+            builder.AppendLine(String.Format("Email: \t \t {0}", email));
+            builder.AppendLine(String.Format("Telefoon: \t {0}", phonenumber));
             builder.Append("\n");
-            builder.AppendLine(String.Format("Begin datum:\t{0}", startdate));
-            builder.AppendLine(String.Format("Eind datum:\t{0}", enddate));
-            if (pickupcity == "" && pickupstreetname != "" && pickupstreetnumberint == 0)
+            builder.AppendLine(String.Format("Begin datum: \t {0}", startdate));
+            builder.AppendLine(String.Format("Eind datum: \t {0}", enddate));
+            if (pickupcity != "" && pickupstreetname != "" && pickupstreetnumberint == 0)
             {
                 builder.AppendLine(String.Format("De auto zal op {0} worden opgehaald op het volgende adres:", enddate));
                 if (streetnumbersuffix != "")
@@ -379,75 +379,157 @@ namespace Qars
             builder.AppendLine("Met vriendelijke groeten,");
             builder.AppendLine("");
             builder.AppendLine("Qars");
+            //END Editable by Admin
+
+            builder.AppendLine("\n");
+            builder.AppendLine("Heeft u geen auto besteld of bent u helemaal geen klant, neem dan alstublieft contact op met:");
+
+
+            foreach (var company in this.qarsApplication.EstablishmentList)
+            {
+                bool entryFound = false;
+                if (entryFound == false)
+                {
+                    if (this.qarsApplication.carList[carID].establishmentID == company.establishmentID)
+                    {
+                        entryFound = true;
+                        builder.AppendLine(company.name);
+                        builder.AppendLine(company.streetname + " " + company.streetnumber.ToString() + company.streetnumbersuffix);
+                        builder.AppendLine(company.postalcode + " " + company.city);
+                        builder.AppendLine("Telefoonnummer: " + company.phonenumber);
+                        builder.AppendLine("Emailadres: " + company.emailaddress);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
 
             return builder.ToString();
         }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+            ErrorStartDateLabel.Visible = false;
+            ErrorEndDateLabel.Visible = false;
+            startdateLabel.ForeColor = Color.Black;
+            enddateLabel.ForeColor = Color.Black;
+
             string day = monthCalendar.SelectionStart.Day.ToString();
             string month = monthCalendar.SelectionStart.Month.ToString();
-            string date = day + month + monthCalendar.SelectionStart.Year.ToString(); //Date selected
-
-            /*
-             * Date != Bolddate
-             * Einddate mag niet kleiner zijn dan startdatum (zorg ervoor dat enddate mindate = startdate selected)
-             * Startdate mag niet groter zijn dan enddate
-             */
-
-            foreach (var bolddate in bolddates)      //loop through all bolded dates...
+            if (day.Length == 1) //part of the stringbuilder
             {
-                if (startdatum == bolddate)    //if the start WILL be a bolded date...
-                {
-                    MessageBox.Show("Deze begindatum kan niet worden gebruikt i.v.m reservering!");
-                    startdateTextbox.Text = "";
-                    firstMessage = true;
-                }
+                day = "0" + day;
+            }
 
-                if (einddatum == bolddate)  //if the end date WILL be a bolded date...
+            if (month.Length == 1) //part of the stringbuilder
+            {
+                month = "0" + month;
+            }
+
+            string date = day + "-" + month + "-" + monthCalendar.SelectionStart.Year.ToString(); //Date selected
+            if (startdateTextbox.Name == currentSelectedDateBox) //If the StartDate Calendar has been selected
+            {
+                startdateTextbox.Text = date;
+                startdate = monthCalendar.SelectionStart.Date;
+            }
+            else if (enddateTextbox.Name == currentSelectedDateBox)//If the EndDate Calendar has been selected
+            {
+                enddateTextbox.Text = date;
+                enddate = monthCalendar.SelectionStart.Date;
+                secondDateChecked = true;
+            }
+            if (secondDateChecked) //if the enddate textbox has data
+            {
+                if (enddate < startdate) //if enddate is smaller than the startdate
                 {
-                    MessageBox.Show("Deze einddatum kan niet worden gebruikt i.v.m reservering!");
-                    firstMessage = true;
                     enddateTextbox.Text = "";
+                    ErrorEndDateLabel.Text = "Uw gekozen huurperiode klopt niet!";
+                    ErrorEndDateLabel.ForeColor = Color.Red;
+                    enddateLabel.ForeColor = Color.Red;
+                    ErrorEndDateLabel.Visible = true;
                 }
-                if (startdatum <= einddatum)
+            }
+
+            if (carHasReservation == true) //If there is a reservation
+            {
+                foreach (var bolddate in bolddates)      //loop through all bolded dates
                 {
-                    TimeSpan tisp = einddatum - startdatum;
-                    int dateDiffer = tisp.Days;
-                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. Yes = message. no = cooL!
+                    if (startdate == bolddate || enddate == bolddate)//if the startdate OR enddate is a bolded date
                     {
-                        if (startdatum.AddDays(i) == bolddate)
+                        if (startdate == bolddate)
                         {
-                            reservationCollision = true;
+                            startdateTextbox.Text = "";
+                            ErrorStartDateLabel.Text = "Deze startdatum is al gereserveerd!";
+                            ErrorStartDateLabel.ForeColor = Color.Red;
+                            ErrorStartDateLabel.Visible = true;
+                            //Reset the selected date?
+                        }
+                        else
+                        {
+                            enddateTextbox.Text = "";
+                            ErrorEndDateLabel.Text = "Deze einddatum is al gereserveerd!";
+                            ErrorEndDateLabel.ForeColor = Color.Red;
+                            ErrorEndDateLabel.Visible = true;
+                            //Reset the selected date?
+                        }
+                    }
+                    if (startdate <= enddate)
+                    {
+                        TimeSpan tisp = enddate - startdate;
+                        int dateDiffer = tisp.Days;
+                        for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. 
+                        {
+                            if (startdate.AddDays(i) == bolddate)
+                            {
+                                reservationCollision = true;
+                            }
                         }
                     }
                 }
-
             }
-            if (!firstMessage)  //checks if there is only 1 messagebox...
+            else
             {
-                if (reservationCollision)
-                {
-                    MessageBox.Show("De datum tussen de datums: " + startdateTextbox.Text + " en " + enddateTextbox.Text + ", mogen niet gebruikt worden!");
-                    //startdateTextbox.Text = "";
-                    enddateTextbox.Text = "";
-                    reservationCollision = false;
-
-                }
+                //No reservation, do nothing!
             }
+
+            if (reservationCollision) //if there is a boldeddate between the selected dates
+            {
+                ErrorStartDateLabel.Text = "Tijdens uw geselecteerde periode";
+                ErrorEndDateLabel.Text = " is er al een reservering geplaatst!";
+                ErrorStartDateLabel.ForeColor = Color.Red;
+                ErrorEndDateLabel.ForeColor = Color.Red;
+                startdateLabel.ForeColor = Color.Red;
+                enddateLabel.ForeColor = Color.Red;
+                ErrorStartDateLabel.Visible = true;
+                ErrorEndDateLabel.Visible = true;
+                enddateTextbox.Text = "";
+                reservationCollision = false;
+            }
+
         }
         private void openCalender(object sender, EventArgs e)
         {
+            MaskedTextBox b = (MaskedTextBox)sender;
+            currentSelectedDateBox = b.Name;
+            if (startdateTextbox.Name == currentSelectedDateBox)
+            {
+                ChooseDateLabel.Text = "Kies een startdatum";
+            }
+            else
+            {
+                ChooseDateLabel.Text = "Kies een einddatum";
+            }
+            ChooseDateLabel.Visible = true;
             monthCalendar.MinDate = DateTime.Today;
-
             foreach (var item in qarsApplication.reservationList)
             {
                 if (carID == item.carID && item.confirmed)
                 {
-                    string startDateString = item.startdate;
-                    string endDateString = item.enddate;
-                    DateTime startDate = Convert.ToDateTime(startDateString);
-                    DateTime endDate = Convert.ToDateTime(endDateString);
+                    carHasReservation = true;
+                    DateTime startDate = Convert.ToDateTime(item.startdate);
+                    DateTime endDate = Convert.ToDateTime(item.enddate);
 
                     TimeSpan ts = endDate - startDate;
                     int differenceInDays = ts.Days;
@@ -460,18 +542,23 @@ namespace Qars
                         }
                     }
                 }
-                monthCalendar.UpdateBoldedDates();
-                monthCalendar.Show();
-                MaskedTextBox b = (MaskedTextBox)sender;
-                currentSelectedDateBox = b.Name;
+                else
+                {
+                    //Do nothing, the current CarID is not the one we should use in the boldeddates
+                }
             }
-
+            bolddates = monthCalendar.BoldedDates;
+            monthCalendar.UpdateBoldedDates();
+            monthCalendar.Show();
 
         }
+
         private void closeCalender(object sender, EventArgs e)
         {
+            ChooseDateLabel.Visible = false;
             monthCalendar.Hide();
         }
+
         private void rentCarClick(object sender, EventArgs e)
         {
             ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text,

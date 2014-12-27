@@ -96,6 +96,9 @@ namespace Qars
             this.phonenumberTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PersonalInfoLabel = new System.Windows.Forms.Label();
+            this.ChooseDateLabel = new System.Windows.Forms.Label();
+            this.ErrorStartDateLabel = new System.Windows.Forms.Label();
+            this.ErrorEndDateLabel = new System.Windows.Forms.Label();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,6 +129,7 @@ namespace Qars
             // 
             this.enddateLabel.AutoSize = true;
             this.enddateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.enddateLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.enddateLabel.Location = new System.Drawing.Point(27, 377);
             this.enddateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.enddateLabel.Name = "enddateLabel";
@@ -265,6 +269,7 @@ namespace Qars
             this.startdateTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.startdateTextbox.Mask = "00/00/0000";
             this.startdateTextbox.Name = "startdateTextbox";
+            this.startdateTextbox.ReadOnly = true;
             this.startdateTextbox.Size = new System.Drawing.Size(73, 20);
             this.startdateTextbox.TabIndex = 11;
             this.startdateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -285,6 +290,7 @@ namespace Qars
             this.enddateTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.enddateTextbox.Mask = "00/00/0000";
             this.enddateTextbox.Name = "enddateTextbox";
+            this.enddateTextbox.ReadOnly = true;
             this.enddateTextbox.Size = new System.Drawing.Size(73, 20);
             this.enddateTextbox.TabIndex = 12;
             this.enddateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -294,7 +300,7 @@ namespace Qars
             // monthCalendar
             // 
             this.monthCalendar.BackColor = System.Drawing.SystemColors.Window;
-            this.monthCalendar.Location = new System.Drawing.Point(208, 235);
+            this.monthCalendar.Location = new System.Drawing.Point(371, 233);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(6);
             this.monthCalendar.MinDate = new System.DateTime(2014, 12, 3, 0, 0, 0, 0);
             this.monthCalendar.Name = "monthCalendar";
@@ -595,7 +601,7 @@ namespace Qars
             // 
             this.InfoModelLabel.AutoSize = true;
             this.InfoModelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoModelLabel.Location = new System.Drawing.Point(257, 16);
+            this.InfoModelLabel.Location = new System.Drawing.Point(242, 16);
             this.InfoModelLabel.Name = "InfoModelLabel";
             this.InfoModelLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoModelLabel.TabIndex = 9;
@@ -605,7 +611,7 @@ namespace Qars
             // 
             this.InfoCategoryLabel.AutoSize = true;
             this.InfoCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoCategoryLabel.Location = new System.Drawing.Point(257, 56);
+            this.InfoCategoryLabel.Location = new System.Drawing.Point(242, 56);
             this.InfoCategoryLabel.Name = "InfoCategoryLabel";
             this.InfoCategoryLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoCategoryLabel.TabIndex = 13;
@@ -615,7 +621,7 @@ namespace Qars
             // 
             this.InfoStartPriceLabel.AutoSize = true;
             this.InfoStartPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoStartPriceLabel.Location = new System.Drawing.Point(257, 36);
+            this.InfoStartPriceLabel.Location = new System.Drawing.Point(242, 36);
             this.InfoStartPriceLabel.Name = "InfoStartPriceLabel";
             this.InfoStartPriceLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoStartPriceLabel.TabIndex = 14;
@@ -625,7 +631,7 @@ namespace Qars
             // 
             this.InfoStorageSpaceLabel.AutoSize = true;
             this.InfoStorageSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoStorageSpaceLabel.Location = new System.Drawing.Point(257, 196);
+            this.InfoStorageSpaceLabel.Location = new System.Drawing.Point(242, 196);
             this.InfoStorageSpaceLabel.Name = "InfoStorageSpaceLabel";
             this.InfoStorageSpaceLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoStorageSpaceLabel.TabIndex = 15;
@@ -635,7 +641,7 @@ namespace Qars
             // 
             this.InfoMOTDateLabel.AutoSize = true;
             this.InfoMOTDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoMOTDateLabel.Location = new System.Drawing.Point(257, 176);
+            this.InfoMOTDateLabel.Location = new System.Drawing.Point(242, 176);
             this.InfoMOTDateLabel.Name = "InfoMOTDateLabel";
             this.InfoMOTDateLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoMOTDateLabel.TabIndex = 16;
@@ -645,7 +651,7 @@ namespace Qars
             // 
             this.InfoHorsePowerLabel.AutoSize = true;
             this.InfoHorsePowerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoHorsePowerLabel.Location = new System.Drawing.Point(257, 156);
+            this.InfoHorsePowerLabel.Location = new System.Drawing.Point(242, 156);
             this.InfoHorsePowerLabel.Name = "InfoHorsePowerLabel";
             this.InfoHorsePowerLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoHorsePowerLabel.TabIndex = 17;
@@ -655,7 +661,7 @@ namespace Qars
             // 
             this.InfoKilometresLabel.AutoSize = true;
             this.InfoKilometresLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoKilometresLabel.Location = new System.Drawing.Point(257, 136);
+            this.InfoKilometresLabel.Location = new System.Drawing.Point(242, 136);
             this.InfoKilometresLabel.Name = "InfoKilometresLabel";
             this.InfoKilometresLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoKilometresLabel.TabIndex = 18;
@@ -665,7 +671,7 @@ namespace Qars
             // 
             this.InfoModelYearLabel.AutoSize = true;
             this.InfoModelYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoModelYearLabel.Location = new System.Drawing.Point(257, 116);
+            this.InfoModelYearLabel.Location = new System.Drawing.Point(242, 116);
             this.InfoModelYearLabel.Name = "InfoModelYearLabel";
             this.InfoModelYearLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoModelYearLabel.TabIndex = 19;
@@ -675,7 +681,7 @@ namespace Qars
             // 
             this.InfoAutomaticLabel.AutoSize = true;
             this.InfoAutomaticLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoAutomaticLabel.Location = new System.Drawing.Point(257, 76);
+            this.InfoAutomaticLabel.Location = new System.Drawing.Point(242, 76);
             this.InfoAutomaticLabel.Name = "InfoAutomaticLabel";
             this.InfoAutomaticLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoAutomaticLabel.TabIndex = 20;
@@ -714,7 +720,7 @@ namespace Qars
             // 
             this.InfoCruiseControlLabel.AutoSize = true;
             this.InfoCruiseControlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoCruiseControlLabel.Location = new System.Drawing.Point(257, 96);
+            this.InfoCruiseControlLabel.Location = new System.Drawing.Point(242, 96);
             this.InfoCruiseControlLabel.Name = "InfoCruiseControlLabel";
             this.InfoCruiseControlLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoCruiseControlLabel.TabIndex = 22;
@@ -779,11 +785,45 @@ namespace Qars
             this.PersonalInfoLabel.TabIndex = 1019;
             this.PersonalInfoLabel.Text = "Persoonlijke gegevens";
             // 
+            // ChooseDateLabel
+            // 
+            this.ChooseDateLabel.AutoSize = true;
+            this.ChooseDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseDateLabel.Location = new System.Drawing.Point(380, 207);
+            this.ChooseDateLabel.Name = "ChooseDateLabel";
+            this.ChooseDateLabel.Size = new System.Drawing.Size(151, 20);
+            this.ChooseDateLabel.TabIndex = 1020;
+            this.ChooseDateLabel.Text = "Kies een startdatum";
+            this.ChooseDateLabel.Visible = false;
+            // 
+            // ErrorStartDateLabel
+            // 
+            this.ErrorStartDateLabel.AutoSize = true;
+            this.ErrorStartDateLabel.Location = new System.Drawing.Point(206, 358);
+            this.ErrorStartDateLabel.Name = "ErrorStartDateLabel";
+            this.ErrorStartDateLabel.Size = new System.Drawing.Size(35, 13);
+            this.ErrorStartDateLabel.TabIndex = 1021;
+            this.ErrorStartDateLabel.Text = "N.V.T";
+            this.ErrorStartDateLabel.Visible = false;
+            // 
+            // ErrorEndDateLabel
+            // 
+            this.ErrorEndDateLabel.AutoSize = true;
+            this.ErrorEndDateLabel.Location = new System.Drawing.Point(206, 380);
+            this.ErrorEndDateLabel.Name = "ErrorEndDateLabel";
+            this.ErrorEndDateLabel.Size = new System.Drawing.Size(35, 13);
+            this.ErrorEndDateLabel.TabIndex = 1022;
+            this.ErrorEndDateLabel.Text = "N.V.T";
+            this.ErrorEndDateLabel.Visible = false;
+            // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.ErrorEndDateLabel);
+            this.Controls.Add(this.ErrorStartDateLabel);
+            this.Controls.Add(this.ChooseDateLabel);
             this.Controls.Add(this.PersonalInfoLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ageTextBox);
@@ -907,6 +947,9 @@ namespace Qars
         private System.Windows.Forms.TextBox phonenumberTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label PersonalInfoLabel;
+        private System.Windows.Forms.Label ChooseDateLabel;
+        private System.Windows.Forms.Label ErrorStartDateLabel;
+        private System.Windows.Forms.Label ErrorEndDateLabel;
 
 
     }

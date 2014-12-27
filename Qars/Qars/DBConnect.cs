@@ -79,7 +79,8 @@ namespace Qars
         // returns the logged in user
         // returns an empty user with an accountlevel of -2 if the user doesnt exsist
         // returns an empty user with an accountlevel of -1 if the password is wrong
-        public User CheckUser(string username, string password) {
+        public User CheckUser(string username, string password)
+        {
             // get the userlist from the DB
             List<User> userList = this.SelectUsers();
 
@@ -90,14 +91,19 @@ namespace Qars
             incorrectUser.accountLevel = -2;
 
             //loop trough users
-            foreach (User user in userList) {
+            foreach (User user in userList)
+            {
                 // check if username exsists
-                if (username == user.username) {
+                if (username == user.username)
+                {
                     // check if password is correct
-                    if (password == user.password) {
+                    if (password == user.password)
+                    {
                         //return the correct user
                         return user;
-                    } else {
+                    }
+                    else
+                    {
                         // set incorrect user with false password
                         incorrectUser.accountLevel = -1;
                     }
@@ -220,7 +226,7 @@ namespace Qars
 
                     newReservation.reservationID = SafeGetInt(dataReader, 0);
                     newReservation.carID = SafeGetInt(dataReader, 1);
-                    newReservation.customerID = SafeGetInt(dataReader, 2);
+                    newReservation.UserID = SafeGetInt(dataReader, 2);
                     newReservation.startdate = SafeGetString(dataReader, 3);
                     newReservation.enddate = SafeGetString(dataReader, 4);
                     newReservation.confirmed = SafeGetBoolean(dataReader, 5);
@@ -326,7 +332,7 @@ namespace Qars
                 {
                     User newUser = new User();
 
-                    newUser.customerID = SafeGetInt(dataReader, 0);
+                    newUser.UserID = SafeGetInt(dataReader, 0);
                     newUser.accountLevel = SafeGetInt(dataReader, 1);
                     newUser.username = SafeGetString(dataReader, 2);
                     newUser.password = SafeGetString(dataReader, 3);
@@ -368,7 +374,7 @@ namespace Qars
             }
 
             ReservationID++;
-            string query2 = "INSERT INTO `Reservation`(`ReservationID`, `CarID`, `CustomerID`, `Startdate`, `Enddate`, `Confirmed`, `Kilometres`, `Pickupcity`, `Pickupstreetname`, `Pickupstreetnumber`, `Pickupstreetnumbersuffix`, `Paid`, `Comment`) VALUES(@reservationid,@carid,@customerid,@startdate,@enddate,@confirmed,@Kilometres,@pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid,@comment)";
+            string query2 = "INSERT INTO `Reservation`(`ReservationID`, `CarID`, `UserID`, `Startdate`, `Enddate`, `Confirmed`, `Kilometres`, `Pickupcity`, `Pickupstreetname`, `Pickupstreetnumber`, `Pickupstreetnumbersuffix`, `Paid`, `Comment`) VALUES(@reservationid,@carid,@UserID,@startdate,@enddate,@confirmed,@Kilometres,@pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid,@comment)";
             if (this.OpenConnection())
             {
                 int convertConfirmedToInt = 0;
@@ -376,7 +382,7 @@ namespace Qars
                 MySqlCommand cmd = new MySqlCommand(query2, connection);
                 cmd.Parameters.AddWithValue("@reservationid", ReservationID);
                 cmd.Parameters.AddWithValue("@carid", reservation.carID);
-                cmd.Parameters.AddWithValue("@customerid", reservation.customerID);
+                cmd.Parameters.AddWithValue("@UserID", reservation.UserID);
                 cmd.Parameters.AddWithValue("@startdate", reservation.startdate);
                 cmd.Parameters.AddWithValue("@enddate", reservation.enddate);
                 cmd.Parameters.AddWithValue("@confirmed", convertConfirmedToInt);
@@ -396,22 +402,22 @@ namespace Qars
         }
         public void InsertCustomer(User customer)
         {
-            int CustomerID = 0;
-            string query = "SELECT max(CustomerID) FROM Customer";
+            int UserID = 0;
+            string query = "SELECT max(UserID) FROM User";
 
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                CustomerID = (Int32)cmd.ExecuteScalar();
+                UserID = (Int32)cmd.ExecuteScalar();
                 CloseConnection();
             }
             string salt = "quintorqars";
             string sha1password = GetSHA1HashData(salt + customer.password);
-            string query2 = string.Format("INSERT INTO Customer (`CustomerID`, `Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@customerID, @username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink");
+            string query2 = string.Format("INSERT INTO Customer (`UserID`, `Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink");
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query2, connection);
-                cmd.Parameters.AddWithValue("@customerID", SafeInsertInt(customer.customerID));
+                cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(customer.UserID));
                 cmd.Parameters.AddWithValue("@username", SafeInsertString(customer.username));
                 cmd.Parameters.AddWithValue("@password", SafeInsertString(customer.password));
                 cmd.Parameters.AddWithValue("@firstname", SafeInsertString(customer.firstname));
@@ -509,9 +515,10 @@ namespace Qars
         }
 
         // method to compare strings
-        private bool CompareStrings(string string1, string string2){  
-	        return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;  
-	    } 
+        private bool CompareStrings(string string1, string string2)
+        {
+            return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;
+        }
     }
 }
 

@@ -56,48 +56,67 @@ namespace Qars
             //look up if the car is available
             foreach (var res in this.qarsApplication.reservationList)
             {
-                if (!this.qarsApplication.carList[carNumber].available)
+                bool reservationEntryFound = false;
+                if (reservationEntryFound == false)
                 {
-                    if (res.carID == carNumber)
+
+                    if (!this.qarsApplication.carList[carNumber].available)
                     {
-                        hire.BackColor = Color.Orange;
-                        hire.Text = "Verhuurd";
+                        if (res.carID == carNumber)
+                        {
+                            reservationEntryFound = true;
+                            hire.BackColor = Color.Orange;
+                            hire.Text = "Verhuurd";
+                        }
                     }
+                }
+                else
+                {
+                    break;
                 }
                 //look up if the car is being repaired
                 foreach (var rep in this.qarsApplication.damageList)
                 {
-                    if (rep.carID == carNumber && rep.repaired == false)
+                    bool damageEntryFound = false;
+                    if (damageEntryFound == false)
                     {
-                        /*if(customerList.rank = beheerder)
+                        if (rep.carID == carNumber && rep.repaired == false)
                         {
-                         hire.text = "Reparatie"
-                         }
-                         else
-                         {
-                         hire.text=Niet beschikbaar
-                         }
-                         * */
-                        hire.Text = "Niet beschikbaar";
-                        hire.BackColor = Color.Red;
-                        hire.Enabled = false;
+                            /*if(customerList.rank = beheerder)
+                            {
+                             hire.text = "Reparatie"
+                             }
+                             else
+                             {
+                             hire.text=Niet beschikbaar
+                             }
+                             * */
+                            hire.Text = "Niet beschikbaar";
+                            hire.BackColor = Color.Red;
+                            hire.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
-            }
 
-            //Create the small pictures
-            int left = 22;
-            foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
-            {
-                PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
-                left += 88;
-            }
-            //Select the main picture
-            if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
-            {
-                mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                //Create the small pictures
+                int left = 22;
+                foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
+                {
+                    PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
+                    left += 88;
+                }
+                //Select the main picture
+                if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
+                {
+                    mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                }
             }
         }
+
 
         private void CreateSpecInfo(List<Car> list, int carnumber)
         {
