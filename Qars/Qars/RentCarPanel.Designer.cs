@@ -273,7 +273,6 @@ namespace Qars
             this.startdateTextbox.Size = new System.Drawing.Size(73, 20);
             this.startdateTextbox.TabIndex = 11;
             this.startdateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.startdateTextbox.ValidatingType = typeof(System.DateTime);
             this.startdateTextbox.Enter += new System.EventHandler(this.openCalender);
             // 
             // emailTextbox
@@ -286,6 +285,7 @@ namespace Qars
             // 
             // enddateTextbox
             // 
+            this.enddateTextbox.Enabled = false;
             this.enddateTextbox.Location = new System.Drawing.Point(128, 377);
             this.enddateTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.enddateTextbox.Mask = "00/00/0000";
@@ -302,6 +302,7 @@ namespace Qars
             this.monthCalendar.BackColor = System.Drawing.SystemColors.Window;
             this.monthCalendar.Location = new System.Drawing.Point(371, 233);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(6);
+            this.monthCalendar.MaxSelectionCount = 1;
             this.monthCalendar.MinDate = new System.DateTime(2014, 12, 3, 0, 0, 0, 0);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 999;
