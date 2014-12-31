@@ -21,8 +21,10 @@ namespace Qars
     {
         DateTime[] bolddates;
         List<String> stringList;
-        string[] emailspecinfo = { "Automaat: ", "Cruise Control: ", "Kilometers: ", "Vermogen: ", "APK Datum: ", "Ruimte(in Liters): " };
+        string[] emailspecinfo = { "Automaat:", "Cruise Control:", "Kilometers:", "Vermogen:", "APK Datum:", "Ruimte(in Liters):" };
         public int carID { get; set; }
+        public int UserID { get; set; }
+
         public int countlabel = 0;
         private VisualDemo qarsApplication;
         private String currentSelectedDateBox;
@@ -40,8 +42,9 @@ namespace Qars
         String endDateYear;
         String fullEndDateString;
 
-        public RentCarPanel(int carID, VisualDemo qarsApp)
+        public RentCarPanel(int carID, int UserID, VisualDemo qarsApp)
         {
+            this.UserID = UserID;
             this.qarsApplication = qarsApp;
             InitializeComponent();
             this.carID = carID;
@@ -80,7 +83,7 @@ namespace Qars
             Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
             Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
             Regex emailRegEx = new Regex("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
-            Regex phoneNumberRegEx = new Regex("^[0-9-+]{7,14}$");
+            Regex phoneNumberRegEx = new Regex("^(\\s*|[0-9-+]{7,14})$");
             Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
             Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
             Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
@@ -175,7 +178,7 @@ namespace Qars
             {
                 if (validinput == 17)
                 {
-                    InsertIntoDatabase(carID, /*customerID FIX*/ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
+                    InsertIntoDatabase(carID, /*UserID FIX FIX FIX THIS */ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
                     SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
                     MessageBox.Show("U ontvangt z.s.m een email met daarin uw reserveringbewijs");
                 }
@@ -382,7 +385,6 @@ namespace Qars
             builder.AppendLine("De gegevens van uw gehuurde auto:");
             builder.AppendLine("");
 
-
             builder.AppendLine(String.Format("Model:\t{0} {1}", qarsApplication.carList[carID].model, qarsApplication.carList[carID].brand));
             builder.AppendLine(String.Format("Bouwjaar:\t{0}", qarsApplication.carList[carID].modelyear));
             builder.AppendLine(String.Format("Categorie:\t{0}", qarsApplication.carList[carID].category));
@@ -410,22 +412,14 @@ namespace Qars
             builder.AppendLine("\n");
             builder.AppendLine(String.Format("Begin van de huurperiode:\t{0}", startdate));
             builder.AppendLine(String.Format("Einde van dehuurperiode:\t{0}", enddate));
+            builder.AppendLine("\n");
             if (pickupcity != "" && pickupstreetname != "" && pickupstreetnumberint != 0)
             {
-                builder.AppendLine("\n");
                 builder.AppendLine(String.Format("De auto zal op {0} worden opgehaald op het volgende adres:", enddate));
-                //if (streetnumbersuffix != "")
-                //{
                 builder.AppendLine(pickupstreetname + " " + pickupstreetnumber + pickupstreetnumbersuffix + " te " + pickupcity);
-                //}
-                //else
-                //{
-                //    builder.AppendLine(pickupstreetname + " " + pickupstreetnumber + " te " + pickupcity);
-                //}
             }
             else
             {
-                builder.AppendLine("\n");
                 builder.AppendLine(String.Format("Op {0} moet u de auto teruggebracht hebben bij het bedrijf waar u de auto gehuurd hebt.", enddate));
             }
 
@@ -590,6 +584,8 @@ namespace Qars
 
             if (startdateTextbox.Name == currentSelectedDateBox) //startdatetextbox
             {
+                ChooseDateLabel.Text = "Kies een startdatum";
+                ChooseDateLabel.Visible = true;
                 if (startdate.Day.ToString().Length == 1)
                 {
                     startDateDay = "0" + startdate.Day;
@@ -647,11 +643,13 @@ namespace Qars
                         }
                     }
                 }
-                ChooseDateLabel.Text = "Kies een startdatum";
+
                 enddateTextbox.Enabled = true;
             }
             else if (enddateTextbox.Name == currentSelectedDateBox) //enddatetextbox
             {
+                ChooseDateLabel.Text = "Kies een einddatum";
+                ChooseDateLabel.Visible = true;
                 DateTime MaxDate = DateTime.MaxValue;
 
                 monthCalendar.MaxDate = MaxDate;
@@ -693,7 +691,6 @@ namespace Qars
                             break;
                         }
                     }
-
                 }
                 if (carHasReservation == true)
                 {
@@ -711,15 +708,12 @@ namespace Qars
                                     WrongDate(3);
                                     break;
                                 }
-
                             }
                         }
                     }
                 }
-                ChooseDateLabel.Text = "Kies een einddatum";
             }
 
-            ChooseDateLabel.Visible = true;
             bolddates = monthCalendar.BoldedDates;
             monthCalendar.UpdateBoldedDates();
             monthCalendar.Show();
@@ -727,6 +721,7 @@ namespace Qars
 
         private void closeCalender(object sender, EventArgs e) //occurs when a date is selected
         {
+            ChooseDateLabel.ResetText();
             ChooseDateLabel.Visible = false;
             monthCalendar.Hide();
         }
@@ -740,15 +735,17 @@ namespace Qars
         {
             this.Dispose();
         }
-
         private void WrongDate(int error)
         {
+            startdateLabel.ForeColor = Color.Black;
+            enddateLabel.ForeColor = Color.Black;
 
             if (error == 0) //wrong startdate error
             {
                 startdateLabel.ForeColor = Color.Red;
                 ErrorStartDateLabel.ForeColor = Color.Red;
                 ErrorStartDateLabel.Text = "Deze startdatum is al gereserveerd!";
+                ErrorEndDateLabel.Text = "";
                 ErrorStartDateLabel.Visible = true;
             }
             if (error == 1) //wrong enddate error
@@ -807,6 +804,62 @@ namespace Qars
                 }
             }
         }
+        public bool checkLogin(int UserID)
+        {
+            if (UserID != -1) //If User is logged in
+            {
+                firstnameTextbox.Text = qarsApplication.customerList[UserID].firstname;
+                firstnameTextbox.Enabled = false;
+                lastnameTextbox.Text = qarsApplication.customerList[UserID].lastname;
+                lastnameTextbox.Enabled = false;
+                ageTextBox.Text = qarsApplication.customerList[UserID].age.ToString();
+                ageTextBox.Enabled = false;
+                streetnameTextbox.Text = qarsApplication.customerList[UserID].streetname.ToString();
+                streetnameTextbox.Enabled = false;
+                streetnumberTextbox.Text = qarsApplication.customerList[UserID].streetnumber.ToString();
+                streetnumberTextbox.Enabled = false;
+                streetnumbersuffixTextbox.Text = qarsApplication.customerList[UserID].streetnumbersuffix;
+                streetnumbersuffixTextbox.Enabled = false;
+                cityTextbox.Text = qarsApplication.customerList[UserID].city;
+                cityTextbox.Enabled = false;
+                postalcodeTextbox.Text = qarsApplication.customerList[UserID].postalcode;
+                postalcodeTextbox.Enabled = false;
+                emailTextbox.Text = qarsApplication.customerList[UserID].emailaddress;
+                emailTextbox.Enabled = false;
+                phonenumberTextbox.Text = qarsApplication.customerList[UserID].phonenumber;
+                phonenumberTextbox.Enabled = false;
+                return true;
+            }
+            else
+            {
+                LogInOrRegisterForm logInOrRegisterForm = new LogInOrRegisterForm();
+                logInOrRegisterForm.ShowDialog();
+                if (logInOrRegisterForm.DialogResult == DialogResult.Yes) //Login
+                {
+                    logInOrRegisterForm.Dispose();
+
+                    /*LogInForm loginform = new LogInForm();
+                     * loginform.Show();
+                     */
+                }
+                else if (logInOrRegisterForm.DialogResult == DialogResult.Cancel) //Cancel
+                {
+                    logInOrRegisterForm.Dispose();
+
+                }
+                else if (logInOrRegisterForm.DialogResult == DialogResult.No) //Register
+                {
+                    logInOrRegisterForm.Dispose();
+
+                    /*RegisterForm registerForm = new RegisterForm();
+                     * registerForm.Show();
+                   */
+                }
+                this.Dispose();
+                return false;
+            }
+        }
+
     }
 }
 

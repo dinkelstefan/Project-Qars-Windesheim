@@ -43,7 +43,6 @@ namespace Qars
             this.firstnameTextbox = new System.Windows.Forms.TextBox();
             this.lastnameTextbox = new System.Windows.Forms.TextBox();
             this.streetnameTextbox = new System.Windows.Forms.TextBox();
-            this.streetnumberTextbox = new System.Windows.Forms.TextBox();
             this.streetnumbersuffixTextbox = new System.Windows.Forms.TextBox();
             this.postalcodeTextbox = new System.Windows.Forms.MaskedTextBox();
             this.startdateTextbox = new System.Windows.Forms.MaskedTextBox();
@@ -99,6 +98,7 @@ namespace Qars
             this.ChooseDateLabel = new System.Windows.Forms.Label();
             this.ErrorStartDateLabel = new System.Windows.Forms.Label();
             this.ErrorEndDateLabel = new System.Windows.Forms.Label();
+            this.streetnumberTextbox = new System.Windows.Forms.TextBox();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,9 +155,9 @@ namespace Qars
             this.postalcodeLabel.Location = new System.Drawing.Point(26, 239);
             this.postalcodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.postalcodeLabel.Name = "postalcodeLabel";
-            this.postalcodeLabel.Size = new System.Drawing.Size(89, 18);
+            this.postalcodeLabel.Size = new System.Drawing.Size(95, 18);
             this.postalcodeLabel.TabIndex = 11;
-            this.postalcodeLabel.Text = "+ Postcode:";
+            this.postalcodeLabel.Text = "+ Postcode*:";
             // 
             // streetnumberLabel
             // 
@@ -237,14 +237,6 @@ namespace Qars
             this.streetnameTextbox.Name = "streetnameTextbox";
             this.streetnameTextbox.Size = new System.Drawing.Size(163, 20);
             this.streetnameTextbox.TabIndex = 4;
-            // 
-            // streetnumberTextbox
-            // 
-            this.streetnumberTextbox.Location = new System.Drawing.Point(128, 181);
-            this.streetnumberTextbox.Margin = new System.Windows.Forms.Padding(2);
-            this.streetnumberTextbox.Name = "streetnumberTextbox";
-            this.streetnumberTextbox.Size = new System.Drawing.Size(58, 20);
-            this.streetnumberTextbox.TabIndex = 5;
             // 
             // streetnumbersuffixTextbox
             // 
@@ -792,9 +784,8 @@ namespace Qars
             this.ChooseDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseDateLabel.Location = new System.Drawing.Point(380, 207);
             this.ChooseDateLabel.Name = "ChooseDateLabel";
-            this.ChooseDateLabel.Size = new System.Drawing.Size(151, 20);
+            this.ChooseDateLabel.Size = new System.Drawing.Size(0, 20);
             this.ChooseDateLabel.TabIndex = 1020;
-            this.ChooseDateLabel.Text = "Kies een startdatum";
             this.ChooseDateLabel.Visible = false;
             // 
             // ErrorStartDateLabel
@@ -816,6 +807,14 @@ namespace Qars
             this.ErrorEndDateLabel.TabIndex = 1022;
             this.ErrorEndDateLabel.Text = "N.V.T";
             this.ErrorEndDateLabel.Visible = false;
+            // 
+            // streetnumberTextbox
+            // 
+            this.streetnumberTextbox.Location = new System.Drawing.Point(128, 181);
+            this.streetnumberTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.streetnumberTextbox.Name = "streetnumberTextbox";
+            this.streetnumberTextbox.Size = new System.Drawing.Size(58, 20);
+            this.streetnumberTextbox.TabIndex = 5;
             // 
             // RentCarPanel
             // 
@@ -895,7 +894,6 @@ namespace Qars
         private System.Windows.Forms.TextBox firstnameTextbox;
         private System.Windows.Forms.TextBox lastnameTextbox;
         private System.Windows.Forms.TextBox streetnameTextbox;
-        private System.Windows.Forms.TextBox streetnumberTextbox;
         private System.Windows.Forms.TextBox streetnumbersuffixTextbox;
         private System.Windows.Forms.MaskedTextBox postalcodeTextbox;
         private System.Windows.Forms.MaskedTextBox startdateTextbox;
@@ -951,6 +949,7 @@ namespace Qars
         private System.Windows.Forms.Label ChooseDateLabel;
         private System.Windows.Forms.Label ErrorStartDateLabel;
         private System.Windows.Forms.Label ErrorEndDateLabel;
+        private System.Windows.Forms.TextBox streetnumberTextbox;
 
 
     }

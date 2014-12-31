@@ -10,14 +10,17 @@ namespace Qars
 {
     class CarDetailPanel : Panel
     {
+        public int UserID { get; set; }
         private List<PictureBox> pbox = new List<PictureBox>();
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
         private PictureBox mainpicture;
         private VisualDemo qarsApplication;
         private string availableat;
-        public CarDetailPanel(int carNumber, VisualDemo qarsApp)
+        public CarDetailPanel(int carNumber, /*int UserID,*/VisualDemo qarsApp)
         {   //properties of the panel
+
+            /*this.UserID = UserID;*/
             this.currentCarNumber = carNumber;
             this.Height = 568;
             this.Width = 1044;
@@ -82,13 +85,13 @@ namespace Qars
                     {
                         if (rep.carID == carNumber && rep.repaired == false)
                         {
-                            /*if(customerList.rank = beheerder)
+                            /*if(qarsApplication.customerList[UserID].rank = beheerder)
                             {
-                             hire.text = "Reparatie"
+                             hire.text = "Reparatie";
                              }
                              else
                              {
-                             hire.text=Niet beschikbaar
+                             hire.text= "Niet beschikbaar";
                              }
                              * */
                             hire.Text = "Niet beschikbaar";
@@ -539,10 +542,18 @@ namespace Qars
 
         public void hireButtonClick(object sender, EventArgs e)
         {
-            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, this.qarsApplication);
-            this.Controls.Add(rentcarpanel);
-            rentcarpanel.BringToFront();
-            rentcarpanel.Show();
+            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, -1, this.qarsApplication);
+            bool result = rentcarpanel.checkLogin(1);
+            if (result == true)
+            {
+                this.Controls.Add(rentcarpanel);
+                rentcarpanel.BringToFront();
+                rentcarpanel.Show();
+            }
+            else
+            {
+                rentcarpanel.Hide();
+            }
         }
 
         public Label createLabel(string text, int top, int left, int width, int height, int fontsize, FontStyle style)
