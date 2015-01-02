@@ -542,8 +542,8 @@ namespace Qars
 
         public void hireButtonClick(object sender, EventArgs e)
         {
-            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, -1, this.qarsApplication);
-            bool result = rentcarpanel.checkLogin(1);
+            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, /* UserID FIX FIX FIX */ 7, this.qarsApplication);
+            bool result = rentcarpanel.checkLogin(/* userID FIX FIX */ 7);
             if (result == true)
             {
                 this.Controls.Add(rentcarpanel);

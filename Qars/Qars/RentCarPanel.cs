@@ -67,7 +67,7 @@ namespace Qars
          * Validate Calendar INPUT on Button_Click
          * */
 
-        private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        public bool ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
             bool correctDate = true;
             try
@@ -188,96 +188,108 @@ namespace Qars
                         LabelList[counter].ForeColor = Color.Red;
                     }
                     counter++;
+
                 }
 
                 if (IsValidEmail(email))
                 {
-                    bool error = false;
+
                     if (IsValidDate(Convert.ToDateTime(startdate), Convert.ToDateTime(enddate)))
                     {
                         if (validinput == 17)
                         {
-                            try
-                            {
-                                InsertIntoDatabase(carID, /*UserID FIX FIX FIX THIS */ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
-                                SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
-                            }
-                            catch (Exception)
-                            {
-                                error = true;
-                            }
-                            if (error == false)
-                            {
-                                MessageBox.Show("U ontvangt z.s.m een email met daarin uw reserveringbewijs");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Er ging iets verkeerd met het verwerken van uw reservering. Probeer het later opnieuw of neem contact op met het bedrijf waarvan u de auto wilt huren");
-                            }
+                            MessageBox.Show("U ontvangt z.s.m. een email met daarin uw reserveringsbewijs.");
+
+                            return true;
+
                         }
                         else
                         {
                             MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+
+                            return false;
                         }
+
                     }
                     else
                     {
-                        startdateLabel.ForeColor = Color.Red;
-                        enddateLabel.ForeColor = Color.Red;
                         MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
-
+                        return false;
                     }
                 }
+                else
+                {
+                    startdateLabel.ForeColor = Color.Red;
+                    enddateLabel.ForeColor = Color.Red;
+                    MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+                    return false;
+
+                }
             }
+            return false;
         }
-        private void InsertIntoDatabase(int carID, int UserID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private bool InsertIntoDatabase(int carID, int UserID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-
-            int pickupstreetnumberint = 0;
-            Reservation reservation = new Reservation();
-            if (pickupstreetnumber == "")
+            try
             {
-                pickupstreetnumberint = 0;
-            }
-            else
-            {
-                pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
-            }
-            reservation.carID = carID;
-            reservation.UserID = UserID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
-            reservation.startdate = startdate;
-            reservation.enddate = enddate;
-            reservation.confirmed = false;
-            reservation.kilometres = kilometres;
-            reservation.pickupcity = pickupcity;
-            reservation.pickupstreetname = pickupstreetname;
-            reservation.pickupstreetnumber = pickupstreetnumberint;
-            reservation.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
-            reservation.paid = false;
-            reservation.comment = comment;
+                int pickupstreetnumberint = 0;
+                Reservation reservation = new Reservation();
+                if (pickupstreetnumber == "")
+                {
+                    pickupstreetnumberint = 0;
+                }
+                else
+                {
+                    pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
+                }
+                reservation.carID = carID;
+                reservation.UserID = UserID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
+                reservation.startdate = startdate;
+                reservation.enddate = enddate;
+                reservation.confirmed = false;
+                reservation.kilometres = kilometres;
+                reservation.pickupcity = pickupcity;
+                reservation.pickupstreetname = pickupstreetname;
+                reservation.pickupstreetnumber = pickupstreetnumberint;
+                reservation.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
+                reservation.paid = false;
+                reservation.comment = comment;
 
-            DBConnect connection = new DBConnect();
-            connection.InsertReservation(reservation);
+                DBConnect connection = new DBConnect();
+                connection.InsertReservation(reservation);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wij kunnen uw bestelling momenteel niet verwerken. probeer het later opnieuw");
+                return false;
+            }
+            return true;
         }
-
-        private void SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
+        private bool SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-
-            int pickupstreetnumberint = 0;
-            if (pickupstreetnumber == "")
+            try
             {
-                pickupstreetnumberint = 0;
+                int pickupstreetnumberint = 0;
+                if (pickupstreetnumber == "")
+                {
+                    pickupstreetnumberint = 0;
+                }
+                else
+                {
+                    Convert.ToInt32(pickupstreetnumberint);
+                }
+                Util.Mail mail = new Util.Mail();
+                mail.addTo(email);
+                mail.addSubject("Aanvraag van " + qarsApplication.carList[carID].brand + " " + qarsApplication.carList[carID].model);
+                mail.addBody(buildEmailBody(firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment));
+                mail.sendEmail();
             }
-            else
+            catch (Exception)
             {
-                Convert.ToInt32(pickupstreetnumberint);
+                MessageBox.Show("Wij konden u op dit moment geen email versturen. Neem alstublieft contact op met het bedrijf waarvan u de auto wilt huren");
+                return false;
             }
-            Util.Mail mail = new Util.Mail();
-            mail.addTo(email);
-            mail.addSubject("Aanvraag van " + qarsApplication.carList[carID].brand + " " + qarsApplication.carList[carID].model);
-            mail.addBody(buildEmailBody(firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment));
-            mail.sendEmail();
-
+            return true;
 
         }
         private List<String> createSpecInfo(List<Car> list, int carNumber)
@@ -621,7 +633,6 @@ namespace Qars
                 }
             }
         }
-
         private void openCalender(object sender, EventArgs e)
         {
             monthCalendar.MinDate = DateTime.Today;
@@ -769,11 +780,29 @@ namespace Qars
         {
             monthCalendar.Hide();
         }
-
         private void rentCarClick(object sender, EventArgs e)
         {
-            ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text,
-                startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+            bool validateResult = false;
+            bool databaseResult = false;
+            bool emailResult = false;
+
+            validateResult = ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text,
+               startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+
+            if (validateResult == true)
+            {
+                databaseResult = InsertIntoDatabase(carID, UserID, startdateTextbox.Text, enddateTextbox.Text, Convert.ToInt32(KilometerTextBox.Text), pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+            }
+            if (databaseResult == true)
+            {
+                emailResult = SendEmail(carID, firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+            }
+
+            if (emailResult == true)
+            {
+                //Everything has been done!
+            }
+
         }
         private void closeRentCarPanel(object sender, EventArgs e)
         {
@@ -955,6 +984,25 @@ namespace Qars
             {
                 return true;
             }
+        }
+
+        private void phonenumberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PickUpFromLabel_Click(object sender, EventArgs e)
+        {
+
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(PickUpFromLabel, "Hello");
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(PickUpFromLabel, "Hello");
         }
     }
 }

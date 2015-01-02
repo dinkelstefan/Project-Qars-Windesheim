@@ -29,7 +29,6 @@ namespace Qars
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.firstnameLabel = new System.Windows.Forms.Label();
             this.lastnameLabel = new System.Windows.Forms.Label();
             this.enddateLabel = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@ namespace Qars
             this.pickupstreetnumbersuffixLabel = new System.Windows.Forms.Label();
             this.pickupStreetnumberTextbox = new System.Windows.Forms.TextBox();
             this.pickupStreetnumberSuffixTextbox = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AmountofKilometerLabel = new System.Windows.Forms.Label();
             this.KilometerTextBox = new System.Windows.Forms.TextBox();
             this.KilometerSpecialLabel = new System.Windows.Forms.Label();
@@ -98,6 +96,7 @@ namespace Qars
             this.ErrorStartDateLabel = new System.Windows.Forms.Label();
             this.ErrorEndDateLabel = new System.Windows.Forms.Label();
             this.streetnumberTextbox = new System.Windows.Forms.TextBox();
+            this.MoreInformationLabel = new System.Windows.Forms.Label();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,9 +108,9 @@ namespace Qars
             this.firstnameLabel.Location = new System.Drawing.Point(26, 53);
             this.firstnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.firstnameLabel.Name = "firstnameLabel";
-            this.firstnameLabel.Size = new System.Drawing.Size(87, 18);
+            this.firstnameLabel.Size = new System.Drawing.Size(81, 18);
             this.firstnameLabel.TabIndex = 0;
-            this.firstnameLabel.Text = "Voornaam*:";
+            this.firstnameLabel.Text = "Voornaam:";
             // 
             // lastnameLabel
             // 
@@ -120,9 +119,9 @@ namespace Qars
             this.lastnameLabel.Location = new System.Drawing.Point(26, 82);
             this.lastnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lastnameLabel.Name = "lastnameLabel";
-            this.lastnameLabel.Size = new System.Drawing.Size(101, 18);
+            this.lastnameLabel.Size = new System.Drawing.Size(95, 18);
             this.lastnameLabel.TabIndex = 8;
-            this.lastnameLabel.Text = "Achternaam*: ";
+            this.lastnameLabel.Text = "Achternaam: ";
             // 
             // enddateLabel
             // 
@@ -154,9 +153,9 @@ namespace Qars
             this.postalcodeLabel.Location = new System.Drawing.Point(26, 239);
             this.postalcodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.postalcodeLabel.Name = "postalcodeLabel";
-            this.postalcodeLabel.Size = new System.Drawing.Size(95, 18);
+            this.postalcodeLabel.Size = new System.Drawing.Size(89, 18);
             this.postalcodeLabel.TabIndex = 11;
-            this.postalcodeLabel.Text = "+ Postcode*:";
+            this.postalcodeLabel.Text = "+ Postcode:";
             // 
             // streetnumberLabel
             // 
@@ -165,9 +164,9 @@ namespace Qars
             this.streetnumberLabel.Location = new System.Drawing.Point(27, 172);
             this.streetnumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.streetnumberLabel.Name = "streetnumberLabel";
-            this.streetnumberLabel.Size = new System.Drawing.Size(103, 18);
+            this.streetnumberLabel.Size = new System.Drawing.Size(97, 18);
             this.streetnumberLabel.TabIndex = 12;
-            this.streetnumberLabel.Text = "Huisnummer*:";
+            this.streetnumberLabel.Text = "Huisnummer:";
             // 
             // streetnameLabel
             // 
@@ -176,9 +175,9 @@ namespace Qars
             this.streetnameLabel.Location = new System.Drawing.Point(27, 148);
             this.streetnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.streetnameLabel.Name = "streetnameLabel";
-            this.streetnameLabel.Size = new System.Drawing.Size(94, 18);
+            this.streetnameLabel.Size = new System.Drawing.Size(88, 18);
             this.streetnameLabel.TabIndex = 13;
-            this.streetnameLabel.Text = "Straatnaam*:";
+            this.streetnameLabel.Text = "Straatnaam:";
             // 
             // phonenumberLabel
             // 
@@ -187,9 +186,10 @@ namespace Qars
             this.phonenumberLabel.Location = new System.Drawing.Point(26, 288);
             this.phonenumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phonenumberLabel.Name = "phonenumberLabel";
-            this.phonenumberLabel.Size = new System.Drawing.Size(76, 18);
+            this.phonenumberLabel.Size = new System.Drawing.Size(70, 18);
             this.phonenumberLabel.TabIndex = 14;
-            this.phonenumberLabel.Text = "Telefoon:*";
+            this.phonenumberLabel.Text = "Telefoon:";
+            this.phonenumberLabel.Click += new System.EventHandler(this.phonenumberLabel_Click);
             // 
             // emailLabel
             // 
@@ -198,9 +198,9 @@ namespace Qars
             this.emailLabel.Location = new System.Drawing.Point(27, 265);
             this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(92, 18);
+            this.emailLabel.Size = new System.Drawing.Size(86, 18);
             this.emailLabel.TabIndex = 15;
-            this.emailLabel.Text = "Emailadres:*";
+            this.emailLabel.Text = "Emailadres:";
             // 
             // titleLabel
             // 
@@ -321,9 +321,9 @@ namespace Qars
             this.citylabel.Location = new System.Drawing.Point(28, 220);
             this.citylabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.citylabel.Name = "citylabel";
-            this.citylabel.Size = new System.Drawing.Size(98, 18);
+            this.citylabel.Size = new System.Drawing.Size(92, 18);
             this.citylabel.TabIndex = 30;
-            this.citylabel.Text = "Woonplaats*:";
+            this.citylabel.Text = "Woonplaats:";
             // 
             // cityTextbox
             // 
@@ -382,9 +382,10 @@ namespace Qars
             this.PickUpFromLabel.Location = new System.Drawing.Point(99, 438);
             this.PickUpFromLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PickUpFromLabel.Name = "PickUpFromLabel";
-            this.PickUpFromLabel.Size = new System.Drawing.Size(235, 20);
+            this.PickUpFromLabel.Size = new System.Drawing.Size(167, 20);
             this.PickUpFromLabel.TabIndex = 1003;
-            this.PickUpFromLabel.Text = "Ophalen van specifiek adres";
+            this.PickUpFromLabel.Text = "Auto ophaal service";
+            this.PickUpFromLabel.Click += new System.EventHandler(this.PickUpFromLabel_Click);
             // 
             // pickupCityLabel
             // 
@@ -465,11 +466,6 @@ namespace Qars
             this.pickupStreetnumberSuffixTextbox.Name = "pickupStreetnumberSuffixTextbox";
             this.pickupStreetnumberSuffixTextbox.Size = new System.Drawing.Size(58, 20);
             this.pickupStreetnumberSuffixTextbox.TabIndex = 19;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // AmountofKilometerLabel
             // 
@@ -737,9 +733,9 @@ namespace Qars
             this.ageLabel.Location = new System.Drawing.Point(26, 113);
             this.ageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(64, 18);
+            this.ageLabel.Size = new System.Drawing.Size(58, 18);
             this.ageLabel.TabIndex = 1017;
-            this.ageLabel.Text = "Leeftijd*:";
+            this.ageLabel.Text = "Leeftijd:";
             // 
             // ageTextBox
             // 
@@ -807,11 +803,22 @@ namespace Qars
             this.streetnumberTextbox.Size = new System.Drawing.Size(58, 20);
             this.streetnumberTextbox.TabIndex = 5;
             // 
+            // MoreInformationLabel
+            // 
+            this.MoreInformationLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoreInformationLabel.Location = new System.Drawing.Point(295, 469);
+            this.MoreInformationLabel.Name = "MoreInformationLabel";
+            this.MoreInformationLabel.Size = new System.Drawing.Size(184, 73);
+            this.MoreInformationLabel.TabIndex = 1023;
+            this.MoreInformationLabel.Text = "Als u wilt dat de auto aan het eind van de huurperiode opgehaald word, moet u dez" +
+    "e gegevens invullen";
+            // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.MoreInformationLabel);
             this.Controls.Add(this.ErrorEndDateLabel);
             this.Controls.Add(this.ErrorStartDateLabel);
             this.Controls.Add(this.PersonalInfoLabel);
@@ -906,7 +913,6 @@ namespace Qars
         private System.Windows.Forms.Label pickupstreetnumbersuffixLabel;
         private System.Windows.Forms.TextBox pickupStreetnumberTextbox;
         private System.Windows.Forms.TextBox pickupStreetnumberSuffixTextbox;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label AmountofKilometerLabel;
         private System.Windows.Forms.TextBox KilometerTextBox;
         private System.Windows.Forms.Label KilometerSpecialLabel;
@@ -939,6 +945,7 @@ namespace Qars
         private System.Windows.Forms.Label ErrorStartDateLabel;
         private System.Windows.Forms.Label ErrorEndDateLabel;
         private System.Windows.Forms.TextBox streetnumberTextbox;
+        private System.Windows.Forms.Label MoreInformationLabel;
 
 
     }

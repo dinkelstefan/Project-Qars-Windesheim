@@ -2,6 +2,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Qars;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
+using System.Collections;
+using System.ComponentModel;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Net.Mail;
+using System.Text;
+using System.Text.RegularExpressions;     //nieuw toegevoegd
+using System.Threading.Tasks;
+
 
 namespace Unit_Tests_Qars
 {
@@ -12,17 +23,38 @@ namespace Unit_Tests_Qars
         public void DataBaseCarList()
         {
             DBConnect db = new DBConnect();
-            List<Car> Autolijst = db.SelectCar();
-            Assert.IsNotNull(Autolijst);
-
+            List<Car> carList = db.SelectCar();
+            Assert.IsNotNull(carList);
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void DataBaseReservationList()
         {
-            string naam = "";
-            naam = "Kat";
-            Assert.IsTrue(naam == "Kat");
+            DBConnect db = new DBConnect();
+            List<Reservation> reservationList = db.SelectReservation();
+            Assert.IsNotNull(reservationList);
         }
+        [TestMethod]
+        public void DataBaseUsersList()
+        {
+            DBConnect db = new DBConnect();
+            List<User> usersList = db.SelectUsers();
+            Assert.IsNotNull(usersList);
+        }
+        [TestMethod]
+        public void DataBaseDamageList()
+        {
+            DBConnect db = new DBConnect();
+            List<Damage> damageList = db.SelectDamage();
+            Assert.IsNotNull(damageList);
+        }
+        [TestMethod]
+        public void DataBaseEstablishmentList()
+        {
+            DBConnect db = new DBConnect();
+            List<Establishment> EstablishmentList = db.SelectEstablishment();
+            Assert.IsNotNull(EstablishmentList);
+        }
+
     }
 }
