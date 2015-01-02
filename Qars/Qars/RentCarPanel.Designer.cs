@@ -95,7 +95,6 @@ namespace Qars
             this.phonenumberTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PersonalInfoLabel = new System.Windows.Forms.Label();
-            this.ChooseDateLabel = new System.Windows.Forms.Label();
             this.ErrorStartDateLabel = new System.Windows.Forms.Label();
             this.ErrorEndDateLabel = new System.Windows.Forms.Label();
             this.streetnumberTextbox = new System.Windows.Forms.TextBox();
@@ -265,6 +264,7 @@ namespace Qars
             this.startdateTextbox.Size = new System.Drawing.Size(73, 20);
             this.startdateTextbox.TabIndex = 11;
             this.startdateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.startdateTextbox.Click += new System.EventHandler(this.openCalender);
             this.startdateTextbox.Enter += new System.EventHandler(this.openCalender);
             // 
             // emailTextbox
@@ -287,6 +287,7 @@ namespace Qars
             this.enddateTextbox.TabIndex = 12;
             this.enddateTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.enddateTextbox.ValidatingType = typeof(System.DateTime);
+            this.enddateTextbox.Click += new System.EventHandler(this.openCalender);
             this.enddateTextbox.Enter += new System.EventHandler(this.openCalender);
             // 
             // monthCalendar
@@ -778,16 +779,6 @@ namespace Qars
             this.PersonalInfoLabel.TabIndex = 1019;
             this.PersonalInfoLabel.Text = "Persoonlijke gegevens";
             // 
-            // ChooseDateLabel
-            // 
-            this.ChooseDateLabel.AutoSize = true;
-            this.ChooseDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChooseDateLabel.Location = new System.Drawing.Point(380, 207);
-            this.ChooseDateLabel.Name = "ChooseDateLabel";
-            this.ChooseDateLabel.Size = new System.Drawing.Size(0, 20);
-            this.ChooseDateLabel.TabIndex = 1020;
-            this.ChooseDateLabel.Visible = false;
-            // 
             // ErrorStartDateLabel
             // 
             this.ErrorStartDateLabel.AutoSize = true;
@@ -823,7 +814,6 @@ namespace Qars
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.Controls.Add(this.ErrorEndDateLabel);
             this.Controls.Add(this.ErrorStartDateLabel);
-            this.Controls.Add(this.ChooseDateLabel);
             this.Controls.Add(this.PersonalInfoLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ageTextBox);
@@ -946,7 +936,6 @@ namespace Qars
         private System.Windows.Forms.TextBox phonenumberTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label PersonalInfoLabel;
-        private System.Windows.Forms.Label ChooseDateLabel;
         private System.Windows.Forms.Label ErrorStartDateLabel;
         private System.Windows.Forms.Label ErrorEndDateLabel;
         private System.Windows.Forms.TextBox streetnumberTextbox;

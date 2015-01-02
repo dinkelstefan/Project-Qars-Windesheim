@@ -41,6 +41,7 @@ namespace Qars
         String endDateMonth;
         String endDateYear;
         String fullEndDateString;
+        Boolean wrongDate = false;
 
         public RentCarPanel(int carID, int UserID, VisualDemo qarsApp)
         {
@@ -68,133 +69,170 @@ namespace Qars
 
         private void ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-
-            List<Label> LabelList = new List<Label>();
-            List<String> InputList = new List<String>();
-            List<Regex> RegExList = new List<Regex>();
-            int validinput = 0;
-
-            Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,46}$");
-            Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
-            Regex ageRegEx = new Regex("^[0-9]{1,3}$");
-            Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$"); //(pickup)Streetname
-            Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
-            Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
-            Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
-            Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
-            Regex emailRegEx = new Regex("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
-            Regex phoneNumberRegEx = new Regex("^(\\s*|[0-9-+]{7,14})$");
-            Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
-            Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
-            Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
-            Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$"); //(pickup)streetnumber
-            Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");//(pickup)streetnumbersuffix
-            Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$")); //(pickup)City
-
-            if (pickupcity != "" || pickupstreetname != "" || pickupstreetnumber != "" || pickupstreetnumbersuffix != "")
+            bool correctDate = true;
+            try
             {
-                pickupcityRegEx = new Regex("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+$");
-                pickupstreetNameRegEx = new Regex("^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
-                pickupstreetNumberRegEx = new Regex("^\\d{1,5}$"); //(pickup)streetnumber
-                pickupstreetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
+                Convert.ToDateTime(startdate);
+                Convert.ToDateTime(enddate);
             }
-            //Put labels in list
-            LabelList.Add(firstnameLabel);
-            LabelList.Add(lastnameLabel);
-            LabelList.Add(ageLabel);
-            LabelList.Add(streetnameLabel);
-            LabelList.Add(streetnumberLabel);
-            LabelList.Add(streetnumbersuffixlabel);
-            LabelList.Add(citylabel);
-            LabelList.Add(postalcodeLabel);
-            LabelList.Add(emailLabel);
-            LabelList.Add(phonenumberLabel);
-            LabelList.Add(startdateLabel);
-            LabelList.Add(enddateLabel);
-            LabelList.Add(AmountofKilometerLabel);
-            LabelList.Add(pickupCityLabel);
-            LabelList.Add(pickupstreetnameLabel);
-            LabelList.Add(pickupstreetnumberLabel);
-            LabelList.Add(pickupstreetnumbersuffixLabel);
-
-            //Add RegEx to List
-            RegExList.Add(firstnameRegEx);
-            RegExList.Add(lastNameRegEx);
-            RegExList.Add(ageRegEx);
-            RegExList.Add(streetNameRegEx);
-            RegExList.Add(streetNumberRegEx);
-            RegExList.Add(streetNumberSuffixRegEx);
-            RegExList.Add(cityRegEx);
-            RegExList.Add(postalCodeRegEx);
-            RegExList.Add(emailRegEx);
-            RegExList.Add(phoneNumberRegEx);
-            RegExList.Add(dateRegEx);
-            RegExList.Add(dateRegEx);
-            RegExList.Add(kilometerRegEx);
-            RegExList.Add(pickupcityRegEx);
-            RegExList.Add(pickupstreetNameRegEx);
-            RegExList.Add(pickupstreetNumberRegEx);
-            RegExList.Add(pickupstreetNumberSuffixRegEx);
-
-            //Insert Information in list
-            InputList.Add(firstname);
-            InputList.Add(lastname);
-            InputList.Add(age);
-            InputList.Add(streetname);
-            InputList.Add(streetnumber);
-            InputList.Add(streetnumbersuffix);
-            InputList.Add(city);
-            InputList.Add(postalcode);
-            InputList.Add(email);
-            InputList.Add(phonenumber);
-            InputList.Add(startdate);
-            InputList.Add(enddate);
-            InputList.Add(kilometres);
-            InputList.Add(pickupcity);
-            InputList.Add(pickupstreetname);
-            InputList.Add(pickupstreetnumber);
-            InputList.Add(pickupstreetnumbersuffix);
-
-            foreach (var item in LabelList)
+            catch (FormatException)
             {
-                item.ForeColor = Color.Black;
+                startdateLabel.ForeColor = Color.Red;
+                enddateLabel.ForeColor = Color.Red;
+                MessageBox.Show("Uw gekozen huurperiode is niet geen geldige periode");
+
+                correctDate = false;
             }
-            int counter = 0;
-            //Validate input
-            foreach (var item in RegExList) //Check regexes
+            if (correctDate == true)
             {
-                if (item.IsMatch(InputList[counter]))
-                {
-                    validinput += 1;
-                }
-                else
-                {
-                    LabelList[counter].ForeColor = Color.Red;
-                }
-                counter++;
-            }
+                List<Label> LabelList = new List<Label>();
+                List<String> InputList = new List<String>();
+                List<Regex> RegExList = new List<Regex>();
+                int validinput = 0;
 
-            if (IsValidEmail(email))
-            {
-                if (validinput == 17)
+                Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,46}$");
+                Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
+                Regex ageRegEx = new Regex("^[0-9]{1,3}$");
+                Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$"); //(pickup)Streetname
+                Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
+                Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
+                Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
+                Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
+                Regex emailRegEx = new Regex("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+                Regex phoneNumberRegEx = new Regex("^(\\s*|[0-9-+]{7,14})$");
+                Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
+                Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
+                Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
+                Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$"); //(pickup)streetnumber
+                Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");//(pickup)streetnumbersuffix
+                Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$")); //(pickup)City
+
+                if (pickupcity != "" || pickupstreetname != "" || pickupstreetnumber != "" || pickupstreetnumbersuffix != "")
                 {
-                    InsertIntoDatabase(carID, /*UserID FIX FIX FIX THIS */ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
-                    SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
-                    MessageBox.Show("U ontvangt z.s.m een email met daarin uw reserveringbewijs");
+                    pickupcityRegEx = new Regex("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+$");
+                    pickupstreetNameRegEx = new Regex("^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
+                    pickupstreetNumberRegEx = new Regex("^\\d{1,5}$"); //(pickup)streetnumber
+                    pickupstreetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
                 }
-                else
+                //Put labels in list
+                LabelList.Add(firstnameLabel);
+                LabelList.Add(lastnameLabel);
+                LabelList.Add(ageLabel);
+                LabelList.Add(streetnameLabel);
+                LabelList.Add(streetnumberLabel);
+                LabelList.Add(streetnumbersuffixlabel);
+                LabelList.Add(citylabel);
+                LabelList.Add(postalcodeLabel);
+                LabelList.Add(emailLabel);
+                LabelList.Add(phonenumberLabel);
+                LabelList.Add(startdateLabel);
+                LabelList.Add(enddateLabel);
+                LabelList.Add(AmountofKilometerLabel);
+                LabelList.Add(pickupCityLabel);
+                LabelList.Add(pickupstreetnameLabel);
+                LabelList.Add(pickupstreetnumberLabel);
+                LabelList.Add(pickupstreetnumbersuffixLabel);
+
+                //Add RegEx to List
+                RegExList.Add(firstnameRegEx);
+                RegExList.Add(lastNameRegEx);
+                RegExList.Add(ageRegEx);
+                RegExList.Add(streetNameRegEx);
+                RegExList.Add(streetNumberRegEx);
+                RegExList.Add(streetNumberSuffixRegEx);
+                RegExList.Add(cityRegEx);
+                RegExList.Add(postalCodeRegEx);
+                RegExList.Add(emailRegEx);
+                RegExList.Add(phoneNumberRegEx);
+                RegExList.Add(dateRegEx);
+                RegExList.Add(dateRegEx);
+                RegExList.Add(kilometerRegEx);
+                RegExList.Add(pickupcityRegEx);
+                RegExList.Add(pickupstreetNameRegEx);
+                RegExList.Add(pickupstreetNumberRegEx);
+                RegExList.Add(pickupstreetNumberSuffixRegEx);
+
+                //Insert Information in list
+                InputList.Add(firstname);
+                InputList.Add(lastname);
+                InputList.Add(age);
+                InputList.Add(streetname);
+                InputList.Add(streetnumber);
+                InputList.Add(streetnumbersuffix);
+                InputList.Add(city);
+                InputList.Add(postalcode);
+                InputList.Add(email);
+                InputList.Add(phonenumber);
+                InputList.Add(startdate);
+                InputList.Add(enddate);
+                InputList.Add(kilometres);
+                InputList.Add(pickupcity);
+                InputList.Add(pickupstreetname);
+                InputList.Add(pickupstreetnumber);
+                InputList.Add(pickupstreetnumbersuffix);
+
+                foreach (var item in LabelList)
                 {
-                    MessageBox.Show("Er ging iets verkeerd met het verzenden van uw gegevens!");
+                    item.ForeColor = Color.Black;
                 }
-            }
-            else
-            {
-                MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
-                emailLabel.ForeColor = Color.Red;
+                int counter = 0;
+                //Validate input
+                foreach (var item in RegExList) //Check regexes
+                {
+                    if (item.IsMatch(InputList[counter]))
+                    {
+                        validinput += 1;
+                    }
+                    else
+                    {
+                        LabelList[counter].ForeColor = Color.Red;
+                    }
+                    counter++;
+                }
+
+                if (IsValidEmail(email))
+                {
+                    bool error = false;
+                    if (IsValidDate(Convert.ToDateTime(startdate), Convert.ToDateTime(enddate)))
+                    {
+                        if (validinput == 17)
+                        {
+                            try
+                            {
+                                InsertIntoDatabase(carID, /*UserID FIX FIX FIX THIS */ -1, startdate, enddate, Convert.ToInt32(kilometres), pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
+                                SendEmail(carID, firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment);
+                            }
+                            catch (Exception)
+                            {
+                                error = true;
+                            }
+                            if (error == false)
+                            {
+                                MessageBox.Show("U ontvangt z.s.m een email met daarin uw reserveringbewijs");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Er ging iets verkeerd met het verwerken van uw reservering. Probeer het later opnieuw of neem contact op met het bedrijf waarvan u de auto wilt huren");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+                        }
+                    }
+                    else
+                    {
+                        startdateLabel.ForeColor = Color.Red;
+                        enddateLabel.ForeColor = Color.Red;
+                        MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+
+                    }
+                }
             }
         }
         private void InsertIntoDatabase(int carID, int UserID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
+
             int pickupstreetnumberint = 0;
             Reservation reservation = new Reservation();
             if (pickupstreetnumber == "")
@@ -221,8 +259,10 @@ namespace Qars
             DBConnect connection = new DBConnect();
             connection.InsertReservation(reservation);
         }
+
         private void SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
+
             int pickupstreetnumberint = 0;
             if (pickupstreetnumber == "")
             {
@@ -237,6 +277,8 @@ namespace Qars
             mail.addSubject("Aanvraag van " + qarsApplication.carList[carID].brand + " " + qarsApplication.carList[carID].model);
             mail.addBody(buildEmailBody(firstname, lastname, age, streetname, streetnumber, streetnumbersuffix, city, postalcode, email, phonenumber, startdate, enddate, kilometres, pickupcity, pickupstreetname, pickupstreetnumber, pickupstreetnumbersuffix, comment));
             mail.sendEmail();
+
+
         }
         private List<String> createSpecInfo(List<Car> list, int carNumber)
         {
@@ -248,7 +290,6 @@ namespace Qars
             if (qarsApplication.carList[carNumber].automatic)
             {
                 InfoAutomaticLabel.Text = "Ja";
-
             }
             else
             {
@@ -500,6 +541,7 @@ namespace Qars
                             if (startdate.AddDays(i) == bolddate)
                             {
                                 WrongDate(3);
+                                wrongDate = true;
                                 break;
                             }
                         }
@@ -512,6 +554,7 @@ namespace Qars
                         if (startdate == bolddate)//if the startdate is a bolded date
                         {
                             WrongDate(0); //give an error
+                            wrongDate = true;
                             break;
                         }
                     }
@@ -545,6 +588,7 @@ namespace Qars
                         if (enddate == bolddate)//if the enddate is a bolded date
                         {
                             WrongDate(1);
+                            wrongDate = true;
                             break;
                         }
                     }
@@ -560,6 +604,7 @@ namespace Qars
                             if (startdate.AddDays(i) == bolddate)
                             {
                                 WrongDate(3);
+                                wrongDate = true;
                                 break;
                             }
                         }
@@ -570,6 +615,7 @@ namespace Qars
                 {
                     if (enddateTextbox.Text == "  -  -" || startdateTextbox.Text == "  -  -")
                     {
+                        wrongDate = true;
                         WrongDate(2);
                     }
                 }
@@ -584,8 +630,6 @@ namespace Qars
 
             if (startdateTextbox.Name == currentSelectedDateBox) //startdatetextbox
             {
-                ChooseDateLabel.Text = "Kies een startdatum";
-                ChooseDateLabel.Visible = true;
                 if (startdate.Day.ToString().Length == 1)
                 {
                     startDateDay = "0" + startdate.Day;
@@ -614,6 +658,7 @@ namespace Qars
                         if (startdate == item)
                         {
                             WrongDate(0);
+                            wrongDate = true;
                             break;
                         }
                     }
@@ -635,6 +680,7 @@ namespace Qars
                                     if (startdate.AddDays(i) == bolddate)
                                     {
                                         WrongDate(3);
+                                        wrongDate = true;
                                         break;
                                     }
 
@@ -648,8 +694,6 @@ namespace Qars
             }
             else if (enddateTextbox.Name == currentSelectedDateBox) //enddatetextbox
             {
-                ChooseDateLabel.Text = "Kies een einddatum";
-                ChooseDateLabel.Visible = true;
                 DateTime MaxDate = DateTime.MaxValue;
 
                 monthCalendar.MaxDate = MaxDate;
@@ -688,6 +732,7 @@ namespace Qars
                         if (enddate == item) //If today is a bolddate
                         {
                             WrongDate(1);
+                            wrongDate = true;
                             break;
                         }
                     }
@@ -706,6 +751,7 @@ namespace Qars
                                 if (startdate.AddDays(i) == bolddate)
                                 {
                                     WrongDate(3);
+                                    wrongDate = true;
                                     break;
                                 }
                             }
@@ -721,8 +767,6 @@ namespace Qars
 
         private void closeCalender(object sender, EventArgs e) //occurs when a date is selected
         {
-            ChooseDateLabel.ResetText();
-            ChooseDateLabel.Visible = false;
             monthCalendar.Hide();
         }
 
@@ -859,7 +903,59 @@ namespace Qars
                 return false;
             }
         }
+        private Boolean IsValidDate(DateTime startdate, DateTime enddate)
+        {
+            bool validDate = true;
+            if (carHasReservation)
+            {
+                TimeSpan tisp = enddate - startdate;
+                int difference = tisp.Days;
 
+                foreach (var bolddate in bolddates)
+                {
+                    if (startdate == bolddate)
+                    {
+                        validDate = false;
+                        //CheckDate(startdate,enddate,0);
+                        return false;
+                    }
+                    if (enddate == bolddate)
+                    {
+                        validDate = false;
+                        //CheckDate(startdate,enddate,1);
+                        return false;
+                    }
+                    for (int i = 1; i <= difference; i++)
+                    {
+                        if (startdate.AddDays(i) == bolddate)
+                        {
+                            validDate = false;
+                            //CheckDate(startdate,enddate,2);
+
+                            return false;
+                        }
+                    }
+                }
+            }
+            if (startdateTextbox.Text == "  -  -" || enddateTextbox.Text == "  -  -" || startdate > enddate)
+            {
+                //CheckDate(startdate,enddate, 3);
+                validDate = false;
+                return false;
+            }
+            if (validDate == false)
+            {
+                startdateLabel.ForeColor = Color.Red;
+                enddateLabel.ForeColor = Color.Red;
+                return false;
+
+
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
 
