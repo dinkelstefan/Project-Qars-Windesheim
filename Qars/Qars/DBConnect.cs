@@ -513,9 +513,7 @@ namespace Qars
             }
             return returnValue.ToString();
         }
-
-        // method to compare strings
-        private bool CompareStrings(string string1, string string2)
+        private bool CompareStrings(string string1, string string2)// method to compare strings
         {
             return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;
         }

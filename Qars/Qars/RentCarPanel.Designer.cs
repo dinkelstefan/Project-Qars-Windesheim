@@ -189,7 +189,6 @@ namespace Qars
             this.phonenumberLabel.Size = new System.Drawing.Size(70, 18);
             this.phonenumberLabel.TabIndex = 14;
             this.phonenumberLabel.Text = "Telefoon:";
-            this.phonenumberLabel.Click += new System.EventHandler(this.phonenumberLabel_Click);
             // 
             // emailLabel
             // 
@@ -385,7 +384,6 @@ namespace Qars
             this.PickUpFromLabel.Size = new System.Drawing.Size(167, 20);
             this.PickUpFromLabel.TabIndex = 1003;
             this.PickUpFromLabel.Text = "Auto ophaal service";
-            this.PickUpFromLabel.Click += new System.EventHandler(this.PickUpFromLabel_Click);
             // 
             // pickupCityLabel
             // 
@@ -512,9 +510,9 @@ namespace Qars
             this.StorageSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StorageSpaceLabel.Location = new System.Drawing.Point(6, 196);
             this.StorageSpaceLabel.Name = "StorageSpaceLabel";
-            this.StorageSpaceLabel.Size = new System.Drawing.Size(101, 20);
+            this.StorageSpaceLabel.Size = new System.Drawing.Size(60, 20);
             this.StorageSpaceLabel.TabIndex = 1;
-            this.StorageSpaceLabel.Text = "Ruimte(Liter)";
+            this.StorageSpaceLabel.Text = "Ruimte";
             // 
             // ModelYearLabel
             // 
@@ -591,7 +589,7 @@ namespace Qars
             // 
             this.InfoModelLabel.AutoSize = true;
             this.InfoModelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoModelLabel.Location = new System.Drawing.Point(242, 16);
+            this.InfoModelLabel.Location = new System.Drawing.Point(210, 16);
             this.InfoModelLabel.Name = "InfoModelLabel";
             this.InfoModelLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoModelLabel.TabIndex = 9;
@@ -601,7 +599,7 @@ namespace Qars
             // 
             this.InfoCategoryLabel.AutoSize = true;
             this.InfoCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoCategoryLabel.Location = new System.Drawing.Point(242, 56);
+            this.InfoCategoryLabel.Location = new System.Drawing.Point(210, 56);
             this.InfoCategoryLabel.Name = "InfoCategoryLabel";
             this.InfoCategoryLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoCategoryLabel.TabIndex = 13;
@@ -611,7 +609,7 @@ namespace Qars
             // 
             this.InfoStartPriceLabel.AutoSize = true;
             this.InfoStartPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoStartPriceLabel.Location = new System.Drawing.Point(242, 36);
+            this.InfoStartPriceLabel.Location = new System.Drawing.Point(210, 36);
             this.InfoStartPriceLabel.Name = "InfoStartPriceLabel";
             this.InfoStartPriceLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoStartPriceLabel.TabIndex = 14;
@@ -621,7 +619,7 @@ namespace Qars
             // 
             this.InfoStorageSpaceLabel.AutoSize = true;
             this.InfoStorageSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoStorageSpaceLabel.Location = new System.Drawing.Point(242, 196);
+            this.InfoStorageSpaceLabel.Location = new System.Drawing.Point(210, 196);
             this.InfoStorageSpaceLabel.Name = "InfoStorageSpaceLabel";
             this.InfoStorageSpaceLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoStorageSpaceLabel.TabIndex = 15;
@@ -631,7 +629,7 @@ namespace Qars
             // 
             this.InfoMOTDateLabel.AutoSize = true;
             this.InfoMOTDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoMOTDateLabel.Location = new System.Drawing.Point(242, 176);
+            this.InfoMOTDateLabel.Location = new System.Drawing.Point(210, 176);
             this.InfoMOTDateLabel.Name = "InfoMOTDateLabel";
             this.InfoMOTDateLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoMOTDateLabel.TabIndex = 16;
@@ -641,7 +639,7 @@ namespace Qars
             // 
             this.InfoHorsePowerLabel.AutoSize = true;
             this.InfoHorsePowerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoHorsePowerLabel.Location = new System.Drawing.Point(242, 156);
+            this.InfoHorsePowerLabel.Location = new System.Drawing.Point(210, 156);
             this.InfoHorsePowerLabel.Name = "InfoHorsePowerLabel";
             this.InfoHorsePowerLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoHorsePowerLabel.TabIndex = 17;
@@ -651,7 +649,7 @@ namespace Qars
             // 
             this.InfoKilometresLabel.AutoSize = true;
             this.InfoKilometresLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoKilometresLabel.Location = new System.Drawing.Point(242, 136);
+            this.InfoKilometresLabel.Location = new System.Drawing.Point(210, 136);
             this.InfoKilometresLabel.Name = "InfoKilometresLabel";
             this.InfoKilometresLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoKilometresLabel.TabIndex = 18;
@@ -661,7 +659,7 @@ namespace Qars
             // 
             this.InfoModelYearLabel.AutoSize = true;
             this.InfoModelYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoModelYearLabel.Location = new System.Drawing.Point(242, 116);
+            this.InfoModelYearLabel.Location = new System.Drawing.Point(210, 116);
             this.InfoModelYearLabel.Name = "InfoModelYearLabel";
             this.InfoModelYearLabel.Size = new System.Drawing.Size(48, 20);
             this.InfoModelYearLabel.TabIndex = 19;
@@ -671,11 +669,11 @@ namespace Qars
             // 
             this.InfoAutomaticLabel.AutoSize = true;
             this.InfoAutomaticLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoAutomaticLabel.Location = new System.Drawing.Point(242, 76);
+            this.InfoAutomaticLabel.Location = new System.Drawing.Point(210, 76);
             this.InfoAutomaticLabel.Name = "InfoAutomaticLabel";
-            this.InfoAutomaticLabel.Size = new System.Drawing.Size(48, 20);
+            this.InfoAutomaticLabel.Size = new System.Drawing.Size(38, 20);
             this.InfoAutomaticLabel.TabIndex = 20;
-            this.InfoAutomaticLabel.Text = "N.V.T";
+            this.InfoAutomaticLabel.Text = "Nee";
             // 
             // SpecBox
             // 
@@ -710,11 +708,11 @@ namespace Qars
             // 
             this.InfoCruiseControlLabel.AutoSize = true;
             this.InfoCruiseControlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoCruiseControlLabel.Location = new System.Drawing.Point(242, 96);
+            this.InfoCruiseControlLabel.Location = new System.Drawing.Point(210, 96);
             this.InfoCruiseControlLabel.Name = "InfoCruiseControlLabel";
-            this.InfoCruiseControlLabel.Size = new System.Drawing.Size(48, 20);
+            this.InfoCruiseControlLabel.Size = new System.Drawing.Size(38, 20);
             this.InfoCruiseControlLabel.TabIndex = 22;
-            this.InfoCruiseControlLabel.Text = "N.V.T";
+            this.InfoCruiseControlLabel.Text = "Nee";
             // 
             // CruiseControlLabel
             // 

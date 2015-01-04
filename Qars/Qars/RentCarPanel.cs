@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
-using System.Text.RegularExpressions;     //nieuw toegevoegd
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,7 +21,7 @@ namespace Qars
     {
         DateTime[] bolddates;
         List<String> stringList;
-        string[] emailspecinfo = { "Automaat:", "Cruise Control:", "Kilometers:", "Vermogen:", "APK Datum:", "Ruimte(in Liters):" };
+        string[] emailspecinfo = { "Automaat:", "Cruise Control:", "Kilometers:", "Vermogen:", "APK Datum:", "Ruimte:\t" };
         public int carID { get; set; }
         public int UserID { get; set; }
 
@@ -33,16 +33,6 @@ namespace Qars
         bool carHasReservation = false;
         bool emailInvalid;
         int amountEndDateOpened = 0;
-        String startDateDay;
-        String startDateMonth;
-        String startDateYear;
-        String fullStartDateString;
-        String endDateDay;
-        String endDateMonth;
-        String endDateYear;
-        String fullEndDateString;
-        Boolean wrongDate = false;
-
         public RentCarPanel(int carID, int UserID, VisualDemo qarsApp)
         {
             this.UserID = UserID;
@@ -52,25 +42,10 @@ namespace Qars
             stringList = createSpecInfo(qarsApplication.carList, carID);
             getReservations();
         }
-
-        /*TO DO
-         * If(User is logged in)
-         * {
-         * Insert all customer info into text fields
-         * Disable all textfields except collect car and comment
-         * }else{
-         * MessageBox.Show("U moet ingelogd zijn om een auto te kunnen huren" Button = Registreer/Log in.
-         * }
-         * 
-         * OTHER STUFF:
-         * Validate Input(ON INPUT)
-         * Validate Calendar INPUT on Button_Click
-         * */
-
         public bool ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
             bool correctDate = true;
-            try
+            try //Make sure the date is valid
             {
                 Convert.ToDateTime(startdate);
                 Convert.ToDateTime(enddate);
@@ -80,39 +55,38 @@ namespace Qars
                 startdateLabel.ForeColor = Color.Red;
                 enddateLabel.ForeColor = Color.Red;
                 MessageBox.Show("Uw gekozen huurperiode is niet geen geldige periode");
-
                 correctDate = false;
             }
-            if (correctDate == true)
+            if (correctDate == true) //If date is valid
             {
                 List<Label> LabelList = new List<Label>();
                 List<String> InputList = new List<String>();
                 List<Regex> RegExList = new List<Regex>();
                 int validinput = 0;
-
+                // Create all regexes, insert labels and information into lists
                 Regex firstnameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,46}$");
                 Regex lastNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]{1,100}$");
                 Regex ageRegEx = new Regex("^[0-9]{1,3}$");
-                Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$"); //(pickup)Streetname
-                Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$"); //(pickup)streetnumber
-                Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
-                Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$")); //(pickup)City
+                Regex streetNameRegEx = new Regex("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð  ]{1,95}$");
+                Regex streetNumberRegEx = new Regex("^[0-9]{1,5}$");
+                Regex streetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");
+                Regex cityRegEx = new Regex(String.Format("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\\']+$"));
                 Regex postalCodeRegEx = new Regex("^[0-9a-zA-Z ]{7}");
                 Regex emailRegEx = new Regex("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
                 Regex phoneNumberRegEx = new Regex("^(\\s*|[0-9-+]{7,14})$");
-                Regex dateRegEx = new Regex("^[0-9-]{10,10}$"); //startdate & enddate
+                Regex dateRegEx = new Regex("^[0-9-]{10,10}$");
                 Regex kilometerRegEx = new Regex("^[0-9]{1,6}$");
-                Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
-                Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$"); //(pickup)streetnumber
-                Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");//(pickup)streetnumbersuffix
-                Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$")); //(pickup)City
+                Regex pickupstreetNameRegEx = new Regex("^(\\s*|[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$");
+                Regex pickupstreetNumberRegEx = new Regex("^(\\s*|\\d{1,5})$");
+                Regex pickupstreetNumberSuffixRegEx = new Regex("^(\\s*|[a-zA-Z])$");
+                Regex pickupcityRegEx = new Regex(String.Format("^(\\s*|[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+)$"));
 
                 if (pickupcity != "" || pickupstreetname != "" || pickupstreetnumber != "" || pickupstreetnumbersuffix != "")
                 {
                     pickupcityRegEx = new Regex("^[a-zA-Z\\u0080-\\u024F\\s\\/\\-\\)\\(\\`\\.\\\"\\']+$");
-                    pickupstreetNameRegEx = new Regex("^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$"); //(pickup)Streetname
-                    pickupstreetNumberRegEx = new Regex("^\\d{1,5}$"); //(pickup)streetnumber
-                    pickupstreetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");//(pickup)streetnumbersuffix
+                    pickupstreetNameRegEx = new Regex("^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\\D  ]{1,95})$");
+                    pickupstreetNumberRegEx = new Regex("^\\d{1,5}$");
+                    pickupstreetNumberSuffixRegEx = new Regex("^[a-zA-Z]{0,1}$");
                 }
                 //Put labels in list
                 LabelList.Add(firstnameLabel);
@@ -172,58 +146,40 @@ namespace Qars
                 InputList.Add(pickupstreetnumbersuffix);
 
                 foreach (var item in LabelList)
-                {
                     item.ForeColor = Color.Black;
-                }
                 int counter = 0;
                 //Validate input
                 foreach (var item in RegExList) //Check regexes
                 {
-                    if (item.IsMatch(InputList[counter]))
-                    {
+                    if (item.IsMatch(InputList[counter])) //If the input matches the regex
                         validinput += 1;
-                    }
                     else
-                    {
                         LabelList[counter].ForeColor = Color.Red;
-                    }
                     counter++;
-
                 }
-
-                if (IsValidEmail(email))
+                if (IsValidEmail(email)) //Test if email is valid
                 {
-
-                    if (IsValidDate(Convert.ToDateTime(startdate), Convert.ToDateTime(enddate)))
+                    if (IsValidDate(Convert.ToDateTime(startdate), Convert.ToDateTime(enddate), bolddates, carHasReservation)) //check if the date is valid.
                     {
                         if (validinput == 17)
-                        {
-                            MessageBox.Show("U ontvangt z.s.m. een email met daarin uw reserveringsbewijs.");
-
                             return true;
-
-                        }
                         else
-                        {
                             MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
-
-                            return false;
-                        }
-
+                        return false;
                     }
                     else
                     {
-                        MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+                        startdateLabel.ForeColor = Color.Red;
+                        enddateLabel.ForeColor = Color.Red;
+                        MessageBox.Show("Uw geselecteerde datum is niet correct!");
                         return false;
                     }
                 }
                 else
                 {
-                    startdateLabel.ForeColor = Color.Red;
-                    enddateLabel.ForeColor = Color.Red;
-                    MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
+                    emailLabel.ForeColor = Color.Red;
+                    MessageBox.Show("Uw emailadres is niet correct!");
                     return false;
-
                 }
             }
             return false;
@@ -243,7 +199,7 @@ namespace Qars
                     pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
                 }
                 reservation.carID = carID;
-                reservation.UserID = UserID; //CUSTOMER LOGGED IN NUMBER. FIX THIS LATER
+                reservation.UserID = UserID;
                 reservation.startdate = startdate;
                 reservation.enddate = enddate;
                 reservation.confirmed = false;
@@ -271,9 +227,7 @@ namespace Qars
             {
                 int pickupstreetnumberint = 0;
                 if (pickupstreetnumber == "")
-                {
                     pickupstreetnumberint = 0;
-                }
                 else
                 {
                     Convert.ToInt32(pickupstreetnumberint);
@@ -290,63 +244,27 @@ namespace Qars
                 return false;
             }
             return true;
-
         }
         private List<String> createSpecInfo(List<Car> list, int carNumber)
-        {
+        {//This is the "specificaties" part. It creates all the information and puts it in a list so it can be re used by BuildEmailBody()
             List<String> stringList = new List<String>();
-            InfoModelLabel.Text = qarsApplication.carList[carNumber].model + " " + qarsApplication.carList[carNumber].brand;
+            InfoModelLabel.Text = qarsApplication.carList[carNumber].brand + " " + qarsApplication.carList[carNumber].model;
             InfoModelYearLabel.Text = qarsApplication.carList[carNumber].modelyear.ToString();
             InfoStartPriceLabel.Text = "€ " + qarsApplication.carList[carNumber].startprice;
             InfoCategoryLabel.Text = qarsApplication.carList[carNumber].category;
             if (qarsApplication.carList[carNumber].automatic)
-            {
                 InfoAutomaticLabel.Text = "Ja";
-            }
-            else
-            {
-                InfoAutomaticLabel.Text = "Nee";
-            }
             if (qarsApplication.carList[carNumber].cruisecontrol)
-            {
                 InfoCruiseControlLabel.Text = "Ja";
-            }
-            else
-            {
-                InfoCruiseControlLabel.Text = "Nee";
-            }
             if (qarsApplication.carList[carNumber].kilometres > -1)
-            {
                 InfoKilometresLabel.Text = qarsApplication.carList[carNumber].kilometres.ToString();
-            }
-            else
-            {
-                InfoKilometresLabel.Text = "N.V.T";
-            }
             if (qarsApplication.carList[carNumber].horsepower > -1)
-            {
                 InfoHorsePowerLabel.Text = qarsApplication.carList[carNumber].horsepower + " PK";
-            }
-            else
-            {
-                InfoHorsePowerLabel.Text = "N.V.T";
-            }
             if (qarsApplication.carList[carNumber].motdate != "")
-            {
                 InfoMOTDateLabel.Text = qarsApplication.carList[carNumber].motdate;
-            }
-            else
-            {
-                InfoMOTDateLabel.Text = "N.V.T";
-            }
             if (qarsApplication.carList[carNumber].storagespace > -1)
-            {
                 InfoStorageSpaceLabel.Text = qarsApplication.carList[carNumber].storagespace + " Liter";
-            }
-            else
-            {
-                InfoStorageSpaceLabel.Text = "N.V.T";
-            }
+
             stringList.Add(InfoAutomaticLabel.Text);
             stringList.Add(InfoCruiseControlLabel.Text);
             stringList.Add(InfoKilometresLabel.Text);
@@ -354,25 +272,21 @@ namespace Qars
             stringList.Add(InfoMOTDateLabel.Text);
             stringList.Add(InfoStorageSpaceLabel.Text);
             return stringList;
-
         }
         public bool IsValidEmail(string strIn)
         {
             emailInvalid = false;
             if (String.IsNullOrEmpty(strIn))
                 return false;
-
             // Use IdnMapping class to convert Unicode domain names. 
             try
             {
-                strIn = Regex.Replace(strIn, @"(@)(.+)$", this.DomainMapper,
-                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+                strIn = Regex.Replace(strIn, @"(@)(.+)$", this.DomainMapper, RegexOptions.None, TimeSpan.FromMilliseconds(200));
             }
             catch (RegexMatchTimeoutException)
             {
                 return false;
             }
-
             if (emailInvalid)
                 return false;
 
@@ -409,62 +323,57 @@ namespace Qars
         {
             int pickupstreetnumberint = 0;
             if (pickupstreetnumber == "")
-            {
                 pickupstreetnumberint = 0;
-            }
             else
-            {
                 Convert.ToInt32(pickupstreetnumberint);
-            }
             StringBuilder builder = new StringBuilder();
-            //This part can be edited by the admin
             builder.AppendLine(String.Format("Beste meneer/mevrouw {0},", lastname));
-            builder.AppendLine("");
+            builder.AppendLine("\n");
             builder.AppendLine("bedankt voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel mogelijk te verwerken.");
             builder.AppendLine("Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging.");
-            builder.AppendLine("");
+            builder.AppendLine("\n");
             builder.AppendLine("Uw persoonlijke gegevens:");
-            builder.AppendLine("");
+            builder.AppendLine("\n");
 
             builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
             builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
             builder.AppendLine(String.Format("Leeftijd:\t{0}", age));
-            builder.AppendLine(String.Format("Adres:\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
+            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
             builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
             builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
-            builder.AppendLine(String.Format("Email:\t{0}", email));
+            builder.AppendLine(String.Format("Email:\t\t{0}", email));
             builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
             builder.Append("\n");
             builder.AppendLine("De gegevens van uw gehuurde auto:");
-            builder.AppendLine("");
+            builder.AppendLine("\n");
 
-            builder.AppendLine(String.Format("Model:\t{0} {1}", qarsApplication.carList[carID].model, qarsApplication.carList[carID].brand));
+            builder.AppendLine(String.Format("Model:\t\t{0} {1}", qarsApplication.carList[carID].brand, qarsApplication.carList[carID].model));
             builder.AppendLine(String.Format("Bouwjaar:\t{0}", qarsApplication.carList[carID].modelyear));
             builder.AppendLine(String.Format("Categorie:\t{0}", qarsApplication.carList[carID].category));
 
             for (int i = 0; i < emailspecinfo.Length; i++)
-            {
                 builder.AppendLine(string.Format("{0}\t{1}", emailspecinfo[i], stringList[i]));
-            }
+
             builder.AppendLine("\n");
             builder.AppendLine("Voor meer gegevens over uw geselecteerde auto kunt u deze opzoeken in de Qars applicatie.");
             builder.AppendLine("\n");
             builder.AppendLine("De gegevens over de prijs: ");
-            builder.AppendLine(String.Format("Startprijs:\t€ {0}", qarsApplication.carList[carID].startprice.ToString()));
+            if (kilometres != "0")
+                builder.AppendLine(String.Format("Startprijs:\t\t€ {0}", qarsApplication.carList[carID].startprice.ToString()));
+            else
+                builder.AppendLine(String.Format("Startprijs:\t€ {0}", qarsApplication.carList[carID].startprice.ToString()));
             if (kilometres == "0")
             {
-                builder.AppendLine("\n");
-                builder.AppendLine("Er moet onderling geregeld worden hoeveel u moet betalen voor het onbeperkt rijden. Maak hiervoor alstublieft een afspraak met het bedrijf. De contactgegevens kunt u vinden onderin de email");
+                builder.AppendLine("Er moet onderling geregeld worden hoeveel u moet betalen voor het onbeperkt rijden. Maak hiervoor alstublieft een afspraak met het bedrijf.");
+                builder.AppendLine("De contactgegevens kunt u vinden onderin de email");
             }
             else
-            {
                 builder.AppendLine(string.Format("Prijs per Kilometer:\t€ {0}", qarsApplication.carList[carID].rentalprice.ToString()));
-            }
+
             builder.AppendLine("\n");
             builder.AppendLine("De gegevens over de huurperiode:");
-            builder.AppendLine("\n");
             builder.AppendLine(String.Format("Begin van de huurperiode:\t{0}", startdate));
-            builder.AppendLine(String.Format("Einde van dehuurperiode:\t{0}", enddate));
+            builder.AppendLine(String.Format("Einde van de huurperiode:\t{0}", enddate));
             builder.AppendLine("\n");
             if (pickupcity != "" && pickupstreetname != "" && pickupstreetnumberint != 0)
             {
@@ -472,26 +381,19 @@ namespace Qars
                 builder.AppendLine(pickupstreetname + " " + pickupstreetnumber + pickupstreetnumbersuffix + " te " + pickupcity);
             }
             else
-            {
                 builder.AppendLine(String.Format("Op {0} moet u de auto teruggebracht hebben bij het bedrijf waar u de auto gehuurd hebt.", enddate));
-            }
 
             builder.Append("\n");
             if (comment != "")
             {
-                builder.AppendLine("Opmerking:");
-                builder.AppendLine(comment);
+                builder.AppendLine(String.Format("Opmerking: {0}", comment));
             }
-            //TO DO: EDITABLE BY ADMIN
-            builder.Append("\n\n");
+            builder.Append("\n");
             builder.AppendLine("Met vriendelijke groeten,");
-            builder.AppendLine("");
+            builder.AppendLine("\n");
             builder.AppendLine("Qars");
-            //END Editable by Admin
-
             builder.AppendLine("\n");
             builder.AppendLine("Heeft u geen auto besteld of bent u helemaal geen klant, neem dan alstublieft contact op met:");
-
 
             foreach (var company in this.qarsApplication.EstablishmentList)
             {
@@ -509,11 +411,8 @@ namespace Qars
                     }
                 }
                 else
-                {
                     break;
-                }
             }
-
             return builder.ToString();
         }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
@@ -522,260 +421,59 @@ namespace Qars
             ErrorEndDateLabel.Visible = false;
             startdateLabel.ForeColor = Color.Black;
             enddateLabel.ForeColor = Color.Black;
-
-
             if (startdateTextbox.Name == currentSelectedDateBox) //If the StartDate Calendar has been selected
             {
-                startDateDay = monthCalendar.SelectionStart.Day.ToString();
-                startDateMonth = monthCalendar.SelectionStart.Month.ToString();
-                startDateYear = monthCalendar.SelectionStart.Year.ToString();
-                if (startDateDay.Length == 1) //part of the stringbuilder
-                {
-                    startDateDay = "0" + startDateDay;
-                }
-
-                if (startDateMonth.Length == 1) //part of the stringbuilder
-                {
-                    startDateMonth = "0" + startDateMonth;
-                }
-
-                fullStartDateString = startDateDay + "-" + startDateMonth + "-" + startDateYear;//Date selected
-                startdateTextbox.Text = fullStartDateString;
-                startdate = monthCalendar.SelectionStart.Date;
-                if (carHasReservation == true)
-                {
-                    TimeSpan tisp = enddate - startdate;
-                    int dateDiffer = tisp.Days;
-                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. 
-                    {
-                        foreach (var bolddate in bolddates)
-                        {
-                            if (startdate.AddDays(i) == bolddate)
-                            {
-                                WrongDate(3);
-                                wrongDate = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (carHasReservation == true) //If there is a reservation
-                {
-                    foreach (var bolddate in bolddates)      //loop through all bolded dates
-                    {
-                        if (startdate == bolddate)//if the startdate is a bolded date
-                        {
-                            WrongDate(0); //give an error
-                            wrongDate = true;
-                            break;
-                        }
-                    }
-                }
+                startdate = monthCalendar.SelectionStart.Date; //the startdate is the selected date
+                startdateTextbox.Text = returnStartDateToString(); //Fill the textbox with the date
+                isDateReserved(startdate, enddate, bolddates, carHasReservation); //Check if the selected period is valid
+                isStartDateBold(startdate, bolddates, carHasReservation); //Check if the date is a bold date
 
             }
             else if (enddateTextbox.Name == currentSelectedDateBox)//If the EndDate Calendar has been selected
             {
-                endDateDay = monthCalendar.SelectionStart.Day.ToString();
-                endDateMonth = monthCalendar.SelectionStart.Month.ToString();
-                endDateYear = monthCalendar.SelectionStart.Year.ToString();
-
-                if (endDateDay.Length == 1) //part of the stringbuilder
-                {
-                    endDateDay = "0" + endDateDay;
-                }
-
-                if (endDateMonth.Length == 1) //part of the stringbuilder
-                {
-                    endDateMonth = "0" + endDateMonth;
-                }
-
-                fullEndDateString = endDateDay + "-" + endDateMonth + "-" + endDateYear; //Date selected
-                enddateTextbox.Text = fullEndDateString;
-                enddate = monthCalendar.SelectionStart.Date;
-
-                if (carHasReservation == true) //If there is a reservation
-                {
-                    foreach (var bolddate in bolddates)      //loop through all bolded dates
-                    {
-                        if (enddate == bolddate)//if the enddate is a bolded date
-                        {
-                            WrongDate(1);
-                            wrongDate = true;
-                            break;
-                        }
-                    }
-                }
-                if (carHasReservation == true)
-                {
-                    TimeSpan tisp = enddate - startdate;
-                    int dateDiffer = tisp.Days;
-                    for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. 
-                    {
-                        foreach (var bolddate in bolddates)
-                        {
-                            if (startdate.AddDays(i) == bolddate)
-                            {
-                                WrongDate(3);
-                                wrongDate = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                if (enddate >= startdate) //If the date is correct
-                {
-                    if (enddateTextbox.Text == "  -  -" || startdateTextbox.Text == "  -  -")
-                    {
-                        wrongDate = true;
-                        WrongDate(2);
-                    }
-                }
+                enddate = monthCalendar.SelectionStart.Date; //The enddate is the selected date
+                enddateTextbox.Text = returnEndDateToString(); //Fill the textbox with the date
+                isEndDateBold(enddate, bolddates, carHasReservation);//Check if the selected period is valid
+                isDateReserved(startdate, enddate, bolddates, carHasReservation);//Check if the date is a bold date
             }
         }
         private void openCalender(object sender, EventArgs e)
         {
-            monthCalendar.MinDate = DateTime.Today;
-            MaskedTextBox b = (MaskedTextBox)sender;
-            currentSelectedDateBox = b.Name;
+            monthCalendar.MinDate = DateTime.Today; //The minimum date is today
 
-            if (startdateTextbox.Name == currentSelectedDateBox) //startdatetextbox
+            MaskedTextBox b = (MaskedTextBox)sender; //b is assigned to the textbox on which the user clicked
+            currentSelectedDateBox = b.Name; //The program now knows if the calendar is used for the startdate or for the enddate
+
+            if (startdateTextbox.Name == currentSelectedDateBox) //If the Startcalendar has to be opened
             {
-                if (startdate.Day.ToString().Length == 1)
-                {
-                    startDateDay = "0" + startdate.Day;
-                }
-                else
-                {
-                    startDateDay = startdate.Day.ToString();
-                }
-                if (startdate.Month.ToString().Length == 1)
-                {
-                    startDateMonth = "0" + startdate.Month;
-                }
-                else
-                {
-                    startDateMonth = startdate.Month.ToString();
-                }
-                startDateYear = startdate.Year.ToString();
+                startdateTextbox.Text = returnStartDateToString(); //Fill the date with the startdate
 
-                fullStartDateString = startDateDay + "-" + startDateMonth + "-" + startDateYear;
-                startdateTextbox.Text = fullStartDateString;
+                isStartDateBold(startdate, bolddates, carHasReservation); //Check if the selected date is a bold date
 
-                if (carHasReservation == true)
+                if (amountEndDateOpened > 0) //If the enddate calendar has been opened
                 {
-                    foreach (var item in bolddates)
-                    {
-                        if (startdate == item)
-                        {
-                            WrongDate(0);
-                            wrongDate = true;
-                            break;
-                        }
-                    }
+                    monthCalendar.MaxDate = enddate; //the maximum date is the end date
+                    isDateReserved(startdate, enddate, bolddates, carHasReservation); //Check if the selected date is reserved
                 }
-                if (amountEndDateOpened > 0)
-                {
-                    monthCalendar.MaxDate = enddate;
-                    if (carHasReservation == true)
-                    {
-                        TimeSpan tisp = enddate - startdate;
-                        int dateDiffer = tisp.Days;
-                        if (startdate <= enddate) //if the date is correct (Semi correct?)
-                        {
-                            for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. 
-                            {
-
-                                foreach (var bolddate in bolddates)
-                                {
-                                    if (startdate.AddDays(i) == bolddate)
-                                    {
-                                        WrongDate(3);
-                                        wrongDate = true;
-                                        break;
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-                }
-
                 enddateTextbox.Enabled = true;
             }
-            else if (enddateTextbox.Name == currentSelectedDateBox) //enddatetextbox
+            else if (enddateTextbox.Name == currentSelectedDateBox) //If the EndCalendar has to be opened
             {
-                DateTime MaxDate = DateTime.MaxValue;
-
-                monthCalendar.MaxDate = MaxDate;
+                monthCalendar.MaxDate = DateTime.MaxValue;  //The maximum date is the maximum value a DateTime object can hold
                 amountEndDateOpened += 1;
-                //als de einddatum voor de eerste keer open gaat moet de datum startdate zijn;
-                if (amountEndDateOpened == 1)
-                {
+
+                if (amountEndDateOpened == 1) //If the enddate calendar has been opened for the first time, it must be the same as the startdate
                     enddate = startdate;
-                }
-                if (enddate.Day.ToString().Length == 1)
-                {
-                    endDateDay = "0" + enddate.Day;
-                }
-                else
-                {
-                    endDateDay = enddate.Day.ToString();
-                }
-                if (enddate.Month.ToString().Length == 1)
-                {
-                    endDateMonth = "0" + enddate.Month;
-                }
-                else
-                {
-                    endDateMonth = enddate.Month.ToString();
-                }
-                endDateYear = enddate.Year.ToString();
+                enddateTextbox.Text = returnEndDateToString(); //The textbox is filled with the selected date
+                monthCalendar.MinDate = startdate; //The minimum date is startdate
 
-                fullEndDateString = endDateDay + "-" + endDateMonth + "-" + endDateYear;
-                enddateTextbox.Text = fullEndDateString;
-                monthCalendar.MinDate = startdate;
-
-                if (carHasReservation == true)
-                {
-                    foreach (var item in bolddates)
-                    {
-                        if (enddate == item) //If today is a bolddate
-                        {
-                            WrongDate(1);
-                            wrongDate = true;
-                            break;
-                        }
-                    }
-                }
-                if (carHasReservation == true)
-                {
-                    TimeSpan tisp = enddate - startdate;
-                    int dateDiffer = tisp.Days;
-                    if (startdate <= enddate) //if the date is correct (Semi correct?)
-                    {
-                        for (int i = 0; i <= dateDiffer; i++) //Tel dagen op. Elke dag kijken of dag bolded is. 
-                        {
-
-                            foreach (var bolddate in bolddates)
-                            {
-                                if (startdate.AddDays(i) == bolddate)
-                                {
-                                    WrongDate(3);
-                                    wrongDate = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
+                isEndDateBold(enddate, bolddates, carHasReservation); //Check if the enddate is bold
+                isDateReserved(startdate, enddate, bolddates, carHasReservation); //Check if the selected period has a reservation
             }
-
-            bolddates = monthCalendar.BoldedDates;
+            bolddates = monthCalendar.BoldedDates; //Just in case, get all the bolddates and update the calendar
             monthCalendar.UpdateBoldedDates();
-            monthCalendar.Show();
+            monthCalendar.Show(); //Show the calendar
         }
-
         private void closeCalender(object sender, EventArgs e) //occurs when a date is selected
         {
             monthCalendar.Hide();
@@ -790,19 +488,11 @@ namespace Qars
                startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
 
             if (validateResult == true)
-            {
                 databaseResult = InsertIntoDatabase(carID, UserID, startdateTextbox.Text, enddateTextbox.Text, Convert.ToInt32(KilometerTextBox.Text), pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
-            }
             if (databaseResult == true)
-            {
                 emailResult = SendEmail(carID, firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
-            }
-
             if (emailResult == true)
-            {
-                //Everything has been done!
-            }
-
+                MessageBox.Show("U ontvangt z.s.m. een email met daarin uw reserveringsbewijs.");
         }
         private void closeRentCarPanel(object sender, EventArgs e)
         {
@@ -828,19 +518,7 @@ namespace Qars
                 ErrorEndDateLabel.Text = "Deze einddatum is al gereserveerd!";
                 ErrorEndDateLabel.Visible = true;
             }
-            if (error == 2) //Enddate is sooner than the startdate
-            {
-                startdateLabel.ForeColor = Color.Red;
-                enddateLabel.ForeColor = Color.Red;
-                ErrorStartDateLabel.ForeColor = Color.Red;
-                ErrorEndDateLabel.ForeColor = Color.Red;
-
-                ErrorStartDateLabel.Text = "Uw geselecteerde huurperiode";
-                ErrorEndDateLabel.Text = " is niet correct";
-                ErrorStartDateLabel.Visible = true;
-                ErrorEndDateLabel.Visible = true;
-            }
-            if (error == 3) //There's a bolddate in the chosen period
+            if (error == 2) //There's a bolddate in the chosen period
             {
                 ErrorStartDateLabel.ForeColor = Color.Red;
                 ErrorEndDateLabel.ForeColor = Color.Red;
@@ -854,9 +532,9 @@ namespace Qars
         }
         private void getReservations()
         {
-            foreach (var item in qarsApplication.reservationList)
+            foreach (var item in qarsApplication.reservationList) //Loop through all the reservations
             {
-                if (carID == item.carID && item.confirmed)
+                if (carID == item.carID && item.confirmed) //If there is a reservation for the current car
                 {
                     carHasReservation = true;
                     DateTime startDate = Convert.ToDateTime(item.startdate);
@@ -864,20 +542,17 @@ namespace Qars
 
                     TimeSpan ts = endDate - startDate;
                     int differenceInDays = ts.Days;
-                    for (int i = 1; i <= differenceInDays; i++)
+                    for (int i = 1; i <= differenceInDays; i++) //For all the days the reservation has, make them bold in the calendar
                     {
                         monthCalendar.AddBoldedDate(startDate.AddDays(i));
-                        //makes all dates between start and end bolded in calendar... 
-                        if (i == differenceInDays)
-                        {
-                            monthCalendar.AddBoldedDate(startDate.AddDays(i + 1));  //makes the endDay after the end date of reservation bolded in calendar...
-                        }
+                        if (i == differenceInDays) //There has to be a 1 day gap between reservations, this makes sure this shows up
+                            monthCalendar.AddBoldedDate(startDate.AddDays(i + 1));
                     }
                     bolddates = monthCalendar.BoldedDates;
                 }
             }
         }
-        public bool checkLogin(int UserID)
+        public bool checkLogin(int UserID)//Called in CarDetailPanel
         {
             if (UserID != -1) //If User is logged in
             {
@@ -916,10 +591,7 @@ namespace Qars
                      */
                 }
                 else if (logInOrRegisterForm.DialogResult == DialogResult.Cancel) //Cancel
-                {
                     logInOrRegisterForm.Dispose();
-
-                }
                 else if (logInOrRegisterForm.DialogResult == DialogResult.No) //Register
                 {
                     logInOrRegisterForm.Dispose();
@@ -932,79 +604,104 @@ namespace Qars
                 return false;
             }
         }
-        private Boolean IsValidDate(DateTime startdate, DateTime enddate)
+        private bool IsValidDate(DateTime startdate, DateTime enddate, DateTime[] bolddates, bool carHasReservation)
         {
             bool validDate = true;
-            if (carHasReservation)
-            {
-                TimeSpan tisp = enddate - startdate;
-                int difference = tisp.Days;
 
-                foreach (var bolddate in bolddates)
-                {
-                    if (startdate == bolddate)
-                    {
-                        validDate = false;
-                        //CheckDate(startdate,enddate,0);
-                        return false;
-                    }
-                    if (enddate == bolddate)
-                    {
-                        validDate = false;
-                        //CheckDate(startdate,enddate,1);
-                        return false;
-                    }
-                    for (int i = 1; i <= difference; i++)
-                    {
-                        if (startdate.AddDays(i) == bolddate)
-                        {
-                            validDate = false;
-                            //CheckDate(startdate,enddate,2);
-
-                            return false;
-                        }
-                    }
-                }
-            }
-            if (startdateTextbox.Text == "  -  -" || enddateTextbox.Text == "  -  -" || startdate > enddate)
-            {
-                //CheckDate(startdate,enddate, 3);
+            bool startdatebold = isStartDateBold(startdate, bolddates, carHasReservation);
+            bool enddatebold = isEndDateBold(enddate, bolddates, carHasReservation);
+            bool dateisbold = isDateReserved(startdate, enddate, bolddates, carHasReservation);
+            if (startdatebold == true || enddatebold == true || dateisbold == true)
                 validDate = false;
-                return false;
-            }
+
             if (validDate == false)
             {
                 startdateLabel.ForeColor = Color.Red;
                 enddateLabel.ForeColor = Color.Red;
                 return false;
-
-
             }
             else
-            {
                 return true;
+        }
+        private bool isStartDateBold(DateTime startdate, DateTime[] bolddates, bool carHasReservation)
+        {
+            if (carHasReservation == true)
+            {
+                foreach (var bolddate in bolddates) //loop through all the bolddates
+                {
+                    if (startdate == bolddate) //if the startdate is a bolded date
+                    {
+                        WrongDate(0);
+                        return true;
+                    }
+                }
+                return false;
             }
+            else
+                return false;
         }
-
-        private void phonenumberLabel_Click(object sender, EventArgs e)
+        private bool isDateReserved(DateTime startdate, DateTime enddate, DateTime[] bolddates, bool carHasReservation)
         {
-
+            if (carHasReservation == true)
+            {
+                TimeSpan tisp = enddate - startdate;
+                int dateDiffer = tisp.Days;
+                for (int i = 0; i <= dateDiffer; i++)
+                {
+                    foreach (var bolddate in bolddates)
+                    {
+                        if (startdate.AddDays(i) == bolddate)
+                        {
+                            WrongDate(2);
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            else
+                return false;
         }
-
-        private void PickUpFromLabel_Click(object sender, EventArgs e)
+        private bool isEndDateBold(DateTime enddate, DateTime[] bolddates, bool carHasReservation)
         {
-
-            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(PickUpFromLabel, "Hello");
-
+            if (carHasReservation == true) //If there is a reservation
+            {
+                foreach (var bolddate in bolddates)//loop through all bolded dates
+                {
+                    if (enddate == bolddate)//if the enddate is a bolded date
+                    {
+                        WrongDate(1);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+                return false;
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private string returnStartDateToString()
         {
-            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(PickUpFromLabel, "Hello");
+            String day = startdate.Day.ToString();
+            String month = startdate.Month.ToString();
+            String year = startdate.Year.ToString();
+
+            if (day.Length == 1) //part of the stringbuilder
+                day = "0" + day;
+            if (month.Length == 1) //part of the stringbuilder
+                month = "0" + month;
+            return day + "-" + month + "-" + year;
+        }
+        private string returnEndDateToString()
+        {
+            String day = enddate.Day.ToString();
+            String month = enddate.Month.ToString();
+            String year = enddate.Year.ToString();
+
+            if (day.Length == 1) //part of the stringbuilder
+                day = "0" + day;
+            if (month.Length == 1) //part of the stringbuilder
+                month = "0" + month;
+            return day + "-" + month + "-" + year;
         }
     }
 }
-
-

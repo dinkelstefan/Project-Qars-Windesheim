@@ -55,6 +55,13 @@ namespace Unit_Tests_Qars
             List<Establishment> EstablishmentList = db.SelectEstablishment();
             Assert.IsNotNull(EstablishmentList);
         }
+        [TestMethod]
+        public void ValidateEmail()
+        {
+            RentCarPanel panel = new RentCarPanel(0, 7, new VisualDemo());
+            Assert.IsTrue(panel.IsValidEmail("sander.ten.brinke@xs4all.nl"));
+        }
+
 
     }
 }
