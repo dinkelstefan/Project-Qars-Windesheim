@@ -175,5 +175,11 @@ namespace Qars
             totalCarList = carList;
             updateTileView();
         }
+
+        private void LogInButton_Click(object sender, EventArgs e)
+        {
+            LogInForm loginform = new LogInForm(this);
+            loginform.Show();
+        }
     }
 }

@@ -112,6 +112,21 @@ namespace Qars
             return incorrectUser;
         }
 
+        public bool LogInUser(string username, string password)
+        {
+            string hashPassword = GetSHA1HashData(returnSalt() + password);
+            List<User> userList = this.SelectUsers();
+            foreach (var user in userList)
+            {
+                if (username == user.username && password == hashPassword)
+                {
+                    //log in == correct
+                    return true;
+                }
+
+            }
+            return false;
+        }
         public List<Car> SelectCar()
         {
             string query = " SELECT * FROM Car A LEFT JOIN Photo B ON A.CarID = B.CarID ORDER BY A.CarID ";
@@ -411,7 +426,7 @@ namespace Qars
                 UserID = (Int32)cmd.ExecuteScalar();
                 CloseConnection();
             }
-            string salt = "quintorqars";
+            string salt = returnSalt();
             string sha1password = GetSHA1HashData(salt + customer.password);
             string query2 = string.Format("INSERT INTO Customer (`UserID`, `Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink");
             if (this.OpenConnection() == true)
@@ -512,6 +527,10 @@ namespace Qars
                 returnValue.Append(hashData[i].ToString());
             }
             return returnValue.ToString();
+        }
+        public string returnSalt()
+        {
+            return "quintorqars";
         }
         private bool CompareStrings(string string1, string string2)// method to compare strings
         {
