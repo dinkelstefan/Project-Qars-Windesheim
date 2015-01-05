@@ -446,6 +446,8 @@ namespace Qars
 
             if (startdateTextbox.Name == currentSelectedDateBox) //If the Startcalendar has to be opened
             {
+                ChooseDateLabel.Text = "Kies een startdatum";
+                ChooseDateLabel.Visible = true;
                 startdateTextbox.Text = returnStartDateToString(); //Fill the date with the startdate
 
                 isStartDateBold(startdate, bolddates, carHasReservation); //Check if the selected date is a bold date
@@ -459,6 +461,8 @@ namespace Qars
             }
             else if (enddateTextbox.Name == currentSelectedDateBox) //If the EndCalendar has to be opened
             {
+                ChooseDateLabel.Text = "Kies een einddatum";
+                ChooseDateLabel.Visible = true;
                 monthCalendar.MaxDate = DateTime.MaxValue;  //The maximum date is the maximum value a DateTime object can hold
                 amountEndDateOpened += 1;
 
@@ -477,6 +481,7 @@ namespace Qars
         private void closeCalender(object sender, EventArgs e) //occurs when a date is selected
         {
             monthCalendar.Hide();
+            ChooseDateLabel.Visible = false;
         }
         private void rentCarClick(object sender, EventArgs e)
         {

@@ -97,6 +97,7 @@ namespace Qars
             this.ErrorEndDateLabel = new System.Windows.Forms.Label();
             this.streetnumberTextbox = new System.Windows.Forms.TextBox();
             this.MoreInformationLabel = new System.Windows.Forms.Label();
+            this.ChooseDateLabel = new System.Windows.Forms.Label();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -811,11 +812,22 @@ namespace Qars
             this.MoreInformationLabel.Text = "Als u wilt dat de auto aan het eind van de huurperiode opgehaald word, moet u dez" +
     "e gegevens invullen";
             // 
+            // ChooseDateLabel
+            // 
+            this.ChooseDateLabel.AutoSize = true;
+            this.ChooseDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseDateLabel.Location = new System.Drawing.Point(376, 207);
+            this.ChooseDateLabel.Name = "ChooseDateLabel";
+            this.ChooseDateLabel.Size = new System.Drawing.Size(0, 20);
+            this.ChooseDateLabel.TabIndex = 1024;
+            this.ChooseDateLabel.Visible = false;
+            // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.ChooseDateLabel);
             this.Controls.Add(this.MoreInformationLabel);
             this.Controls.Add(this.ErrorEndDateLabel);
             this.Controls.Add(this.ErrorStartDateLabel);
@@ -944,6 +956,7 @@ namespace Qars
         private System.Windows.Forms.Label ErrorEndDateLabel;
         private System.Windows.Forms.TextBox streetnumberTextbox;
         private System.Windows.Forms.Label MoreInformationLabel;
+        private System.Windows.Forms.Label ChooseDateLabel;
 
 
     }
