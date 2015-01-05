@@ -42,11 +42,14 @@ namespace Qars_Admin {
                 simpleCarList.Add(simpleCar);
             }
 
-            this.dataGridView1.DataSource = simpleCarList;
+            this.CarDataGrid.DataSource = simpleCarList;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
-            Console.WriteLine(123);
+
+            SimpleCar selectedCar = (SimpleCar)this.CarDataGrid.CurrentRow.DataBoundItem;
+
+            Console.WriteLine(selectedCar.Kilometers);
         }
     }
 }

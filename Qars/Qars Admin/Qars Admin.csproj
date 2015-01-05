@@ -85,9 +85,12 @@
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="EditPanels\EditReservationWindow.resx">
       <DependentUpon>EditReservationWindow.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 8b08bc68398c554f5a758da3d840fb4222aba6f6
     <EmbeddedResource Include="Panels\CarAdminPanel.resx">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
