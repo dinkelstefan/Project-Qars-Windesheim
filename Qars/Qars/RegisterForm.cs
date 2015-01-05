@@ -78,7 +78,7 @@ namespace Qars
             if (insertDataBaseResult == true)
                 emailResult = SendEmail(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
             if (emailResult == true)
-                MessageBox.Show("U heeft zich geregistreerd en u kan nu inloggen. U ontvang z.s.m een email met daarin uw inloggegevens");
+                MessageBox.Show("U heeft zich geregistreerd en u kan nu inloggen. U ontvangt z.s.m een email met daarin uw inloggegevens");
         }
         private bool ValidateInput(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {
@@ -167,11 +167,13 @@ namespace Qars
                         //check if the username is available
                         foreach (var user in userList)
                         {
-                            Console.WriteLine("CHOSEN" + firstname);
-                            Console.WriteLine("DATABA" + user.firstname);
-                            Console.WriteLine("CHOSEN" + emailaddress);
-                            Console.WriteLine("DATABA" + user.emailaddress);
-                            if (user.firstname == firstname || user.emailaddress == emailaddress)
+                            Console.WriteLine("-------------------");
+                            Console.WriteLine("CHOSEN " + username);
+                            Console.WriteLine("DATABA " + user.username);
+                            Console.WriteLine("-------------------");
+                            Console.WriteLine("CHOSEN " + emailaddress);
+                            Console.WriteLine("DATABA " + user.emailaddress);
+                            if (user.username == username || user.emailaddress == emailaddress)
                             {
                                 accountTaken = true;
                                 break;
@@ -336,6 +338,7 @@ namespace Qars
             }
             else
             {
+                MessageBox.Show("Wij konden uw registratie nu niet verwerken. Probeer het later opnieuw of neem contact op met het bedrijf");
                 return false;
             }
         }

@@ -115,11 +115,13 @@ namespace Qars
 
         public bool LogInUser(string username, string password)
         {
-            string hashPassword = GetSHA1HashData(returnSalt() + password);
+            string salt = returnSalt();
+
+            string hashPassword = GetSHA1HashData(salt + password);
             List<User> userList = this.SelectUsers();
             foreach (var user in userList)
             {
-                if (username == user.username && password == hashPassword)
+                if (username == user.username && user.password == hashPassword)
                 {
                     //log in == correct
                     return true;
@@ -443,17 +445,19 @@ namespace Qars
                 {
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     UserID = (Int32)cmd.ExecuteScalar();
+                    UserID++;
                     CloseConnection();
                 }
                 string salt = returnSalt();
-                string sha1password = GetSHA1HashData(salt + customer.password);
-                string query2 = string.Format("INSERT INTO Customer (`UserID`, `Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink");
+                string hashPassword = GetSHA1HashData(salt + password);
+                string query2 = "INSERT INTO `User` (`UserID`,`Accountlevel`,`Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @accountlevel,@username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink)";
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query2, connection);
-                    cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(customer.UserID));
+                    cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(UserID));
+                    cmd.Parameters.AddWithValue("@accountlevel", 1); //Normal account level
                     cmd.Parameters.AddWithValue("@username", SafeInsertString(customer.username));
-                    cmd.Parameters.AddWithValue("@password", SafeInsertString(customer.password));
+                    cmd.Parameters.AddWithValue("@password", SafeInsertString(hashPassword));
                     cmd.Parameters.AddWithValue("@firstname", SafeInsertString(customer.firstname));
                     cmd.Parameters.AddWithValue("@lastname", SafeInsertString(customer.lastname));
                     cmd.Parameters.AddWithValue("@age", SafeInsertInt(customer.age));
@@ -464,15 +468,15 @@ namespace Qars
                     cmd.Parameters.AddWithValue("@streetnumbersuffix", SafeInsertString(customer.streetnumbersuffix));
                     cmd.Parameters.AddWithValue("@phonenumber", SafeInsertString(customer.phonenumber));
                     cmd.Parameters.AddWithValue("@emailaddress", SafeInsertString(customer.emailaddress));
-                    cmd.Parameters.AddWithValue("@driverslicenselink", SafeInsertString(customer.driverslicenselink));
-
+                    cmd.Parameters.AddWithValue("@driverslicenselink", SafeInsertString(customer.driverslicenselink));//INSERT FTP LINK
 
                     result = cmd.ExecuteNonQuery();
                     CloseConnection();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return false;
             }
             if (result > 0)
@@ -560,7 +564,7 @@ namespace Qars
         }
         public string returnSalt()
         {
-            return salt;
+            return "quintorqars";
         }
         private bool CompareStrings(string string1, string string2)// method to compare strings
         {
