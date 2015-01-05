@@ -167,12 +167,7 @@ namespace Qars
                         //check if the username is available
                         foreach (var user in userList)
                         {
-                            Console.WriteLine("-------------------");
-                            Console.WriteLine("CHOSEN " + username);
-                            Console.WriteLine("DATABA " + user.username);
-                            Console.WriteLine("-------------------");
-                            Console.WriteLine("CHOSEN " + emailaddress);
-                            Console.WriteLine("DATABA " + user.emailaddress);
+
                             if (user.username == username || user.emailaddress == emailaddress)
                             {
                                 accountTaken = true;

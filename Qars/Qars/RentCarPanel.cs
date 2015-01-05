@@ -501,13 +501,13 @@ namespace Qars
             bool databaseResult = false;
             bool emailResult = false;
 
-            validateResult = ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text,
+            validateResult = ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, PostalCodeTextBox.Text, emailTextbox.Text, phonenumberTextbox.Text,
                startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
 
             if (validateResult == true)
                 databaseResult = InsertIntoDatabase(carID, UserID, startdateTextbox.Text, enddateTextbox.Text, Convert.ToInt32(KilometerTextBox.Text), pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
             if (databaseResult == true)
-                emailResult = SendEmail(carID, firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, postalcodeTextbox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+                emailResult = SendEmail(carID, firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, PostalCodeTextBox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
             if (emailResult == true)
                 MessageBox.Show("U ontvangt z.s.m. een email met daarin uw reserveringsbewijs.");
         }
@@ -587,8 +587,8 @@ namespace Qars
                 streetnumbersuffixTextbox.Enabled = false;
                 cityTextbox.Text = qarsApplication.customerList[UserID].city;
                 cityTextbox.Enabled = false;
-                postalcodeTextbox.Text = qarsApplication.customerList[UserID].postalcode;
-                postalcodeTextbox.Enabled = false;
+                PostalCodeTextBox.Text = qarsApplication.customerList[UserID].postalcode;
+                PostalCodeTextBox.Enabled = false;
                 emailTextbox.Text = qarsApplication.customerList[UserID].emailaddress;
                 emailTextbox.Enabled = false;
                 phonenumberTextbox.Text = qarsApplication.customerList[UserID].phonenumber;

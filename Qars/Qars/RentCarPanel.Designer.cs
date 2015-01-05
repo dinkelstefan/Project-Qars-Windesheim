@@ -43,7 +43,7 @@ namespace Qars
             this.lastnameTextbox = new System.Windows.Forms.TextBox();
             this.streetnameTextbox = new System.Windows.Forms.TextBox();
             this.streetnumbersuffixTextbox = new System.Windows.Forms.TextBox();
-            this.postalcodeTextbox = new System.Windows.Forms.MaskedTextBox();
+            this.PostalCodeTextBox = new System.Windows.Forms.MaskedTextBox();
             this.startdateTextbox = new System.Windows.Forms.MaskedTextBox();
             this.emailTextbox = new System.Windows.Forms.TextBox();
             this.enddateTextbox = new System.Windows.Forms.MaskedTextBox();
@@ -245,14 +245,14 @@ namespace Qars
             this.streetnumbersuffixTextbox.Size = new System.Drawing.Size(57, 20);
             this.streetnumbersuffixTextbox.TabIndex = 6;
             // 
-            // postalcodeTextbox
+            // PostalCodeTextBox
             // 
-            this.postalcodeTextbox.Location = new System.Drawing.Point(238, 221);
-            this.postalcodeTextbox.Margin = new System.Windows.Forms.Padding(2);
-            this.postalcodeTextbox.Mask = "0000 LL";
-            this.postalcodeTextbox.Name = "postalcodeTextbox";
-            this.postalcodeTextbox.Size = new System.Drawing.Size(52, 20);
-            this.postalcodeTextbox.TabIndex = 8;
+            this.PostalCodeTextBox.Location = new System.Drawing.Point(238, 221);
+            this.PostalCodeTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PostalCodeTextBox.Mask = "0000 LL";
+            this.PostalCodeTextBox.Name = "PostalCodeTextBox";
+            this.PostalCodeTextBox.Size = new System.Drawing.Size(52, 20);
+            this.PostalCodeTextBox.TabIndex = 8;
             // 
             // startdateTextbox
             // 
@@ -860,7 +860,7 @@ namespace Qars
             this.Controls.Add(this.emailTextbox);
             this.Controls.Add(this.startdateTextbox);
             this.Controls.Add(this.phonenumberTextbox);
-            this.Controls.Add(this.postalcodeTextbox);
+            this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.streetnumbersuffixTextbox);
             this.Controls.Add(this.streetnumberTextbox);
             this.Controls.Add(this.streetnameTextbox);
@@ -902,7 +902,7 @@ namespace Qars
         private System.Windows.Forms.TextBox lastnameTextbox;
         private System.Windows.Forms.TextBox streetnameTextbox;
         private System.Windows.Forms.TextBox streetnumbersuffixTextbox;
-        private System.Windows.Forms.MaskedTextBox postalcodeTextbox;
+        private System.Windows.Forms.MaskedTextBox PostalCodeTextBox;
         private System.Windows.Forms.MaskedTextBox startdateTextbox;
         private System.Windows.Forms.TextBox emailTextbox;
         private System.Windows.Forms.MaskedTextBox enddateTextbox;

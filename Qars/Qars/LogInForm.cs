@@ -23,6 +23,7 @@ namespace Qars
         {
             DBConnect db = new DBConnect();
             bool logInResult = db.LogInUser(UsernameTextBox.Text, PasswordTextBox.Text); //validate input
+
             if (logInResult == true)
             {
                 this.Dispose();

@@ -18,7 +18,6 @@ namespace Qars
         private string database;
         private string uid;
         private string password;
-        public string salt;
 
         public DBConnect()
         {
@@ -116,8 +115,9 @@ namespace Qars
         public bool LogInUser(string username, string password)
         {
             string salt = returnSalt();
+            string passwordnotHashed = password;
 
-            string hashPassword = GetSHA1HashData(salt + password);
+            string hashPassword = GetSHA1HashData(salt + passwordnotHashed);
             List<User> userList = this.SelectUsers();
             foreach (var user in userList)
             {
@@ -449,7 +449,9 @@ namespace Qars
                     CloseConnection();
                 }
                 string salt = returnSalt();
-                string hashPassword = GetSHA1HashData(salt + password);
+                string passwordnotHashed = password;
+
+                string hashPassword = GetSHA1HashData(salt + passwordnotHashed);
                 string query2 = "INSERT INTO `User` (`UserID`,`Accountlevel`,`Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @accountlevel,@username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink)";
                 if (this.OpenConnection() == true)
                 {
@@ -550,7 +552,7 @@ namespace Qars
             else
                 return -1;
         }
-        private string GetSHA1HashData(string data)
+        public string GetSHA1HashData(string data)
         {
             SHA1 sha1 = SHA1.Create();
             byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));

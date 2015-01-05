@@ -31,7 +31,6 @@
             this.RegisterButton = new System.Windows.Forms.Button();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.CityTextBox = new System.Windows.Forms.TextBox();
-            this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.AgeTextBox = new System.Windows.Forms.TextBox();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
@@ -66,6 +65,7 @@
             this.TOSCheckBox = new System.Windows.Forms.CheckBox();
             this.TOSLabel = new System.Windows.Forms.Label();
             this.WrongFileLabel = new System.Windows.Forms.Label();
+            this.PostalCodeTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +81,7 @@
             this.UsernameTextBox.Location = new System.Drawing.Point(106, 50);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.UsernameTextBox.TabIndex = 2;
+            this.UsernameTextBox.TabIndex = 1;
             // 
             // CityTextBox
             // 
@@ -89,13 +89,6 @@
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(100, 20);
             this.CityTextBox.TabIndex = 3;
-            // 
-            // PostalCodeTextBox
-            // 
-            this.PostalCodeTextBox.Location = new System.Drawing.Point(107, 340);
-            this.PostalCodeTextBox.Name = "PostalCodeTextBox";
-            this.PostalCodeTextBox.Size = new System.Drawing.Size(60, 20);
-            this.PostalCodeTextBox.TabIndex = 4;
             // 
             // AgeTextBox
             // 
@@ -125,7 +118,7 @@
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PasswordTextBox.TabIndex = 8;
+            this.PasswordTextBox.TabIndex = 2;
             // 
             // UsernameLabel
             // 
@@ -242,7 +235,7 @@
             // 
             this.AccountDetailsLabel.AutoSize = true;
             this.AccountDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountDetailsLabel.Location = new System.Drawing.Point(22, 9);
+            this.AccountDetailsLabel.Location = new System.Drawing.Point(13, 9);
             this.AccountDetailsLabel.Name = "AccountDetailsLabel";
             this.AccountDetailsLabel.Size = new System.Drawing.Size(184, 25);
             this.AccountDetailsLabel.TabIndex = 24;
@@ -253,7 +246,7 @@
             this.EmailTextBox.Location = new System.Drawing.Point(106, 105);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(100, 20);
-            this.EmailTextBox.TabIndex = 25;
+            this.EmailTextBox.TabIndex = 3;
             // 
             // FirstNameLabel
             // 
@@ -278,7 +271,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 309);
+            this.label1.Location = new System.Drawing.Point(12, 307);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 25);
             this.label1.TabIndex = 28;
@@ -395,11 +388,20 @@
             this.WrongFileLabel.Text = "Uw gekozen bestand is te groot\r\nMaximale grootte: 2.5 MB\r\n\r\n";
             this.WrongFileLabel.Visible = false;
             // 
+            // PostalCodeTextBox
+            // 
+            this.PostalCodeTextBox.Location = new System.Drawing.Point(107, 340);
+            this.PostalCodeTextBox.Mask = "0000 LL";
+            this.PostalCodeTextBox.Name = "PostalCodeTextBox";
+            this.PostalCodeTextBox.Size = new System.Drawing.Size(48, 20);
+            this.PostalCodeTextBox.TabIndex = 0;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 501);
+            this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.WrongFileLabel);
             this.Controls.Add(this.TOSLabel);
             this.Controls.Add(this.TOSCheckBox);
@@ -433,7 +435,6 @@
             this.Controls.Add(this.FirstNameTextBox);
             this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.AgeTextBox);
-            this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.UsernameTextBox);
             this.Name = "RegisterForm";
@@ -449,7 +450,6 @@
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.TextBox CityTextBox;
-        private System.Windows.Forms.TextBox PostalCodeTextBox;
         private System.Windows.Forms.TextBox AgeTextBox;
         private System.Windows.Forms.TextBox SurnameTextBox;
         private System.Windows.Forms.TextBox FirstNameTextBox;
@@ -484,5 +484,6 @@
         private System.Windows.Forms.CheckBox TOSCheckBox;
         private System.Windows.Forms.Label TOSLabel;
         private System.Windows.Forms.Label WrongFileLabel;
+        private System.Windows.Forms.MaskedTextBox PostalCodeTextBox;
     }
 }
