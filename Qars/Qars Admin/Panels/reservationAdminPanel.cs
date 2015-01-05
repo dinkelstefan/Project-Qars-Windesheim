@@ -34,13 +34,13 @@ namespace Qars_Admin.Panels
                 simpleReservationList.Add(new simpleReservation(res.reservationID, res.carID, res.startdate, res.enddate, res.kilometres, res.pickupcity, res.pickupstreetname, res.pickupstreetnumber, res.paid, res.confirmed));
             }
 
-            this.dataGridView1.DataSource = simpleReservationList;
+            this.reservationDataGridView.DataSource = simpleReservationList;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = this.dataGridView1.CurrentCell.RowIndex;
-            List<simpleReservation> reservationList = this.dataGridView1.DataSource as List<simpleReservation>;
+            int rowIndex = this.reservationDataGridView.CurrentCell.RowIndex;
+            List<simpleReservation> reservationList = this.reservationDataGridView.DataSource as List<simpleReservation>;
             int simpleReservationID = reservationList[rowIndex].reservationID;
 
             var query = from res in this.reservationList
@@ -55,7 +55,7 @@ namespace Qars_Admin.Panels
             window.ShowDialog();
 
             this.RefreshList();
-            dataGridView1.Rows[rowIndex].Selected = true;
+            reservationDataGridView.Rows[rowIndex].Selected = true;
         }
     }
 }

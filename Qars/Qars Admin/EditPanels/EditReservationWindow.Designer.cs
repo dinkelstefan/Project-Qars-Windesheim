@@ -282,6 +282,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(642, 760);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(642, 760);
             this.Name = "EditReservationWindow";
             this.Text = "Reservering aanpassen";
             this.ResumeLayout(false);

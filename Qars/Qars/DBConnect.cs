@@ -355,6 +355,21 @@ namespace Qars
                 return null;
             }
         }
+        public void UpdateUser(User user)
+        {
+            string query = "Update User ";
+            query += string.Format("Set AccountLevel={0}, Username='{1}', Password='{2}',Firstname='{3}', Lastname='{4}',Age={5},Postalcode='{6}',City='{7}', Streetname='{8}', Streetnumber={9}, Streetnumbersuffix='{10}', Phonenumber='{11}', Emailaddress='{12}', Driverslicencelink='{13}'", user.accountLevel,user.username,user.password,user.firstname, user.lastname, user.age, user.postalcode, user.city, user.streetname,user.streetnumber,user.streetnumbersuffix, user.phonenumber, user.emailaddress, user.driverslicenselink);
+            query += string.Format("Where UserID = {0} ", user.customerID);
+
+            Console.WriteLine(query);
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+
+        }
         public void InsertReservation(Reservation reservation)
         {
             int ReservationID = 0;
@@ -441,6 +456,7 @@ namespace Qars
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                Console.WriteLine(cmd.CommandText);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
@@ -449,6 +465,18 @@ namespace Qars
         {
             string query = "DELETE FROM Reservation ";
             query += string.Format("WHERE ReservationID = {0}",reservation.reservationID);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+        public void DeleteUser(User user)
+        {
+            string query = "DELETE From User ";
+            query += "Where UserID=" + user.customerID;
 
             if (this.OpenConnection() == true)
             {
