@@ -431,6 +431,20 @@ namespace Qars
                 this.CloseConnection();
             }
         }
+        public void UpdateReservation(Reservation reservation)
+        {
+            string query = "Update Reservation ";
+            query += string.Format("SET Startdate='{0}',Enddate='{1}', Confirmed={2}, Kilometres={3}, Pickupcity='{4}', Pickupstreetname='{5}', Pickupstreetnumber={6}, Pickupstreetnumbersuffix='{7}', Paid={8}, Comment='{9}' ",reservation.startdate, reservation.enddate, reservation.confirmed, reservation.kilometres, reservation.pickupcity, reservation.pickupstreetname, reservation.pickupstreetnumber, reservation.pickupstreetnumbersuffix, reservation.paid, reservation.comment);
+            query += string.Format("Where ReservationID = " + reservation.reservationID);
+
+            Console.WriteLine(query);
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))

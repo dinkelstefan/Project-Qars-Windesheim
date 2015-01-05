@@ -45,7 +45,7 @@ namespace Qars_Admin
             this.Controls.Add(this.carAdminPanel);
 
             //make a reservation adminPanel
-            this.reservationAdminPanel = new ReservationAdminPanel();
+            this.reservationAdminPanel = new ReservationAdminPanel(this.databaseConnection);
             this.reservationAdminPanel.Location = this.adminPanelPosition;
             this.reservationAdminPanel.Size = new System.Drawing.Size(768, 509);
             this.reservationAdminPanel.TabIndex = 6;
