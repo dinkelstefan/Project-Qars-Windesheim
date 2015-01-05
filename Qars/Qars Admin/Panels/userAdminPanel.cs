@@ -13,12 +13,12 @@ using Qars_Admin.EditPanels;
 
 namespace Qars_Admin.Panels
 {
-    public partial class userAdminPanel : UserControl
+    public partial class UserAdminPanel : UserControl
     {
         private DBConnect databaseConnection;
         private List<User> userList;
 
-        public userAdminPanel(DBConnect connection)
+        public UserAdminPanel(DBConnect connection)
         {
             this.databaseConnection = connection;
             InitializeComponent();

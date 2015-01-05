@@ -1,6 +1,6 @@
 ﻿namespace Qars_Admin.Panels
 {
-    partial class userAdminPanel
+    partial class UserAdminPanel
     {
         /// <summary> 
         /// Required designer variable.

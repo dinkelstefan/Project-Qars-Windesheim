@@ -66,11 +66,17 @@
     <Compile Include="EditPanels\editUserWindow.Designer.cs">
       <DependentUpon>editUserWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\userAdminPanel.cs">
+    <Compile Include="Panels\ForecastAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\userAdminPanel.Designer.cs">
-      <DependentUpon>userAdminPanel.cs</DependentUpon>
+    <Compile Include="Panels\ForecastAdminPanel.Designer.cs">
+      <DependentUpon>ForecastAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\UserAdminPanel.Designer.cs">
+      <DependentUpon>UserAdminPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\ReservationAdminPanel.cs">
       <SubType>UserControl</SubType>
@@ -107,8 +113,8 @@
     <EmbeddedResource Include="Panels\CarAdminPanel.resx">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\userAdminPanel.resx">
-      <DependentUpon>userAdminPanel.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\UserAdminPanel.resx">
+      <DependentUpon>UserAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\reservationAdminPanel.resx">
       <DependentUpon>ReservationAdminPanel.cs</DependentUpon>
