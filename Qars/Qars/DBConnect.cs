@@ -445,6 +445,18 @@ namespace Qars
                 CloseConnection();
             }
         }
+        public void DeleteReservation(Reservation reservation)
+        {
+            string query = "DELETE FROM Reservation ";
+            query += string.Format("WHERE ReservationID = {0}",reservation.reservationID);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))

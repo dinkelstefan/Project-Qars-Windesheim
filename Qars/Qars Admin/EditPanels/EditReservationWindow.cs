@@ -47,31 +47,93 @@ namespace Qars_Admin.EditPanels
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-                Reservation res = new Reservation();
-                res.reservationID = this.reservation.reservationID;
-                res.startdate = startDateTextBox.Text;
-                res.enddate = endDateTextBox.Text;
-                res.confirmed = confirmedCheckBox.Checked;
-                res.kilometres = Int32.Parse(kilometersTextbox.Text);
-                res.pickupcity = cityTextBox.Text;
-                res.pickupstreetname = streetnameTextBox.Text;
-                res.pickupstreetnumber = Int32.Parse(streetnumberTextBox.Text);
-                res.pickupstreetnumbersuffix = streetnumberSuffixTextBox.Text;
-                res.paid = paidCheckBox.Checked;
-                res.comment = commentCheckBox.Text;
-                
+            try
+            {
+                Reservation res = this.getReservationFromFields();
+
                 this.connect.UpdateReservation(res);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
-            //}
-
-            
-
-            this.Close();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
+            }
         }
+
+        private void delete_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reservation res = this.getReservationFromFields();
+
+                this.connect.DeleteReservation(res);
+                MessageBox.Show(string.Format("De reserving met reserveringnummer: {0} is verwijderd.", reservation.reservationID));
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
+            }
+        }
+
+        private Reservation getReservationFromFields()
+        {
+            Reservation res = new Reservation();
+            res.reservationID = this.reservation.reservationID;
+            res.startdate = startDateTextBox.Text;
+            res.enddate = endDateTextBox.Text;
+            res.confirmed = confirmedCheckBox.Checked;
+            res.kilometres = Int32.Parse(kilometersTextbox.Text);
+            res.pickupcity = cityTextBox.Text;
+            res.pickupstreetname = streetnameTextBox.Text;
+            res.pickupstreetnumber = Int32.Parse(streetnumberTextBox.Text);
+            res.pickupstreetnumbersuffix = streetnumberSuffixTextBox.Text;
+            res.paid = paidCheckBox.Checked;
+            res.comment = commentCheckBox.Text;
+
+            return res;
+        }
+
+        private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus)
+            {
+                e.Handled = true;
+            }  else {
+                e.Handled = false;
+                MessageBox.Show("U mag hier geen getallen invullen.");
+            }
+        }
+
+        private void TextBoxNumOnly_KeyPress(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus|| e.KeyData == Keys.Back || e.KeyData == Keys.Delete)
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+                MessageBox.Show("U mag hier geen letters invullen.");
+            }
+        }
+
+        private void checkFormat_Leave(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            StringBuilder sb = new StringBuilder(textbox.Text);
+            sb.Replace("-", string.Empty);
+            try
+            {
+                sb.Insert(2, "-");
+                sb.Insert(5, "-");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            textbox.Text = sb.ToString();
+        }
+
     }
 }
