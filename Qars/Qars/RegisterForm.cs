@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,10 +13,19 @@ using System.Windows.Forms;
 
 namespace Qars
 {
+    /*
+     * Validate Input
+     * Insert Photo in database(If a photo is selected)
+     * Insert User into database
+     * Send Email
+     * Display MessageBox when succesfull
+     */
     public partial class RegisterForm : Form
     {
         string driverslicenselink = "";
+        Image driverslicensephoto;
         bool emailInvalid = false;
+
         public RegisterForm()
         {
             InitializeComponent();
@@ -31,31 +41,56 @@ namespace Qars
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 driverslicenselink = openFileDialog1.FileName;
-                DriversLicensePictureBox.ImageLocation = @driverslicenselink;
-                DriversLicensePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                SelectedPictureLabel.Visible = true;
+                FileInfo fi = new FileInfo(driverslicenselink);
+                long fileSize = fi.Length; //The size of the current file in bytes.file
+                if (fileSize > 2621440)
+                {
+                    WrongFileLabel.Visible = true;
+                    driverslicenselink = "";
+                }
+                else
+                {
+                    driverslicensephoto = Image.FromFile(driverslicenselink);
+                    DriversLicensePictureBox.Image = driverslicensephoto;
+                    DriversLicensePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    SelectedPictureLabel.Visible = true;
+
+                }
             }
         }
-
         private void CancelButton1_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
         private void RegisterButton1_Click(object sender, EventArgs e)
         {
+            bool validateResult = false;
+            bool uploadPhotoResult = false;
+            bool insertDataBaseResult = false;
+            bool emailResult = false;
+
             //Validate input and stuff
+            validateResult = ValidateInput(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
+            if (validateResult == true)
+                uploadPhotoResult = UploadDriversLicensePhoto(driverslicensephoto);
+            if (uploadPhotoResult == true)
+                insertDataBaseResult = CompleteRegistration(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
+            if (insertDataBaseResult == true)
+                emailResult = SendEmail(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
+            if (emailResult == true)
+                MessageBox.Show("U heeft zich geregistreerd en u kan nu inloggen. U ontvang z.s.m een email met daarin uw inloggegevens");
         }
-        private void ValidateInput(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
+        private bool ValidateInput(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {
             bool accountTaken = false;
+            accountTaken = false;
             List<Label> LabelList = new List<Label>();
             List<String> InputList = new List<String>();
             List<Regex> RegExList = new List<Regex>();
             int validinput = 0;
 
             // Create all regexes, insert labels and information into lists
-            Regex usernameRegEx = new Regex("^[\\Sa-zA-Z]{6,25}$");
+            Regex usernameRegEx = new Regex("^[\\Sa-zA-Z0-9]{6,25}$");
             Regex passwordRegEx = new Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,255}$");
             Regex emailRegEx = new Regex("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
             Regex phoneNumberRegEx = new Regex("^(\\s*|[0-9-+]{7,14})$");
@@ -132,55 +167,73 @@ namespace Qars
                         //check if the username is available
                         foreach (var user in userList)
                         {
+                            Console.WriteLine("CHOSEN" + firstname);
+                            Console.WriteLine("DATABA" + user.firstname);
+                            Console.WriteLine("CHOSEN" + emailaddress);
+                            Console.WriteLine("DATABA" + user.emailaddress);
                             if (user.firstname == firstname || user.emailaddress == emailaddress)
                             {
                                 accountTaken = true;
                                 break;
                             }
                         }
+
                         if (accountTaken == false)
                         {
                             if (TOSCheckBox.Checked)
                             {
                                 if (driverslicenselink != "")
                                 {
-                                    //A file was selected, driverslicenselink is the path
-                                    //upload the file!
-                                    //if(file succesfully uploaded)
-                                    //send email
+                                    //Upload file in UploadDriversLicensePhoto();
+                                    return true;
                                 }
                                 else
                                 {
-                                    //no file selected
-                                    //send email
+                                    //Do nothing, a driverlicensephoto is not required
+                                    return true;
                                 }
+
                             }
                             else
                             {
-                                //Checkbox isn't checked
+                                TOSCheckBox.ForeColor = Color.Red;
+                                TOSLabel.ForeColor = Color.Red;
+                                MessageBox.Show("U moet akkoord gaan met de algemene voorwaarden");
+                                return false;
+                                //USer didn't agree with TOS
                             }
                         }
                         else
                         {
+                            UsernameLabel.ForeColor = Color.Red;
+                            EmailLabel.ForeColor = Color.Red;
+                            MessageBox.Show("Deze gebruikersnaam/email combinatie is al in gebruik");
                             //Account is taken
+                            return false;
                         }
                     }
                     else
                     {
                         //There are no users
+                        //Exception catch
+                        return false;
                     }
                 }
                 else
                 {
                     //The emailaddress is invalid
+                    EmailLabel.ForeColor = Color.Red;
+                    MessageBox.Show("Uw emailadres klopt niet");
+                    return false;
                 }
             }
             else
             {
                 //The input doesn't match regex
+                MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood");
+                return false;
             }
         }
-
         private void TOSLabel_Click(object sender, EventArgs e)
         {
             //Open TOS
@@ -231,6 +284,83 @@ namespace Qars
             }
             return match.Groups[1].Value + domainName;
         }
+        private bool UploadDriversLicensePhoto(Image image) //Need to create this
+        {
+            if (1 == 1)
+            {
+                //Upload photo (Name: username)
+                //If(file was uploaded succesfully)
+                return true;
+                //else
+                //return false;
+            }
+        }
+        private bool SendEmail(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
+        {
+            try
+            {
+                Util.Mail mail = new Util.Mail();
+                mail.addTo(emailaddress);
+                mail.addSubject("Uw registratie op Qars");
+                mail.addBody(buildEmailBody(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text));
+                mail.sendEmail();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wij konden u op dit moment geen email versturen. Neem alstublieft contact op met het bedrijf waarvan u de auto wilt huren");
+                return false;
+            }
+            return true;
+        }
+        private bool CompleteRegistration(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
+        {
+            User newUser = new User();
+            newUser.username = username;
+            newUser.password = password;
+            newUser.emailaddress = emailaddress;
+            newUser.phonenumber = phonenumber;
+            newUser.driverslicenselink = driverslicenselink;
+            newUser.firstname = firstname;
+            newUser.lastname = lastname;
+            newUser.age = Convert.ToInt32(age);
+            newUser.postalcode = postalcode;
+            newUser.city = city;
+            newUser.streetname = streetname;
+            newUser.streetnumber = Convert.ToInt32(streetnumber);
+            newUser.streetnumbersuffix = streetnumbersuffix;
 
+            DBConnect db = new DBConnect();
+            if (db.InsertCustomer(newUser) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private string buildEmailBody(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(String.Format("Beste meneer/mevrouw {0},", lastname));
+            builder.AppendLine("\n");
+            builder.AppendLine("bedankt voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel mogelijk te verwerken.");
+            builder.AppendLine("Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging.");
+            builder.AppendLine("\n");
+            builder.AppendLine("Uw persoonlijke gegevens:");
+            builder.AppendLine("\n");
+
+            builder.AppendLine(String.Format("Voornaam:\t{0}", firstname));
+            builder.AppendLine(String.Format("Achternaam:\t{0}", lastname));
+            builder.AppendLine(String.Format("Leeftijd:\t{0}", age));
+            builder.AppendLine(String.Format("Adres:\t\t{0} {1}{2}", streetname, streetnumber, streetnumbersuffix));
+            builder.AppendLine(String.Format("Woonplaats:\t{0}", city));
+            builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
+            builder.AppendLine(String.Format("Email:\t\t{0}", emailaddress));
+            builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
+            builder.Append("\n");
+
+            return builder.ToString();
+        } //Need to create this
     }
 }

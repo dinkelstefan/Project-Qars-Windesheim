@@ -109,7 +109,7 @@ namespace Qars
 
         public void OpenDetails(int number)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, -1, this);
+            CarDetailPanel cp = new CarDetailPanel(number, 7/*USER ID FIX*/, this);
             this.Controls.Add(cp);
             cp.BringToFront();
         }

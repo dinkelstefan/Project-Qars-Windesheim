@@ -64,8 +64,8 @@
             this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.TOSCheckBox = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.TOSLabel = new System.Windows.Forms.Label();
+            this.WrongFileLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -364,6 +364,7 @@
             // TOSCheckBox
             // 
             this.TOSCheckBox.AutoSize = true;
+            this.TOSCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TOSCheckBox.Location = new System.Drawing.Point(11, 448);
             this.TOSCheckBox.Name = "TOSCheckBox";
             this.TOSCheckBox.Size = new System.Drawing.Size(127, 17);
@@ -371,34 +372,36 @@
             this.TOSCheckBox.Text = "Ik ga akkoord met de";
             this.TOSCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(341, 474);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "label2";
-            // 
             // TOSLabel
             // 
             this.TOSLabel.AutoSize = true;
             this.TOSLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TOSLabel.ForeColor = System.Drawing.Color.Blue;
-            this.TOSLabel.Location = new System.Drawing.Point(134, 449);
+            this.TOSLabel.Location = new System.Drawing.Point(131, 449);
             this.TOSLabel.Name = "TOSLabel";
             this.TOSLabel.Size = new System.Drawing.Size(120, 14);
             this.TOSLabel.TabIndex = 40;
             this.TOSLabel.Text = "algemene voorwaarden";
             this.TOSLabel.Click += new System.EventHandler(this.TOSLabel_Click);
             // 
+            // WrongFileLabel
+            // 
+            this.WrongFileLabel.AutoSize = true;
+            this.WrongFileLabel.ForeColor = System.Drawing.Color.Red;
+            this.WrongFileLabel.Location = new System.Drawing.Point(224, 154);
+            this.WrongFileLabel.Name = "WrongFileLabel";
+            this.WrongFileLabel.Size = new System.Drawing.Size(157, 39);
+            this.WrongFileLabel.TabIndex = 41;
+            this.WrongFileLabel.Text = "Uw gekozen bestand is te groot\r\nMaximale grootte: 2.5 MB\r\n\r\n";
+            this.WrongFileLabel.Visible = false;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 501);
+            this.Controls.Add(this.WrongFileLabel);
             this.Controls.Add(this.TOSLabel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.TOSCheckBox);
             this.Controls.Add(this.PhoneNumberLabel);
             this.Controls.Add(this.PhoneNumberTextBox);
@@ -479,7 +482,7 @@
         private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.CheckBox TOSCheckBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label TOSLabel;
+        private System.Windows.Forms.Label WrongFileLabel;
     }
 }

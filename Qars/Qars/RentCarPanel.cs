@@ -186,41 +186,41 @@ namespace Qars
         }
         private bool InsertIntoDatabase(int carID, int UserID, string startdate, string enddate, int kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
-            try
+            int pickupstreetnumberint = 0;
+            Reservation reservation = new Reservation();
+            if (pickupstreetnumber == "")
             {
-                int pickupstreetnumberint = 0;
-                Reservation reservation = new Reservation();
-                if (pickupstreetnumber == "")
-                {
-                    pickupstreetnumberint = 0;
-                }
-                else
-                {
-                    pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
-                }
-                reservation.carID = carID;
-                reservation.UserID = UserID;
-                reservation.startdate = startdate;
-                reservation.enddate = enddate;
-                reservation.confirmed = false;
-                reservation.kilometres = kilometres;
-                reservation.pickupcity = pickupcity;
-                reservation.pickupstreetname = pickupstreetname;
-                reservation.pickupstreetnumber = pickupstreetnumberint;
-                reservation.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
-                reservation.paid = false;
-                reservation.comment = comment;
-
-                DBConnect connection = new DBConnect();
-                connection.InsertReservation(reservation);
+                pickupstreetnumberint = 0;
             }
-            catch (Exception)
+            else
+            {
+                pickupstreetnumberint = Convert.ToInt32(pickupstreetnumber);
+            }
+            reservation.carID = carID;
+            reservation.UserID = UserID;
+            reservation.startdate = startdate;
+            reservation.enddate = enddate;
+            reservation.confirmed = false;
+            reservation.kilometres = kilometres;
+            reservation.pickupcity = pickupcity;
+            reservation.pickupstreetname = pickupstreetname;
+            reservation.pickupstreetnumber = pickupstreetnumberint;
+            reservation.pickupstreetnumbersuffix = pickupstreetnumbersuffix;
+            reservation.paid = false;
+            reservation.comment = comment;
+
+            DBConnect connection = new DBConnect();
+            if (connection.InsertReservation(reservation) == true)
+            {
+                return true;
+            }
+            else
             {
                 MessageBox.Show("Wij kunnen uw bestelling momenteel niet verwerken. probeer het later opnieuw");
                 return false;
             }
-            return true;
         }
+
         private bool SendEmail(int carID, string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
             try
@@ -485,6 +485,18 @@ namespace Qars
         }
         private void rentCarClick(object sender, EventArgs e)
         {
+            try
+            {
+                if (carHasReservation)
+                {
+                    getReservations();
+                }
+            }
+            catch (Exception) //All reservations have dissapeared
+            {
+                carHasReservation = false;
+            }
+
             bool validateResult = false;
             bool databaseResult = false;
             bool emailResult = false;
@@ -583,8 +595,10 @@ namespace Qars
                 phonenumberTextbox.Enabled = false;
                 return true;
             }
-            return false;
-
+            else
+            {
+                return false;
+            }
         }
         private bool IsValidDate(DateTime startdate, DateTime enddate, DateTime[] bolddates, bool carHasReservation)
         {
