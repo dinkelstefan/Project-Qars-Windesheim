@@ -109,7 +109,7 @@ namespace Qars
 
         public void OpenDetails(int number)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, this);
+            CarDetailPanel cp = new CarDetailPanel(number, -1, this);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
@@ -176,7 +176,7 @@ namespace Qars
             updateTileView();
         }
 
-        private void LogInButton_Click(object sender, EventArgs e)
+        private void LogInOrRegisterButton_Click(object sender, EventArgs e)
         {
             LogInForm loginform = new LogInForm(this);
             loginform.Show();

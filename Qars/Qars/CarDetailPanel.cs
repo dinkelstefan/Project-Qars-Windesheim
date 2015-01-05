@@ -17,10 +17,10 @@ namespace Qars
         private PictureBox mainpicture;
         private VisualDemo qarsApplication;
         private string availableat;
-        public CarDetailPanel(int carNumber, /*int UserID,*/VisualDemo qarsApp)
+        public CarDetailPanel(int carNumber, int UserID, VisualDemo qarsApp)
         {   //properties of the panel
 
-            /*this.UserID = UserID;*/
+            this.UserID = UserID;
             this.currentCarNumber = carNumber;
             this.Height = 568;
             this.Width = 1044;
@@ -542,8 +542,8 @@ namespace Qars
 
         public void hireButtonClick(object sender, EventArgs e)
         {
-            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, /* UserID FIX FIX FIX */ 7, this.qarsApplication);
-            bool result = rentcarpanel.checkLogin(/* userID FIX FIX */ 7);
+            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, UserID, this.qarsApplication);
+            bool result = rentcarpanel.checkLogin(UserID);
             if (result == true)
             {
                 this.Controls.Add(rentcarpanel);

@@ -583,31 +583,8 @@ namespace Qars
                 phonenumberTextbox.Enabled = false;
                 return true;
             }
-            else
-            {
-                LogInOrRegisterForm logInOrRegisterForm = new LogInOrRegisterForm();
-                logInOrRegisterForm.ShowDialog();
-                if (logInOrRegisterForm.DialogResult == DialogResult.Yes) //Login
-                {
-                    logInOrRegisterForm.Dispose();
+            return false;
 
-                    /*LogInForm loginform = new LogInForm();
-                     * loginform.Show();
-                     */
-                }
-                else if (logInOrRegisterForm.DialogResult == DialogResult.Cancel) //Cancel
-                    logInOrRegisterForm.Dispose();
-                else if (logInOrRegisterForm.DialogResult == DialogResult.No) //Register
-                {
-                    logInOrRegisterForm.Dispose();
-
-                    /*RegisterForm registerForm = new RegisterForm();
-                     * registerForm.Show();
-                   */
-                }
-                this.Dispose();
-                return false;
-            }
         }
         private bool IsValidDate(DateTime startdate, DateTime enddate, DateTime[] bolddates, bool carHasReservation)
         {

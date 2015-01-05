@@ -57,8 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.LogInButton = new System.Windows.Forms.Button();
+            this.LogInOrRegisterButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -86,7 +85,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
-            this.panel1.Controls.Add(this.LogInButton);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
@@ -100,7 +98,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(1090, 1);
+            this.label14.Location = new System.Drawing.Point(1120, -2);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(72, 73);
             this.label14.TabIndex = 2;
@@ -250,6 +248,7 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.LogInOrRegisterButton);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.label17);
@@ -364,27 +363,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
-            // printDialog1
+            // LogInOrRegisterButton
             // 
-            this.printDialog1.UseEXDialog = true;
-            // 
-            // LogInButton
-            // 
-            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogInButton.Location = new System.Drawing.Point(1154, -2);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(111, 73);
-            this.LogInButton.TabIndex = 15;
-            this.LogInButton.Text = "Log In/Registreer";
-            this.LogInButton.UseVisualStyleBackColor = true;
-            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            this.LogInOrRegisterButton.Location = new System.Drawing.Point(-1, 415);
+            this.LogInOrRegisterButton.Name = "LogInOrRegisterButton";
+            this.LogInOrRegisterButton.Size = new System.Drawing.Size(222, 22);
+            this.LogInOrRegisterButton.TabIndex = 15;
+            this.LogInOrRegisterButton.Text = "Log In/Registreer";
+            this.LogInOrRegisterButton.UseVisualStyleBackColor = true;
+            this.LogInOrRegisterButton.Click += new System.EventHandler(this.LogInOrRegisterButton_Click);
             // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1265, 681);
+            this.ClientSize = new System.Drawing.Size(1064, 567);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.TileView);
             this.Controls.Add(this.label3);
@@ -443,8 +437,7 @@
         private System.Windows.Forms.Panel TileView;
         private Views.searchWizard searchWizard;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button LogInButton;
-        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button LogInOrRegisterButton;
 
     }
 }
