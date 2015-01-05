@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qars;
+using Qars_Admin.EditPanels;
 
 namespace Qars_Admin {
     public partial class CarAdminPanel : UserControl {
 
-        DBConnect databaseConnection;
+        private DBConnect databaseConnection;
+        private List<Establishment> establishmentList;
+        private List<Car> carList;
+        private List<SimpleCar> simpleCarList;
 
         public CarAdminPanel(DBConnect dbConnect) {
             InitializeComponent();
@@ -22,16 +26,16 @@ namespace Qars_Admin {
         }
 
         public void RefreshList() {
-            List<Establishment> estList = databaseConnection.SelectEstablishment();
-            List<Car> carList = databaseConnection.SelectCar();
-            List<SimpleCar> simpleCarList = new List<SimpleCar>();
+            this.establishmentList = databaseConnection.SelectEstablishment();
+            this.carList = databaseConnection.SelectCar();
+            this.simpleCarList = new List<SimpleCar>();
 
 
             SimpleCar simpleCar;
             foreach (Car car in carList) {
                 string establishment = "";
 
-                foreach (Establishment est in estList) {
+                foreach (Establishment est in this.establishmentList) {
                     if (car.establishmentID == est.establishmentID) {
                         establishment = est.name;
                         break;
@@ -46,10 +50,22 @@ namespace Qars_Admin {
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int rowIndex = this.dataGridView1.CurrentCell.RowIndex;
+            List<SimpleCar> carList = this.dataGridView1.DataSource as List<SimpleCar>;
+            int simpleCarID = carList[rowIndex].AutoID;
 
-            SimpleCar selectedCar = (SimpleCar)this.dataGridView1.CurrentRow.DataBoundItem;
+            var query = from car in this.carList
+                        where car.carID == simpleCarID
+                        select car;
 
-            Console.WriteLine(selectedCar.Kilometers);
+            Car selectedCar = query.First();
+
+            //Open window for editing of the reservation
+            EditCarWindow window = new EditCarWindow(selectedCar, this.establishmentList, databaseConnection);
+            window.ShowDialog();
+
+            this.RefreshList();
+            dataGridView1.Rows[rowIndex].Selected = true;
         }
     }
 }
