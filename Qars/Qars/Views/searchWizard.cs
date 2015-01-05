@@ -28,7 +28,7 @@ namespace Qars.Views
         private bool[] answerExtra = new bool[] { false, false, false, false, false };
         private string[] extras = new string[] { "Bluetooth", "Cruise Control", "Navigatie", "Radio", "Airco" };
 
-
+        private List<Car> allCars = new List<Car>();
         private List<Car> copyList = new List<Car>();
         public  List<Car> filteredList = new List<Car>();
 
@@ -36,10 +36,11 @@ namespace Qars.Views
         {
             this.qarsApplication = qarsApp;
             InitializeComponent();
+            allCars = this.qarsApplication.carList;
         }
         private void search()
         {
-            copyList = this.qarsApplication.carList;
+            copyList = allCars;
 
             //Skip when answerType is empty
             if (answerType != null)
@@ -265,7 +266,6 @@ namespace Qars.Views
         {
             search();
             this.qarsApplication.updateTileView();
-            this.Visible = false;
         }
         private List<Car> addCarToList(List<Car> list, Car car)
         {
@@ -289,11 +289,13 @@ namespace Qars.Views
         {
             this.searchWizardTabControl.SelectedIndex = this.searchWizardTabControl.SelectedIndex + 1;
             search();
+            this.qarsApplication.updateTileView();
         }
         private void previousTabPage(object sender, EventArgs e)
         {
             this.searchWizardTabControl.SelectedIndex = this.searchWizardTabControl.SelectedIndex - 1;
             search();
+            this.qarsApplication.updateTileView();
         }
         private void setLabelCountNumerOfCarsFound()
         {
