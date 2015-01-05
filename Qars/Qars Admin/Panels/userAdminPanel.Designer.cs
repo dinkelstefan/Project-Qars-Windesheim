@@ -48,19 +48,19 @@
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.ReadOnly = true;
             this.userDataGridView.RowHeadersVisible = false;
-            this.userDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.userDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.userDataGridView.RowTemplate.Height = 28;
             this.userDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userDataGridView.Size = new System.Drawing.Size(1152, 846);
             this.userDataGridView.TabIndex = 0;
             this.userDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userDataGridView_CellClick);
             // 
-            // userAdminPanel
+            // UserAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.userDataGridView);
-            this.Name = "userAdminPanel";
+            this.Name = "UserAdminPanel";
             this.Size = new System.Drawing.Size(1152, 846);
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
             this.ResumeLayout(false);

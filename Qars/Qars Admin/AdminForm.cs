@@ -28,6 +28,7 @@ namespace Qars_Admin
         private CarAdminPanel carAdminPanel;
         private ReservationAdminPanel reservationAdminPanel;
         private UserAdminPanel userAdminPanel;
+        private ForecastAdminPanel forecastAdminPanel;
 
         private System.Drawing.Point adminPanelPosition = new System.Drawing.Point(225, 8);
         private int yCoordinate = 50;
@@ -58,6 +59,13 @@ namespace Qars_Admin
             this.userAdminPanel.Size = new System.Drawing.Size(768, 509);
             this.userAdminPanel.TabIndex = 6;
             this.Controls.Add(this.userAdminPanel);
+
+            //make a forecast adminpanel
+            this.forecastAdminPanel = new ForecastAdminPanel(this.databaseConnection);
+            this.forecastAdminPanel.Location = this.adminPanelPosition;
+            this.forecastAdminPanel.Size = new System.Drawing.Size(768, 509);
+            this.forecastAdminPanel.TabIndex = 6;
+            this.Controls.Add(this.forecastAdminPanel);
 
             InitializeComponent();
         }
@@ -142,7 +150,7 @@ namespace Qars_Admin
                     Console.WriteLine("Nog niet aangemaakt");
                     break;
                 case "forecastWeergeven":
-                    Console.WriteLine("Nog niet aangemaakt");
+                    forecastAdminPanel.BringToFront();
                     break;
             }
 

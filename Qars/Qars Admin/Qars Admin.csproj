@@ -99,6 +99,7 @@
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="SimpleClasses\SimpleCar.cs" />
+    <Compile Include="SimpleClasses\simpleForecast.cs" />
     <Compile Include="SimpleClasses\simpleUser.cs" />
     <Compile Include="SimpleClasses\simpleReservation.cs" />
     <EmbeddedResource Include="AdminForm.resx">
@@ -112,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\CarAdminPanel.resx">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ForecastAdminPanel.resx">
+      <DependentUpon>ForecastAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\UserAdminPanel.resx">
       <DependentUpon>UserAdminPanel.cs</DependentUpon>
