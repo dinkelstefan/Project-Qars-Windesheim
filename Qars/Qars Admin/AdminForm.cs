@@ -27,6 +27,7 @@ namespace Qars_Admin
 
         private CarAdminPanel carAdminPanel;
         private ReservationAdminPanel reservationAdminPanel;
+        private userAdminPanel userAdminPanel;
 
         private System.Drawing.Point adminPanelPosition = new System.Drawing.Point(225, 8);
         private int yCoordinate = 50;
@@ -51,6 +52,12 @@ namespace Qars_Admin
             this.reservationAdminPanel.TabIndex = 6;
             this.Controls.Add(this.reservationAdminPanel);
 
+            //make a customer adminPanel
+            this.userAdminPanel = new userAdminPanel(this.databaseConnection);
+            this.userAdminPanel.Location = this.adminPanelPosition;
+            this.userAdminPanel.Size = new System.Drawing.Size(768, 509);
+            this.userAdminPanel.TabIndex = 6;
+            this.Controls.Add(this.userAdminPanel);
 
             InitializeComponent();
         }
@@ -126,7 +133,7 @@ namespace Qars_Admin
                     reservationAdminPanel.BringToFront();
                     break;
                 case "klantenBeheren":
-                    Console.WriteLine("Nog niet aangemaakt");
+                    userAdminPanel.BringToFront();
                     break;
                 case "algemeneVoorwaardenBeheren":
                     Console.WriteLine("Nog niet aangemaakt");
