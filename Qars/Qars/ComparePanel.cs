@@ -35,7 +35,7 @@ namespace Qars
             sideMargin = 100;
             topMargin = 27;
             Height = 570;
-            Width = 1045;
+            Width = 1016;
             columnWidth = (Width - sideMargin) / list.Count;
             pictureHeight = 200;
             pictureMargin = 1;
@@ -45,7 +45,7 @@ namespace Qars
             discounts = dList;
 
             this.Top = 70;
-            this.Left = 221;
+            this.Left = 250;
 
             pictures = new List<PictureBox>();
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
