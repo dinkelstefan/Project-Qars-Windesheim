@@ -32,17 +32,13 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LogInOrRegisterButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.WelcomeInfoLabel = new System.Windows.Forms.Label();
+            this.WelcomeLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,7 +53,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.LogInOrRegisterButton = new System.Windows.Forms.Button();
+            this.ReservationPeriodEndLabel = new System.Windows.Forms.Label();
+            this.HiredCarLabel = new System.Windows.Forms.Label();
+            this.EndDateInfo = new System.Windows.Forms.Label();
+            this.ReservationLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,6 +92,16 @@
             this.panel1.Size = new System.Drawing.Size(1265, 71);
             this.panel1.TabIndex = 2;
             // 
+            // LogInOrRegisterButton
+            // 
+            this.LogInOrRegisterButton.Location = new System.Drawing.Point(881, 54);
+            this.LogInOrRegisterButton.Name = "LogInOrRegisterButton";
+            this.LogInOrRegisterButton.Size = new System.Drawing.Size(116, 63);
+            this.LogInOrRegisterButton.TabIndex = 15;
+            this.LogInOrRegisterButton.Text = "Log In/Registreer";
+            this.LogInOrRegisterButton.UseVisualStyleBackColor = true;
+            this.LogInOrRegisterButton.Click += new System.EventHandler(this.LogInOrRegisterButton_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -127,102 +136,45 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Quintor";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(705, 153);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(181, 19);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Contacturen: 09:00 - 18:00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(705, 65);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(188, 38);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Adres:  Zwartewateralee 25\r\n            8015TE Zwolle\r\n";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(705, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 19);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Telnr:    038-781-89-26";
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.label10);
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Controls.Add(this.label8);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.EndDateInfo);
+            this.panel8.Controls.Add(this.HiredCarLabel);
+            this.panel8.Controls.Add(this.ReservationPeriodEndLabel);
+            this.panel8.Controls.Add(this.ReservationLabel);
+            this.panel8.Controls.Add(this.LogInOrRegisterButton);
+            this.panel8.Controls.Add(this.WelcomeInfoLabel);
+            this.panel8.Controls.Add(this.WelcomeLabel);
             this.panel8.Location = new System.Drawing.Point(-1, -1);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1025, 182);
             this.panel8.TabIndex = 10;
             // 
-            // label11
+            // WelcomeInfoLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(185, 97);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(458, 57);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r\ntemporincididunt" +
-    " ut labore et doloremagna aliqua. Ut enim ad minim,\r\nquis nostrud exercitation u" +
-    "llamco laboris nisi ut aliquip ex ea.";
+            this.WelcomeInfoLabel.AutoSize = true;
+            this.WelcomeInfoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WelcomeInfoLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WelcomeInfoLabel.ForeColor = System.Drawing.Color.White;
+            this.WelcomeInfoLabel.Location = new System.Drawing.Point(28, 86);
+            this.WelcomeInfoLabel.Name = "WelcomeInfoLabel";
+            this.WelcomeInfoLabel.Size = new System.Drawing.Size(351, 57);
+            this.WelcomeInfoLabel.TabIndex = 6;
+            this.WelcomeInfoLabel.Text = "U maakt momenteel gebruik van de Qars applicatie! \r\nOm optimaal gebruik te maken " +
+    "van deze applicatie \r\nkunt u zich registreren en inloggen";
             // 
-            // label8
+            // WelcomeLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(705, 114);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(186, 19);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "E-mail: info.zwolle@qars.nl";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(175, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(210, 82);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Zwolle";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.RosyBrown;
-            this.panel9.Location = new System.Drawing.Point(25, 22);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(150, 150);
-            this.panel9.TabIndex = 0;
+            this.WelcomeLabel.AutoSize = true;
+            this.WelcomeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WelcomeLabel.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WelcomeLabel.ForeColor = System.Drawing.Color.White;
+            this.WelcomeLabel.Location = new System.Drawing.Point(18, 4);
+            this.WelcomeLabel.Name = "WelcomeLabel";
+            this.WelcomeLabel.Size = new System.Drawing.Size(280, 82);
+            this.WelcomeLabel.TabIndex = 1;
+            this.WelcomeLabel.Text = "Welkom!";
             // 
             // panel2
             // 
@@ -248,7 +200,6 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.LogInOrRegisterButton);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.label17);
@@ -355,7 +306,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(1191, 648);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 20);
             this.button2.TabIndex = 14;
@@ -363,15 +314,55 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
-            // LogInOrRegisterButton
+            // ReservationPeriodEndLabel
             // 
-            this.LogInOrRegisterButton.Location = new System.Drawing.Point(-1, 415);
-            this.LogInOrRegisterButton.Name = "LogInOrRegisterButton";
-            this.LogInOrRegisterButton.Size = new System.Drawing.Size(222, 22);
-            this.LogInOrRegisterButton.TabIndex = 15;
-            this.LogInOrRegisterButton.Text = "Log In/Registreer";
-            this.LogInOrRegisterButton.UseVisualStyleBackColor = true;
-            this.LogInOrRegisterButton.Click += new System.EventHandler(this.LogInOrRegisterButton_Click);
+            this.ReservationPeriodEndLabel.AutoSize = true;
+            this.ReservationPeriodEndLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ReservationPeriodEndLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReservationPeriodEndLabel.ForeColor = System.Drawing.Color.White;
+            this.ReservationPeriodEndLabel.Location = new System.Drawing.Point(526, 53);
+            this.ReservationPeriodEndLabel.Name = "ReservationPeriodEndLabel";
+            this.ReservationPeriodEndLabel.Size = new System.Drawing.Size(196, 19);
+            this.ReservationPeriodEndLabel.TabIndex = 17;
+            this.ReservationPeriodEndLabel.Text = "Deze huurperiode eindigt op:";
+            this.ReservationPeriodEndLabel.Visible = false;
+            // 
+            // HiredCarLabel
+            // 
+            this.HiredCarLabel.AutoSize = true;
+            this.HiredCarLabel.BackColor = System.Drawing.Color.Transparent;
+            this.HiredCarLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HiredCarLabel.ForeColor = System.Drawing.Color.White;
+            this.HiredCarLabel.Location = new System.Drawing.Point(731, 28);
+            this.HiredCarLabel.Name = "HiredCarLabel";
+            this.HiredCarLabel.Size = new System.Drawing.Size(0, 19);
+            this.HiredCarLabel.TabIndex = 18;
+            this.HiredCarLabel.Visible = false;
+            // 
+            // EndDateInfo
+            // 
+            this.EndDateInfo.AutoSize = true;
+            this.EndDateInfo.BackColor = System.Drawing.Color.Transparent;
+            this.EndDateInfo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndDateInfo.ForeColor = System.Drawing.Color.White;
+            this.EndDateInfo.Location = new System.Drawing.Point(722, 59);
+            this.EndDateInfo.Name = "EndDateInfo";
+            this.EndDateInfo.Size = new System.Drawing.Size(0, 19);
+            this.EndDateInfo.TabIndex = 19;
+            this.EndDateInfo.Visible = false;
+            // 
+            // ReservationLabel
+            // 
+            this.ReservationLabel.AutoSize = true;
+            this.ReservationLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ReservationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReservationLabel.ForeColor = System.Drawing.Color.White;
+            this.ReservationLabel.Location = new System.Drawing.Point(526, 28);
+            this.ReservationLabel.Name = "ReservationLabel";
+            this.ReservationLabel.Size = new System.Drawing.Size(205, 19);
+            this.ReservationLabel.TabIndex = 16;
+            this.ReservationLabel.Text = "U huurt momenteel deze auto:";
+            this.ReservationLabel.Visible = false;
             // 
             // VisualDemo
             // 
@@ -414,14 +405,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label WelcomeInfoLabel;
+        private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
@@ -438,6 +424,10 @@
         private Views.searchWizard searchWizard;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button LogInOrRegisterButton;
+        private System.Windows.Forms.Label ReservationPeriodEndLabel;
+        private System.Windows.Forms.Label HiredCarLabel;
+        private System.Windows.Forms.Label EndDateInfo;
+        private System.Windows.Forms.Label ReservationLabel;
 
     }
 }

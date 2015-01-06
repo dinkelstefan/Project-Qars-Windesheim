@@ -66,6 +66,7 @@
     <Compile Include="LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -342,9 +342,7 @@ namespace Qars
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(String.Format("Beste meneer/mevrouw {0},", lastname));
             builder.AppendLine("\n");
-            builder.AppendLine("bedankt voor uw bestelling bij Qars. Wij gaan proberen om uw verzoek zo snel mogelijk te verwerken.");
-            builder.AppendLine("Zodra uw verzoek is goed gekeurd ontvangt u een bevestiging.");
-            builder.AppendLine("\n");
+            builder.AppendLine("Bedankt voor uw registratie in het Qars systeem. Dit zijn uw ingevulde gegevens:");
             builder.AppendLine("Uw persoonlijke gegevens:");
             builder.AppendLine("\n");
 
@@ -356,9 +354,19 @@ namespace Qars
             builder.AppendLine(String.Format("Postcode:\t{0}", postalcode));
             builder.AppendLine(String.Format("Email:\t\t{0}", emailaddress));
             builder.AppendLine(String.Format("Telefoon:\t{0}", phonenumber));
-            builder.Append("\n");
+            builder.AppendLine("\n");
+            builder.AppendLine("Uw inloggegevens zijn:");
+            builder.AppendLine("\n");
+            builder.AppendLine(string.Format("Gebruikersnaam:\t{0}", username));
+            builder.AppendLine(string.Format("Wachtwoord:\t{0}", password));
+            builder.AppendLine("\n");
+            builder.AppendLine("Uw gegevens zijn beveiligd opgeslagen in onze databank. Wanneer u problemen ondervindt met de Qars applicatie, neem dan alstublieft contact op met de beheerders.");
+            builder.AppendLine("\n");
+            builder.AppendLine("Met vriendelijke groeten,");
+            builder.AppendLine("\n Qars");
+
 
             return builder.ToString();
-        } //Need to create this
+        }
     }
 }

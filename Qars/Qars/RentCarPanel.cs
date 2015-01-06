@@ -35,8 +35,8 @@ namespace Qars
         int amountEndDateOpened = 0;
         public RentCarPanel(int carID, int UserID, VisualDemo qarsApp)
         {
-            this.UserID = UserID;
             this.qarsApplication = qarsApp;
+            this.UserID = qarsApp.userID;
             InitializeComponent();
             this.carID = carID;
             stringList = createSpecInfo(qarsApplication.carList, carID);
@@ -569,10 +569,11 @@ namespace Qars
                 }
             }
         }
-        public bool checkLogin(int UserID)//Called in CarDetailPanel
+        public void checkLogin(int UserID)//Called in CarDetailPanel
         {
-            if (UserID != -1) //If User is logged in
+            if (UserID != 0) //If User is logged in
             {
+
                 firstnameTextbox.Text = qarsApplication.customerList[UserID].firstname;
                 firstnameTextbox.Enabled = false;
                 lastnameTextbox.Text = qarsApplication.customerList[UserID].lastname;
@@ -593,11 +594,6 @@ namespace Qars
                 emailTextbox.Enabled = false;
                 phonenumberTextbox.Text = qarsApplication.customerList[UserID].phonenumber;
                 phonenumberTextbox.Enabled = false;
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
         private bool IsValidDate(DateTime startdate, DateTime enddate, DateTime[] bolddates, bool carHasReservation)

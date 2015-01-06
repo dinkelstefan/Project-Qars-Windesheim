@@ -112,23 +112,49 @@ namespace Qars
             return incorrectUser;
         }
 
-        public bool LogInUser(string username, string password)
+        public int LogInUser(string username, string password)
         {
-            string salt = returnSalt();
-            string passwordnotHashed = password;
+            int userID = 0;
+            string usernameQuery = "";
+            string passwordQuery = "";
+            string query = String.Format("SELECT UserID, Username, Password FROM User WHERE Username = '{0}'", username);
 
-            string hashPassword = GetSHA1HashData(salt + passwordnotHashed);
-            List<User> userList = this.SelectUsers();
-            foreach (var user in userList)
+            if (this.OpenConnection() == true)
             {
-                if (username == user.username && user.password == hashPassword)
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
                 {
-                    //log in == correct
-                    return true;
+                    userID = SafeGetInt(dataReader, 0);
+                    usernameQuery = SafeGetString(dataReader, 1);
+                    passwordQuery = SafeGetString(dataReader, 2);
                 }
+                dataReader.Close();
+                this.CloseConnection();
 
+                if (username == usernameQuery)
+                {
+                    if (PasswordHash.ValidatePassword(password, passwordQuery))
+                    {
+                        //log in == correct
+                        return userID;
+                    }
+                    else
+                    {
+                        return 0;
+                        //wrong password
+                    }
+                }
+                else
+                {
+                    return 0;
+                    //wrong username
+                }
             }
-            return false;
+            MessageBox.Show("Er zijn problemen met de server. Neem alstublieft contact op met een beheerder");
+            return 0;
+            //Can't open a connection to the database
+
         }
         public List<Car> SelectCar()
         {
@@ -448,18 +474,15 @@ namespace Qars
                     UserID++;
                     CloseConnection();
                 }
-                string salt = returnSalt();
-                string passwordnotHashed = password;
-
-                string hashPassword = GetSHA1HashData(salt + passwordnotHashed);
-                string query2 = "INSERT INTO `User` (`UserID`,`Accountlevel`,`Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @accountlevel,@username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink)";
+                string salt = createHash(customer.password);
+                string query2 = "INSERT INTO `User` (`UserID`,`Accountlevel`,`Username`, `Password`,`Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @accountlevel,@username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink)";
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query2, connection);
                     cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(UserID));
                     cmd.Parameters.AddWithValue("@accountlevel", 1); //Normal account level
                     cmd.Parameters.AddWithValue("@username", SafeInsertString(customer.username));
-                    cmd.Parameters.AddWithValue("@password", SafeInsertString(hashPassword));
+                    cmd.Parameters.AddWithValue("@password", SafeInsertString(salt));
                     cmd.Parameters.AddWithValue("@firstname", SafeInsertString(customer.firstname));
                     cmd.Parameters.AddWithValue("@lastname", SafeInsertString(customer.lastname));
                     cmd.Parameters.AddWithValue("@age", SafeInsertInt(customer.age));
@@ -552,21 +575,9 @@ namespace Qars
             else
                 return -1;
         }
-        public string GetSHA1HashData(string data)
+        public string createHash(string password)
         {
-            SHA1 sha1 = SHA1.Create();
-            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
-            StringBuilder returnValue = new StringBuilder();
-
-            for (int i = 0; i < hashData.Length; i++)
-            {
-                returnValue.Append(hashData[i].ToString());
-            }
-            return returnValue.ToString();
-        }
-        public string returnSalt()
-        {
-            return "quintorqars";
+            return PasswordHash.CreateHash(password);
         }
         private bool CompareStrings(string string1, string string2)// method to compare strings
         {

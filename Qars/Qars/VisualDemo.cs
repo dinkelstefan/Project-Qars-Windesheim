@@ -16,6 +16,8 @@ namespace Qars
 {
     public partial class VisualDemo : Form
     {
+        public int userID { get; set; }
+
         public int imageWidth = 160;
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
@@ -34,7 +36,7 @@ namespace Qars
 
         public VisualDemo()
         {
-
+            this.userID = 0;
             this.searchWizard = new Qars.Views.searchWizard(this);
             // 
             // searchWizard
@@ -45,8 +47,6 @@ namespace Qars
             this.searchWizard.TabIndex = 11;
             this.searchWizard.Visible = false;
             this.Controls.Add(this.searchWizard);
-
-
 
             InitializeComponent();
             DoubleBuffered = true;
@@ -64,8 +64,49 @@ namespace Qars
 
             this.Controls.Add(hp);
             hp.BringToFront();
-        }
+            ChangeAccountDetails(userID);
 
+        }
+        private void ChangeAccountDetails(int UserID)
+        {
+            if (userID != 0)
+            {
+                int hiredcarID = -1;
+                string enddate = "";
+
+                foreach (var reservation in reservationList)
+                {
+                    if (reservation.UserID == UserID)
+                    {
+                        if (reservation.confirmed == true)
+                        {
+                            EndDateInfo.Text = reservation.enddate;
+                            ReservationPeriodEndLabel.Visible = true;
+                            hiredcarID = reservation.carID;
+                            enddate = reservation.enddate;
+                            break;
+                        }
+                    }
+                }
+                if (hiredcarID != -1 && enddate != "")
+                {
+                    foreach (var car in carList)
+                    {
+                        if (car.carID == hiredcarID)
+                        {
+                            HiredCarLabel.Text = car.brand + " " + car.model;
+                            HiredCarLabel.Visible = true;
+                            ReservationLabel.Visible = true;
+
+                            break;
+                        }
+                    }
+                }
+                WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
+                WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
+            }
+        }
+        //backoffice/franchise      
 
         public void AddCompare(int number)
         {
@@ -109,7 +150,7 @@ namespace Qars
 
         public void OpenDetails(int number)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, 7/*USER ID FIX*/, this);
+            CarDetailPanel cp = new CarDetailPanel(number, userID, this);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
@@ -178,8 +219,15 @@ namespace Qars
 
         private void LogInOrRegisterButton_Click(object sender, EventArgs e)
         {
-            LogInForm loginform = new LogInForm(this);
-            loginform.Show();
+            Console.WriteLine(userID);
+            LogInForm loginform = new LogInForm(this, userID);
+            loginform.ShowDialog();
+            userID = loginform.returnUserID();
+            Console.WriteLine(userID);
+            ChangeAccountDetails(userID);
+
+
+
         }
     }
 }

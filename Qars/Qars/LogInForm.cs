@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,23 +13,48 @@ namespace Qars
 {
     public partial class LogInForm : Form
     {
+        public int userID { get; set; }
         public VisualDemo qarsApplication { get; set; }
-        public LogInForm(VisualDemo qarsapp)
+        public LogInForm(VisualDemo qarsapp, int UserID)
         {
             this.qarsApplication = qarsapp;
+            this.userID = userID;
             InitializeComponent();
         }
 
         private void LoggingInButton_Click(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
-            bool logInResult = db.LogInUser(UsernameTextBox.Text, PasswordTextBox.Text); //validate input
+            bool validusername = false;
+            bool validpassword = false;
+            Regex usernameRegex = new Regex("^[\\Sa-zA-Z0-9]{6,25}$");
+            Regex passwordRegex = new Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,255}$");
 
-            if (logInResult == true)
+            if (usernameRegex.IsMatch(UsernameTextBox.Text))
             {
-                this.Dispose();
-                MessageBox.Show("Gelukt");
-                //Return to the form and let the user be logged in, assign the new user ID and stuff
+                validusername = true;
+            }
+            if (passwordRegex.IsMatch(PasswordTextBox.Text))
+            {
+                validpassword = true;
+            }
+
+            if (validusername == true && validpassword == true)
+            {
+                DBConnect db = new DBConnect();
+                int logInResult = db.LogInUser(UsernameTextBox.Text, PasswordTextBox.Text);
+
+                if (logInResult != -1)
+                {
+                    userID = logInResult;
+                    this.Dispose();
+                    qarsApplication.userID = logInResult;//Return to the form and let the user be logged in, assign the new user ID and stuff
+                }
+                else
+                {
+                    LogInFailureLabel.Visible = true;
+                    UsernameLabel.ForeColor = Color.Red;
+                    passwordLabel2.ForeColor = Color.Red;
+                }
             }
             else
             {
@@ -42,12 +68,15 @@ namespace Qars
         {
             this.Dispose();
             RegisterForm registerform = new RegisterForm();
-            registerform.Show();
+            registerform.ShowDialog();
         }
-
         private void CancelButton2_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+        public int returnUserID()
+        {
+            return userID;
         }
     }
 }

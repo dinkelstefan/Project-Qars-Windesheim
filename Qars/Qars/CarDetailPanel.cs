@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    class CarDetailPanel : Panel
+    public class CarDetailPanel : Panel
     {
         public int UserID { get; set; }
         private List<PictureBox> pbox = new List<PictureBox>();
@@ -20,7 +20,6 @@ namespace Qars
         public CarDetailPanel(int carNumber, int UserID, VisualDemo qarsApp)
         {   //properties of the panel
 
-            this.UserID = UserID;
             this.currentCarNumber = carNumber;
             this.Height = 568;
             this.Width = 1044;
@@ -30,6 +29,7 @@ namespace Qars
             this.BackColor = Color.White;
 
             this.qarsApplication = qarsApp;
+            this.UserID = qarsApp.userID;
 
             //Look up where the Car is available
             foreach (var company in this.qarsApplication.EstablishmentList)
@@ -85,16 +85,14 @@ namespace Qars
                     {
                         if (rep.carID == carNumber && rep.repaired == false)
                         {
-                            /*if(qarsApplication.customerList[UserID].rank = beheerder)
+                            if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
                             {
-                             hire.text = "Reparatie";
-                             }
-                             else
-                             {
-                             hire.text= "Niet beschikbaar";
-                             }
-                             * */
-                            hire.Text = "Niet beschikbaar";
+                                hire.Text = "Reparatie";
+                            }
+                            else
+                            {
+                                hire.Text = "Niet beschikbaar";
+                            }
                             hire.BackColor = Color.Red;
                             hire.Enabled = false;
                         }
@@ -543,18 +541,13 @@ namespace Qars
         public void hireButtonClick(object sender, EventArgs e)
         {
             RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, UserID, this.qarsApplication);
-            bool result = rentcarpanel.checkLogin(UserID);
-            if (result == true)
-            {
-                this.Controls.Add(rentcarpanel);
-                rentcarpanel.BringToFront();
-                rentcarpanel.Show();
-            }
-            else
-            {
-                rentcarpanel.Hide();
-            }
+            rentcarpanel.checkLogin(UserID);
+            this.Controls.Add(rentcarpanel);
+            rentcarpanel.BringToFront();
+            rentcarpanel.Show();
         }
+
+
 
         public Label createLabel(string text, int top, int left, int width, int height, int fontsize, FontStyle style)
         {
