@@ -71,6 +71,9 @@ namespace Qars
         {
             if (userID != 0)
             {
+                LogInOrRegisterButton.Visible = false;
+                LogOutButton.Visible = true;
+                LogOutButton.Enabled = true;
                 int hiredcarID = -1;
                 string enddate = "";
 
@@ -87,23 +90,36 @@ namespace Qars
                             break;
                         }
                     }
-                }
-                if (hiredcarID != -1 && enddate != "")
-                {
-                    foreach (var car in carList)
-                    {
-                        if (car.carID == hiredcarID)
-                        {
-                            HiredCarLabel.Text = car.brand + " " + car.model;
-                            HiredCarLabel.Visible = true;
-                            ReservationLabel.Visible = true;
 
-                            break;
+                    if (hiredcarID != -1 && enddate != "")
+                    {
+                        foreach (var car in carList)
+                        {
+                            if (car.carID == hiredcarID)
+                            {
+                                HiredCarLabel.Text = car.brand + " " + car.model;
+                                HiredCarLabel.Visible = true;
+                                ReservationLabel.Visible = true;
+
+                                break;
+                            }
                         }
                     }
+                    WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
+                    WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
                 }
-                WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
-                WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
+            }
+            else
+            {
+                WelcomeLabel.Text = "Welkom!";
+                WelcomeLabel.Visible = true;
+                WelcomeInfoLabel.Text = "U maakt momenteel gebruik van de Qars applicatie! \r\nOm optimaal gebruik te maken " +
+    "van deze applicatie \r\nkunt u zich registreren en inloggen";
+                WelcomeInfoLabel.Visible = true;
+                LogOutButton.Visible = false;
+                LogOutButton.Enabled = false;
+                LogInOrRegisterButton.Enabled = true;
+                LogInOrRegisterButton.Visible = true;
             }
         }
         //backoffice/franchise      
@@ -228,6 +244,17 @@ namespace Qars
 
 
 
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            LogOut logout = new LogOut();
+            logout.ShowDialog();
+            if (logout.DialogResult == DialogResult.Yes)
+            {
+                this.userID = 0;
+                ChangeAccountDetails(userID);
+            }
         }
     }
 }

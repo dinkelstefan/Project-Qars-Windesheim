@@ -57,6 +57,7 @@
             this.HiredCarLabel = new System.Windows.Forms.Label();
             this.EndDateInfo = new System.Windows.Forms.Label();
             this.ReservationLabel = new System.Windows.Forms.Label();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -139,6 +140,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel8.Controls.Add(this.LogOutButton);
             this.panel8.Controls.Add(this.EndDateInfo);
             this.panel8.Controls.Add(this.HiredCarLabel);
             this.panel8.Controls.Add(this.ReservationPeriodEndLabel);
@@ -364,6 +366,18 @@
             this.ReservationLabel.Text = "U huurt momenteel deze auto:";
             this.ReservationLabel.Visible = false;
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.Enabled = false;
+            this.LogOutButton.Location = new System.Drawing.Point(881, 54);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(116, 63);
+            this.LogOutButton.TabIndex = 20;
+            this.LogOutButton.Text = "Log uit";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Visible = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +442,7 @@
         private System.Windows.Forms.Label HiredCarLabel;
         private System.Windows.Forms.Label EndDateInfo;
         private System.Windows.Forms.Label ReservationLabel;
+        private System.Windows.Forms.Button LogOutButton;
 
     }
 }
