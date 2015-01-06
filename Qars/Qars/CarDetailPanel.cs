@@ -23,9 +23,9 @@ namespace Qars
 
             this.currentCarNumber = carNumber;
             this.Height = 568;
-            this.Width = 1044;
+            this.Width = 1016;
             this.Top = 70;
-            this.Left = 221;
+            this.Left = 250;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
             this.discount = dis;
@@ -81,7 +81,7 @@ namespace Qars
             Label specs = createLabel("Specificaties", 315, 22, 300, 32, 20, FontStyle.Regular);
             Label desc = createLabel("Beschrijving", 20, 700, 165, 32, 20, FontStyle.Regular);
             Label descinfo = createLabel(this.qarsApplication.carList[carNumber].description, 65, 700, 300, 300, 9, FontStyle.Regular);
-            Button close = createButton("Sluiten", Color.Red, Color.White, -5, 950, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
+            Button close = createButton("Sluiten", Color.Red, Color.White, -5, 921, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
 
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);

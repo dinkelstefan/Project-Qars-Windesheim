@@ -41,13 +41,14 @@ namespace Qars
             totalCarList = db.SelectCar();
             this.userID = 0;
             carList = totalCarList;
+            //this.Height = 1500;
 
             // searchWizard
             this.searchWizard = new Qars.Views.searchWizard(this);
             this.searchWizard.BringToFront();
             this.searchWizard.Location = new System.Drawing.Point(0, 71);
             this.searchWizard.Name = "searchWizard1";
-            this.searchWizard.Size = new System.Drawing.Size(250, 850);
+           // this.searchWizard.Size = new System.Drawing.Size(250, 850);
             this.searchWizard.TabIndex = 11;
             this.searchWizard.Visible = true;
             this.Controls.Add(this.searchWizard);

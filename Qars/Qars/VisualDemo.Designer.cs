@@ -42,22 +42,12 @@
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.TileView.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +59,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(224, 643);
+            this.button1.Location = new System.Drawing.Point(250, 644);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -202,99 +192,10 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Vestigingen";
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.panel10);
-            this.panel4.Controls.Add(this.panel11);
-            this.panel4.Controls.Add(this.panel12);
-            this.panel4.Controls.Add(this.panel13);
-            this.panel4.Location = new System.Drawing.Point(0, 129);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(222, 540);
-            this.panel4.TabIndex = 7;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(76, 112);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 26);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Amersfoort";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(76, 160);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 26);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Zwolle";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(76, 65);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(101, 26);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Groningen";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(76, 14);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(111, 26);
-            this.label18.TabIndex = 3;
-            this.label18.Text = "Amsterdam";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel10.Location = new System.Drawing.Point(0, 150);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(74, 49);
-            this.panel10.TabIndex = 5;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel11.Location = new System.Drawing.Point(0, 101);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(74, 49);
-            this.panel11.TabIndex = 4;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.IndianRed;
-            this.panel12.Location = new System.Drawing.Point(0, 52);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(74, 49);
-            this.panel12.TabIndex = 3;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.panel13.Location = new System.Drawing.Point(0, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(74, 49);
-            this.panel13.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(305, 648);
+            this.label3.Location = new System.Drawing.Point(331, 649);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 11;
@@ -304,9 +205,9 @@
             this.TileView.AutoScroll = true;
             this.TileView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TileView.Controls.Add(this.panel8);
-            this.TileView.Location = new System.Drawing.Point(246, 70);
+            this.TileView.Location = new System.Drawing.Point(250, 70);
             this.TileView.Name = "TileView";
-            this.TileView.Size = new System.Drawing.Size(1019, 568);
+            this.TileView.Size = new System.Drawing.Size(1015, 568);
             this.TileView.TabIndex = 12;
             // 
             // button2
@@ -325,15 +226,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(903, 476);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1265, 672);
             this.Controls.Add(this.TileView);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "VisualDemo";
@@ -346,8 +245,6 @@
             this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.TileView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -366,15 +263,6 @@
         private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel TileView;
         private Views.searchWizard searchWizard;
