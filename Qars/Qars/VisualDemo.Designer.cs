@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.PersonalInfoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -126,6 +127,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel8.Controls.Add(this.PersonalInfoButton);
             this.panel8.Controls.Add(this.LogOutButton);
             this.panel8.Controls.Add(this.LogInOrRegisterButton);
             this.panel8.Controls.Add(this.WelcomeInfoLabel);
@@ -138,7 +140,7 @@
             // LogOutButton
             // 
             this.LogOutButton.Enabled = false;
-            this.LogOutButton.Location = new System.Drawing.Point(881, 54);
+            this.LogOutButton.Location = new System.Drawing.Point(881, 116);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(116, 63);
             this.LogOutButton.TabIndex = 20;
@@ -221,6 +223,17 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
+            // PersonalInfoButton
+            // 
+            this.PersonalInfoButton.Location = new System.Drawing.Point(881, -1);
+            this.PersonalInfoButton.Name = "PersonalInfoButton";
+            this.PersonalInfoButton.Size = new System.Drawing.Size(116, 63);
+            this.PersonalInfoButton.TabIndex = 22;
+            this.PersonalInfoButton.Text = "Persoonlijke gegevens";
+            this.PersonalInfoButton.UseVisualStyleBackColor = true;
+            this.PersonalInfoButton.Visible = false;
+            this.PersonalInfoButton.Click += new System.EventHandler(this.PersonalInfoButton_Click);
+            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +283,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button LogInOrRegisterButton;
         private System.Windows.Forms.Button LogOutButton;
+        private System.Windows.Forms.Button PersonalInfoButton;
 
     }
 }

@@ -124,6 +124,7 @@ namespace Qars
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -537,7 +538,7 @@ namespace Qars
 
                 dataReader.Close();
                 this.CloseConnection();
-               
+
                 return localDiscountList;
             }
             else
@@ -545,7 +546,7 @@ namespace Qars
                 return null;
             }
         }
-        
+
 
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {

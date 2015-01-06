@@ -37,7 +37,7 @@ namespace Qars
 
         public VisualDemo()
         {
-			discountList = new List<Discount>(db.CheckDiscounts());
+            discountList = new List<Discount>(db.CheckDiscounts());
             totalCarList = db.SelectCar();
             this.userID = 0;
             carList = totalCarList;
@@ -48,7 +48,7 @@ namespace Qars
             this.searchWizard.BringToFront();
             this.searchWizard.Location = new System.Drawing.Point(0, 71);
             this.searchWizard.Name = "searchWizard1";
-           // this.searchWizard.Size = new System.Drawing.Size(250, 850);
+            // this.searchWizard.Size = new System.Drawing.Size(250, 850);
             this.searchWizard.TabIndex = 11;
             this.searchWizard.Visible = true;
             this.Controls.Add(this.searchWizard);
@@ -57,7 +57,7 @@ namespace Qars
             DoubleBuffered = true;
             hp = new HoverPanel(this);
 
-            
+
 
             EstablishmentList = db.SelectEstablishment();
             reservationList = db.SelectReservation();
@@ -81,6 +81,7 @@ namespace Qars
                 customerList = db.SelectUsers();
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
+                PersonalInfoButton.Visible = true;
 
             }
             else
@@ -133,27 +134,27 @@ namespace Qars
             }
         }
 
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
-                 List<double> discountPrices = new List<double>();
+            List<double> discountPrices = new List<double>();
 
-                foreach(Car car in compareList)
+            foreach (Car car in compareList)
+            {
+                var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
+
+                if (match != null)
                 {
-                    var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
-
-                    if(match != null)
-                    {
-                        discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
-                        discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.percentage / 100))); 
-                    }
-                    else
-                    {
-                        discountPrices.Add(car.startprice);
-                        discountPrices.Add(car.startprice);
-                    }
+                    discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
+                    discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.percentage / 100)));
                 }
-            
+                else
+                {
+                    discountPrices.Add(car.startprice);
+                    discountPrices.Add(car.startprice);
+                }
+            }
+
             ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
@@ -199,7 +200,7 @@ namespace Qars
             {
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
-                {           
+                {
                     var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
                     tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this, match);
                     TileView.Controls.Add(tp);
@@ -246,6 +247,14 @@ namespace Qars
                 this.userID = 0;
                 ChangeAccountDetails(userID);
             }
+        }
+
+        private void PersonalInfoButton_Click(object sender, EventArgs e)
+        {
+            //Create personal Info
+            UserEnvironment UE = new UserEnvironment();
+            UE.Show();
+
         }
     }
 }
