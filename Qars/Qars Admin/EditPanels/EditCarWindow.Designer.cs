@@ -98,6 +98,7 @@
             this.NavigationBox = new System.Windows.Forms.CheckBox();
             this.EsteblishmentComboBox = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label7
@@ -116,8 +117,10 @@
             this.CarIDBox.Location = new System.Drawing.Point(122, 11);
             this.CarIDBox.Margin = new System.Windows.Forms.Padding(2);
             this.CarIDBox.Name = "CarIDBox";
+            this.CarIDBox.ReadOnly = true;
             this.CarIDBox.Size = new System.Drawing.Size(79, 20);
             this.CarIDBox.TabIndex = 13;
+            this.CarIDBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // BrandBox
             // 
@@ -126,6 +129,7 @@
             this.BrandBox.Name = "BrandBox";
             this.BrandBox.Size = new System.Drawing.Size(79, 20);
             this.BrandBox.TabIndex = 16;
+            this.BrandBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
             // ModelBox
             // 
@@ -134,6 +138,7 @@
             this.ModelBox.Name = "ModelBox";
             this.ModelBox.Size = new System.Drawing.Size(79, 20);
             this.ModelBox.TabIndex = 17;
+            this.ModelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
             // ModelyearBox
             // 
@@ -142,6 +147,7 @@
             this.ModelyearBox.Name = "ModelyearBox";
             this.ModelyearBox.Size = new System.Drawing.Size(79, 20);
             this.ModelyearBox.TabIndex = 18;
+            this.ModelyearBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // AvailableBox
             // 
@@ -169,6 +175,7 @@
             this.KilometersBox.Name = "KilometersBox";
             this.KilometersBox.Size = new System.Drawing.Size(79, 20);
             this.KilometersBox.TabIndex = 22;
+            this.KilometersBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // saveButton
             // 
@@ -199,6 +206,7 @@
             this.CategoryBox.Name = "CategoryBox";
             this.CategoryBox.Size = new System.Drawing.Size(79, 20);
             this.CategoryBox.TabIndex = 26;
+            this.CategoryBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
             // ColourBox
             // 
@@ -207,6 +215,7 @@
             this.ColourBox.Name = "ColourBox";
             this.ColourBox.Size = new System.Drawing.Size(79, 20);
             this.ColourBox.TabIndex = 30;
+            this.ColourBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
             // MOTDate
             // 
@@ -215,6 +224,8 @@
             this.MOTDate.Name = "MOTDate";
             this.MOTDate.Size = new System.Drawing.Size(79, 20);
             this.MOTDate.TabIndex = 32;
+            this.MOTDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
+            this.MOTDate.Leave += new System.EventHandler(this.checkFormat_Leave);
             // 
             // StorageBox
             // 
@@ -223,6 +234,7 @@
             this.StorageBox.Name = "StorageBox";
             this.StorageBox.Size = new System.Drawing.Size(79, 20);
             this.StorageBox.TabIndex = 34;
+            this.StorageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxFloatOnly_KeyPress);
             // 
             // GearsBox
             // 
@@ -231,6 +243,7 @@
             this.GearsBox.Name = "GearsBox";
             this.GearsBox.Size = new System.Drawing.Size(79, 20);
             this.GearsBox.TabIndex = 36;
+            this.GearsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // FuelusageBox
             // 
@@ -239,6 +252,7 @@
             this.FuelusageBox.Name = "FuelusageBox";
             this.FuelusageBox.Size = new System.Drawing.Size(79, 20);
             this.FuelusageBox.TabIndex = 39;
+            this.FuelusageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // MotorBox
             // 
@@ -247,6 +261,7 @@
             this.MotorBox.Name = "MotorBox";
             this.MotorBox.Size = new System.Drawing.Size(79, 20);
             this.MotorBox.TabIndex = 40;
+            this.MotorBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
             // WidthBox
             // 
@@ -255,6 +270,7 @@
             this.WidthBox.Name = "WidthBox";
             this.WidthBox.Size = new System.Drawing.Size(79, 20);
             this.WidthBox.TabIndex = 41;
+            this.WidthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // LengthBox
             // 
@@ -263,6 +279,7 @@
             this.LengthBox.Name = "LengthBox";
             this.LengthBox.Size = new System.Drawing.Size(79, 20);
             this.LengthBox.TabIndex = 42;
+            this.LengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // HeightBox
             // 
@@ -271,6 +288,7 @@
             this.HeightBox.Name = "HeightBox";
             this.HeightBox.Size = new System.Drawing.Size(79, 20);
             this.HeightBox.TabIndex = 43;
+            this.HeightBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // WeightBox
             // 
@@ -279,6 +297,7 @@
             this.WeightBox.Name = "WeightBox";
             this.WeightBox.Size = new System.Drawing.Size(79, 20);
             this.WeightBox.TabIndex = 44;
+            this.WeightBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // HorsePowerBox
             // 
@@ -287,6 +306,7 @@
             this.HorsePowerBox.Name = "HorsePowerBox";
             this.HorsePowerBox.Size = new System.Drawing.Size(79, 20);
             this.HorsePowerBox.TabIndex = 45;
+            this.HorsePowerBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxFloatOnly_KeyPress);
             // 
             // label1
             // 
@@ -570,6 +590,7 @@
             this.StartpriceBox.Name = "StartpriceBox";
             this.StartpriceBox.Size = new System.Drawing.Size(79, 20);
             this.StartpriceBox.TabIndex = 36;
+            this.StartpriceBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // SellingpriceBox
             // 
@@ -578,6 +599,7 @@
             this.SellingpriceBox.Name = "SellingpriceBox";
             this.SellingpriceBox.Size = new System.Drawing.Size(79, 20);
             this.SellingpriceBox.TabIndex = 39;
+            this.SellingpriceBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxFloatOnly_KeyPress);
             // 
             // RentalpriceBox
             // 
@@ -586,6 +608,7 @@
             this.RentalpriceBox.Name = "RentalpriceBox";
             this.RentalpriceBox.Size = new System.Drawing.Size(79, 20);
             this.RentalpriceBox.TabIndex = 40;
+            this.RentalpriceBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxFloatOnly_KeyPress);
             // 
             // SeatsBox
             // 
@@ -594,6 +617,7 @@
             this.SeatsBox.Name = "SeatsBox";
             this.SeatsBox.Size = new System.Drawing.Size(79, 20);
             this.SeatsBox.TabIndex = 39;
+            this.SeatsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // DoorsBox
             // 
@@ -602,6 +626,7 @@
             this.DoorsBox.Name = "DoorsBox";
             this.DoorsBox.Size = new System.Drawing.Size(79, 20);
             this.DoorsBox.TabIndex = 40;
+            this.DoorsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
             // label28
             // 
@@ -789,11 +814,22 @@
             this.label34.TabIndex = 6;
             this.label34.Text = "Beschrijving";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 583);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Verwijder";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.delete_Button_Click);
+            // 
             // EditCarWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 618);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.EsteblishmentComboBox);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label15);
@@ -944,5 +980,6 @@
         private System.Windows.Forms.CheckBox NavigationBox;
         private System.Windows.Forms.ComboBox EsteblishmentComboBox;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button button1;
     }
 }
