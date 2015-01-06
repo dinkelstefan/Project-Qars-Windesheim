@@ -83,6 +83,7 @@ namespace Qars_Admin.EditPanels
             {
                 User user = getUserFromFields();
                 this.connection.UpdateUser(user);
+
                 MessageBox.Show("De gebruiker is succesvol geupdate.");
                 this.Close();
             }

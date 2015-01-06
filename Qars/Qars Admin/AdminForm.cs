@@ -21,7 +21,7 @@ namespace Qars_Admin
 
     public partial class AdminForm : Form
     {
-        private User currentUser;
+        public User currentUser { get; private set; }
         private DBConnect databaseConnection;
         private List<Button> categories = new List<Button>();
 
@@ -47,14 +47,14 @@ namespace Qars_Admin
             this.Controls.Add(this.carAdminPanel);
 
             //make a reservation adminPanel
-            this.reservationAdminPanel = new ReservationAdminPanel(this.databaseConnection);
+            this.reservationAdminPanel = new ReservationAdminPanel(this.databaseConnection, this);
             this.reservationAdminPanel.Location = this.adminPanelPosition;
             this.reservationAdminPanel.Size = new System.Drawing.Size(768, 509);
             this.reservationAdminPanel.TabIndex = 6;
             this.Controls.Add(this.reservationAdminPanel);
 
             //make a customer adminPanel
-            this.userAdminPanel = new UserAdminPanel(this.databaseConnection);
+            this.userAdminPanel = new UserAdminPanel(this.databaseConnection, this);
             this.userAdminPanel.Location = this.adminPanelPosition;
             this.userAdminPanel.Size = new System.Drawing.Size(768, 509);
             this.userAdminPanel.TabIndex = 6;

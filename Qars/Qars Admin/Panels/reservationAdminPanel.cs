@@ -15,11 +15,13 @@ namespace Qars_Admin.Panels
     public partial class ReservationAdminPanel : UserControl
     {
         private DBConnect databaseConnection;
+        private AdminForm adminForm;
         private List<Reservation> reservationList = new List<Reservation>();
 
-        public ReservationAdminPanel(DBConnect connection)
+        public ReservationAdminPanel(DBConnect connection, AdminForm adminform)
         {
             this.databaseConnection = connection;
+            this.adminForm = adminform;
             InitializeComponent();
 
             this.RefreshList();

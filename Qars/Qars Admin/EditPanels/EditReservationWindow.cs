@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qars;
+using Qars.Util;
 
 namespace Qars_Admin.EditPanels
 {
@@ -15,6 +16,7 @@ namespace Qars_Admin.EditPanels
     {
         private DBConnect connect;
         private Reservation reservation;
+        private bool confirmState;
         public EditReservationWindow(Reservation res, DBConnect connect)
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace Qars_Admin.EditPanels
                 this.startDateTextBox.Text = res.startdate;
                 this.endDateTextBox.Text = res.enddate;
                 this.confirmedCheckBox.Checked = res.confirmed;
+                this.confirmState = res.confirmed;
                 this.kilometersTextbox.Text = res.kilometres.ToString();
                 this.cityTextBox.Text = res.pickupcity;
                 this.streetnameTextBox.Text = res.pickupstreetname;
@@ -49,9 +52,52 @@ namespace Qars_Admin.EditPanels
         {
             try
             {
+                List<User> userList = connect.SelectUsers();
                 Reservation res = this.getReservationFromFields();
+                
+                //Search for user by this reservation
+                var query = from u in userList
+                            where u.customerID == res.customerID
+                            select u;
+
+                User user = query.First();
+
+                //Build email when reservations is confirmed
+                if ((this.confirmState != res.confirmed) && res.confirmed == true)
+                {
+                    Mail mail = new Mail();
+                    mail.addTo(user.emailaddress);
+                    mail.addSubject("Qars orderbevestiging: " + res.reservationID);
+                    
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine("Beste " + user.firstname + ",\n");
+                    sb.AppendLine("Uw order is zojuist bevestigd.");
+
+                    sb.AppendLine("Ordernummber:\t\t" + res.reservationID);
+                    sb.AppendLine("Voornaam:\t\t" + user.firstname);
+                    sb.AppendLine("Achternaam:\t\t" + user.lastname);
+
+                    if (res.pickupstreetname != null && res.pickupstreetnumber != null)
+                    {
+                        sb.AppendLine("Ophaaladres");
+                        sb.AppendLine(string.Format("Adres:\t\t{0} {1}{2}", res.pickupstreetname, res.pickupstreetnumber,res.pickupstreetnumbersuffix));
+                        sb.AppendLine(string.Format("Woonplaats:\t\t{0}", res.pickupcity));
+                    }
+                    sb.Append("\n");
+                    sb.AppendLine("Begindatum:\t\t" + res.startdate);
+                    sb.AppendLine("Einddatum:\t\t" + res.enddate);
+
+                    sb.Append("\n\n");
+                    sb.AppendLine("Met vriendelijke groeten,\n");
+                    sb.AppendLine("Qars");
+                    
+                    mail.addBody(sb.ToString());
+                    mail.sendEmail();
+                }
 
                 this.connect.UpdateReservation(res);
+
+
                 this.Close();
             }
             catch (Exception ex)
@@ -99,7 +145,9 @@ namespace Qars_Admin.EditPanels
             if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus)
             {
                 e.Handled = true;
-            }  else {
+            }
+            else
+            {
                 e.Handled = false;
                 MessageBox.Show("U mag hier geen getallen invullen.");
             }
@@ -107,7 +155,7 @@ namespace Qars_Admin.EditPanels
 
         private void TextBoxNumOnly_KeyPress(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus|| e.KeyData == Keys.Back || e.KeyData == Keys.Delete)
+            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.Delete)
             {
                 e.Handled = true;
             }

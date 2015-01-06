@@ -17,10 +17,13 @@ namespace Qars_Admin.Panels
     {
         private DBConnect databaseConnection;
         private List<User> userList;
+        private AdminForm adminForm;
 
-        public UserAdminPanel(DBConnect connection)
+
+        public UserAdminPanel(DBConnect connection, AdminForm adminform)
         {
             this.databaseConnection = connection;
+            this.adminForm = adminform;
             InitializeComponent();
 
             this.refreshList();
@@ -33,7 +36,10 @@ namespace Qars_Admin.Panels
 
             foreach (User user in userList)
             {
-                simpleUserList.Add(new simpleUser(user.customerID, user.accountLevel, user.username, user.firstname, user.lastname, user.city, user.phonenumber, user.emailaddress));
+                if (user.Esthablishment == adminForm.currentUser.Esthablishment || adminForm.currentUser.accountLevel == 4)
+                {
+                    simpleUserList.Add(new simpleUser(user.customerID, user.accountLevel, user.username, user.firstname, user.lastname, user.city, user.phonenumber, user.emailaddress));
+                }
             }
 
             this.userDataGridView.DataSource = simpleUserList;
