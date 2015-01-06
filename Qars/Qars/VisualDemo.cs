@@ -34,26 +34,24 @@ namespace Qars
 
         public VisualDemo()
         {
+            totalCarList = db.SelectCar();
+            carList = totalCarList;
 
-            this.searchWizard = new Qars.Views.searchWizard(this);
-            // 
             // searchWizard
-            // 
-            this.searchWizard.Location = new System.Drawing.Point(331, 121);
+            this.searchWizard = new Qars.Views.searchWizard(this);
+            this.searchWizard.BringToFront();
+            this.searchWizard.Location = new System.Drawing.Point(0, 71);
             this.searchWizard.Name = "searchWizard1";
-            this.searchWizard.Size = new System.Drawing.Size(1565, 873);
+            this.searchWizard.Size = new System.Drawing.Size(250, 850);
             this.searchWizard.TabIndex = 11;
-            this.searchWizard.Visible = false;
+            this.searchWizard.Visible = true;
             this.Controls.Add(this.searchWizard);
-
-
-
+            
             InitializeComponent();
             DoubleBuffered = true;
             hp = new HoverPanel(this);
 
-            totalCarList = db.SelectCar();
-            carList = totalCarList;
+            
 
             EstablishmentList = db.SelectEstablishment();
             reservationList = db.SelectReservation();
@@ -64,6 +62,8 @@ namespace Qars
 
             this.Controls.Add(hp);
             hp.BringToFront();
+
+            
         }
 
 
@@ -116,8 +116,8 @@ namespace Qars
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            searchWizard.Visible = !searchWizard.Visible;
-            updateTileView();
+            //searchWizard.Visible = !searchWizard.Visible;
+            //updateTileView();
         }
 
         public void updateTileView()
@@ -167,10 +167,6 @@ namespace Qars
 
         private void showAllCars(object sender, EventArgs e)
         {
-            if (searchWizard.Visible == true)
-            {
-                searchWizard.Visible = false;
-            }
             carList = db.SelectCar();
             totalCarList = carList;
             updateTileView();
