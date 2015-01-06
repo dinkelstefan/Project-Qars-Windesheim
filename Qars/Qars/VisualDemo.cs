@@ -74,40 +74,10 @@ namespace Qars
                 LogInOrRegisterButton.Visible = false;
                 LogOutButton.Visible = true;
                 LogOutButton.Enabled = true;
-                int hiredcarID = -1;
-                string enddate = "";
 
-                foreach (var reservation in reservationList)
-                {
-                    if (reservation.UserID == UserID)
-                    {
-                        if (reservation.confirmed == true)
-                        {
-                            EndDateInfo.Text = reservation.enddate;
-                            ReservationPeriodEndLabel.Visible = true;
-                            hiredcarID = reservation.carID;
-                            enddate = reservation.enddate;
-                            break;
-                        }
-                    }
+                WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
+                WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
 
-                    if (hiredcarID != -1 && enddate != "")
-                    {
-                        foreach (var car in carList)
-                        {
-                            if (car.carID == hiredcarID)
-                            {
-                                HiredCarLabel.Text = car.brand + " " + car.model;
-                                HiredCarLabel.Visible = true;
-                                ReservationLabel.Visible = true;
-
-                                break;
-                            }
-                        }
-                    }
-                    WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
-                    WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
-                }
             }
             else
             {

@@ -501,7 +501,6 @@ namespace Qars
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
                 return false;
             }
             if (result > 0)

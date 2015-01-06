@@ -43,7 +43,7 @@ namespace Qars
                 DBConnect db = new DBConnect();
                 int logInResult = db.LogInUser(UsernameTextBox.Text, PasswordTextBox.Text);
 
-                if (logInResult != -1)
+                if (logInResult != 0)
                 {
                     userID = logInResult;
                     this.Dispose();

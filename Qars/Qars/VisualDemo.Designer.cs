@@ -32,11 +32,12 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LogInOrRegisterButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.LogInOrRegisterButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.WelcomeInfoLabel = new System.Windows.Forms.Label();
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,11 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.ReservationPeriodEndLabel = new System.Windows.Forms.Label();
-            this.HiredCarLabel = new System.Windows.Forms.Label();
-            this.EndDateInfo = new System.Windows.Forms.Label();
-            this.ReservationLabel = new System.Windows.Forms.Label();
-            this.LogOutButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,16 +89,6 @@
             this.panel1.Size = new System.Drawing.Size(1265, 71);
             this.panel1.TabIndex = 2;
             // 
-            // LogInOrRegisterButton
-            // 
-            this.LogInOrRegisterButton.Location = new System.Drawing.Point(881, 54);
-            this.LogInOrRegisterButton.Name = "LogInOrRegisterButton";
-            this.LogInOrRegisterButton.Size = new System.Drawing.Size(116, 63);
-            this.LogInOrRegisterButton.TabIndex = 15;
-            this.LogInOrRegisterButton.Text = "Log In/Registreer";
-            this.LogInOrRegisterButton.UseVisualStyleBackColor = true;
-            this.LogInOrRegisterButton.Click += new System.EventHandler(this.LogInOrRegisterButton_Click);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -137,14 +123,20 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Quintor";
             // 
+            // LogInOrRegisterButton
+            // 
+            this.LogInOrRegisterButton.Location = new System.Drawing.Point(881, 54);
+            this.LogInOrRegisterButton.Name = "LogInOrRegisterButton";
+            this.LogInOrRegisterButton.Size = new System.Drawing.Size(116, 63);
+            this.LogInOrRegisterButton.TabIndex = 15;
+            this.LogInOrRegisterButton.Text = "Log In/Registreer";
+            this.LogInOrRegisterButton.UseVisualStyleBackColor = true;
+            this.LogInOrRegisterButton.Click += new System.EventHandler(this.LogInOrRegisterButton_Click);
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel8.Controls.Add(this.LogOutButton);
-            this.panel8.Controls.Add(this.EndDateInfo);
-            this.panel8.Controls.Add(this.HiredCarLabel);
-            this.panel8.Controls.Add(this.ReservationPeriodEndLabel);
-            this.panel8.Controls.Add(this.ReservationLabel);
             this.panel8.Controls.Add(this.LogInOrRegisterButton);
             this.panel8.Controls.Add(this.WelcomeInfoLabel);
             this.panel8.Controls.Add(this.WelcomeLabel);
@@ -152,6 +144,18 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1025, 182);
             this.panel8.TabIndex = 10;
+            // 
+            // LogOutButton
+            // 
+            this.LogOutButton.Enabled = false;
+            this.LogOutButton.Location = new System.Drawing.Point(881, 54);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(116, 63);
+            this.LogOutButton.TabIndex = 20;
+            this.LogOutButton.Text = "Log uit";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Visible = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // WelcomeInfoLabel
             // 
@@ -316,68 +320,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
-            // ReservationPeriodEndLabel
-            // 
-            this.ReservationPeriodEndLabel.AutoSize = true;
-            this.ReservationPeriodEndLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ReservationPeriodEndLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReservationPeriodEndLabel.ForeColor = System.Drawing.Color.White;
-            this.ReservationPeriodEndLabel.Location = new System.Drawing.Point(526, 53);
-            this.ReservationPeriodEndLabel.Name = "ReservationPeriodEndLabel";
-            this.ReservationPeriodEndLabel.Size = new System.Drawing.Size(196, 19);
-            this.ReservationPeriodEndLabel.TabIndex = 17;
-            this.ReservationPeriodEndLabel.Text = "Deze huurperiode eindigt op:";
-            this.ReservationPeriodEndLabel.Visible = false;
-            // 
-            // HiredCarLabel
-            // 
-            this.HiredCarLabel.AutoSize = true;
-            this.HiredCarLabel.BackColor = System.Drawing.Color.Transparent;
-            this.HiredCarLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HiredCarLabel.ForeColor = System.Drawing.Color.White;
-            this.HiredCarLabel.Location = new System.Drawing.Point(731, 28);
-            this.HiredCarLabel.Name = "HiredCarLabel";
-            this.HiredCarLabel.Size = new System.Drawing.Size(0, 19);
-            this.HiredCarLabel.TabIndex = 18;
-            this.HiredCarLabel.Visible = false;
-            // 
-            // EndDateInfo
-            // 
-            this.EndDateInfo.AutoSize = true;
-            this.EndDateInfo.BackColor = System.Drawing.Color.Transparent;
-            this.EndDateInfo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndDateInfo.ForeColor = System.Drawing.Color.White;
-            this.EndDateInfo.Location = new System.Drawing.Point(722, 59);
-            this.EndDateInfo.Name = "EndDateInfo";
-            this.EndDateInfo.Size = new System.Drawing.Size(0, 19);
-            this.EndDateInfo.TabIndex = 19;
-            this.EndDateInfo.Visible = false;
-            // 
-            // ReservationLabel
-            // 
-            this.ReservationLabel.AutoSize = true;
-            this.ReservationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ReservationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReservationLabel.ForeColor = System.Drawing.Color.White;
-            this.ReservationLabel.Location = new System.Drawing.Point(526, 28);
-            this.ReservationLabel.Name = "ReservationLabel";
-            this.ReservationLabel.Size = new System.Drawing.Size(205, 19);
-            this.ReservationLabel.TabIndex = 16;
-            this.ReservationLabel.Text = "U huurt momenteel deze auto:";
-            this.ReservationLabel.Visible = false;
-            // 
-            // LogOutButton
-            // 
-            this.LogOutButton.Enabled = false;
-            this.LogOutButton.Location = new System.Drawing.Point(881, 54);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Size = new System.Drawing.Size(116, 63);
-            this.LogOutButton.TabIndex = 20;
-            this.LogOutButton.Text = "Log uit";
-            this.LogOutButton.UseVisualStyleBackColor = true;
-            this.LogOutButton.Visible = false;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,10 +380,6 @@
         private Views.searchWizard searchWizard;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button LogInOrRegisterButton;
-        private System.Windows.Forms.Label ReservationPeriodEndLabel;
-        private System.Windows.Forms.Label HiredCarLabel;
-        private System.Windows.Forms.Label EndDateInfo;
-        private System.Windows.Forms.Label ReservationLabel;
         private System.Windows.Forms.Button LogOutButton;
 
     }
