@@ -81,7 +81,8 @@ namespace Qars
         // returns the logged in user
         // returns an empty user with an accountlevel of -2 if the user doesnt exsist
         // returns an empty user with an accountlevel of -1 if the password is wrong
-        public User CheckUser(string username, string password) {
+        public User CheckUser(string username, string password)
+        {
             // get the userlist from the DB
             List<User> userList = this.SelectUsers();
 
@@ -92,14 +93,19 @@ namespace Qars
             incorrectUser.accountLevel = -2;
 
             //loop trough users
-            foreach (User user in userList) {
+            foreach (User user in userList)
+            {
                 // check if username exsists
-                if (username == user.username) {
+                if (username == user.username)
+                {
                     // check if password is correct
-                    if (password == user.password) {
+                    if (password == user.password)
+                    {
                         //return the correct user
                         return user;
-                    } else {
+                    }
+                    else
+                    {
                         // set incorrect user with false password
                         incorrectUser.accountLevel = -1;
                     }
@@ -108,6 +114,50 @@ namespace Qars
             return incorrectUser;
         }
 
+        public int LogInUser(string username, string password)
+        {
+            int userID = 0;
+            string usernameQuery = "";
+            string passwordQuery = "";
+            string query = String.Format("SELECT UserID, Username, Password FROM User WHERE Username = '{0}'", username);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    userID = SafeGetInt(dataReader, 0);
+                    usernameQuery = SafeGetString(dataReader, 1);
+                    passwordQuery = SafeGetString(dataReader, 2);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+
+                if (username == usernameQuery)
+                {
+                    if (PasswordHash.ValidatePassword(password, passwordQuery))
+                    {
+                        //log in == correct
+                        return userID;
+                    }
+                    else
+                    {
+                        return 0;
+                        //wrong password
+                    }
+                }
+                else
+                {
+                    return 0;
+                    //wrong username
+                }
+            }
+            MessageBox.Show("Er zijn problemen met de server. Neem alstublieft contact op met een beheerder");
+            return 0;
+            //Can't open a connection to the database
+
+        }
         public List<Car> SelectCar()
         {
             string query = " SELECT * FROM Car A LEFT JOIN Photo B ON A.CarID = B.CarID ORDER BY A.CarID ";
@@ -222,7 +272,7 @@ namespace Qars
 
                     newReservation.reservationID = SafeGetInt(dataReader, 0);
                     newReservation.carID = SafeGetInt(dataReader, 1);
-                    newReservation.customerID = SafeGetInt(dataReader, 2);
+                    newReservation.UserID = SafeGetInt(dataReader, 2);
                     newReservation.startdate = SafeGetString(dataReader, 3);
                     newReservation.enddate = SafeGetString(dataReader, 4);
                     newReservation.confirmed = SafeGetBoolean(dataReader, 5);
@@ -328,7 +378,7 @@ namespace Qars
                 {
                     User newUser = new User();
 
-                    newUser.customerID = SafeGetInt(dataReader, 0);
+                    newUser.UserID = SafeGetInt(dataReader, 0);
                     newUser.accountLevel = SafeGetInt(dataReader, 1);
                     newUser.username = SafeGetString(dataReader, 2);
                     newUser.password = SafeGetString(dataReader, 3);
@@ -357,81 +407,110 @@ namespace Qars
                 return null;
             }
         }
-        public void InsertReservation(Reservation reservation)
+        public bool InsertReservation(Reservation reservation)
         {
+            int result = 0;
             int ReservationID = 0;
             string query = "SELECT max(ReservationID) FROM Reservation";
 
-            if (this.OpenConnection())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                ReservationID = (Int32)cmd.ExecuteScalar();
-                CloseConnection();
+                if (this.OpenConnection())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    ReservationID = (Int32)cmd.ExecuteScalar();
+                    CloseConnection();
+                }
+
+                ReservationID++;
+                string query2 = "INSERT INTO `Reservation`(`ReservationID`, `CarID`, `UserID`, `Startdate`, `Enddate`, `Confirmed`, `Kilometres`, `Pickupcity`, `Pickupstreetname`, `Pickupstreetnumber`, `Pickupstreetnumbersuffix`, `Paid`, `Comment`) VALUES(@reservationid,@carid,@UserID,@startdate,@enddate,@confirmed,@Kilometres,@pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid,@comment)";
+                if (this.OpenConnection())
+                {
+                    int convertConfirmedToInt = 0;
+                    int convertPaidtoInt = 0;
+                    MySqlCommand cmd = new MySqlCommand(query2, connection);
+                    cmd.Parameters.AddWithValue("@reservationid", ReservationID);
+                    cmd.Parameters.AddWithValue("@carid", reservation.carID);
+                    cmd.Parameters.AddWithValue("@UserID", reservation.UserID);
+                    cmd.Parameters.AddWithValue("@startdate", reservation.startdate);
+                    cmd.Parameters.AddWithValue("@enddate", reservation.enddate);
+                    cmd.Parameters.AddWithValue("@confirmed", convertConfirmedToInt);
+                    cmd.Parameters.AddWithValue("@Kilometres", reservation.kilometres);
+                    cmd.Parameters.AddWithValue("@pickupcity", reservation.pickupcity);
+                    cmd.Parameters.AddWithValue("@pickupstreetname", reservation.pickupstreetname);
+                    cmd.Parameters.AddWithValue("@pickupnumber", reservation.pickupstreetnumber);
+                    cmd.Parameters.AddWithValue("@pickupnumbersuffix", reservation.pickupstreetnumbersuffix);
+                    cmd.Parameters.AddWithValue("@paid", convertPaidtoInt);
+                    cmd.Parameters.AddWithValue("@comment", reservation.comment);
+
+                    result = cmd.ExecuteNonQuery();
+                    this.CloseConnection();
+                }
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            ReservationID++;
-            string query2 = "INSERT INTO `Reservation`(`ReservationID`, `CarID`, `CustomerID`, `Startdate`, `Enddate`, `Confirmed`, `Kilometres`, `Pickupcity`, `Pickupstreetname`, `Pickupstreetnumber`, `Pickupstreetnumbersuffix`, `Paid`, `Comment`) VALUES(@reservationid,@carid,@customerid,@startdate,@enddate,@confirmed,@Kilometres,@pickupcity,@pickupstreetname,@pickupnumber,@pickupnumbersuffix,@paid,@comment)";
-            if (this.OpenConnection())
+            catch (Exception)
             {
-                int convertConfirmedToInt = 0;
-                int convertPaidtoInt = 0;
-                MySqlCommand cmd = new MySqlCommand(query2, connection);
-                cmd.Parameters.AddWithValue("@reservationid", ReservationID);
-                cmd.Parameters.AddWithValue("@carid", reservation.carID);
-                cmd.Parameters.AddWithValue("@customerid", reservation.customerID);
-                cmd.Parameters.AddWithValue("@startdate", reservation.startdate);
-                cmd.Parameters.AddWithValue("@enddate", reservation.enddate);
-                cmd.Parameters.AddWithValue("@confirmed", convertConfirmedToInt);
-                cmd.Parameters.AddWithValue("@Kilometres", reservation.kilometres);
-                cmd.Parameters.AddWithValue("@pickupcity", reservation.pickupcity);
-                cmd.Parameters.AddWithValue("@pickupstreetname", reservation.pickupstreetname);
-                cmd.Parameters.AddWithValue("@pickupnumber", reservation.pickupstreetnumber);
-                cmd.Parameters.AddWithValue("@pickupnumbersuffix", reservation.pickupstreetnumbersuffix);
-                cmd.Parameters.AddWithValue("@paid", convertPaidtoInt);
-                cmd.Parameters.AddWithValue("@comment", reservation.comment);
-
-
-                cmd.ExecuteNonQuery();
-                this.CloseConnection();
+                return false;
             }
 
         }
-        public void InsertCustomer(User customer)
+        public bool InsertCustomer(User customer)
         {
-            int CustomerID = 0;
-            string query = "SELECT max(CustomerID) FROM Customer";
+            int result = 0;
+            int UserID = 0;
+            string query = "SELECT max(UserID) FROM User";
 
-            if (this.OpenConnection() == true)
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                CustomerID = (Int32)cmd.ExecuteScalar();
-                CloseConnection();
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    UserID = (Int32)cmd.ExecuteScalar();
+                    UserID++;
+                    CloseConnection();
+                }
+                string salt = createHash(customer.password);
+                string query2 = "INSERT INTO `User` (`UserID`,`Accountlevel`,`Username`, `Password`,`Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@UserID, @accountlevel,@username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink)";
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query2, connection);
+                    cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(UserID));
+                    cmd.Parameters.AddWithValue("@accountlevel", 1); //Normal account level
+                    cmd.Parameters.AddWithValue("@username", SafeInsertString(customer.username));
+                    cmd.Parameters.AddWithValue("@password", SafeInsertString(salt));
+                    cmd.Parameters.AddWithValue("@firstname", SafeInsertString(customer.firstname));
+                    cmd.Parameters.AddWithValue("@lastname", SafeInsertString(customer.lastname));
+                    cmd.Parameters.AddWithValue("@age", SafeInsertInt(customer.age));
+                    cmd.Parameters.AddWithValue("@postalcode", SafeInsertString(customer.postalcode));
+                    cmd.Parameters.AddWithValue("@city", SafeInsertString(customer.city));
+                    cmd.Parameters.AddWithValue("@streetname", SafeInsertString(customer.streetname));
+                    cmd.Parameters.AddWithValue("@streetnumber", SafeInsertInt(customer.streetnumber));
+                    cmd.Parameters.AddWithValue("@streetnumbersuffix", SafeInsertString(customer.streetnumbersuffix));
+                    cmd.Parameters.AddWithValue("@phonenumber", SafeInsertString(customer.phonenumber));
+                    cmd.Parameters.AddWithValue("@emailaddress", SafeInsertString(customer.emailaddress));
+                    cmd.Parameters.AddWithValue("@driverslicenselink", SafeInsertString(customer.driverslicenselink));//INSERT FTP LINK
+
+                    result = cmd.ExecuteNonQuery();
+                    CloseConnection();
+                }
             }
-            string salt = "quintorqars";
-            string sha1password = GetSHA1HashData(salt + customer.password);
-            string query2 = string.Format("INSERT INTO Customer (`CustomerID`, `Username`, `Password`, `Firstname`, `Lastname`, `Age`, `Postalcode`, `City`, `Streetname`, `Streetnumber`, `Streetnumbersuffix`, `Phonenumber`, `Emailaddress`, `Driverslicencelink`) VALUES (@customerID, @username,@password,@firstname,@lastname, @age, @postalcode,@city,@streetname,@streetnumber,@streetnumbersuffix, @phonenumber, @emailaddress, @driverslicenselink");
-            if (this.OpenConnection() == true)
+            catch (Exception)
             {
-                MySqlCommand cmd = new MySqlCommand(query2, connection);
-                cmd.Parameters.AddWithValue("@customerID", SafeInsertInt(customer.customerID));
-                cmd.Parameters.AddWithValue("@username", SafeInsertString(customer.username));
-                cmd.Parameters.AddWithValue("@password", SafeInsertString(customer.password));
-                cmd.Parameters.AddWithValue("@firstname", SafeInsertString(customer.firstname));
-                cmd.Parameters.AddWithValue("@lastname", SafeInsertString(customer.lastname));
-                cmd.Parameters.AddWithValue("@age", SafeInsertInt(customer.age));
-                cmd.Parameters.AddWithValue("@postalcode", SafeInsertString(customer.postalcode));
-                cmd.Parameters.AddWithValue("@city", SafeInsertString(customer.city));
-                cmd.Parameters.AddWithValue("@streetname", SafeInsertString(customer.streetname));
-                cmd.Parameters.AddWithValue("@streetnumber", SafeInsertInt(customer.streetnumber));
-                cmd.Parameters.AddWithValue("@streetnumbersuffix", SafeInsertString(customer.streetnumbersuffix));
-                cmd.Parameters.AddWithValue("@phonenumber", SafeInsertString(customer.phonenumber));
-                cmd.Parameters.AddWithValue("@emailaddress", SafeInsertString(customer.emailaddress));
-                cmd.Parameters.AddWithValue("@driverslicenselink", SafeInsertString(customer.driverslicenselink));
-
-
-                cmd.ExecuteNonQuery();
-                this.CloseConnection();
+                return false;
             }
+            if (result > 0)
+                return true;
+            else
+                return false;
+
+
         }
 
         //Check if there are discounts
@@ -532,23 +611,14 @@ namespace Qars
             else
                 return -1;
         }
-        private string GetSHA1HashData(string data)
+        public string createHash(string password)
         {
-            SHA1 sha1 = SHA1.Create();
-            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
-            StringBuilder returnValue = new StringBuilder();
-
-            for (int i = 0; i < hashData.Length; i++)
-            {
-                returnValue.Append(hashData[i].ToString());
-            }
-            return returnValue.ToString();
+            return PasswordHash.CreateHash(password);
         }
-
-        // method to compare strings
-        private bool CompareStrings(string string1, string string2){  
-	        return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;  
-	    } 
+        private bool CompareStrings(string string1, string string2)// method to compare strings
+        {
+            return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;
+        }
     }
 }
 

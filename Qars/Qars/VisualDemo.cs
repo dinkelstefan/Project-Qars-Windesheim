@@ -16,6 +16,8 @@ namespace Qars
 {
     public partial class VisualDemo : Form
     {
+        public int userID { get; set; }
+
         public int imageWidth = 160;
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
@@ -37,6 +39,7 @@ namespace Qars
         {
 			discountList = new List<Discount>(db.CheckDiscounts());
             totalCarList = db.SelectCar();
+            this.userID = 0;
             carList = totalCarList;
 
             // searchWizard
@@ -48,7 +51,7 @@ namespace Qars
             this.searchWizard.TabIndex = 11;
             this.searchWizard.Visible = true;
             this.Controls.Add(this.searchWizard);
-            
+
             InitializeComponent();
             DoubleBuffered = true;
             hp = new HoverPanel(this);
@@ -64,10 +67,35 @@ namespace Qars
 
             this.Controls.Add(hp);
             hp.BringToFront();
+            ChangeAccountDetails(userID);
 
-            
         }
+        private void ChangeAccountDetails(int UserID)
+        {
+            if (userID != 0)
+            {
+                LogInOrRegisterButton.Visible = false;
+                LogOutButton.Visible = true;
+                LogOutButton.Enabled = true;
+                customerList = db.SelectUsers();
+                WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
+                WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
 
+            }
+            else
+            {
+                WelcomeLabel.Text = "Welkom!";
+                WelcomeLabel.Visible = true;
+                WelcomeInfoLabel.Text = "U maakt momenteel gebruik van de Qars applicatie! \r\nOm optimaal gebruik te maken " +
+    "van deze applicatie \r\nkunt u zich registreren en inloggen";
+                WelcomeInfoLabel.Visible = true;
+                LogOutButton.Visible = false;
+                LogOutButton.Enabled = false;
+                LogInOrRegisterButton.Enabled = true;
+                LogInOrRegisterButton.Visible = true;
+            }
+        }
+        //backoffice/franchise      
 
         public void AddCompare(int number)
         {
@@ -131,7 +159,7 @@ namespace Qars
 
         public void OpenDetails(int number, Discount d)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, this, d);
+            CarDetailPanel cp = new CarDetailPanel(number, userID, this, d);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
@@ -195,6 +223,28 @@ namespace Qars
             updateTileView();
         }
 
-       
+        private void LogInOrRegisterButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(userID);
+            LogInForm loginform = new LogInForm(this, userID);
+            loginform.ShowDialog();
+            userID = loginform.returnUserID();
+            Console.WriteLine(userID);
+            ChangeAccountDetails(userID);
+
+
+
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            LogOut logout = new LogOut();
+            logout.ShowDialog();
+            if (logout.DialogResult == DialogResult.Yes)
+            {
+                this.userID = 0;
+                ChangeAccountDetails(userID);
+            }
+        }
     }
 }
