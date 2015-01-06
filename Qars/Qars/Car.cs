@@ -35,7 +35,7 @@ namespace Qars
         public string motdate { get; set; } //convert date to string
         public double storagespace { get; set; }
         public int gearsamount { get; set; }
-        public int startprice { get; set; }
+        public double startprice { get; set; }
         public double rentalprice { get; set; }
         public double sellingprice { get; set; }
         public bool available { get; set; }
