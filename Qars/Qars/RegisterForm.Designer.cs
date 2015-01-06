@@ -305,7 +305,7 @@
             // SelectedPictureLabel
             // 
             this.SelectedPictureLabel.AutoSize = true;
-            this.SelectedPictureLabel.Location = new System.Drawing.Point(264, 124);
+            this.SelectedPictureLabel.Location = new System.Drawing.Point(271, 124);
             this.SelectedPictureLabel.Name = "SelectedPictureLabel";
             this.SelectedPictureLabel.Size = new System.Drawing.Size(117, 13);
             this.SelectedPictureLabel.TabIndex = 31;
@@ -314,7 +314,7 @@
             // 
             // DriversLicensePictureBox
             // 
-            this.DriversLicensePictureBox.Location = new System.Drawing.Point(235, 149);
+            this.DriversLicensePictureBox.Location = new System.Drawing.Point(242, 149);
             this.DriversLicensePictureBox.Name = "DriversLicensePictureBox";
             this.DriversLicensePictureBox.Size = new System.Drawing.Size(173, 76);
             this.DriversLicensePictureBox.TabIndex = 32;
