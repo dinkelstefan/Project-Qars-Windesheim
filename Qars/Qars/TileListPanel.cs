@@ -17,8 +17,10 @@ namespace Qars
         public string imageLink;
         public int carNumber;
         private VisualDemo qarsApplication;
+        public Discount discount;
+        public bool available;
 
-        public TileListPanel(string cName, string cModel, double cPrice, string imageLink, int height, int width, int carNumber, bool available, VisualDemo qarsApp)
+        public TileListPanel(string cName, string cModel, double cPrice, string imageLink, int height, int width, int carNumber, bool avail, VisualDemo qarsApp, Discount dis)
         {
             this.name = cName;
             this.model = cModel;
@@ -26,6 +28,8 @@ namespace Qars
             this.imageLink = imageLink;
             this.carNumber = carNumber;
             this.qarsApplication = qarsApp;
+            this.discount = dis;
+            available = avail;
 
             Height = 220;
             Width = 175;
@@ -48,7 +52,7 @@ namespace Qars
             pb.MouseHover += new EventHandler(pb_MouseHover);
             pb.MouseLeave += new EventHandler(pb_MouseLeave);
 
-            if (!available)
+           
                 pb.Paint += new PaintEventHandler(pb_Paint);
 
             this.Controls.Add(pb);
@@ -61,13 +65,28 @@ namespace Qars
             name.Left = 10;
 
             this.Controls.Add(name);
+            
 
             Label price = new Label();
-            price.Width = 200;
+            price.Width = 200;            
             price.Text = "€" + carPrice;
             price.Font = new Font("Ariel", 10);
             price.Top = 180;
             price.Left = 10;
+
+            if (discount != null)
+            {
+                price.Font = new Font("Ariel", 10, FontStyle.Strikeout);
+                price.ForeColor = System.Drawing.Color.Red;
+                Label discountLabel = new Label();
+                discountLabel.Font = new Font("Ariel", 10, FontStyle.Bold);
+                discountLabel.Width = 200;
+                discountLabel.Top = 180;
+                discountLabel.Left = 40;
+                discountLabel.ForeColor = System.Drawing.Color.Green;
+                discountLabel.Text = " =  €" + carPrice * ((double)1 - ((double)discount.percentage / 100));
+                this.Controls.Add(discountLabel);
+            }
 
             this.Controls.Add(price);
 
@@ -90,7 +109,7 @@ namespace Qars
 
         protected void pb_MouseHover(object sender, EventArgs e)
         {
-            qarsApplication.hp.SetInformation(MousePosition.X - 320, MousePosition.Y - 180, this.qarsApplication.carList[carNumber]);
+            qarsApplication.hp.SetInformation(MousePosition.X - 320, MousePosition.Y - 180, this.qarsApplication.carList[carNumber], discount);
             qarsApplication.hp.Visible = true;
         }
 
@@ -101,16 +120,22 @@ namespace Qars
 
         protected void pb_Paint(object sender, PaintEventArgs e)
         {
-
-            SolidBrush blueBrush = new SolidBrush(Color.DarkOrange);
-            Rectangle rect = new Rectangle(0, 0, 150, 30);
-            e.Graphics.FillRectangle(blueBrush, rect);
-            e.Graphics.DrawString("Niet Beschikbaar", new Font("Aharoni", 13, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 6f);
+            if (!available)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.DarkOrange), new Rectangle(0, 0, 150, 30));
+                e.Graphics.DrawString("Niet Beschikbaar", new Font("Aharoni", 13, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 6f);
+            }
+            
+            if(discount != null)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.Green), new Rectangle(0, 120, 150, 30));
+                e.Graphics.DrawString(discount.percentage + "% korting!", new Font("Aharoni", 15, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 130f);
+            }
         }
 
         private void pb_Click(object sender, EventArgs e)
         {
-            qarsApplication.OpenDetails(carNumber);
+            qarsApplication.OpenDetails(carNumber, discount);
         }
 
         public bool check = false;

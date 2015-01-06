@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Security.Cryptography;
+using System.Diagnostics;
 namespace Qars
 {
     public class DBConnect
@@ -431,6 +432,41 @@ namespace Qars
                 this.CloseConnection();
             }
         }
+
+        //Check if there are discounts
+        public List<Discount> CheckDiscounts()
+        {
+            string query = " SELECT * FROM Discount ";
+            List<Discount> localDiscountList = new List<Discount>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Discount newDiscount = new Discount();
+
+                    newDiscount.discountID = SafeGetInt(dataReader, 0);
+                    newDiscount.carID = SafeGetInt(dataReader, 1);
+                    newDiscount.percentage = SafeGetInt(dataReader, 2);
+                    newDiscount.validation = SafeGetString(dataReader, 3);
+
+                    localDiscountList.Add(newDiscount);
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+               
+                return localDiscountList;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
+
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))

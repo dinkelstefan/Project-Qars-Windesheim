@@ -16,7 +16,9 @@ namespace Qars
         private PictureBox mainpicture;
         private VisualDemo qarsApplication;
         private string availableat;
-        public CarDetailPanel(int carNumber, VisualDemo qarsApp)
+        public Discount discount;
+
+        public CarDetailPanel(int carNumber, VisualDemo qarsApp, Discount dis)
         {   //properties of the panel
             this.currentCarNumber = carNumber;
             this.Height = 568;
@@ -25,6 +27,7 @@ namespace Qars
             this.Left = 221;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
+            this.discount = dis;
 
             this.qarsApplication = qarsApp;
 
@@ -39,8 +42,39 @@ namespace Qars
 
             //all the labels, images and buttons
             Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
-            Label beginprice = createLabel("Beginprijs: € " + this.qarsApplication.carList[carNumber].startprice, 70, 375, 200, 27, 14, FontStyle.Regular);
-            Label priceperkm = createLabel("Prijs per Kilometer: € " + this.qarsApplication.carList[carNumber].rentalprice, 100, 375, 225, 27, 14, FontStyle.Regular);
+
+            Label beginprice = createLabel("Beginprijs: ", 60, 374, 95, 25, 14, FontStyle.Regular);
+            Label beginAmount = createLabel("€" + this.qarsApplication.carList[carNumber].startprice, 60, 465, 45, 27, 14, FontStyle.Regular);
+
+            Label priceperkm = createLabel("Kilometerprijs: ", 100, 375, 125, 25, 14, FontStyle.Regular);
+            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 100, 500, 65, 27, 14, FontStyle.Regular);
+          
+
+            if (discount != null)
+            {
+                Label discountLabelB = new Label();
+                beginAmount.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Strikeout);
+                beginAmount.ForeColor = Color.Red;
+                discountLabelB.Font = new Font("Ariel", 13, FontStyle.Bold);
+                discountLabelB.Width = 125;
+                discountLabelB.Top = 60;
+                discountLabelB.Left = beginAmount.Left + (beginAmount.Width-10);
+                discountLabelB.ForeColor = System.Drawing.Color.Green;
+                discountLabelB.Text = " =  €" + qarsApplication.carList[carNumber].startprice * ((double)1 - ((double)discount.percentage / 100));
+                this.Controls.Add(discountLabelB);
+
+                Label discountLabelP = new Label();
+                ppk.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Strikeout);
+                ppk.ForeColor = Color.Red;
+                discountLabelP.Font = new Font("Ariel", 13, FontStyle.Bold);
+                discountLabelP.Width = 125;
+                discountLabelP.Top = 100;
+                discountLabelP.Left = ppk.Left + (ppk.Width-10);
+                discountLabelP.ForeColor = System.Drawing.Color.Green;
+                discountLabelP.Text = " =  €" + qarsApplication.carList[carNumber].rentalprice * ((double)1 - ((double)discount.percentage / 100));
+                this.Controls.Add(discountLabelP);
+            }
+
             Label establishment = createLabel(availableat, 130, 375, 327, 27, 14, FontStyle.Regular);
             Label specs = createLabel("Specificaties", 315, 22, 300, 32, 20, FontStyle.Regular);
             Label desc = createLabel("Beschrijving", 20, 700, 165, 32, 20, FontStyle.Regular);
