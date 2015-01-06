@@ -499,7 +499,7 @@ namespace Qars
                     CloseConnection();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }

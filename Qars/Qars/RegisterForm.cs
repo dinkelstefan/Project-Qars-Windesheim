@@ -13,15 +13,10 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    /*
-     * Validate Input
-     * Insert Photo in database(If a photo is selected)
-     * Insert User into database
-     * Send Email
-     * Display MessageBox when succesfull
-     */
+
     public partial class RegisterForm : Form
     {
+        bool JPG = true;
         string driverslicenselink = "";
         Image driverslicensephoto;
         bool emailInvalid = false;
@@ -35,6 +30,7 @@ namespace Qars
 
         private void ChoosePictureButton_Click(object sender, EventArgs e)
         {
+            bool error = false;
             openFileDialog1.Multiselect = false;
             openFileDialog1.Filter = "JPG files (*.JPG)|*.jpg|PNG files(*.PNG)|*.PNG";
             openFileDialog1.CheckFileExists = true;
@@ -44,6 +40,7 @@ namespace Qars
             {
                 driverslicenselink = openFileDialog1.FileName;
                 FileInfo fi = new FileInfo(driverslicenselink);
+
                 long fileSize = fi.Length; //The size of the current file in bytes.file
                 if (fileSize > 2621440)
                 {
@@ -52,10 +49,27 @@ namespace Qars
                 }
                 else
                 {
-                    driverslicensephoto = Image.FromFile(driverslicenselink);
-                    DriversLicensePictureBox.Image = driverslicensephoto;
-                    DriversLicensePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    SelectedPictureLabel.Visible = true;
+                    string extension = fi.Extension;
+                    Console.WriteLine(extension);
+                    if (extension == ".jpg")
+                    {
+                        JPG = true;
+                    }
+                    else if (extension == ".png")
+                    {
+                        JPG = false;
+                    }
+                    else
+                    {
+                        error = true;
+                    }
+                    if (error == false)
+                    {
+                        driverslicensephoto = Image.FromFile(driverslicenselink);
+                        DriversLicensePictureBox.Image = driverslicensephoto;
+                        DriversLicensePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        SelectedPictureLabel.Visible = true;
+                    }
 
                 }
             }
@@ -66,6 +80,7 @@ namespace Qars
         }
         private void RegisterButton1_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("driverlicense/" + UsernameTextBox.Text);
             bool validateResult = false;
             bool uploadPhotoResult = false;
             bool insertDataBaseResult = false;
@@ -74,7 +89,7 @@ namespace Qars
             //Validate input and stuff
             validateResult = ValidateInput(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
             if (validateResult == true)
-                uploadPhotoResult = UploadDriversLicensePhoto(driverslicensephoto);
+                uploadPhotoResult = UploadDriversLicensePhoto(driverslicenselink, UsernameTextBox.Text);
             if (uploadPhotoResult == true)
                 insertDataBaseResult = CompleteRegistration(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
             if (insertDataBaseResult == true)
@@ -283,16 +298,39 @@ namespace Qars
             }
             return match.Groups[1].Value + domainName;
         }
-        private bool UploadDriversLicensePhoto(Image image) //Need to create this
+        private bool UploadDriversLicensePhoto(string Image, string username)
         {
-            if (1 == 1)
+            /*
+            string remotefile;
+            FTPConnection ftpconnection = new FTPConnection("ftp.pqrojectqars.herobo.com", "a8158354", "Quintor1");
+
+            StringBuilder builder = new StringBuilder();
+            builder.Append("public_html/DriverLicense/"); // the dir
+            builder.Append(username); //This needs to be changed if a user changes his username
+
+            if (JPG == true)
             {
-                //Upload photo (Name: username)
-                //If(file was uploaded succesfully)
-                return true;
-                //else
-                //return false;
+                remotefile = builder.ToString() + ".JPG";
             }
+            else
+            {
+                remotefile = builder.ToString() + ".PNG";
+            }
+
+            ftpconnection.upload(remotefile, Image);
+             * */
+            return true;
+            /*
+            string[] names = ftpconnection.directoryListSimple("/photomap");
+            foreach (var item in names)
+            {
+                if (item == username)
+                {
+                    return true;
+                }
+            }
+            return false;
+             * */
         }
         private bool SendEmail(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {

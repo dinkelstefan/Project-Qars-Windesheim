@@ -74,7 +74,7 @@ namespace Qars
                 LogInOrRegisterButton.Visible = false;
                 LogOutButton.Visible = true;
                 LogOutButton.Enabled = true;
-
+                customerList = db.SelectUsers();
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
 

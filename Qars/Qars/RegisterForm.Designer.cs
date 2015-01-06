@@ -66,6 +66,8 @@
             this.TOSLabel = new System.Windows.Forms.Label();
             this.WrongFileLabel = new System.Windows.Forms.Label();
             this.PostalCodeTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.PasswordRequirementsLabel = new System.Windows.Forms.Label();
+            this.UsernameRequirementsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -303,7 +305,7 @@
             // SelectedPictureLabel
             // 
             this.SelectedPictureLabel.AutoSize = true;
-            this.SelectedPictureLabel.Location = new System.Drawing.Point(264, 79);
+            this.SelectedPictureLabel.Location = new System.Drawing.Point(264, 124);
             this.SelectedPictureLabel.Name = "SelectedPictureLabel";
             this.SelectedPictureLabel.Size = new System.Drawing.Size(117, 13);
             this.SelectedPictureLabel.TabIndex = 31;
@@ -312,7 +314,7 @@
             // 
             // DriversLicensePictureBox
             // 
-            this.DriversLicensePictureBox.Location = new System.Drawing.Point(235, 104);
+            this.DriversLicensePictureBox.Location = new System.Drawing.Point(235, 149);
             this.DriversLicensePictureBox.Name = "DriversLicensePictureBox";
             this.DriversLicensePictureBox.Size = new System.Drawing.Size(173, 76);
             this.DriversLicensePictureBox.TabIndex = 32;
@@ -381,7 +383,7 @@
             // 
             this.WrongFileLabel.AutoSize = true;
             this.WrongFileLabel.ForeColor = System.Drawing.Color.Red;
-            this.WrongFileLabel.Location = new System.Drawing.Point(224, 154);
+            this.WrongFileLabel.Location = new System.Drawing.Point(224, 157);
             this.WrongFileLabel.Name = "WrongFileLabel";
             this.WrongFileLabel.Size = new System.Drawing.Size(157, 39);
             this.WrongFileLabel.TabIndex = 41;
@@ -396,12 +398,32 @@
             this.PostalCodeTextBox.Size = new System.Drawing.Size(48, 20);
             this.PostalCodeTextBox.TabIndex = 0;
             // 
+            // PasswordRequirementsLabel
+            // 
+            this.PasswordRequirementsLabel.AutoSize = true;
+            this.PasswordRequirementsLabel.Location = new System.Drawing.Point(212, 82);
+            this.PasswordRequirementsLabel.Name = "PasswordRequirementsLabel";
+            this.PasswordRequirementsLabel.Size = new System.Drawing.Size(206, 13);
+            this.PasswordRequirementsLabel.TabIndex = 42;
+            this.PasswordRequirementsLabel.Text = "Minimaal 6 tekens, 1 hoofdletter en 1 cijfer";
+            // 
+            // UsernameRequirementsLabel
+            // 
+            this.UsernameRequirementsLabel.AutoSize = true;
+            this.UsernameRequirementsLabel.Location = new System.Drawing.Point(212, 53);
+            this.UsernameRequirementsLabel.Name = "UsernameRequirementsLabel";
+            this.UsernameRequirementsLabel.Size = new System.Drawing.Size(227, 13);
+            this.UsernameRequirementsLabel.TabIndex = 43;
+            this.UsernameRequirementsLabel.Text = "Minimaal 6 tekens, geen speciale tekens(#!$?)";
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 501);
+            this.ClientSize = new System.Drawing.Size(441, 501);
             this.ControlBox = false;
+            this.Controls.Add(this.UsernameRequirementsLabel);
+            this.Controls.Add(this.PasswordRequirementsLabel);
             this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.WrongFileLabel);
             this.Controls.Add(this.TOSLabel);
@@ -488,5 +510,7 @@
         private System.Windows.Forms.Label TOSLabel;
         private System.Windows.Forms.Label WrongFileLabel;
         private System.Windows.Forms.MaskedTextBox PostalCodeTextBox;
+        private System.Windows.Forms.Label PasswordRequirementsLabel;
+        private System.Windows.Forms.Label UsernameRequirementsLabel;
     }
 }

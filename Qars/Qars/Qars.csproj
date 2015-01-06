@@ -60,6 +60,7 @@
     <Compile Include="ComparePricePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FTPConnection.cs" />
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
