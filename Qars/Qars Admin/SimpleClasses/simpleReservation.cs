@@ -10,6 +10,7 @@ namespace Qars_Admin
     {
         public int reservationID { get; set; }
         public int carID { get; set; }
+        public int KlantID { get; set; }
         public string Begindatum { get; set; }
         public string Einddatum { get; set; }
         public double Kilometers { get; set; }
@@ -19,9 +20,10 @@ namespace Qars_Admin
         public bool Bevestigd { get; set; }
         public bool Betaald { get; set; }
 
-        public simpleReservation(int reservationID, int carID, string beginDatum, string eindDatum, double kilometers, string stad, string straatnaam, double huisnummer, bool betaald, bool bevestigd)
+        public simpleReservation(int reservationID, int carID, int klantID,string beginDatum, string eindDatum, double kilometers, string stad, string straatnaam, double huisnummer, bool betaald, bool bevestigd)
         {
             this.reservationID = reservationID;
+            this.KlantID = klantID;
             this.carID = carID;
             this.Begindatum = beginDatum;
             this.Einddatum = eindDatum;

@@ -31,7 +31,7 @@ namespace Qars_Admin.Panels
             this.reservationList = databaseConnection.SelectReservation();
             foreach (Reservation res in this.reservationList)
             {
-                simpleReservationList.Add(new simpleReservation(res.reservationID, res.carID, res.startdate, res.enddate, res.kilometres, res.pickupcity, res.pickupstreetname, res.pickupstreetnumber, res.paid, res.confirmed));
+                simpleReservationList.Add(new simpleReservation(res.reservationID, res.carID, res.customerID , res.startdate, res.enddate, res.kilometres, res.pickupcity, res.pickupstreetname, res.pickupstreetnumber, res.paid, res.confirmed));
             }
 
             this.reservationDataGridView.DataSource = simpleReservationList;
