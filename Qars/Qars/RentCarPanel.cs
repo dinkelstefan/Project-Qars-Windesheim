@@ -41,6 +41,7 @@ namespace Qars
             this.carID = carID;
             stringList = createSpecInfo(qarsApplication.carList, carID);
             getReservations();
+
         }
         public bool ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {

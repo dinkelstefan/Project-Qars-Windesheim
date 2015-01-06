@@ -401,6 +401,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 501);
+            this.ControlBox = false;
             this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.WrongFileLabel);
             this.Controls.Add(this.TOSLabel);
@@ -438,7 +439,9 @@
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.UsernameTextBox);
             this.Name = "RegisterForm";
-            this.Text = "RegisterForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registratieformulier";
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

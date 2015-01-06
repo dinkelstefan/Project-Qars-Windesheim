@@ -14,6 +14,8 @@ namespace Qars
     {
         public LogOut()
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
             InitializeComponent();
         }
     }

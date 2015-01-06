@@ -3,6 +3,7 @@ namespace Qars
 {
     partial class RentCarPanel
     {
+
         /// <summary> 
         /// Required designer variable.
         /// </summary>

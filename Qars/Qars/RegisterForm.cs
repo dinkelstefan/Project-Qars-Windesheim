@@ -28,6 +28,8 @@ namespace Qars
 
         public RegisterForm()
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
             InitializeComponent();
         }
 

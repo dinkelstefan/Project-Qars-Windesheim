@@ -17,6 +17,8 @@ namespace Qars
         public VisualDemo qarsApplication { get; set; }
         public LogInForm(VisualDemo qarsapp, int UserID)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
             this.qarsApplication = qarsapp;
             this.userID = userID;
             InitializeComponent();
