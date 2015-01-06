@@ -1,6 +1,6 @@
-﻿namespace License
+﻿namespace Qars
 {
-    partial class license
+    partial class TermsOfService
     {
         /// <summary>
         /// Required designer variable.
@@ -40,9 +40,10 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(664, 440);
+            this.close.Location = new System.Drawing.Point(498, 358);
+            this.close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(75, 23);
+            this.close.Size = new System.Drawing.Size(56, 19);
             this.close.TabIndex = 0;
             this.close.Text = "sluiten";
             this.close.UseVisualStyleBackColor = true;
@@ -50,37 +51,42 @@
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(562, 440);
+            this.edit.Location = new System.Drawing.Point(422, 358);
+            this.edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(96, 23);
+            this.edit.Size = new System.Drawing.Size(72, 19);
             this.edit.TabIndex = 1;
             this.edit.Text = "bewerken";
             this.edit.UseVisualStyleBackColor = true;
+            this.edit.Visible = false;
             this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // lastEdited
             // 
             this.lastEdited.AutoSize = true;
-            this.lastEdited.Location = new System.Drawing.Point(32, 416);
+            this.lastEdited.Location = new System.Drawing.Point(24, 338);
+            this.lastEdited.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lastEdited.Name = "lastEdited";
-            this.lastEdited.Size = new System.Drawing.Size(104, 17);
+            this.lastEdited.Size = new System.Drawing.Size(80, 13);
             this.lastEdited.TabIndex = 3;
             this.lastEdited.Text = "Laatst bewerkt:";
             // 
             // date
             // 
             this.date.AutoSize = true;
-            this.date.Location = new System.Drawing.Point(31, 433);
+            this.date.Location = new System.Drawing.Point(23, 352);
+            this.date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(57, 17);
+            this.date.Size = new System.Drawing.Size(44, 13);
             this.date.TabIndex = 5;
             this.date.Text = "{datum}";
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(366, 416);
+            this.delete.Location = new System.Drawing.Point(274, 338);
+            this.delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(99, 40);
+            this.delete.Size = new System.Drawing.Size(74, 32);
             this.delete.TabIndex = 6;
             this.delete.Text = "verwijderen";
             this.delete.UseVisualStyleBackColor = true;
@@ -89,9 +95,10 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(471, 416);
+            this.save.Location = new System.Drawing.Point(353, 338);
+            this.save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(85, 40);
+            this.save.Size = new System.Drawing.Size(64, 32);
             this.save.TabIndex = 10;
             this.save.Text = "opslaan";
             this.save.UseVisualStyleBackColor = true;
@@ -100,29 +107,31 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(34, 29);
+            this.richTextBox1.Location = new System.Drawing.Point(26, 24);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(705, 368);
+            this.richTextBox1.Size = new System.Drawing.Size(530, 300);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
             // 
             // userView
             // 
-            this.userView.Location = new System.Drawing.Point(562, 403);
+            this.userView.Location = new System.Drawing.Point(422, 327);
+            this.userView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.userView.Name = "userView";
-            this.userView.Size = new System.Drawing.Size(177, 31);
+            this.userView.Size = new System.Drawing.Size(133, 25);
             this.userView.TabIndex = 12;
             this.userView.Text = "kijk van gebruiker";
             this.userView.UseVisualStyleBackColor = true;
             this.userView.Visible = false;
             this.userView.Click += new System.EventHandler(this.userView_Click);
             // 
-            // license
+            // TermsOfService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 475);
+            this.ClientSize = new System.Drawing.Size(580, 386);
             this.Controls.Add(this.userView);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.save);
@@ -131,8 +140,9 @@
             this.Controls.Add(this.lastEdited);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.close);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.Name = "license";
+            this.Name = "TermsOfService";
             this.Text = "De algemene voorwaarden";
             this.ResumeLayout(false);
             this.PerformLayout();
