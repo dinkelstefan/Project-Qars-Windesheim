@@ -353,7 +353,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(1191, 648);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 20);
             this.button2.TabIndex = 14;
@@ -397,7 +397,6 @@
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -425,6 +424,7 @@
         private System.Windows.Forms.Panel TileView;
         private Views.searchWizard searchWizard;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button1;
 
     }
 }

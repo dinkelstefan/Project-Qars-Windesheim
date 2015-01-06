@@ -29,11 +29,13 @@ namespace Qars
         public List<Car> totalCarList { get; private set; }
 
         public List<Car> compareList = new List<Car>();
+        public List<Discount> discountList;
 
         public DBConnect db = new DBConnect();
 
         public VisualDemo()
         {
+			discountList = new List<Discount>(db.CheckDiscounts());
             totalCarList = db.SelectCar();
             carList = totalCarList;
 
@@ -75,6 +77,7 @@ namespace Qars
                 button1.Visible = true;
 
             UpdateCompareLabel();
+
         }
 
         public void RemoveCompare(int number)
@@ -101,15 +104,34 @@ namespace Qars
             }
         }
 
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            ComparePanel p = new ComparePanel(compareList);
+                 List<double> discountPrices = new List<double>();
+
+                foreach(Car car in compareList)
+                {
+                    var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
+
+                    if(match != null)
+                    {
+                        discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
+                        discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.percentage / 100))); 
+                    }
+                    else
+                    {
+                        discountPrices.Add(car.startprice);
+                        discountPrices.Add(car.startprice);
+                    }
+                }
+            
+            ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
 
-        public void OpenDetails(int number)
+        public void OpenDetails(int number, Discount d)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, this);
+            CarDetailPanel cp = new CarDetailPanel(number, this, d);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
@@ -148,8 +170,9 @@ namespace Qars
             {
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
-                {
-                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this);
+                {           
+                    var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
+                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this, match);
                     TileView.Controls.Add(tp);
                 }
                 localX += 200;
@@ -171,5 +194,7 @@ namespace Qars
             totalCarList = carList;
             updateTileView();
         }
+
+       
     }
 }
