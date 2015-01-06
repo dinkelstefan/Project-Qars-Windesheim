@@ -53,17 +53,22 @@ namespace Qars_Admin.EditPanels
             try
             {
                 List<User> userList = connect.SelectUsers();
+                List<Car> carList = connect.SelectCar();
                 Reservation res = this.getReservationFromFields();
                 
                 //Search for user by this reservation
-                var query = from u in userList
-                            where u.customerID == res.customerID
-                            select u;
+                //var query = from u in userList
+                //            where u.customerID == res.customerID
+                //            select u;
+                //User user = query.First();
+                User user = userList[reservation.customerID];
+                Car car = carList[reservation.carID];
 
-                User user = query.First();
+
+                Console.WriteLine(user.firstname);
 
                 //Build email when reservations is confirmed
-                if ((this.confirmState != res.confirmed) && res.confirmed == true)
+                if ((reservation.confirmed != res.confirmed) && res.confirmed == true)
                 {
                     Mail mail = new Mail();
                     mail.addTo(user.emailaddress);
@@ -71,18 +76,12 @@ namespace Qars_Admin.EditPanels
                     
                     StringBuilder sb = new StringBuilder();
                     sb.AppendLine("Beste " + user.firstname + ",\n");
-                    sb.AppendLine("Uw order is zojuist bevestigd.");
+                    sb.AppendLine("Uw order is zojuist bevestigd.\n");
 
-                    sb.AppendLine("Ordernummber:\t\t" + res.reservationID);
-                    sb.AppendLine("Voornaam:\t\t" + user.firstname);
-                    sb.AppendLine("Achternaam:\t\t" + user.lastname);
+                    sb.AppendLine("Ordernummber:\t" + res.reservationID);
+                    sb.AppendLine("Merk:\t\t\t" + car.brand);
+                    sb.AppendLine("Model:\t\t\t" + car.model);
 
-                    if (res.pickupstreetname != null && res.pickupstreetnumber != null)
-                    {
-                        sb.AppendLine("Ophaaladres");
-                        sb.AppendLine(string.Format("Adres:\t\t{0} {1}{2}", res.pickupstreetname, res.pickupstreetnumber,res.pickupstreetnumbersuffix));
-                        sb.AppendLine(string.Format("Woonplaats:\t\t{0}", res.pickupcity));
-                    }
                     sb.Append("\n");
                     sb.AppendLine("Begindatum:\t\t" + res.startdate);
                     sb.AppendLine("Einddatum:\t\t" + res.enddate);
@@ -93,6 +92,7 @@ namespace Qars_Admin.EditPanels
                     
                     mail.addBody(sb.ToString());
                     mail.sendEmail();
+                    MessageBox.Show("Er is een email naar de klant gestuurd met een bevestiging van de reservering.");
                 }
 
                 this.connect.UpdateReservation(res);
