@@ -69,7 +69,7 @@ namespace Qars
         private void RegisterButton_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
-            RegisterForm registerform = new RegisterForm();
+            RegisterForm registerform = new RegisterForm(qarsApplication);
             registerform.ShowDialog();
         }
         private void CancelButton2_Click(object sender, EventArgs e)

@@ -583,6 +583,63 @@ namespace Qars
         {
             return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;
         }
-    }
-}
 
+        public List<ToS> selectToS()
+        {
+            string query = " SELECT ToSID, ToS, date FROM ToS where ToSID = 0";
+            List<ToS> ToSList = new List<ToS>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    ToS tos = new ToS();
+                    tos.ToSID = SafeGetInt(dataReader, 0);
+                    tos.ToSInfo = SafeGetString(dataReader, 1);
+                    tos.date = SafeGetString(dataReader, 2);
+
+
+                    ToSList.Add(tos);
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return ToSList;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public bool InsertToS(ToS tos)
+        {
+            int result = 0;
+            try
+            {
+                string query = "UPDATE ToS SET ToS = @ToS";
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@ToS", SafeInsertString(tos.ToSInfo));
+
+                    result = cmd.ExecuteNonQuery();
+                    CloseConnection();
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            if (result > 0)
+                return true;
+            else
+                return false;
+
+
+        }
+    }
+
+}

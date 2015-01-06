@@ -80,6 +80,13 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TermsOfService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TermsOfService.Designer.cs">
+      <DependentUpon>TermsOfService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToS.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Damage.cs" />
     <Compile Include="DBConnect.cs" />
@@ -135,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RentCarPanel.resx">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TermsOfService.resx">
+      <DependentUpon>TermsOfService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TileListPanel.resx">
       <DependentUpon>TileListPanel.cs</DependentUpon>
