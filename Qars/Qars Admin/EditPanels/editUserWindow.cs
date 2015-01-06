@@ -33,6 +33,20 @@ namespace Qars_Admin.EditPanels
             streetnumberSuffixTextBox.Text = user.streetnumbersuffix;
             phonenumberTextBox.Text = user.phonenumber;
             emailadresTextBox.Text = user.emailaddress;
+
+            //Fill combobox
+            int i = 0;
+            List<Establishment> establishmentList = connection.SelectEstablishment();
+            foreach (Establishment est in establishmentList)
+            {
+                establishmentComboBox.Items.Add(est.name);
+                if (user.Esthablishment == est.establishmentID)
+                {
+                        establishmentComboBox.SelectedIndex = i;
+                }
+                i++;
+            }
+            
         }
 
         private User getUserFromFields()
@@ -53,6 +67,7 @@ namespace Qars_Admin.EditPanels
             user.streetnumbersuffix = streetnumberSuffixTextBox.Text;
             user.phonenumber = phonenumberTextBox.Text;
             user.emailaddress = emailadresTextBox.Text;
+            user.Esthablishment = establishmentComboBox.SelectedIndex + 1;
 
             return user;
         }

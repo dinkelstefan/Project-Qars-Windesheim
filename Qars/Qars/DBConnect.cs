@@ -29,8 +29,7 @@ namespace Qars
             database = "qars1";
             uid = "qars1";
             password = "Quintor";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+            string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
             connection = new MySqlConnection(connectionString);
@@ -341,6 +340,7 @@ namespace Qars
                     newUser.phonenumber = SafeGetString(dataReader, 12);
                     newUser.emailaddress = SafeGetString(dataReader, 13);
                     newUser.driverslicenselink = SafeGetString(dataReader, 14);
+                    newUser.Esthablishment = SafeGetInt(dataReader, 15);
 
                     localUserList.Add(newUser);
                 }
@@ -358,7 +358,7 @@ namespace Qars
         public void UpdateUser(User user)
         {
             string query = "Update User ";
-            query += string.Format("Set AccountLevel={0}, Username='{1}', Password='{2}',Firstname='{3}', Lastname='{4}',Age={5},Postalcode='{6}',City='{7}', Streetname='{8}', Streetnumber={9}, Streetnumbersuffix='{10}', Phonenumber='{11}', Emailaddress='{12}', Driverslicencelink='{13}'", user.accountLevel,user.username,user.password,user.firstname, user.lastname, user.age, user.postalcode, user.city, user.streetname,user.streetnumber,user.streetnumbersuffix, user.phonenumber, user.emailaddress, user.driverslicenselink);
+            query += string.Format("Set AccountLevel={0}, Username='{1}', Password='{2}',Firstname='{3}', Lastname='{4}',Age={5},Postalcode='{6}',City='{7}', Streetname='{8}', Streetnumber={9}, Streetnumbersuffix='{10}', Phonenumber='{11}', Emailaddress='{12}', Driverslicencelink='{13}', Establishment={14} ", user.accountLevel,user.username,user.password,user.firstname, user.lastname, user.age, user.postalcode, user.city, user.streetname,user.streetnumber,user.streetnumbersuffix, user.phonenumber, user.emailaddress, user.driverslicenselink, user.Esthablishment);
             query += string.Format("Where UserID = {0} ", user.customerID);
 
             Console.WriteLine(query);

@@ -23,6 +23,7 @@ namespace Qars
         public string phonenumber { get; set; }
         public string emailaddress { get; set; }
         public string driverslicenselink { get; set; }
+        public int Esthablishment { get; set; }
 
 
         public User()

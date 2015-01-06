@@ -60,6 +60,8 @@
             this.accountLevelTextBox = new System.Windows.Forms.TextBox();
             this.cityLabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.establishmentComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(122, 127);
+            this.label2.Location = new System.Drawing.Point(122, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(173, 26);
             this.label2.TabIndex = 1;
@@ -87,7 +89,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(162, 177);
+            this.label3.Location = new System.Drawing.Point(162, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 26);
             this.label3.TabIndex = 2;
@@ -97,7 +99,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(182, 221);
+            this.label4.Location = new System.Drawing.Point(182, 292);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 26);
             this.label4.TabIndex = 3;
@@ -107,7 +109,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(165, 259);
+            this.label5.Location = new System.Drawing.Point(165, 330);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 26);
             this.label5.TabIndex = 4;
@@ -117,7 +119,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(213, 301);
+            this.label6.Location = new System.Drawing.Point(213, 372);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 26);
             this.label6.TabIndex = 5;
@@ -127,7 +129,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label7.Location = new System.Drawing.Point(192, 342);
+            this.label7.Location = new System.Drawing.Point(192, 413);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 26);
             this.label7.TabIndex = 6;
@@ -137,7 +139,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label8.Location = new System.Drawing.Point(170, 436);
+            this.label8.Location = new System.Drawing.Point(170, 507);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 26);
             this.label8.TabIndex = 7;
@@ -147,7 +149,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label9.Location = new System.Drawing.Point(21, 476);
+            this.label9.Location = new System.Drawing.Point(21, 547);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(274, 26);
             this.label9.TabIndex = 8;
@@ -157,7 +159,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label10.Location = new System.Drawing.Point(119, 527);
+            this.label10.Location = new System.Drawing.Point(119, 598);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(176, 26);
             this.label10.TabIndex = 9;
@@ -167,7 +169,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label11.Location = new System.Drawing.Point(173, 575);
+            this.label11.Location = new System.Drawing.Point(173, 646);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(122, 26);
             this.label11.TabIndex = 10;
@@ -177,7 +179,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label12.Location = new System.Drawing.Point(196, 618);
+            this.label12.Location = new System.Drawing.Point(196, 689);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(99, 26);
             this.label12.TabIndex = 11;
@@ -193,14 +195,14 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(301, 129);
+            this.usernameTextBox.Location = new System.Drawing.Point(301, 200);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(303, 26);
             this.usernameTextBox.TabIndex = 13;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(301, 179);
+            this.passwordTextBox.Location = new System.Drawing.Point(301, 250);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.ReadOnly = true;
@@ -209,7 +211,7 @@
             // 
             // firstnameTextBox
             // 
-            this.firstnameTextBox.Location = new System.Drawing.Point(301, 223);
+            this.firstnameTextBox.Location = new System.Drawing.Point(301, 294);
             this.firstnameTextBox.Name = "firstnameTextBox";
             this.firstnameTextBox.Size = new System.Drawing.Size(303, 26);
             this.firstnameTextBox.TabIndex = 15;
@@ -217,7 +219,7 @@
             // 
             // lastnameTextBox
             // 
-            this.lastnameTextBox.Location = new System.Drawing.Point(301, 261);
+            this.lastnameTextBox.Location = new System.Drawing.Point(301, 332);
             this.lastnameTextBox.Name = "lastnameTextBox";
             this.lastnameTextBox.Size = new System.Drawing.Size(303, 26);
             this.lastnameTextBox.TabIndex = 16;
@@ -225,7 +227,7 @@
             // 
             // ageTextBox
             // 
-            this.ageTextBox.Location = new System.Drawing.Point(301, 303);
+            this.ageTextBox.Location = new System.Drawing.Point(301, 374);
             this.ageTextBox.Name = "ageTextBox";
             this.ageTextBox.Size = new System.Drawing.Size(71, 26);
             this.ageTextBox.TabIndex = 17;
@@ -233,7 +235,7 @@
             // 
             // postalCodeTextBox
             // 
-            this.postalCodeTextBox.Location = new System.Drawing.Point(301, 344);
+            this.postalCodeTextBox.Location = new System.Drawing.Point(301, 415);
             this.postalCodeTextBox.Mask = "0000 LL";
             this.postalCodeTextBox.Name = "postalCodeTextBox";
             this.postalCodeTextBox.Size = new System.Drawing.Size(71, 26);
@@ -241,7 +243,7 @@
             // 
             // streetnameTextBox
             // 
-            this.streetnameTextBox.Location = new System.Drawing.Point(301, 438);
+            this.streetnameTextBox.Location = new System.Drawing.Point(301, 509);
             this.streetnameTextBox.Name = "streetnameTextBox";
             this.streetnameTextBox.Size = new System.Drawing.Size(303, 26);
             this.streetnameTextBox.TabIndex = 19;
@@ -249,7 +251,7 @@
             // 
             // streetnumberTextBox
             // 
-            this.streetnumberTextBox.Location = new System.Drawing.Point(301, 478);
+            this.streetnumberTextBox.Location = new System.Drawing.Point(301, 549);
             this.streetnumberTextBox.Name = "streetnumberTextBox";
             this.streetnumberTextBox.Size = new System.Drawing.Size(71, 26);
             this.streetnumberTextBox.TabIndex = 20;
@@ -257,7 +259,7 @@
             // 
             // streetnumberSuffixTextBox
             // 
-            this.streetnumberSuffixTextBox.Location = new System.Drawing.Point(378, 478);
+            this.streetnumberSuffixTextBox.Location = new System.Drawing.Point(378, 549);
             this.streetnumberSuffixTextBox.Name = "streetnumberSuffixTextBox";
             this.streetnumberSuffixTextBox.Size = new System.Drawing.Size(71, 26);
             this.streetnumberSuffixTextBox.TabIndex = 21;
@@ -265,7 +267,7 @@
             // 
             // phonenumberTextBox
             // 
-            this.phonenumberTextBox.Location = new System.Drawing.Point(301, 529);
+            this.phonenumberTextBox.Location = new System.Drawing.Point(301, 600);
             this.phonenumberTextBox.Name = "phonenumberTextBox";
             this.phonenumberTextBox.Size = new System.Drawing.Size(303, 26);
             this.phonenumberTextBox.TabIndex = 22;
@@ -273,14 +275,14 @@
             // 
             // emailadresTextBox
             // 
-            this.emailadresTextBox.Location = new System.Drawing.Point(301, 575);
+            this.emailadresTextBox.Location = new System.Drawing.Point(301, 646);
             this.emailadresTextBox.Name = "emailadresTextBox";
             this.emailadresTextBox.Size = new System.Drawing.Size(303, 26);
             this.emailadresTextBox.TabIndex = 23;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(301, 618);
+            this.pictureBox1.Location = new System.Drawing.Point(301, 689);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(303, 135);
             this.pictureBox1.TabIndex = 24;
@@ -288,7 +290,7 @@
             // 
             // delete_Button
             // 
-            this.delete_Button.Location = new System.Drawing.Point(11, 791);
+            this.delete_Button.Location = new System.Drawing.Point(12, 863);
             this.delete_Button.Name = "delete_Button";
             this.delete_Button.Size = new System.Drawing.Size(109, 36);
             this.delete_Button.TabIndex = 25;
@@ -298,7 +300,7 @@
             // 
             // cancel_Button
             // 
-            this.cancel_Button.Location = new System.Drawing.Point(430, 791);
+            this.cancel_Button.Location = new System.Drawing.Point(431, 863);
             this.cancel_Button.Name = "cancel_Button";
             this.cancel_Button.Size = new System.Drawing.Size(109, 36);
             this.cancel_Button.TabIndex = 26;
@@ -308,7 +310,7 @@
             // 
             // save_Button
             // 
-            this.save_Button.Location = new System.Drawing.Point(545, 791);
+            this.save_Button.Location = new System.Drawing.Point(546, 863);
             this.save_Button.Name = "save_Button";
             this.save_Button.Size = new System.Drawing.Size(109, 36);
             this.save_Button.TabIndex = 27;
@@ -320,7 +322,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label13.Location = new System.Drawing.Point(153, 88);
+            this.label13.Location = new System.Drawing.Point(153, 82);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(142, 26);
             this.label13.TabIndex = 28;
@@ -328,7 +330,7 @@
             // 
             // accountLevelTextBox
             // 
-            this.accountLevelTextBox.Location = new System.Drawing.Point(301, 88);
+            this.accountLevelTextBox.Location = new System.Drawing.Point(301, 82);
             this.accountLevelTextBox.Name = "accountLevelTextBox";
             this.accountLevelTextBox.Size = new System.Drawing.Size(79, 26);
             this.accountLevelTextBox.TabIndex = 29;
@@ -338,7 +340,7 @@
             // 
             this.cityLabel.AutoSize = true;
             this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cityLabel.Location = new System.Drawing.Point(168, 392);
+            this.cityLabel.Location = new System.Drawing.Point(168, 463);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(127, 26);
             this.cityLabel.TabIndex = 30;
@@ -346,17 +348,37 @@
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(301, 392);
+            this.cityTextBox.Location = new System.Drawing.Point(301, 463);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(303, 26);
             this.cityTextBox.TabIndex = 31;
             this.cityTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label14.Location = new System.Drawing.Point(193, 122);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(102, 26);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Vestiging";
+            // 
+            // establishmentComboBox
+            // 
+            this.establishmentComboBox.FormattingEnabled = true;
+            this.establishmentComboBox.Location = new System.Drawing.Point(301, 120);
+            this.establishmentComboBox.Name = "establishmentComboBox";
+            this.establishmentComboBox.Size = new System.Drawing.Size(303, 28);
+            this.establishmentComboBox.TabIndex = 33;
+            // 
             // editUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 839);
+            this.ClientSize = new System.Drawing.Size(667, 912);
+            this.Controls.Add(this.establishmentComboBox);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.cityTextBox);
             this.Controls.Add(this.cityLabel);
             this.Controls.Add(this.accountLevelTextBox);
@@ -390,9 +412,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(689, 895);
+            this.MaximumSize = new System.Drawing.Size(689, 968);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(689, 895);
+            this.MinimumSize = new System.Drawing.Size(689, 968);
             this.Name = "editUserWindow";
             this.Text = "Klanten ";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -435,5 +457,7 @@
         private System.Windows.Forms.TextBox accountLevelTextBox;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox establishmentComboBox;
     }
 }

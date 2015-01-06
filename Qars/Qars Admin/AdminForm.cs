@@ -128,7 +128,6 @@ namespace Qars_Admin
         {
             Application.Exit();
         }
-
         private void categorieButton_Click(object sender, EventArgs e)
         {
             Button b = sender as Button;
