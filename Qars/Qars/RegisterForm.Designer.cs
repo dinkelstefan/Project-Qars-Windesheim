@@ -90,28 +90,28 @@
             this.CityTextBox.Location = new System.Drawing.Point(107, 366);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(100, 20);
-            this.CityTextBox.TabIndex = 3;
+            this.CityTextBox.TabIndex = 10;
             // 
             // AgeTextBox
             // 
             this.AgeTextBox.Location = new System.Drawing.Point(103, 284);
             this.AgeTextBox.Name = "AgeTextBox";
             this.AgeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.AgeTextBox.TabIndex = 5;
+            this.AgeTextBox.TabIndex = 8;
             // 
             // SurnameTextBox
             // 
             this.SurnameTextBox.Location = new System.Drawing.Point(103, 258);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.SurnameTextBox.TabIndex = 6;
+            this.SurnameTextBox.TabIndex = 7;
             // 
             // FirstNameTextBox
             // 
             this.FirstNameTextBox.Location = new System.Drawing.Point(103, 232);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.FirstNameTextBox.TabIndex = 7;
+            this.FirstNameTextBox.TabIndex = 6;
             // 
             // PasswordTextBox
             // 
@@ -208,21 +208,21 @@
             this.StreetNumberSuffixTextBox.Location = new System.Drawing.Point(213, 415);
             this.StreetNumberSuffixTextBox.Name = "StreetNumberSuffixTextBox";
             this.StreetNumberSuffixTextBox.Size = new System.Drawing.Size(32, 20);
-            this.StreetNumberSuffixTextBox.TabIndex = 20;
+            this.StreetNumberSuffixTextBox.TabIndex = 13;
             // 
             // StreetNumberTextBox
             // 
             this.StreetNumberTextBox.Location = new System.Drawing.Point(107, 415);
             this.StreetNumberTextBox.Name = "StreetNumberTextBox";
             this.StreetNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.StreetNumberTextBox.TabIndex = 21;
+            this.StreetNumberTextBox.TabIndex = 12;
             // 
             // StreetNameTextBox
             // 
             this.StreetNameTextBox.Location = new System.Drawing.Point(107, 389);
             this.StreetNameTextBox.Name = "StreetNameTextBox";
             this.StreetNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.StreetNameTextBox.TabIndex = 22;
+            this.StreetNameTextBox.TabIndex = 11;
             // 
             // StreetNumberSuffixLabel
             // 
@@ -297,7 +297,7 @@
             this.ChoosePictureButton.Location = new System.Drawing.Point(103, 157);
             this.ChoosePictureButton.Name = "ChoosePictureButton";
             this.ChoosePictureButton.Size = new System.Drawing.Size(115, 23);
-            this.ChoosePictureButton.TabIndex = 30;
+            this.ChoosePictureButton.TabIndex = 5;
             this.ChoosePictureButton.Text = "Kies een rijbewijsfoto";
             this.ChoosePictureButton.UseVisualStyleBackColor = true;
             this.ChoosePictureButton.Click += new System.EventHandler(this.ChoosePictureButton_Click);
@@ -325,7 +325,7 @@
             this.RegisterButton1.Location = new System.Drawing.Point(11, 471);
             this.RegisterButton1.Name = "RegisterButton1";
             this.RegisterButton1.Size = new System.Drawing.Size(75, 23);
-            this.RegisterButton1.TabIndex = 33;
+            this.RegisterButton1.TabIndex = 15;
             this.RegisterButton1.Text = "Registreer";
             this.RegisterButton1.UseVisualStyleBackColor = true;
             this.RegisterButton1.Click += new System.EventHandler(this.RegisterButton1_Click);
@@ -345,7 +345,7 @@
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(106, 131);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PhoneNumberTextBox.TabIndex = 35;
+            this.PhoneNumberTextBox.TabIndex = 4;
             // 
             // PhoneNumberLabel
             // 
@@ -363,7 +363,7 @@
             this.TOSCheckBox.Location = new System.Drawing.Point(11, 448);
             this.TOSCheckBox.Name = "TOSCheckBox";
             this.TOSCheckBox.Size = new System.Drawing.Size(127, 17);
-            this.TOSCheckBox.TabIndex = 38;
+            this.TOSCheckBox.TabIndex = 14;
             this.TOSCheckBox.Text = "Ik ga akkoord met de";
             this.TOSCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -396,7 +396,7 @@
             this.PostalCodeTextBox.Mask = "0000 LL";
             this.PostalCodeTextBox.Name = "PostalCodeTextBox";
             this.PostalCodeTextBox.Size = new System.Drawing.Size(48, 20);
-            this.PostalCodeTextBox.TabIndex = 0;
+            this.PostalCodeTextBox.TabIndex = 9;
             // 
             // PasswordRequirementsLabel
             // 
@@ -464,6 +464,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registratieformulier";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

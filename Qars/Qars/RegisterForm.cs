@@ -412,5 +412,10 @@ namespace Qars
 
             return builder.ToString();
         }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
