@@ -80,6 +80,7 @@
             this.cruiseControlCheckBox = new System.Windows.Forms.CheckBox();
             this.bluetoothCheckBox = new System.Windows.Forms.CheckBox();
             this.question5Label = new System.Windows.Forms.Label();
+            this.NoneRadioButton = new System.Windows.Forms.RadioButton();
             this.searchWizardTabControl.SuspendLayout();
             this.searchTabpage1.SuspendLayout();
             this.searchTabpage2.SuspendLayout();
@@ -106,6 +107,7 @@
             // searchTabpage1
             // 
             this.searchTabpage1.BackColor = System.Drawing.Color.Transparent;
+            this.searchTabpage1.Controls.Add(this.NoneRadioButton);
             this.searchTabpage1.Controls.Add(this.countCarLabel1);
             this.searchTabpage1.Controls.Add(this.nextButton1);
             this.searchTabpage1.Controls.Add(this.searchButton1);
@@ -160,11 +162,11 @@
             // sportRadioButton
             // 
             this.sportRadioButton.AutoSize = true;
-            this.sportRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.sportRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sportRadioButton.Location = new System.Drawing.Point(29, 298);
             this.sportRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.sportRadioButton.Name = "sportRadioButton";
-            this.sportRadioButton.Size = new System.Drawing.Size(72, 28);
+            this.sportRadioButton.Size = new System.Drawing.Size(70, 27);
             this.sportRadioButton.TabIndex = 7;
             this.sportRadioButton.Text = "Sport";
             this.sportRadioButton.UseVisualStyleBackColor = true;
@@ -173,11 +175,11 @@
             // sedanRadioButton
             // 
             this.sedanRadioButton.AutoSize = true;
-            this.sedanRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.sedanRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sedanRadioButton.Location = new System.Drawing.Point(29, 257);
             this.sedanRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.sedanRadioButton.Name = "sedanRadioButton";
-            this.sedanRadioButton.Size = new System.Drawing.Size(83, 28);
+            this.sedanRadioButton.Size = new System.Drawing.Size(75, 27);
             this.sedanRadioButton.TabIndex = 6;
             this.sedanRadioButton.Text = "Sedan";
             this.sedanRadioButton.UseVisualStyleBackColor = true;
@@ -186,11 +188,11 @@
             // bedrijfswagenRadioButton
             // 
             this.bedrijfswagenRadioButton.AutoSize = true;
-            this.bedrijfswagenRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.bedrijfswagenRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bedrijfswagenRadioButton.Location = new System.Drawing.Point(29, 214);
             this.bedrijfswagenRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.bedrijfswagenRadioButton.Name = "bedrijfswagenRadioButton";
-            this.bedrijfswagenRadioButton.Size = new System.Drawing.Size(136, 28);
+            this.bedrijfswagenRadioButton.Size = new System.Drawing.Size(125, 27);
             this.bedrijfswagenRadioButton.TabIndex = 5;
             this.bedrijfswagenRadioButton.Text = "Bestelwagen";
             this.bedrijfswagenRadioButton.UseVisualStyleBackColor = true;
@@ -199,11 +201,11 @@
             // suvRadioButton
             // 
             this.suvRadioButton.AutoSize = true;
-            this.suvRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.suvRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suvRadioButton.Location = new System.Drawing.Point(29, 175);
             this.suvRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.suvRadioButton.Name = "suvRadioButton";
-            this.suvRadioButton.Size = new System.Drawing.Size(66, 28);
+            this.suvRadioButton.Size = new System.Drawing.Size(60, 27);
             this.suvRadioButton.TabIndex = 4;
             this.suvRadioButton.Text = "SUV";
             this.suvRadioButton.UseVisualStyleBackColor = true;
@@ -212,11 +214,11 @@
             // hatchbackRadioButton
             // 
             this.hatchbackRadioButton.AutoSize = true;
-            this.hatchbackRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.hatchbackRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hatchbackRadioButton.Location = new System.Drawing.Point(29, 134);
             this.hatchbackRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.hatchbackRadioButton.Name = "hatchbackRadioButton";
-            this.hatchbackRadioButton.Size = new System.Drawing.Size(117, 28);
+            this.hatchbackRadioButton.Size = new System.Drawing.Size(109, 27);
             this.hatchbackRadioButton.TabIndex = 3;
             this.hatchbackRadioButton.Text = "Hatchback";
             this.hatchbackRadioButton.UseVisualStyleBackColor = true;
@@ -225,11 +227,11 @@
             // stationwagenRadioButton
             // 
             this.stationwagenRadioButton.AutoSize = true;
-            this.stationwagenRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.stationwagenRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stationwagenRadioButton.Location = new System.Drawing.Point(29, 95);
             this.stationwagenRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.stationwagenRadioButton.Name = "stationwagenRadioButton";
-            this.stationwagenRadioButton.Size = new System.Drawing.Size(141, 28);
+            this.stationwagenRadioButton.Size = new System.Drawing.Size(134, 27);
             this.stationwagenRadioButton.TabIndex = 2;
             this.stationwagenRadioButton.Text = "Stationwagen";
             this.stationwagenRadioButton.UseVisualStyleBackColor = true;
@@ -311,11 +313,11 @@
             // handgeschakeldRadioButton
             // 
             this.handgeschakeldRadioButton.AutoSize = true;
-            this.handgeschakeldRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.handgeschakeldRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.handgeschakeldRadioButton.Location = new System.Drawing.Point(29, 141);
             this.handgeschakeldRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.handgeschakeldRadioButton.Name = "handgeschakeldRadioButton";
-            this.handgeschakeldRadioButton.Size = new System.Drawing.Size(171, 28);
+            this.handgeschakeldRadioButton.Size = new System.Drawing.Size(153, 27);
             this.handgeschakeldRadioButton.TabIndex = 2;
             this.handgeschakeldRadioButton.Text = "Handgeschakeld";
             this.handgeschakeldRadioButton.UseVisualStyleBackColor = true;
@@ -324,11 +326,11 @@
             // automaatRadioButton
             // 
             this.automaatRadioButton.AutoSize = true;
-            this.automaatRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.automaatRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.automaatRadioButton.Location = new System.Drawing.Point(29, 99);
             this.automaatRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.automaatRadioButton.Name = "automaatRadioButton";
-            this.automaatRadioButton.Size = new System.Drawing.Size(107, 28);
+            this.automaatRadioButton.Size = new System.Drawing.Size(104, 27);
             this.automaatRadioButton.TabIndex = 1;
             this.automaatRadioButton.Text = "Automaat";
             this.automaatRadioButton.UseVisualStyleBackColor = true;
@@ -428,11 +430,11 @@
             this.veryHighCheckBox.AutoSize = true;
             this.veryHighCheckBox.Checked = true;
             this.veryHighCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.veryHighCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.veryHighCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.veryHighCheckBox.Location = new System.Drawing.Point(32, 294);
             this.veryHighCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.veryHighCheckBox.Name = "veryHighCheckBox";
-            this.veryHighCheckBox.Size = new System.Drawing.Size(145, 28);
+            this.veryHighCheckBox.Size = new System.Drawing.Size(136, 27);
             this.veryHighCheckBox.TabIndex = 5;
             this.veryHighCheckBox.Tag = "200-*";
             this.veryHighCheckBox.Text = "€200 en meer";
@@ -444,11 +446,11 @@
             this.highCheckBox.AutoSize = true;
             this.highCheckBox.Checked = true;
             this.highCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.highCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.highCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highCheckBox.Location = new System.Drawing.Point(32, 262);
             this.highCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.highCheckBox.Name = "highCheckBox";
-            this.highCheckBox.Size = new System.Drawing.Size(125, 28);
+            this.highCheckBox.Size = new System.Drawing.Size(123, 27);
             this.highCheckBox.TabIndex = 4;
             this.highCheckBox.Tag = "100-200";
             this.highCheckBox.Text = "€100 - €200";
@@ -460,11 +462,11 @@
             this.mediumCheckBox.AutoSize = true;
             this.mediumCheckBox.Checked = true;
             this.mediumCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mediumCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.mediumCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mediumCheckBox.Location = new System.Drawing.Point(32, 230);
             this.mediumCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.mediumCheckBox.Name = "mediumCheckBox";
-            this.mediumCheckBox.Size = new System.Drawing.Size(115, 28);
+            this.mediumCheckBox.Size = new System.Drawing.Size(113, 27);
             this.mediumCheckBox.TabIndex = 3;
             this.mediumCheckBox.Tag = "50-100";
             this.mediumCheckBox.Text = "€50 - €100";
@@ -476,11 +478,11 @@
             this.lowCheckBox.AutoSize = true;
             this.lowCheckBox.Checked = true;
             this.lowCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.lowCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lowCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lowCheckBox.Location = new System.Drawing.Point(32, 198);
             this.lowCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.lowCheckBox.Name = "lowCheckBox";
-            this.lowCheckBox.Size = new System.Drawing.Size(105, 28);
+            this.lowCheckBox.Size = new System.Drawing.Size(103, 27);
             this.lowCheckBox.TabIndex = 2;
             this.lowCheckBox.Tag = "15-50";
             this.lowCheckBox.Text = "€15 - €50";
@@ -568,11 +570,11 @@
             this.leeuwardenCheckBox.AutoSize = true;
             this.leeuwardenCheckBox.Checked = true;
             this.leeuwardenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.leeuwardenCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.leeuwardenCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leeuwardenCheckBox.Location = new System.Drawing.Point(32, 291);
             this.leeuwardenCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.leeuwardenCheckBox.Name = "leeuwardenCheckBox";
-            this.leeuwardenCheckBox.Size = new System.Drawing.Size(135, 28);
+            this.leeuwardenCheckBox.Size = new System.Drawing.Size(124, 27);
             this.leeuwardenCheckBox.TabIndex = 7;
             this.leeuwardenCheckBox.Text = "Leeuwarden";
             this.leeuwardenCheckBox.UseVisualStyleBackColor = true;
@@ -583,11 +585,11 @@
             this.groningenCheckBox.AutoSize = true;
             this.groningenCheckBox.Checked = true;
             this.groningenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.groningenCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groningenCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groningenCheckBox.Location = new System.Drawing.Point(32, 247);
             this.groningenCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.groningenCheckBox.Name = "groningenCheckBox";
-            this.groningenCheckBox.Size = new System.Drawing.Size(119, 28);
+            this.groningenCheckBox.Size = new System.Drawing.Size(110, 27);
             this.groningenCheckBox.TabIndex = 6;
             this.groningenCheckBox.Text = "Groningen";
             this.groningenCheckBox.UseVisualStyleBackColor = true;
@@ -598,11 +600,11 @@
             this.amsterdamCheckBox.AutoSize = true;
             this.amsterdamCheckBox.Checked = true;
             this.amsterdamCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.amsterdamCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.amsterdamCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amsterdamCheckBox.Location = new System.Drawing.Point(32, 198);
             this.amsterdamCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.amsterdamCheckBox.Name = "amsterdamCheckBox";
-            this.amsterdamCheckBox.Size = new System.Drawing.Size(125, 28);
+            this.amsterdamCheckBox.Size = new System.Drawing.Size(119, 27);
             this.amsterdamCheckBox.TabIndex = 5;
             this.amsterdamCheckBox.Text = "Amsterdam";
             this.amsterdamCheckBox.UseVisualStyleBackColor = true;
@@ -613,11 +615,11 @@
             this.arnhemCheckBox.AutoSize = true;
             this.arnhemCheckBox.Checked = true;
             this.arnhemCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.arnhemCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.arnhemCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arnhemCheckBox.Location = new System.Drawing.Point(32, 152);
             this.arnhemCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.arnhemCheckBox.Name = "arnhemCheckBox";
-            this.arnhemCheckBox.Size = new System.Drawing.Size(97, 28);
+            this.arnhemCheckBox.Size = new System.Drawing.Size(91, 27);
             this.arnhemCheckBox.TabIndex = 4;
             this.arnhemCheckBox.Text = "Arnhem";
             this.arnhemCheckBox.UseVisualStyleBackColor = true;
@@ -628,11 +630,11 @@
             this.zwolleCheckBox.AutoSize = true;
             this.zwolleCheckBox.Checked = true;
             this.zwolleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.zwolleCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.zwolleCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.zwolleCheckBox.Location = new System.Drawing.Point(32, 107);
             this.zwolleCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.zwolleCheckBox.Name = "zwolleCheckBox";
-            this.zwolleCheckBox.Size = new System.Drawing.Size(85, 28);
+            this.zwolleCheckBox.Size = new System.Drawing.Size(79, 27);
             this.zwolleCheckBox.TabIndex = 3;
             this.zwolleCheckBox.Text = "Zwolle";
             this.zwolleCheckBox.UseVisualStyleBackColor = true;
@@ -704,11 +706,11 @@
             // aircoCheckBox
             // 
             this.aircoCheckBox.AutoSize = true;
-            this.aircoCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.aircoCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aircoCheckBox.Location = new System.Drawing.Point(39, 244);
             this.aircoCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.aircoCheckBox.Name = "aircoCheckBox";
-            this.aircoCheckBox.Size = new System.Drawing.Size(73, 28);
+            this.aircoCheckBox.Size = new System.Drawing.Size(69, 27);
             this.aircoCheckBox.TabIndex = 8;
             this.aircoCheckBox.Text = "Airco";
             this.aircoCheckBox.UseVisualStyleBackColor = true;
@@ -717,11 +719,11 @@
             // radioCheckBox
             // 
             this.radioCheckBox.AutoSize = true;
-            this.radioCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.radioCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioCheckBox.Location = new System.Drawing.Point(39, 214);
             this.radioCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.radioCheckBox.Name = "radioCheckBox";
-            this.radioCheckBox.Size = new System.Drawing.Size(78, 28);
+            this.radioCheckBox.Size = new System.Drawing.Size(72, 27);
             this.radioCheckBox.TabIndex = 7;
             this.radioCheckBox.Text = "Radio";
             this.radioCheckBox.UseVisualStyleBackColor = true;
@@ -730,11 +732,11 @@
             // navigationCheckBox
             // 
             this.navigationCheckBox.AutoSize = true;
-            this.navigationCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.navigationCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navigationCheckBox.Location = new System.Drawing.Point(39, 183);
             this.navigationCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.navigationCheckBox.Name = "navigationCheckBox";
-            this.navigationCheckBox.Size = new System.Drawing.Size(106, 28);
+            this.navigationCheckBox.Size = new System.Drawing.Size(101, 27);
             this.navigationCheckBox.TabIndex = 6;
             this.navigationCheckBox.Text = "Navigatie";
             this.navigationCheckBox.UseVisualStyleBackColor = true;
@@ -743,11 +745,11 @@
             // cruiseControlCheckBox
             // 
             this.cruiseControlCheckBox.AutoSize = true;
-            this.cruiseControlCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cruiseControlCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cruiseControlCheckBox.Location = new System.Drawing.Point(39, 153);
             this.cruiseControlCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cruiseControlCheckBox.Name = "cruiseControlCheckBox";
-            this.cruiseControlCheckBox.Size = new System.Drawing.Size(145, 28);
+            this.cruiseControlCheckBox.Size = new System.Drawing.Size(136, 27);
             this.cruiseControlCheckBox.TabIndex = 5;
             this.cruiseControlCheckBox.Text = "Cruise control";
             this.cruiseControlCheckBox.UseVisualStyleBackColor = true;
@@ -756,11 +758,11 @@
             // bluetoothCheckBox
             // 
             this.bluetoothCheckBox.AutoSize = true;
-            this.bluetoothCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.bluetoothCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bluetoothCheckBox.Location = new System.Drawing.Point(39, 124);
             this.bluetoothCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.bluetoothCheckBox.Name = "bluetoothCheckBox";
-            this.bluetoothCheckBox.Size = new System.Drawing.Size(108, 28);
+            this.bluetoothCheckBox.Size = new System.Drawing.Size(104, 27);
             this.bluetoothCheckBox.TabIndex = 4;
             this.bluetoothCheckBox.Text = "Bluetooth";
             this.bluetoothCheckBox.UseVisualStyleBackColor = true;
@@ -777,6 +779,21 @@
             this.question5Label.Size = new System.Drawing.Size(227, 40);
             this.question5Label.TabIndex = 3;
             this.question5Label.Text = "Welke extra\'s moeten er op de auto zitten?";
+            // 
+            // NoneRadioButton
+            // 
+            this.NoneRadioButton.AutoSize = true;
+            this.NoneRadioButton.Checked = true;
+            this.NoneRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoneRadioButton.Location = new System.Drawing.Point(29, 340);
+            this.NoneRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.NoneRadioButton.Name = "NoneRadioButton";
+            this.NoneRadioButton.Size = new System.Drawing.Size(134, 27);
+            this.NoneRadioButton.TabIndex = 14;
+            this.NoneRadioButton.TabStop = true;
+            this.NoneRadioButton.Text = "Maakt niet uit";
+            this.NoneRadioButton.UseVisualStyleBackColor = true;
+            this.NoneRadioButton.CheckedChanged += new System.EventHandler(this.selectCarType);
             // 
             // searchWizard
             // 
@@ -855,5 +872,6 @@
         private System.Windows.Forms.Label countCarLabel4;
         private System.Windows.Forms.Label countCarLabel5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton NoneRadioButton;
     }
 }

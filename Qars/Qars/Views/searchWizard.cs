@@ -13,7 +13,7 @@ namespace Qars.Views
     public partial class searchWizard : UserControl
     {
         private VisualDemo qarsApplication;
-        private string answerType = null;
+        private string answerType = "Maakt niet uit";
         private string answerTransmission = null;
 
         //vars needed for price selection
@@ -42,11 +42,7 @@ namespace Qars.Views
         {
             copyList = allCars;
 
-            //Skip when answerType is empty
-            if (answerType != null)
-            {
-                filteredList = filterType(copyList);
-            }
+            filteredList = filterType(copyList);
 
             //Skip when answerTransmission is empty
             if (answerTransmission != null)
@@ -187,7 +183,8 @@ namespace Qars.Views
 
             var query = from car in listToFilter
                         select car;
-            query = query.Where(car => car.category == this.answerType);
+            query = query.Where(car => car.category == this.answerType|| 
+                this.answerType == "Maakt niet uit");
 
             localList = query.ToList();
 
@@ -212,7 +209,7 @@ namespace Qars.Views
 
             return localList;
         }
-        private List<Car> filterLocation(List<Car> listToFilter)
+        public List<Car> filterLocation(List<Car> listToFilter)
         {
             //initialize vars needed for this function
             List<Car> localList = new List<Car>();
