@@ -61,7 +61,7 @@ namespace Qars_Admin.EditPanels
                 //            where u.customerID == res.customerID
                 //            select u;
                 //User user = query.First();
-                User user = userList[reservation.customerID];
+                User user = userList[reservation.UserID];
                 Car car = carList[reservation.carID];
 
 

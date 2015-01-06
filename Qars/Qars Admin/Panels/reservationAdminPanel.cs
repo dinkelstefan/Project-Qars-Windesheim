@@ -33,7 +33,7 @@ namespace Qars_Admin.Panels
             this.reservationList = databaseConnection.SelectReservation();
             foreach (Reservation res in this.reservationList)
             {
-                simpleReservationList.Add(new simpleReservation(res.reservationID, res.carID, res.customerID , res.startdate, res.enddate, res.kilometres, res.pickupcity, res.pickupstreetname, res.pickupstreetnumber, res.paid, res.confirmed));
+                simpleReservationList.Add(new simpleReservation(res.reservationID, res.carID, res.UserID , res.startdate, res.enddate, res.kilometres, res.pickupcity, res.pickupstreetname, res.pickupstreetnumber, res.paid, res.confirmed));
             }
 
             this.reservationDataGridView.DataSource = simpleReservationList;
@@ -50,7 +50,7 @@ namespace Qars_Admin.Panels
                         select res;
  
             Reservation reservation = query.First();
-            Console.WriteLine(reservation.customerID);
+            Console.WriteLine(reservation.UserID);
 
             //Open window for editing of the reservation
             EditReservationWindow window = new EditReservationWindow(reservation, databaseConnection);

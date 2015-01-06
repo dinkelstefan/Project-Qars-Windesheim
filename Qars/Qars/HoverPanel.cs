@@ -18,26 +18,29 @@ namespace Qars
         {
             this.vd = vd;
 
-            Height = 200;
-            Width = 150;
+            Height = 150;
+            Width = 100;
             Top = 10;
             Left = 10;
 
+            info.ForeColor = System.Drawing.Color.White;
             info.Top = 10;
             info.Left = 5;
             info.Width = 100;
             info.Height = 500;
             Controls.Add(info);
 
-            BackColor = Color.Gray;
+            BackColor = Color.FromArgb(162, 60, 75);
 
             BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             Visible = false;
         }
 
-        public void SetInformation(int x, int y, Car c)
+        public void SetInformation(int x, int y, Car c, Discount discount)
         {
             Car car = c;
+
+
 
             if ((x + Width > vd.Width) && (y + Height > vd.Height))
             {
@@ -60,11 +63,22 @@ namespace Qars
 
 
             info.Text = c.brand + " " + c.model + "\n" +
-                        "Huur: " + c.rentalprice.ToString() + "\n"
-                        + c.category + "\n" + "Jaar: " + c.modelyear + "\n" +
-                        "Vermogen: " + c.horsepower.ToString() + "\n" + "Deuren: " + c.doors + "\n" +
-                        "Stoelen: " + c.seats.ToString() + "\n" + "Verbruik: " + c.Fuelusage.ToString() + "\n"
-                        + c.motor;
+                        "Huur: €";
+
+            if (discount != null)
+                info.Text += (c.rentalprice * ((double)1 - ((double)discount.percentage / 100))).ToString();
+            else
+                info.Text += c.rentalprice;
+
+            info.Text += "\n"
+                       + c.category + "\n" + "Jaar: " + c.modelyear + "\n" +
+                       "Vermogen: " + c.horsepower.ToString() + "\n" + "Deuren: " + c.doors + "\n" +
+                       "Stoelen: " + c.seats.ToString() + "\n";
+
+            if (c.Fuelusage != -1)
+                info.Text += "Verbruik: " + c.Fuelusage.ToString() + " Km/L \n";
+
+            info.Text += c.motor;
 
         }
     }

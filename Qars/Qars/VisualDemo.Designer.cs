@@ -35,32 +35,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LogInOrRegisterButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.LogOutButton = new System.Windows.Forms.Button();
+            this.WelcomeInfoLabel = new System.Windows.Forms.Label();
+            this.WelcomeLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.TileView.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,10 +59,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(336, 989);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(250, 644);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Vergelijk";
             this.button1.UseVisualStyleBackColor = true;
@@ -89,9 +75,8 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1898, 109);
+            this.panel1.Size = new System.Drawing.Size(1265, 71);
             this.panel1.TabIndex = 2;
             // 
             // label14
@@ -99,10 +84,9 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(1680, -3);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(1120, -2);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(108, 110);
+            this.label14.Size = new System.Drawing.Size(72, 73);
             this.label14.TabIndex = 2;
             this.label14.Text = "Q";
             this.label14.Click += new System.EventHandler(this.searchButton_Click);
@@ -112,10 +96,9 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(788, 2);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(525, 1);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(215, 110);
+            this.label13.Size = new System.Drawing.Size(144, 73);
             this.label13.TabIndex = 1;
             this.label13.Text = "Qars";
             // 
@@ -124,126 +107,78 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(-3, 2);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(-2, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(329, 110);
+            this.label12.Size = new System.Drawing.Size(221, 73);
             this.label12.TabIndex = 0;
             this.label12.Text = "Quintor";
             // 
-            // label10
+            // LogInOrRegisterButton
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(1058, 235);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(272, 29);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Contacturen: 09:00 - 18:00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(1058, 100);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(281, 58);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Adres:  Zwartewateralee 25\r\n            8015TE Zwolle\r\n";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1058, 34);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(229, 29);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Telnr:    038-781-89-26";
+            this.LogInOrRegisterButton.Location = new System.Drawing.Point(881, 54);
+            this.LogInOrRegisterButton.Name = "LogInOrRegisterButton";
+            this.LogInOrRegisterButton.Size = new System.Drawing.Size(116, 63);
+            this.LogInOrRegisterButton.TabIndex = 15;
+            this.LogInOrRegisterButton.Text = "Log In/Registreer";
+            this.LogInOrRegisterButton.UseVisualStyleBackColor = true;
+            this.LogInOrRegisterButton.Click += new System.EventHandler(this.LogInOrRegisterButton_Click);
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.label10);
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Controls.Add(this.label8);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(-2, -2);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel8.Controls.Add(this.LogOutButton);
+            this.panel8.Controls.Add(this.LogInOrRegisterButton);
+            this.panel8.Controls.Add(this.WelcomeInfoLabel);
+            this.panel8.Controls.Add(this.WelcomeLabel);
+            this.panel8.Location = new System.Drawing.Point(-1, -1);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1538, 280);
+            this.panel8.Size = new System.Drawing.Size(1025, 182);
             this.panel8.TabIndex = 10;
             // 
-            // label11
+            // LogOutButton
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(278, 149);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(704, 87);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\r\ntemporincididunt" +
-    " ut labore et doloremagna aliqua. Ut enim ad minim,\r\nquis nostrud exercitation u" +
-    "llamco laboris nisi ut aliquip ex ea.";
+            this.LogOutButton.Enabled = false;
+            this.LogOutButton.Location = new System.Drawing.Point(881, 54);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(116, 63);
+            this.LogOutButton.TabIndex = 20;
+            this.LogOutButton.Text = "Log uit";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Visible = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
-            // label8
+            // WelcomeInfoLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1058, 175);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(281, 29);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "E-mail: info.zwolle@qars.nl";
+            this.WelcomeInfoLabel.AutoSize = true;
+            this.WelcomeInfoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WelcomeInfoLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WelcomeInfoLabel.ForeColor = System.Drawing.Color.White;
+            this.WelcomeInfoLabel.Location = new System.Drawing.Point(28, 86);
+            this.WelcomeInfoLabel.Name = "WelcomeInfoLabel";
+            this.WelcomeInfoLabel.Size = new System.Drawing.Size(351, 57);
+            this.WelcomeInfoLabel.TabIndex = 6;
+            this.WelcomeInfoLabel.Text = "U maakt momenteel gebruik van de Qars applicatie! \r\nOm optimaal gebruik te maken " +
+    "van deze applicatie \r\nkunt u zich registreren en inloggen";
             // 
-            // label6
+            // WelcomeLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(262, 3);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(316, 122);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Zwolle";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.RosyBrown;
-            this.panel9.Location = new System.Drawing.Point(38, 34);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(225, 231);
-            this.panel9.TabIndex = 0;
+            this.WelcomeLabel.AutoSize = true;
+            this.WelcomeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WelcomeLabel.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WelcomeLabel.ForeColor = System.Drawing.Color.White;
+            this.WelcomeLabel.Location = new System.Drawing.Point(18, 4);
+            this.WelcomeLabel.Name = "WelcomeLabel";
+            this.WelcomeLabel.Size = new System.Drawing.Size(280, 82);
+            this.WelcomeLabel.TabIndex = 1;
+            this.WelcomeLabel.Text = "Welkom!";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(0, 108);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(333, 95);
+            this.panel2.Size = new System.Drawing.Size(222, 62);
             this.panel2.TabIndex = 9;
             // 
             // label1
@@ -251,118 +186,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 50);
+            this.label1.Size = new System.Drawing.Size(141, 33);
             this.label1.TabIndex = 3;
             this.label1.Text = "Vestigingen";
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.panel10);
-            this.panel4.Controls.Add(this.panel11);
-            this.panel4.Controls.Add(this.panel12);
-            this.panel4.Controls.Add(this.panel13);
-            this.panel4.Location = new System.Drawing.Point(0, 198);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(332, 830);
-            this.panel4.TabIndex = 7;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(114, 172);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(166, 39);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Amersfoort";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(114, 246);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 39);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Zwolle";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(114, 100);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(153, 39);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Groningen";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(114, 22);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(171, 39);
-            this.label18.TabIndex = 3;
-            this.label18.Text = "Amsterdam";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel10.Location = new System.Drawing.Point(0, 231);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(111, 75);
-            this.panel10.TabIndex = 5;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel11.Location = new System.Drawing.Point(0, 155);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(111, 75);
-            this.panel11.TabIndex = 4;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.IndianRed;
-            this.panel12.Location = new System.Drawing.Point(0, 80);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(111, 75);
-            this.panel12.TabIndex = 3;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.panel13.Location = new System.Drawing.Point(0, 5);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(111, 75);
-            this.panel13.TabIndex = 3;
-           
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(458, 997);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(331, 649);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 11;
             // 
             // TileView
@@ -370,17 +205,17 @@
             this.TileView.AutoScroll = true;
             this.TileView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TileView.Controls.Add(this.panel8);
-            this.TileView.Location = new System.Drawing.Point(332, 108);
-            this.TileView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TileView.Location = new System.Drawing.Point(250, 70);
             this.TileView.Name = "TileView";
-            this.TileView.Size = new System.Drawing.Size(1565, 873);
+            this.TileView.Size = new System.Drawing.Size(1015, 568);
             this.TileView.TabIndex = 12;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1787, 997);
+            this.button2.Location = new System.Drawing.Point(1191, 648);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 31);
+            this.button2.Size = new System.Drawing.Size(65, 20);
             this.button2.TabIndex = 14;
             this.button2.Text = "Toon alles";
             this.button2.UseVisualStyleBackColor = true;
@@ -388,19 +223,17 @@
             // 
             // VisualDemo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1896, 1048);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1265, 672);
             this.Controls.Add(this.TileView);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "VisualDemo";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -412,8 +245,6 @@
             this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.TileView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -423,34 +254,22 @@
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label WelcomeInfoLabel;
+        private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel TileView;
         private Views.searchWizard searchWizard;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LogInOrRegisterButton;
+        private System.Windows.Forms.Button LogOutButton;
 
     }
 }

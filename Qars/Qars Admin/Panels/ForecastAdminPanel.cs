@@ -39,7 +39,7 @@ namespace Qars_Admin.Panels
                     DateTime pickUpTime = Convert.ToDateTime(res.startdate);
                     if (pickUpTime == DateTime.Today)
                     {
-                        simpleForecastList.Add(new simpleForecast(res.reservationID, res.carID, userList[res.customerID].firstname, userList[res.customerID].lastname, carList[res.carID].brand, carList[res.carID].model, res.paid, res.confirmed));
+                        simpleForecastList.Add(new simpleForecast(res.reservationID, res.carID, userList[res.UserID].firstname, userList[res.UserID].lastname, carList[res.carID].brand, carList[res.carID].model, res.paid, res.confirmed));
                     }
                 }
                 catch (Exception ex)

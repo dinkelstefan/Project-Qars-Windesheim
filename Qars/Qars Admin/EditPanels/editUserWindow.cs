@@ -19,7 +19,7 @@ namespace Qars_Admin.EditPanels
             InitializeComponent();
             this.connection = connection;
 
-            userIdTextBox.Text = user.customerID.ToString();
+            userIdTextBox.Text = user.UserID.ToString();
             accountLevelTextBox.Text = user.accountLevel.ToString();
             usernameTextBox.Text = user.username;
             passwordTextBox.Text = user.password;
@@ -53,7 +53,7 @@ namespace Qars_Admin.EditPanels
         {
             User user = new User();
 
-            user.customerID = Int32.Parse(userIdTextBox.Text);
+            user.UserID = Int32.Parse(userIdTextBox.Text);
             user.accountLevel = Int32.Parse(accountLevelTextBox.Text);
             user.username = usernameTextBox.Text;
             user.password = passwordTextBox.Text;
@@ -98,7 +98,7 @@ namespace Qars_Admin.EditPanels
         {
             User user = getUserFromFields();
             this.connection.DeleteUser(user);
-            MessageBox.Show("De gebruiker met het nummer: " + user.customerID + " is verwijderd.");
+            MessageBox.Show("De gebruiker met het nummer: " + user.UserID + " is verwijderd.");
             this.Close();
 
         }

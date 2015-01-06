@@ -8,25 +8,30 @@ using System.Windows.Forms;
 
 namespace Qars
 {
-    class CarDetailPanel : Panel
+    public class CarDetailPanel : Panel
     {
+        public int UserID { get; set; }
         private List<PictureBox> pbox = new List<PictureBox>();
         private List<string> picturelink = new List<string>();
         private int currentCarNumber;
         private PictureBox mainpicture;
         private VisualDemo qarsApplication;
         private string availableat;
-        public CarDetailPanel(int carNumber, VisualDemo qarsApp)
+        private Discount discount;
+        public CarDetailPanel(int carNumber, int UserID, VisualDemo qarsApp, Discount dis)
         {   //properties of the panel
+
             this.currentCarNumber = carNumber;
             this.Height = 568;
-            this.Width = 1044;
+            this.Width = 1016;
             this.Top = 70;
-            this.Left = 221;
+            this.Left = 250;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
+            this.discount = dis;
 
             this.qarsApplication = qarsApp;
+            this.UserID = qarsApp.userID;
 
             //Look up where the Car is available
             foreach (var company in this.qarsApplication.EstablishmentList)
@@ -39,13 +44,44 @@ namespace Qars
 
             //all the labels, images and buttons
             Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
-            Label beginprice = createLabel("Beginprijs: € " + this.qarsApplication.carList[carNumber].startprice, 70, 375, 200, 27, 14, FontStyle.Regular);
-            Label priceperkm = createLabel("Prijs per Kilometer: € " + this.qarsApplication.carList[carNumber].rentalprice, 100, 375, 225, 27, 14, FontStyle.Regular);
+
+            Label beginprice = createLabel("Beginprijs: ", 60, 374, 95, 25, 14, FontStyle.Regular);
+            Label beginAmount = createLabel("€" + this.qarsApplication.carList[carNumber].startprice, 60, 465, 45, 27, 14, FontStyle.Regular);
+
+            Label priceperkm = createLabel("Kilometerprijs: ", 100, 375, 125, 25, 14, FontStyle.Regular);
+            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 100, 500, 65, 27, 14, FontStyle.Regular);
+          
+
+            if (discount != null)
+            {
+                Label discountLabelB = new Label();
+                beginAmount.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Strikeout);
+                beginAmount.ForeColor = Color.Red;
+                discountLabelB.Font = new Font("Ariel", 13, FontStyle.Bold);
+                discountLabelB.Width = 125;
+                discountLabelB.Top = 60;
+                discountLabelB.Left = beginAmount.Left + (beginAmount.Width-10);
+                discountLabelB.ForeColor = System.Drawing.Color.Green;
+                discountLabelB.Text = " =  €" + qarsApplication.carList[carNumber].startprice * ((double)1 - ((double)discount.percentage / 100));
+                this.Controls.Add(discountLabelB);
+
+                Label discountLabelP = new Label();
+                ppk.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Strikeout);
+                ppk.ForeColor = Color.Red;
+                discountLabelP.Font = new Font("Ariel", 13, FontStyle.Bold);
+                discountLabelP.Width = 125;
+                discountLabelP.Top = 100;
+                discountLabelP.Left = ppk.Left + (ppk.Width-10);
+                discountLabelP.ForeColor = System.Drawing.Color.Green;
+                discountLabelP.Text = " =  €" + qarsApplication.carList[carNumber].rentalprice * ((double)1 - ((double)discount.percentage / 100));
+                this.Controls.Add(discountLabelP);
+            }
+
             Label establishment = createLabel(availableat, 130, 375, 327, 27, 14, FontStyle.Regular);
             Label specs = createLabel("Specificaties", 315, 22, 300, 32, 20, FontStyle.Regular);
             Label desc = createLabel("Beschrijving", 20, 700, 165, 32, 20, FontStyle.Regular);
             Label descinfo = createLabel(this.qarsApplication.carList[carNumber].description, 65, 700, 300, 300, 9, FontStyle.Regular);
-            Button close = createButton("Sluiten", Color.Red, Color.White, -5, 950, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
+            Button close = createButton("Sluiten", Color.Red, Color.White, -5, 921, 100, 40, 11, FontStyle.Bold, FlatStyle.Flat, BackButtonClick);
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
 
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
@@ -56,40 +92,65 @@ namespace Qars
             //look up if the car is available
             foreach (var res in this.qarsApplication.reservationList)
             {
-                if (!this.qarsApplication.carList[carNumber].available)
+                bool reservationEntryFound = false;
+                if (reservationEntryFound == false)
                 {
-                    if (res.carID == carNumber)
+
+                    if (!this.qarsApplication.carList[carNumber].available)
                     {
-                        hire.BackColor = Color.Orange;
-                        hire.Text = "Verhuurd";
+                        if (res.carID == carNumber)
+                        {
+                            reservationEntryFound = true;
+                            hire.BackColor = Color.Orange;
+                            hire.Text = "Verhuurd";
+                        }
                     }
+                }
+                else
+                {
+                    break;
                 }
                 //look up if the car is being repaired
                 foreach (var rep in this.qarsApplication.damageList)
                 {
-                    if (rep.carID == carNumber && rep.repaired == false)
+                    bool damageEntryFound = false;
+                    if (damageEntryFound == false)
                     {
-                        //if(customer rank = beheerder){hire.text = "Reparatie"}else{hire.text=Niet beschikbaar}
-                        hire.Text = "Niet beschikbaar";
-                        hire.BackColor = Color.Red;
-                        hire.Enabled = false;
+                        if (rep.carID == carNumber && rep.repaired == false)
+                        {
+                            if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
+                            {
+                                hire.Text = "Reparatie";
+                            }
+                            else
+                            {
+                                hire.Text = "Niet beschikbaar";
+                            }
+                            hire.BackColor = Color.Red;
+                            hire.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
-            }
 
-            //Create the small pictures
-            int left = 22;
-            foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
-            {
-                PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
-                left += 88;
-            }
-            //Select the main picture
-            if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
-            {
-                mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                //Create the small pictures
+                int left = 22;
+                foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
+                {
+                    PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
+                    left += 88;
+                }
+                //Select the main picture
+                if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
+                {
+                    mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                }
             }
         }
+
 
         private void CreateSpecInfo(List<Car> list, int carnumber)
         {
@@ -512,11 +573,14 @@ namespace Qars
 
         public void hireButtonClick(object sender, EventArgs e)
         {
-            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, this.qarsApplication);
+            RentCarPanel rentcarpanel = new RentCarPanel(this.currentCarNumber, UserID, this.qarsApplication);
+            rentcarpanel.checkLogin(UserID);
             this.Controls.Add(rentcarpanel);
             rentcarpanel.BringToFront();
             rentcarpanel.Show();
         }
+
+
 
         public Label createLabel(string text, int top, int left, int width, int height, int fontsize, FontStyle style)
         {

@@ -38,7 +38,7 @@ namespace Qars_Admin.Panels
             {
                 if (user.Esthablishment == adminForm.currentUser.Esthablishment || adminForm.currentUser.accountLevel == 4)
                 {
-                    simpleUserList.Add(new simpleUser(user.customerID, user.accountLevel, user.username, user.firstname, user.lastname, user.city, user.phonenumber, user.emailaddress));
+                    simpleUserList.Add(new simpleUser(user.UserID, user.accountLevel, user.username, user.firstname, user.lastname, user.city, user.phonenumber, user.emailaddress));
                 }
             }
 
@@ -52,7 +52,7 @@ namespace Qars_Admin.Panels
             int simpleUserID = userList[rowIndex].GebruikerID;
 
             var query = from u in this.userList
-                        where u.customerID == simpleUserID
+                        where u.UserID == simpleUserID
                         select u;
 
             User user = query.First();

@@ -16,6 +16,8 @@ namespace Qars
 {
     public partial class VisualDemo : Form
     {
+        public int userID { get; set; }
+
         public int imageWidth = 160;
         public int imageHeigth = 160;
         public int carNumber = 0; //This has to be the tile number!
@@ -29,31 +31,33 @@ namespace Qars
         public List<Car> totalCarList { get; private set; }
 
         public List<Car> compareList = new List<Car>();
+        public List<Discount> discountList;
 
         public DBConnect db = new DBConnect();
 
         public VisualDemo()
         {
+			discountList = new List<Discount>(db.CheckDiscounts());
+            totalCarList = db.SelectCar();
+            this.userID = 0;
+            carList = totalCarList;
+            //this.Height = 1500;
 
-            this.searchWizard = new Qars.Views.searchWizard(this);
-            // 
             // searchWizard
-            // 
-            this.searchWizard.Location = new System.Drawing.Point(331, 121);
+            this.searchWizard = new Qars.Views.searchWizard(this);
+            this.searchWizard.BringToFront();
+            this.searchWizard.Location = new System.Drawing.Point(0, 71);
             this.searchWizard.Name = "searchWizard1";
-            this.searchWizard.Size = new System.Drawing.Size(1565, 873);
+           // this.searchWizard.Size = new System.Drawing.Size(250, 850);
             this.searchWizard.TabIndex = 11;
-            this.searchWizard.Visible = false;
+            this.searchWizard.Visible = true;
             this.Controls.Add(this.searchWizard);
-
-
 
             InitializeComponent();
             DoubleBuffered = true;
             hp = new HoverPanel(this);
 
-            totalCarList = db.SelectCar();
-            carList = totalCarList;
+            
 
             EstablishmentList = db.SelectEstablishment();
             reservationList = db.SelectReservation();
@@ -64,8 +68,35 @@ namespace Qars
 
             this.Controls.Add(hp);
             hp.BringToFront();
-        }
+            ChangeAccountDetails(userID);
 
+        }
+        private void ChangeAccountDetails(int UserID)
+        {
+            if (userID != 0)
+            {
+                LogInOrRegisterButton.Visible = false;
+                LogOutButton.Visible = true;
+                LogOutButton.Enabled = true;
+                customerList = db.SelectUsers();
+                WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
+                WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
+
+            }
+            else
+            {
+                WelcomeLabel.Text = "Welkom!";
+                WelcomeLabel.Visible = true;
+                WelcomeInfoLabel.Text = "U maakt momenteel gebruik van de Qars applicatie! \r\nOm optimaal gebruik te maken " +
+    "van deze applicatie \r\nkunt u zich registreren en inloggen";
+                WelcomeInfoLabel.Visible = true;
+                LogOutButton.Visible = false;
+                LogOutButton.Enabled = false;
+                LogInOrRegisterButton.Enabled = true;
+                LogInOrRegisterButton.Visible = true;
+            }
+        }
+        //backoffice/franchise      
 
         public void AddCompare(int number)
         {
@@ -75,6 +106,7 @@ namespace Qars
                 button1.Visible = true;
 
             UpdateCompareLabel();
+
         }
 
         public void RemoveCompare(int number)
@@ -101,23 +133,42 @@ namespace Qars
             }
         }
 
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            ComparePanel p = new ComparePanel(compareList);
+                 List<double> discountPrices = new List<double>();
+
+                foreach(Car car in compareList)
+                {
+                    var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
+
+                    if(match != null)
+                    {
+                        discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
+                        discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.percentage / 100))); 
+                    }
+                    else
+                    {
+                        discountPrices.Add(car.startprice);
+                        discountPrices.Add(car.startprice);
+                    }
+                }
+            
+            ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
 
-        public void OpenDetails(int number)
+        public void OpenDetails(int number, Discount d)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, this);
+            CarDetailPanel cp = new CarDetailPanel(number, userID, this, d);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            searchWizard.Visible = !searchWizard.Visible;
-            updateTileView();
+            //searchWizard.Visible = !searchWizard.Visible;
+            //updateTileView();
         }
 
         public void updateTileView()
@@ -148,8 +199,9 @@ namespace Qars
             {
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
-                {
-                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this);
+                {           
+                    var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
+                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this, match);
                     TileView.Controls.Add(tp);
                 }
                 localX += 200;
@@ -167,13 +219,33 @@ namespace Qars
 
         private void showAllCars(object sender, EventArgs e)
         {
-            if (searchWizard.Visible == true)
-            {
-                searchWizard.Visible = false;
-            }
             carList = db.SelectCar();
             totalCarList = carList;
             updateTileView();
+        }
+
+        private void LogInOrRegisterButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(userID);
+            LogInForm loginform = new LogInForm(this, userID);
+            loginform.ShowDialog();
+            userID = loginform.returnUserID();
+            Console.WriteLine(userID);
+            ChangeAccountDetails(userID);
+
+
+
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            LogOut logout = new LogOut();
+            logout.ShowDialog();
+            if (logout.DialogResult == DialogResult.Yes)
+            {
+                this.userID = 0;
+                ChangeAccountDetails(userID);
+            }
         }
     }
 }

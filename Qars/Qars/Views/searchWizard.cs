@@ -13,7 +13,7 @@ namespace Qars.Views
     public partial class searchWizard : UserControl
     {
         private VisualDemo qarsApplication;
-        private string answerType = null;
+        private string answerType = "Maakt niet uit";
         private string answerTransmission = null;
 
         //vars needed for price selection
@@ -28,7 +28,7 @@ namespace Qars.Views
         private bool[] answerExtra = new bool[] { false, false, false, false, false };
         private string[] extras = new string[] { "Bluetooth", "Cruise Control", "Navigatie", "Radio", "Airco" };
 
-
+        private List<Car> allCars = new List<Car>();
         private List<Car> copyList = new List<Car>();
         public  List<Car> filteredList = new List<Car>();
 
@@ -36,16 +36,13 @@ namespace Qars.Views
         {
             this.qarsApplication = qarsApp;
             InitializeComponent();
+            allCars = this.qarsApplication.carList;
         }
         private void search()
         {
-            copyList = this.qarsApplication.carList;
+            copyList = allCars;
 
-            //Skip when answerType is empty
-            if (answerType != null)
-            {
-                filteredList = filterType(copyList);
-            }
+            filteredList = filterType(copyList);
 
             //Skip when answerTransmission is empty
             if (answerTransmission != null)
@@ -186,7 +183,8 @@ namespace Qars.Views
 
             var query = from car in listToFilter
                         select car;
-            query = query.Where(car => car.category == this.answerType);
+            query = query.Where(car => car.category == this.answerType|| 
+                this.answerType == "Maakt niet uit");
 
             localList = query.ToList();
 
@@ -211,7 +209,7 @@ namespace Qars.Views
 
             return localList;
         }
-        private List<Car> filterLocation(List<Car> listToFilter)
+        public List<Car> filterLocation(List<Car> listToFilter)
         {
             //initialize vars needed for this function
             List<Car> localList = new List<Car>();
@@ -265,7 +263,6 @@ namespace Qars.Views
         {
             search();
             this.qarsApplication.updateTileView();
-            this.Visible = false;
         }
         private List<Car> addCarToList(List<Car> list, Car car)
         {
@@ -289,11 +286,13 @@ namespace Qars.Views
         {
             this.searchWizardTabControl.SelectedIndex = this.searchWizardTabControl.SelectedIndex + 1;
             search();
+            this.qarsApplication.updateTileView();
         }
         private void previousTabPage(object sender, EventArgs e)
         {
             this.searchWizardTabControl.SelectedIndex = this.searchWizardTabControl.SelectedIndex - 1;
             search();
+            this.qarsApplication.updateTileView();
         }
         private void setLabelCountNumerOfCarsFound()
         {
