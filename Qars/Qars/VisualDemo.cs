@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
+
 namespace Qars
 {
     public partial class VisualDemo : Form
@@ -81,9 +82,9 @@ namespace Qars
                 customerList = db.SelectUsers();
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
-                PersonalInfoButton.Visible = true;
                 ReservationsLabel.Visible = true;
                 listView1.Visible = true;
+
                 foreach (var item in reservationList)
                 {
                     if (item.UserID == UserID)//The current user
@@ -253,9 +254,6 @@ namespace Qars
             userID = loginform.returnUserID();
             Console.WriteLine(userID);
             ChangeAccountDetails(userID);
-
-
-
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -269,9 +267,5 @@ namespace Qars
             }
         }
 
-        private void PersonalInfoButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
