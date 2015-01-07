@@ -74,6 +74,7 @@
             this.Controls.Add(this.Logoutlabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LogOut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uitlogmenu";
             this.ResumeLayout(false);
             this.PerformLayout();

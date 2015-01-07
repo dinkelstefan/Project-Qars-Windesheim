@@ -32,7 +32,6 @@
             this.edit = new System.Windows.Forms.Button();
             this.lastEdited = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
-            this.delete = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.userView = new System.Windows.Forms.Button();
@@ -41,7 +40,7 @@
             // close
             // 
             this.close.Location = new System.Drawing.Point(498, 358);
-            this.close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.close.Margin = new System.Windows.Forms.Padding(2);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(56, 19);
             this.close.TabIndex = 0;
@@ -52,7 +51,7 @@
             // edit
             // 
             this.edit.Location = new System.Drawing.Point(422, 358);
-            this.edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.edit.Margin = new System.Windows.Forms.Padding(2);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(72, 19);
             this.edit.TabIndex = 1;
@@ -81,22 +80,10 @@
             this.date.TabIndex = 5;
             this.date.Text = "{datum}";
             // 
-            // delete
-            // 
-            this.delete.Location = new System.Drawing.Point(274, 338);
-            this.delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(74, 32);
-            this.delete.TabIndex = 6;
-            this.delete.Text = "verwijderen";
-            this.delete.UseVisualStyleBackColor = true;
-            this.delete.Visible = false;
-            this.delete.Click += new System.EventHandler(this.delete_Click);
-            // 
             // save
             // 
             this.save.Location = new System.Drawing.Point(353, 338);
-            this.save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.save.Margin = new System.Windows.Forms.Padding(2);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(64, 32);
             this.save.TabIndex = 10;
@@ -108,7 +95,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(26, 24);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(530, 300);
@@ -118,7 +105,7 @@
             // userView
             // 
             this.userView.Location = new System.Drawing.Point(422, 327);
-            this.userView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userView.Margin = new System.Windows.Forms.Padding(2);
             this.userView.Name = "userView";
             this.userView.Size = new System.Drawing.Size(133, 25);
             this.userView.TabIndex = 12;
@@ -135,12 +122,11 @@
             this.Controls.Add(this.userView);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.save);
-            this.Controls.Add(this.delete);
             this.Controls.Add(this.date);
             this.Controls.Add(this.lastEdited);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.close);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "TermsOfService";
             this.Text = "De algemene voorwaarden";
@@ -155,7 +141,6 @@
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Label lastEdited;
         private System.Windows.Forms.Label date;
-        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button userView;

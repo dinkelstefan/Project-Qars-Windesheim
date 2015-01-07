@@ -16,15 +16,13 @@ namespace Qars
 
     public partial class RegisterForm : Form
     {
-        public VisualDemo qarsapp { get; set; }
         bool JPG = true;
         string driverslicenselink = "";
         Image driverslicensephoto;
         bool emailInvalid = false;
 
-        public RegisterForm(VisualDemo qarsapp)
+        public RegisterForm()
         {
-            this.qarsapp = qarsapp;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             InitializeComponent();
@@ -252,7 +250,7 @@ namespace Qars
         }
         private void TOSLabel_Click(object sender, EventArgs e)
         {
-            TermsOfService termsofserviceForm = new TermsOfService(qarsapp);
+            TermsOfService termsofserviceForm = new TermsOfService();
             termsofserviceForm.ShowDialog();
 
         }
@@ -411,6 +409,11 @@ namespace Qars
 
 
             return builder.ToString();
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
