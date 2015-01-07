@@ -164,7 +164,7 @@
             // ModelColumnHeader
             // 
             this.ModelColumnHeader.Text = "Model";
-            this.ModelColumnHeader.Width = 120;
+            this.ModelColumnHeader.Width = 100;
             // 
             // StartDateColumnHeader
             // 

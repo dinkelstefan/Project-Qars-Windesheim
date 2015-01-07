@@ -266,6 +266,6 @@ namespace Qars
                 ChangeAccountDetails(userID);
             }
         }
-
     }
 }
+
