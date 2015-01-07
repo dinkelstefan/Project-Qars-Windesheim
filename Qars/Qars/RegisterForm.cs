@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -17,10 +19,8 @@ namespace Qars
     public partial class RegisterForm : Form
     {
         bool JPG = true;
-        string driverslicenselink = "";
-        Image driverslicensephoto;
+        string driverslicenselink = ""; //LOCAL FILE
         bool emailInvalid = false;
-
         public RegisterForm()
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -61,12 +61,12 @@ namespace Qars
                     }
                     else
                     {
+                        driverslicenselink = "";
                         error = true;
                     }
                     if (error == false)
                     {
-                        driverslicensephoto = Image.FromFile(driverslicenselink);
-                        DriversLicensePictureBox.Image = driverslicensephoto;
+                        DriversLicensePictureBox.ImageLocation = driverslicenselink;
                         DriversLicensePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                         SelectedPictureLabel.Visible = true;
                     }
@@ -80,7 +80,6 @@ namespace Qars
         }
         private void RegisterButton1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("driverlicense/" + UsernameTextBox.Text);
             bool validateResult = false;
             bool uploadPhotoResult = false;
             bool insertDataBaseResult = false;
@@ -96,6 +95,7 @@ namespace Qars
                 emailResult = SendEmail(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
             if (emailResult == true)
                 MessageBox.Show("U heeft zich geregistreerd en u kan nu inloggen. U ontvangt z.s.m een email met daarin uw inloggegevens");
+            Console.WriteLine(driverslicenselink);
         }
         private bool ValidateInput(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {
@@ -302,37 +302,40 @@ namespace Qars
         }
         private bool UploadDriversLicensePhoto(string Image, string username)
         {
-            /*
-            string remotefile;
-            FTPConnection ftpconnection = new FTPConnection("ftp.pqrojectqars.herobo.com", "a8158354", "Quintor1");
 
-            StringBuilder builder = new StringBuilder();
-            builder.Append("public_html/DriverLicense/"); // the dir
-            builder.Append(username); //This needs to be changed if a user changes his username
-
-            if (JPG == true)
+            string extension = ".PNG";
+            if (JPG)
             {
-                remotefile = builder.ToString() + ".JPG";
+                extension = ".JPG";
             }
-            else
+            try
             {
-                remotefile = builder.ToString() + ".PNG";
-            }
+                string ftpServerIP = "ftp.pqrojectqars.herobo.com";
+                string ftpUserID = "a8158354";
+                string ftpPassword = "Quintor1";
+                ////string ftpURI = "";
+                string filename = "ftp://" + ftpServerIP + "/public_html/DriverLicense/" + username + extension;
+                FtpWebRequest ftpReq = (FtpWebRequest)WebRequest.Create(filename);
+                ftpReq.UseBinary = true;
+                ftpReq.Method = WebRequestMethods.Ftp.UploadFile;
+                ftpReq.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
+                byte[] b = File.ReadAllBytes(Image);
 
-            ftpconnection.upload(remotefile, Image);
-             * */
-            return true;
-            /*
-            string[] names = ftpconnection.directoryListSimple("/photomap");
-            foreach (var item in names)
-            {
-                if (item == username)
+                ftpReq.ContentLength = b.Length;
+                using (Stream s = ftpReq.GetRequestStream())
                 {
-                    return true;
+                    s.Write(b, 0, b.Length);
                 }
+
+                FtpWebResponse ftpResp = (FtpWebResponse)ftpReq.GetResponse();
             }
-            return false;
-             * */
+            catch (Exception)
+            {
+                return false;
+
+            }
+            driverslicenselink = "http://ftp.pqrojectqars.herobo.com/DriverLicense/" + username + extension;
+            return true;
         }
         private bool SendEmail(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {
@@ -358,7 +361,7 @@ namespace Qars
             newUser.password = password;
             newUser.emailaddress = emailaddress;
             newUser.phonenumber = phonenumber;
-            newUser.driverslicenselink = driverslicenselink;
+            newUser.driverslicenselink = driverslicensephotolink;
             newUser.firstname = firstname;
             newUser.lastname = lastname;
             newUser.age = Convert.ToInt32(age);
@@ -411,9 +414,5 @@ namespace Qars
             return builder.ToString();
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

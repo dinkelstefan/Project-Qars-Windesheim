@@ -83,6 +83,8 @@ namespace Qars
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
                 ReservationsLabel.Visible = true;
+                pictureLicense.ImageLocation = customerList[UserID].driverslicenselink;
+
 
 
                 foreach (var item in reservationList)
