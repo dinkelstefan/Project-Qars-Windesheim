@@ -82,7 +82,27 @@ namespace Qars
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
                 PersonalInfoButton.Visible = true;
+                ReservationsLabel.Visible = true;
+                listView1.Visible = true;
+                foreach (var item in reservationList)
+                {
+                    if (item.UserID == UserID)//The current user
+                    {
+                        ListViewItem listviewitem = new ListViewItem(carList[item.carID].brand + " " + carList[item.carID].model);
+                        listviewitem.SubItems.Add(item.startdate);
+                        listviewitem.SubItems.Add(item.enddate);
+                        if (item.confirmed)
+                        {
+                            listviewitem.SubItems.Add("Ja");
+                        }
+                        else
+                        {
+                            listviewitem.SubItems.Add("Nee");
+                        }
+                        listView1.Items.Add(listviewitem);
+                    }
 
+                }
             }
             else
             {
@@ -251,9 +271,6 @@ namespace Qars
 
         private void PersonalInfoButton_Click(object sender, EventArgs e)
         {
-            //Create personal Info
-            UserEnvironment UE = new UserEnvironment();
-            UE.Show();
 
         }
     }

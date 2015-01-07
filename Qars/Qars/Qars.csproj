@@ -107,12 +107,6 @@
     <Compile Include="TileListPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserEnvironment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserEnvironment.Designer.cs">
-      <DependentUpon>UserEnvironment.cs</DependentUpon>
-    </Compile>
     <Compile Include="Util\Mail.cs" />
     <Compile Include="Views\searchWizard.cs">
       <SubType>UserControl</SubType>
@@ -155,9 +149,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TileListPanel.resx">
       <DependentUpon>TileListPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserEnvironment.resx">
-      <DependentUpon>UserEnvironment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\searchWizard.resx">
       <DependentUpon>searchWizard.cs</DependentUpon>

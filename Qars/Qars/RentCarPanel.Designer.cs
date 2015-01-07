@@ -67,7 +67,6 @@ namespace Qars
             this.pickupStreetnumberSuffixTextbox = new System.Windows.Forms.TextBox();
             this.AmountofKilometerLabel = new System.Windows.Forms.Label();
             this.KilometerTextBox = new System.Windows.Forms.TextBox();
-            this.KilometerSpecialLabel = new System.Windows.Forms.Label();
             this.ModelLabel = new System.Windows.Forms.Label();
             this.StorageSpaceLabel = new System.Windows.Forms.Label();
             this.ModelYearLabel = new System.Windows.Forms.Label();
@@ -99,6 +98,8 @@ namespace Qars
             this.streetnumberTextbox = new System.Windows.Forms.TextBox();
             this.MoreInformationLabel = new System.Windows.Forms.Label();
             this.ChooseDateLabel = new System.Windows.Forms.Label();
+            this.UnlimitedKilometresCheckBox = new System.Windows.Forms.CheckBox();
+            this.BoldDatesLabel = new System.Windows.Forms.Label();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -486,16 +487,6 @@ namespace Qars
             this.KilometerTextBox.Size = new System.Drawing.Size(75, 20);
             this.KilometerTextBox.TabIndex = 13;
             // 
-            // KilometerSpecialLabel
-            // 
-            this.KilometerSpecialLabel.AutoSize = true;
-            this.KilometerSpecialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KilometerSpecialLabel.Location = new System.Drawing.Point(205, 412);
-            this.KilometerSpecialLabel.Name = "KilometerSpecialLabel";
-            this.KilometerSpecialLabel.Size = new System.Drawing.Size(189, 15);
-            this.KilometerSpecialLabel.TabIndex = 1015;
-            this.KilometerSpecialLabel.Text = "Vul 0 in als u onbeperkt wilt rijden";
-            // 
             // ModelLabel
             // 
             this.ModelLabel.AutoSize = true;
@@ -823,11 +814,34 @@ namespace Qars
             this.ChooseDateLabel.TabIndex = 1024;
             this.ChooseDateLabel.Visible = false;
             // 
+            // UnlimitedKilometresCheckBox
+            // 
+            this.UnlimitedKilometresCheckBox.AutoSize = true;
+            this.UnlimitedKilometresCheckBox.Location = new System.Drawing.Point(206, 410);
+            this.UnlimitedKilometresCheckBox.Name = "UnlimitedKilometresCheckBox";
+            this.UnlimitedKilometresCheckBox.Size = new System.Drawing.Size(154, 17);
+            this.UnlimitedKilometresCheckBox.TabIndex = 1025;
+            this.UnlimitedKilometresCheckBox.Text = "Nee, ik wil onbeperkt rijden";
+            this.UnlimitedKilometresCheckBox.UseVisualStyleBackColor = true;
+            this.UnlimitedKilometresCheckBox.CheckedChanged += new System.EventHandler(this.UnlimitedKilometresCheckBox_CheckedChanged);
+            // 
+            // BoldDatesLabel
+            // 
+            this.BoldDatesLabel.AutoSize = true;
+            this.BoldDatesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BoldDatesLabel.Location = new System.Drawing.Point(376, 401);
+            this.BoldDatesLabel.Name = "BoldDatesLabel";
+            this.BoldDatesLabel.Size = new System.Drawing.Size(0, 20);
+            this.BoldDatesLabel.TabIndex = 1026;
+            this.BoldDatesLabel.Visible = false;
+            // 
             // RentCarPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.BoldDatesLabel);
+            this.Controls.Add(this.UnlimitedKilometresCheckBox);
             this.Controls.Add(this.ChooseDateLabel);
             this.Controls.Add(this.MoreInformationLabel);
             this.Controls.Add(this.ErrorEndDateLabel);
@@ -837,7 +851,6 @@ namespace Qars
             this.Controls.Add(this.ageTextBox);
             this.Controls.Add(this.ageLabel);
             this.Controls.Add(this.SpecBox);
-            this.Controls.Add(this.KilometerSpecialLabel);
             this.Controls.Add(this.KilometerTextBox);
             this.Controls.Add(this.AmountofKilometerLabel);
             this.Controls.Add(this.pickupStreetnumberSuffixTextbox);
@@ -926,7 +939,6 @@ namespace Qars
         private System.Windows.Forms.TextBox pickupStreetnumberSuffixTextbox;
         private System.Windows.Forms.Label AmountofKilometerLabel;
         private System.Windows.Forms.TextBox KilometerTextBox;
-        private System.Windows.Forms.Label KilometerSpecialLabel;
         private System.Windows.Forms.Label ModelLabel;
         private System.Windows.Forms.Label StorageSpaceLabel;
         private System.Windows.Forms.Label ModelYearLabel;
@@ -958,6 +970,8 @@ namespace Qars
         private System.Windows.Forms.TextBox streetnumberTextbox;
         private System.Windows.Forms.Label MoreInformationLabel;
         private System.Windows.Forms.Label ChooseDateLabel;
+        private System.Windows.Forms.CheckBox UnlimitedKilometresCheckBox;
+        private System.Windows.Forms.Label BoldDatesLabel;
 
 
     }
