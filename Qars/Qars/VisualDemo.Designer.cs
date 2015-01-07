@@ -159,8 +159,7 @@
             this.listView1.TabIndex = 25;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.Visible = false;
-            // 
+            this.listView1.Visible = false;            // 
             // ModelColumnHeader
             // 
             this.ModelColumnHeader.Text = "Model";
@@ -195,7 +194,7 @@
             // LogOutButton
             // 
             this.LogOutButton.Enabled = false;
-            this.LogOutButton.Location = new System.Drawing.Point(881, 116);
+            this.LogOutButton.Location = new System.Drawing.Point(883, 54);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(116, 63);
             this.LogOutButton.TabIndex = 20;

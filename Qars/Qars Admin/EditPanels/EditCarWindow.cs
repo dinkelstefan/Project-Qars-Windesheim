@@ -81,7 +81,7 @@ namespace Qars_Admin.EditPanels
                     this.StorageBox.Text = car.storagespace.ToString();
                     this.GearsBox.Text = car.gearsamount.ToString();
                     this.MotorBox.Text = car.motor.ToString();
-                    this.FuelusageBox.Text = car.Fuelusage.ToString();
+                    this.FuelusageBox.Text = car.fuelusage.ToString();
                     this.StartpriceBox.Text = car.startprice.ToString();
                     this.RentalpriceBox.Text = car.rentalprice.ToString();
                     this.SellingpriceBox.Text = car.sellingprice.ToString();
@@ -250,7 +250,7 @@ namespace Qars_Admin.EditPanels
             newCar.storagespace = Double.Parse(this.StorageBox.Text);
             newCar.gearsamount = Int32.Parse(this.StorageBox.Text);
             newCar.motor = this.MotorBox.Text;
-            newCar.Fuelusage = Int32.Parse(this.FuelusageBox.Text);
+            newCar.fuelusage = Int32.Parse(this.FuelusageBox.Text);
             newCar.startprice = Int32.Parse(this.StartpriceBox.Text);
             newCar.rentalprice = Double.Parse(this.RentalpriceBox.Text);
             newCar.sellingprice = Double.Parse(this.SellingpriceBox.Text);

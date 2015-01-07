@@ -208,17 +208,17 @@ namespace Qars
                         newCar.storagespace = SafeGetDouble(dataReader, 25);
                         newCar.gearsamount = SafeGetInt(dataReader, 26);
                         newCar.motor = SafeGetString(dataReader, 27);
-                        newCar.Fuelusage = SafeGetInt(dataReader, 28);
+                        newCar.fuelusage = SafeGetInt(dataReader, 28);
                         newCar.startprice = SafeGetInt(dataReader, 29);
                         newCar.rentalprice = SafeGetDouble(dataReader, 30);
                         newCar.sellingprice = SafeGetDouble(dataReader, 31);
                         newCar.available = SafeGetBoolean(dataReader, 32);
                         newCar.description = SafeGetString(dataReader, 33);
-
+                        newCar.licenseplate = SafeGetString(dataReader, 34);
                         // see if the car has photos, and at the first one to the list
                         try
                         {
-                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 34), SafeGetInt(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39)));
+                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 35), SafeGetInt(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39), SafeGetString(dataReader, 40)));
                         }
                         catch (System.Data.SqlTypes.SqlNullValueException)
                         {
@@ -236,7 +236,7 @@ namespace Qars
                             {
                                 try
                                 {
-                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 34), SafeGetInt(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39)));
+                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 35), SafeGetInt(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39), SafeGetString(dataReader, 40)));
                                 }
                                 catch (System.Data.SqlTypes.SqlNullValueException)
                                 {
@@ -427,7 +427,7 @@ namespace Qars
         {
             int result = 0;
             int ReservationID = 0;
-
+            string query = "SELECT count(*) FROM Reservation";
 
             try
             {
@@ -437,7 +437,6 @@ namespace Qars
                     OpenConnection();
                 }
                 MySqlTransaction transaction = connection.BeginTransaction();
-                string query = "SELECT max(ReservationID) FROM Reservation";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 ReservationID = (Int32)cmd.ExecuteScalar();
@@ -476,8 +475,9 @@ namespace Qars
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message + e.Source);
                 return false;
             }
             finally
@@ -490,7 +490,7 @@ namespace Qars
         {
             int result = 0;
             int UserID = 0;
-
+            string query = "SELECT COUNT(*) FROM User";
 
             try
             {
@@ -500,7 +500,6 @@ namespace Qars
                 }
 
                 MySqlTransaction transaction = connection.BeginTransaction();
-                string query = "SELECT max(UserID) FROM User";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 UserID = (Int32)cmd.ExecuteScalar();
                 UserID++;
@@ -594,7 +593,7 @@ namespace Qars
                 cmd.Parameters.AddWithValue("@storagespace", car.storagespace);
                 cmd.Parameters.AddWithValue("@gearsamount", car.gearsamount);
                 cmd.Parameters.AddWithValue("@motor", car.motor);
-                cmd.Parameters.AddWithValue("@fuelusage", car.Fuelusage);
+                cmd.Parameters.AddWithValue("@fuelusage", car.fuelusage);
                 cmd.Parameters.AddWithValue("@startprice", car.startprice);
                 cmd.Parameters.AddWithValue("@sellingprice", car.sellingprice);
                 cmd.Parameters.AddWithValue("@rentalprice", car.rentalprice);
@@ -682,7 +681,7 @@ namespace Qars
         public void UpdateCar(Car car)
         {
             string query = "Update Car ";
-            query += string.Format("SET EstablishmentID={0},Brand='{1}', Model='{2}', Category='{3}', Modelyear={4}, Automatic={5}, Kilometers={6}, Colour='{7}', Doors={8}, Stereo={9}, Bluetooth={10}, Horsepower={11}, Length={12}, Width={13}, Height={14}, Weight={15}, Navigation={16}, Cruisecontrol={17}, Parkingassist={18}, 4WD={19}, Cabrio={20}, Airco={21}, Seats={22}, MOTDate='{23}', Storagespace={24}, Gearsamount={25}, Motor='{26}', Fuelusage={27}, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available={28}, Description=@discription ", car.establishmentID, car.brand, car.model, car.category, car.modelyear, car.automatic, car.kilometres, car.colour, car.doors, car.stereo, car.bluetooth, car.horsepower, car.length, car.width, car.height, car.weight, car.navigation, car.cruisecontrol, car.parkingAssist, car.fourwheeldrive, car.cabrio, car.airco, car.seats, car.motdate, car.storagespace, car.gearsamount, car.motor, car.Fuelusage, car.available);
+            query += string.Format("SET EstablishmentID={0},Brand='{1}', Model='{2}', Category='{3}', Modelyear={4}, Automatic={5}, Kilometers={6}, Colour='{7}', Doors={8}, Stereo={9}, Bluetooth={10}, Horsepower={11}, Length={12}, Width={13}, Height={14}, Weight={15}, Navigation={16}, Cruisecontrol={17}, Parkingassist={18}, 4WD={19}, Cabrio={20}, Airco={21}, Seats={22}, MOTDate='{23}', Storagespace={24}, Gearsamount={25}, Motor='{26}', Fuelusage={27}, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available={28}, Description=@discription ", car.establishmentID, car.brand, car.model, car.category, car.modelyear, car.automatic, car.kilometres, car.colour, car.doors, car.stereo, car.bluetooth, car.horsepower, car.length, car.width, car.height, car.weight, car.navigation, car.cruisecontrol, car.parkingAssist, car.fourwheeldrive, car.cabrio, car.airco, car.seats, car.motdate, car.storagespace, car.gearsamount, car.motor, car.fuelusage, car.available);
             query += string.Format("Where carID = " + car.carID);
 
             try

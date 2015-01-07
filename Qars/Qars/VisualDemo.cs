@@ -21,7 +21,6 @@ namespace Qars
 
         public int imageWidth = 160;
         public int imageHeigth = 160;
-        public int carNumber = 0; //This has to be the tile number!
         public HoverPanel hp;
 
         public List<Damage> damageList = new List<Damage>();
@@ -83,7 +82,7 @@ namespace Qars
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
                 ReservationsLabel.Visible = true;
-                listView1.Visible = true;
+
 
                 foreach (var item in reservationList)
                 {
@@ -104,6 +103,7 @@ namespace Qars
                     }
 
                 }
+                listView1.Visible = true;
             }
             else
             {
@@ -116,10 +116,11 @@ namespace Qars
                 LogOutButton.Enabled = false;
                 LogInOrRegisterButton.Enabled = true;
                 LogInOrRegisterButton.Visible = true;
+                ReservationsLabel.Visible = false;
+                listView1.Visible = false;
             }
         }
         //backoffice/franchise      
-
         public void AddCompare(int number)
         {
             compareList.Add(carList[number]);
@@ -130,7 +131,6 @@ namespace Qars
             UpdateCompareLabel();
 
         }
-
         public void RemoveCompare(int number)
         {
             compareList.Remove(carList[number]);
@@ -141,7 +141,6 @@ namespace Qars
             UpdateCompareLabel();
 
         }
-
         public void UpdateCompareLabel()
         {
             label3.Text = "";
@@ -154,8 +153,6 @@ namespace Qars
                 }
             }
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             List<double> discountPrices = new List<double>();
@@ -179,20 +176,17 @@ namespace Qars
             ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
-
         public void OpenDetails(int number, Discount d)
         {
             CarDetailPanel cp = new CarDetailPanel(number, userID, this, d);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             //searchWizard.Visible = !searchWizard.Visible;
             //updateTileView();
         }
-
         public void updateTileView()
         {
 
@@ -238,14 +232,12 @@ namespace Qars
 
             }
         }
-
         private void showAllCars(object sender, EventArgs e)
         {
             carList = db.SelectCar();
             totalCarList = carList;
             updateTileView();
         }
-
         private void LogInOrRegisterButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine(userID);
@@ -255,7 +247,6 @@ namespace Qars
             Console.WriteLine(userID);
             ChangeAccountDetails(userID);
         }
-
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             LogOut logout = new LogOut();
