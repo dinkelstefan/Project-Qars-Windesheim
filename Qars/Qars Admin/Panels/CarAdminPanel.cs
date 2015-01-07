@@ -61,11 +61,19 @@ namespace Qars_Admin {
             Car selectedCar = query.First();
 
             //Open window for editing of the reservation
-            EditCarWindow window = new EditCarWindow(selectedCar, this.establishmentList, databaseConnection);
+            EditCarWindow window = new EditCarWindow(selectedCar, this.establishmentList, databaseConnection, false);
             window.ShowDialog();
 
             this.RefreshList();
             dataGridView1.Rows[rowIndex].Selected = true;
+        }
+
+        private void addCar_Button_Click(object sender, EventArgs e)
+        {
+            List<Establishment> estList = databaseConnection.SelectEstablishment();
+            Car car = new Car();
+            EditCarWindow carWindow = new EditCarWindow(car, estList, databaseConnection, true);
+            carWindow.ShowDialog();
         }
     }
 }

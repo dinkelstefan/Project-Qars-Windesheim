@@ -17,12 +17,14 @@ namespace Qars_Admin.EditPanels
         private Car car;
         private List<Establishment> establishmentList;
         private List<String> establishmentNameList;
+        private bool add;
 
-        public EditCarWindow(Car car, List<Establishment> estList, DBConnect connect) {
+        public EditCarWindow(Car car, List<Establishment> estList, DBConnect connect, bool add) {
             this.connect = connect;
             this.car = car;
             this.establishmentList = estList;
             this.establishmentNameList = new List<String>();
+            this.add = add;
 
 
             // fill up the namesource for the combobox
@@ -46,42 +48,44 @@ namespace Qars_Admin.EditPanels
                 }
 
                 //fill up more properties
-                this.BrandBox.Text = car.brand.ToString();
-                this.ModelBox.Text = car.model.ToString();
-                this.CategoryBox.Text = car.category.ToString();
-                this.ModelyearBox.Text = car.modelyear.ToString();
-                this.AutomaticBox.Checked = car.automatic;
-                this.KilometersBox.Text = car.kilometres.ToString();
-                this.ColourBox.Text = car.colour.ToString();
-                this.StereoBox.Checked = car.stereo;
-                this.BluetoothBox.Checked = car.bluetooth;
-                this.HorsePowerBox.Text = car.horsepower.ToString();
-                this.WidthBox.Text = car.width.ToString();
-                this.LengthBox.Text = car.length.ToString();
-                this.HeightBox.Text = car.height.ToString();
-                this.WeightBox.Text = car.weight.ToString();
+                if (!add)
+                {
+                    this.BrandBox.Text = car.brand.ToString();
+                    this.ModelBox.Text = car.model.ToString();
+                    this.CategoryBox.Text = car.category.ToString();
+                    this.ModelyearBox.Text = car.modelyear.ToString();
+                    this.AutomaticBox.Checked = car.automatic;
+                    this.KilometersBox.Text = car.kilometres.ToString();
+                    this.ColourBox.Text = car.colour.ToString();
+                    this.StereoBox.Checked = car.stereo;
+                    this.BluetoothBox.Checked = car.bluetooth;
+                    this.HorsePowerBox.Text = car.horsepower.ToString();
+                    this.WidthBox.Text = car.width.ToString();
+                    this.LengthBox.Text = car.length.ToString();
+                    this.HeightBox.Text = car.height.ToString();
+                    this.WeightBox.Text = car.weight.ToString();
 
-                this.AvailableBox.Checked = car.available;
+                    this.AvailableBox.Checked = car.available;
 
-                this.NavigationBox.Checked = car.navigation;
-                this.CruisecontrolBox.Checked = car.cruisecontrol;
-                this.ParkingassistBox.Checked = car.parkingAssist;
-                this.WheelDriveBox.Checked = car.fourwheeldrive;
-                this.CabrioBox.Checked = car.cabrio;
-                this.AircoBox.Checked = car.airco;
-                this.MOTDate.Text = car.motdate.ToString();
-                this.StorageBox.Text = car.storagespace.ToString();
-                this.GearsBox.Text = car.gearsamount.ToString();
-                this.MotorBox.Text = car.motor.ToString();
-                this.FuelusageBox.Text = car.Fuelusage.ToString();
-                this.StartpriceBox.Text = car.startprice.ToString();
-                this.RentalpriceBox.Text = car.rentalprice.ToString();
-                this.SellingpriceBox.Text = car.sellingprice.ToString();
-                this.DoorsBox.Text = car.doors.ToString();
-                this.SeatsBox.Text = car.seats.ToString();
+                    this.NavigationBox.Checked = car.navigation;
+                    this.CruisecontrolBox.Checked = car.cruisecontrol;
+                    this.ParkingassistBox.Checked = car.parkingAssist;
+                    this.WheelDriveBox.Checked = car.fourwheeldrive;
+                    this.CabrioBox.Checked = car.cabrio;
+                    this.AircoBox.Checked = car.airco;
+                    this.MOTDate.Text = car.motdate.ToString();
+                    this.StorageBox.Text = car.storagespace.ToString();
+                    this.GearsBox.Text = car.gearsamount.ToString();
+                    this.MotorBox.Text = car.motor.ToString();
+                    this.FuelusageBox.Text = car.Fuelusage.ToString();
+                    this.StartpriceBox.Text = car.startprice.ToString();
+                    this.RentalpriceBox.Text = car.rentalprice.ToString();
+                    this.SellingpriceBox.Text = car.sellingprice.ToString();
+                    this.DoorsBox.Text = car.doors.ToString();
+                    this.SeatsBox.Text = car.seats.ToString();
 
-                this.DesciptionBox.Text = car.description.ToString();
-
+                    this.DesciptionBox.Text = car.description.ToString();
+                }
 
             }
             catch (Exception e)
@@ -140,12 +144,20 @@ namespace Qars_Admin.EditPanels
         {
             try
             {
-                Car carToUpdate = this.getCarFromFields();
-                this.connect.UpdateCar(carToUpdate);
-                this.Close();
+                if (!add)
+                {
+                    Car carToUpdate = this.getCarFromFields();
+                    this.connect.UpdateCar(carToUpdate);
+                    this.Close();
+                }
+                else
+                {
+                    connect.InsertCar(this.getCarFromFields());
+                    this.Close();
+                }
             } catch (Exception ex) {
                 MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
-            }
+            } 
         }
 
         private void delete_Button_Click(object sender, EventArgs e) {
@@ -156,7 +168,7 @@ namespace Qars_Admin.EditPanels
                 MessageBox.Show(string.Format("De reserving met reserveringnummer: {0} is verwijderd.", car.carID));
                 this.Close();
             } catch (Exception ex) {
-                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
+                MessageBox.Show("Het is niet gelukt om de auto te verwijderen, probeer het later opnieuw.");
             }
         }
 

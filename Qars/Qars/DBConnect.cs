@@ -410,7 +410,7 @@ namespace Qars
         public void UpdateUser(User user)
         {
             string query = "Update User ";
-            query += string.Format("Set AccountLevel={0}, Username='{1}', Password='{2}',Firstname='{3}', Lastname='{4}',Age={5},Postalcode='{6}',City='{7}', Streetname='{8}', Streetnumber={9}, Streetnumbersuffix='{10}', Phonenumber='{11}', Emailaddress='{12}', Driverslicencelink='{13}', Establishment={14} ", user.accountLevel,user.username,user.password,user.firstname, user.lastname, user.age, user.postalcode, user.city, user.streetname,user.streetnumber,user.streetnumbersuffix, user.phonenumber, user.emailaddress, user.driverslicenselink, user.Esthablishment);
+            query += string.Format("Set AccountLevel={0}, Username='{1}', Password='{2}',Firstname='{3}', Lastname='{4}',Age={5},Postalcode='{6}',City='{7}', Streetname='{8}', Streetnumber={9}, Streetnumbersuffix='{10}', Phonenumber='{11}', Emailaddress='{12}', Driverslicencelink='{13}', Establishment={14} ", user.accountLevel, user.username, user.password, user.firstname, user.lastname, user.age, user.postalcode, user.city, user.streetname, user.streetnumber, user.streetnumbersuffix, user.phonenumber, user.emailaddress, user.driverslicenselink, user.Esthablishment);
             query += string.Format("Where UserID = {0} ", user.UserID);
 
             Console.WriteLine(query);
@@ -527,6 +527,79 @@ namespace Qars
 
 
         }
+        public bool InsertCar(Car car)
+        {
+            Console.WriteLine(car.brand);
+            bool succes = false;
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    OpenConnection();
+                }
+                MySqlTransaction transaction = connection.BeginTransaction();
+                string query = "Select max(CarID) From Car";
+                
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                int maxCarId = (Int32)cmd.ExecuteScalar();
+                maxCarId++;
+
+                query = "INSERT INTO Car(CarID, EstablishmentID, Brand, Model, Category, Modelyear, Automatic, Kilometers, Colour, Doors, Stereo, Bluetooth, HorsePower, Length, Width, Height, Weight, Navigation, Cruisecontrol, Parkingassist, 4WD, Cabrio, Airco, Seats, MOTDate, Storagespace, Gearsamount, Motor, Fuelusage, Startprice, Rentalprice, Sellingprice, Available, Description)";
+                query += "Values(@maxCarId,1,@brand, @model, @category, @modelyear, @automatic, @kilometers, @color, @door,@stereo,@bluetooth,@horsepower,@length,@width,@height,@weight,@navigation,@cruisecontrol,@parkingassist,@4wd,@cabrio,@airco,@seats,@motd,@storagespace,@gearsamount,@motor,@fuelusage,@startprice,@rentalprice,@sellingprice,@available,@description); ";
+
+                cmd.CommandText = query;
+                
+                cmd.Parameters.AddWithValue("@maxCarId", maxCarId);
+                cmd.Parameters.AddWithValue("@brand", car.brand);
+                cmd.Parameters.AddWithValue("@model", car.model);
+                cmd.Parameters.AddWithValue("@category", car.category);
+                cmd.Parameters.AddWithValue("@modelyear", car.modelyear);
+                cmd.Parameters.AddWithValue("@automatic", car.automatic);
+                cmd.Parameters.AddWithValue("@kilometers", car.kilometres);
+                cmd.Parameters.AddWithValue("@color", car.colour);
+                cmd.Parameters.AddWithValue("@door", car.doors);
+                cmd.Parameters.AddWithValue("@stereo", car.stereo);
+                cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
+                cmd.Parameters.AddWithValue("@horsepower", car.horsepower);
+                cmd.Parameters.AddWithValue("@length", car.length);
+                cmd.Parameters.AddWithValue("@width", car.width);
+                cmd.Parameters.AddWithValue("@height", car.height);
+                cmd.Parameters.AddWithValue("@weight", car.weight);
+                cmd.Parameters.AddWithValue("@navigation", car.navigation);
+                cmd.Parameters.AddWithValue("@cruisecontrol", car.cruisecontrol);
+                cmd.Parameters.AddWithValue("@parkingassist", car.parkingAssist);
+                cmd.Parameters.AddWithValue("@4wd", car.fourwheeldrive);
+                cmd.Parameters.AddWithValue("@cabrio", car.cabrio);
+                cmd.Parameters.AddWithValue("@motd", car.motdate);
+                cmd.Parameters.AddWithValue("@seats", car.seats);
+                cmd.Parameters.AddWithValue("@storagespace", car.storagespace);
+                cmd.Parameters.AddWithValue("@gearsamount", car.gearsamount);
+                cmd.Parameters.AddWithValue("@motor", car.motor);
+                cmd.Parameters.AddWithValue("@fuelusage", car.Fuelusage);
+                cmd.Parameters.AddWithValue("@startprice", car.startprice);
+                cmd.Parameters.AddWithValue("@sellingprice", car.sellingprice);
+                cmd.Parameters.AddWithValue("@rentalprice", car.rentalprice);
+                cmd.Parameters.AddWithValue("@available", car.available);
+                cmd.Parameters.AddWithValue("@description", car.description);
+                cmd.Parameters.AddWithValue("@airco", car.airco);
+
+                
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                MessageBox.Show("De auto is toegevoegd.");
+                succes = true;
+            }
+            catch (Exception w)
+            {
+                MessageBox.Show("Fout bij het toevoegen van de auto." + w);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return succes;
+        }
 
         //Check if there are discounts
         public List<Discount> CheckDiscounts()
@@ -552,7 +625,7 @@ namespace Qars
 
                 dataReader.Close();
                 this.CloseConnection();
-               
+
                 return localDiscountList;
             }
             else
@@ -560,46 +633,70 @@ namespace Qars
                 return null;
             }
         }
-        public void UpdateReservation(Reservation reservation) {
+        public void UpdateReservation(Reservation reservation)
+        {
             string query = "Update Reservation ";
             query += string.Format("SET Startdate='{0}',Enddate='{1}', Confirmed={2}, Kilometres={3}, Pickupcity='{4}', Pickupstreetname='{5}', Pickupstreetnumber={6}, Pickupstreetnumbersuffix='{7}', Paid={8}, Comment='{9}' ", reservation.startdate, reservation.enddate, reservation.confirmed, reservation.kilometres, reservation.pickupcity, reservation.pickupstreetname, reservation.pickupstreetnumber, reservation.pickupstreetnumbersuffix, reservation.paid, reservation.comment);
             query += string.Format("Where ReservationID = " + reservation.reservationID);
 
             Console.WriteLine(query);
-            if (this.OpenConnection() == true) {
+            if (this.OpenConnection() == true)
+            {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 Console.WriteLine(cmd.CommandText);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
         }
-        public void DeleteReservation(Reservation reservation) {
+        public void DeleteReservation(Reservation reservation)
+        {
             string query = "DELETE FROM Reservation ";
             query += string.Format("WHERE ReservationID = {0}", reservation.reservationID);
 
-            if (this.OpenConnection() == true) {
+            if (this.OpenConnection() == true)
+            {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
         }
-        public void UpdateCar(Car car) {
+        public void UpdateCar(Car car)
+        {
             string query = "Update Car ";
-            query += string.Format("SET EstablishmentID={0},Brand='{1}', Model='{2}', Category='{3}', Modelyear={4}, Automatic={5}, Kilometers={6}, Colour='{7}', Doors={8}, Stereo={9}, Bluetooth={10}, Horsepower={11}, Length={12}, Width={13}, Height={14}, Weight={15}, Navigation={16}, Cruisecontrol={17}, Parkingassist={18}, 4WD={19}, Cabrio={20}, Airco={21}, Seats={22}, MOTDate='{23}', Storagespace={24}, Gearsamount={25}, Motor='{26}', Fuelusage={27}, Startprice={28}, Rentalprice={29}, Sellingprice={30}, Available={31}, Description='{32}' ", car.establishmentID, car.brand, car.model, car.category, car.modelyear, car.automatic, car.kilometres, car.colour, car.doors, car.stereo, car.bluetooth, car.horsepower, car.length, car.width, car.height, car.weight, car.navigation, car.cruisecontrol, car.parkingAssist, car.fourwheeldrive, car.cabrio, car.airco, car.seats, car.motdate, car.storagespace, car.gearsamount, car.motor, car.Fuelusage, car.startprice, car.rentalprice, car.sellingprice, car.available, car.description);
+            query += string.Format("SET EstablishmentID={0},Brand='{1}', Model='{2}', Category='{3}', Modelyear={4}, Automatic={5}, Kilometers={6}, Colour='{7}', Doors={8}, Stereo={9}, Bluetooth={10}, Horsepower={11}, Length={12}, Width={13}, Height={14}, Weight={15}, Navigation={16}, Cruisecontrol={17}, Parkingassist={18}, 4WD={19}, Cabrio={20}, Airco={21}, Seats={22}, MOTDate='{23}', Storagespace={24}, Gearsamount={25}, Motor='{26}', Fuelusage={27}, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available={28}, Description=@discription ", car.establishmentID, car.brand, car.model, car.category, car.modelyear, car.automatic, car.kilometres, car.colour, car.doors, car.stereo, car.bluetooth, car.horsepower, car.length, car.width, car.height, car.weight, car.navigation, car.cruisecontrol, car.parkingAssist, car.fourwheeldrive, car.cabrio, car.airco, car.seats, car.motdate, car.storagespace, car.gearsamount, car.motor, car.Fuelusage, car.available);
             query += string.Format("Where carID = " + car.carID);
 
-            Console.WriteLine(query);
-            if (this.OpenConnection() == true) {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                CloseConnection();
+            try
+            {
+                Console.WriteLine(query);
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("discription", car.description);
+                    cmd.Parameters.AddWithValue("startprice", car.startprice);
+                    cmd.Parameters.AddWithValue("rentalprice", car.rentalprice);
+                    cmd.Parameters.AddWithValue("sellingprice", car.sellingprice);
+
+                    Console.WriteLine(cmd.CommandText);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fout tijdens het updaten van de auto");
+            }
+            finally
+            {
+                this.CloseConnection();
             }
         }
-        public void DeleteCar(Car car) {
+        public void DeleteCar(Car car)
+        {
             string query = "DELETE FROM Car ";
             query += string.Format("WHERE CarID = {0}", car.carID);
 
-            if (this.OpenConnection() == true) {
+            if (this.OpenConnection() == true)
+            {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 CloseConnection();

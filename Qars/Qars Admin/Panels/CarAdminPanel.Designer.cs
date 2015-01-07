@@ -58,6 +58,7 @@
             this.addCar_Button.TabIndex = 1;
             this.addCar_Button.Text = "Auto Toevoegen";
             this.addCar_Button.UseVisualStyleBackColor = true;
+            this.addCar_Button.Click += new System.EventHandler(this.addCar_Button_Click);
             // 
             // CarAdminPanel
             // 

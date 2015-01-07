@@ -127,11 +127,10 @@ namespace Qars_Admin
         private void fillButtonList()
         {
             categories.Add(this.createButton("Autos beheren", "autosBeheren", new[] { 1, 2, 3, 4 }));
-            categories.Add(this.createButton("Reserveringen beheren", "reserveringenBeheren", new[] {1, 2, 3, 4 }));
+            categories.Add(this.createButton("Reserveringen beheren", "reserveringenBeheren", new[] { 1, 2, 3, 4 }));
             categories.Add(this.createButton("Klanten beheren", "klantenBeheren", new[] { 2, 3, 4 }));
             categories.Add(this.createButton("Algemene Voorwaarden beheren", "algemeneVoorwaardenBeheren", new[] { 3, 4 }));
-            categories.Add(this.createButton("Schade melden", "schadeMelden", new[] {1, 2, 3, 4 }));
-            categories.Add(this.createButton("Forecast weergeven", "forecastWeergeven", new[] {1, 2, 3, 4 }));
+            categories.Add(this.createButton("Forecast weergeven", "forecastWeergeven", new[] { 1, 2, 3, 4 }));
         }
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -153,9 +152,6 @@ namespace Qars_Admin
                     break;
                 case "algemeneVoorwaardenBeheren":
                     tosAdminPanel.BringToFront();
-                    break;
-                case "schadeMelden":
-                    Console.WriteLine("Nog niet aangemaakt");
                     break;
                 case "forecastWeergeven":
                     forecastAdminPanel.BringToFront();
