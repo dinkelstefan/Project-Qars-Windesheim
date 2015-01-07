@@ -100,7 +100,7 @@ namespace Qars_Admin.EditPanels
 
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
             }
@@ -116,7 +116,7 @@ namespace Qars_Admin.EditPanels
                 MessageBox.Show(string.Format("De reserving met reserveringnummer: {0} is verwijderd.", reservation.reservationID));
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
             }
@@ -176,7 +176,7 @@ namespace Qars_Admin.EditPanels
                 sb.Insert(2, "-");
                 sb.Insert(5, "-");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

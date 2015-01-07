@@ -33,6 +33,7 @@ namespace Qars_Admin.EditPanels
             streetnumberSuffixTextBox.Text = user.streetnumbersuffix;
             phonenumberTextBox.Text = user.phonenumber;
             emailadresTextBox.Text = user.emailaddress;
+            driverLicensePictureBox.ImageLocation = user.driverslicenselink;
 
             //Fill combobox
             int i = 0;
@@ -87,7 +88,7 @@ namespace Qars_Admin.EditPanels
                 MessageBox.Show("De gebruiker is succesvol geupdate.");
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Het format van de door u ingevulde tekst klopt niet");
             }
@@ -98,7 +99,6 @@ namespace Qars_Admin.EditPanels
         {
             User user = getUserFromFields();
             this.connection.DeleteUser(user);
-            MessageBox.Show("De gebruiker met het nummer: " + user.UserID + " is verwijderd.");
             this.Close();
 
         }

@@ -134,7 +134,7 @@ namespace Qars_Admin.EditPanels
             try {
                 sb.Insert(2, "-");
                 sb.Insert(5, "-");
-            } catch (Exception ex) {
+            } catch (Exception) {
 
             }
             textbox.Text = sb.ToString();
@@ -155,7 +155,7 @@ namespace Qars_Admin.EditPanels
                     connect.InsertCar(this.getCarFromFields());
                     this.Close();
                 }
-            } catch (Exception ex) {
+            } catch (Exception) {
                 MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
             } 
         }
@@ -167,7 +167,7 @@ namespace Qars_Admin.EditPanels
                 this.connect.DeleteCar(car);
                 MessageBox.Show(string.Format("De reserving met reserveringnummer: {0} is verwijderd.", car.carID));
                 this.Close();
-            } catch (Exception ex) {
+            } catch (Exception) {
                 MessageBox.Show("Het is niet gelukt om de auto te verwijderen, probeer het later opnieuw.");
             }
         }

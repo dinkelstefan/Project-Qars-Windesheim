@@ -14,7 +14,6 @@ namespace Qars_Admin.Panels
     public partial class ToSAdminPanel : UserControl
     {
         private DBConnect connection;
-        private ToS tos;
         public ToSAdminPanel(DBConnect connection)
         {
             this.connection = connection;

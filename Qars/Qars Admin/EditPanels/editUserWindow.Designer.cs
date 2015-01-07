@@ -52,7 +52,6 @@
             this.streetnumberSuffixTextBox = new System.Windows.Forms.TextBox();
             this.phonenumberTextBox = new System.Windows.Forms.TextBox();
             this.emailadresTextBox = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.delete_Button = new System.Windows.Forms.Button();
             this.cancel_Button = new System.Windows.Forms.Button();
             this.save_Button = new System.Windows.Forms.Button();
@@ -62,7 +61,8 @@
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.establishmentComboBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.driverLicensePictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.driverLicensePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -280,14 +280,6 @@
             this.emailadresTextBox.Size = new System.Drawing.Size(303, 26);
             this.emailadresTextBox.TabIndex = 23;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(301, 689);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(303, 135);
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
             // delete_Button
             // 
             this.delete_Button.Location = new System.Drawing.Point(12, 863);
@@ -372,6 +364,16 @@
             this.establishmentComboBox.Size = new System.Drawing.Size(303, 28);
             this.establishmentComboBox.TabIndex = 33;
             // 
+            // driverLicensePictureBox
+            // 
+            this.driverLicensePictureBox.ErrorImage = global::Qars_Admin.Properties.Resources.PicNotAvailable;
+            this.driverLicensePictureBox.Location = new System.Drawing.Point(301, 689);
+            this.driverLicensePictureBox.Name = "driverLicensePictureBox";
+            this.driverLicensePictureBox.Size = new System.Drawing.Size(303, 168);
+            this.driverLicensePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.driverLicensePictureBox.TabIndex = 24;
+            this.driverLicensePictureBox.TabStop = false;
+            // 
             // editUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -386,7 +388,7 @@
             this.Controls.Add(this.save_Button);
             this.Controls.Add(this.cancel_Button);
             this.Controls.Add(this.delete_Button);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.driverLicensePictureBox);
             this.Controls.Add(this.emailadresTextBox);
             this.Controls.Add(this.phonenumberTextBox);
             this.Controls.Add(this.streetnumberSuffixTextBox);
@@ -417,7 +419,7 @@
             this.MinimumSize = new System.Drawing.Size(689, 968);
             this.Name = "editUserWindow";
             this.Text = "Klanten ";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.driverLicensePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,7 +451,7 @@
         private System.Windows.Forms.TextBox streetnumberSuffixTextBox;
         private System.Windows.Forms.TextBox phonenumberTextBox;
         private System.Windows.Forms.TextBox emailadresTextBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox driverLicensePictureBox;
         private System.Windows.Forms.Button delete_Button;
         private System.Windows.Forms.Button cancel_Button;
         private System.Windows.Forms.Button save_Button;

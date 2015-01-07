@@ -61,7 +61,6 @@ namespace Qars_Admin.Panels
             editWindow.ShowDialog();
 
             this.refreshList();
-            userDataGridView.Rows[rowIndex].Selected = true;
         }
     }
 }

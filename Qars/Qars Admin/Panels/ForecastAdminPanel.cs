@@ -42,7 +42,7 @@ namespace Qars_Admin.Panels
                         simpleForecastList.Add(new simpleForecast(res.reservationID, res.carID, userList[res.UserID].firstname, userList[res.UserID].lastname, carList[res.carID].brand, carList[res.carID].model, res.paid, res.confirmed));
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }

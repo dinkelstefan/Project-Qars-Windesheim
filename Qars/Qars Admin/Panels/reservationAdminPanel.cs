@@ -57,7 +57,6 @@ namespace Qars_Admin.Panels
             window.ShowDialog();
 
             this.RefreshList();
-            reservationDataGridView.Rows[rowIndex].Selected = true;
         }
     }
 }
