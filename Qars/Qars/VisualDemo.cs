@@ -83,7 +83,7 @@ namespace Qars
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
                 ReservationsLabel.Visible = true;
-                listView1.Visible = true;
+
 
                 foreach (var item in reservationList)
                 {
@@ -104,6 +104,7 @@ namespace Qars
                     }
 
                 }
+                listView1.Visible = true;
             }
             else
             {
@@ -116,6 +117,8 @@ namespace Qars
                 LogOutButton.Enabled = false;
                 LogInOrRegisterButton.Enabled = true;
                 LogInOrRegisterButton.Visible = true;
+                ReservationsLabel.Visible = false;
+                listView1.Visible = false;
             }
         }
         //backoffice/franchise      
