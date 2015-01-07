@@ -19,7 +19,8 @@ namespace Qars_Admin.EditPanels
         private List<String> establishmentNameList;
         private bool add;
 
-        public EditCarWindow(Car car, List<Establishment> estList, DBConnect connect, bool add) {
+        public EditCarWindow(Car car, List<Establishment> estList, DBConnect connect, bool add)
+        {
             this.connect = connect;
             this.car = car;
             this.establishmentList = estList;
@@ -28,7 +29,8 @@ namespace Qars_Admin.EditPanels
 
 
             // fill up the namesource for the combobox
-            foreach (Establishment est in this.establishmentList) {
+            foreach (Establishment est in this.establishmentList)
+            {
                 this.establishmentNameList.Add(est.name);
             }
 
@@ -40,8 +42,10 @@ namespace Qars_Admin.EditPanels
 
                 this.EsteblishmentComboBox.DataSource = this.establishmentNameList;
                 // search for the esteblishment name and put it in the combobox
-                foreach (Establishment est in this.establishmentList) {
-                    if (this.car.establishmentID == est.establishmentID) {
+                foreach (Establishment est in this.establishmentList)
+                {
+                    if (this.car.establishmentID == est.establishmentID)
+                    {
                         this.EsteblishmentComboBox.Text = est.name;
                         break;
                     }
@@ -84,6 +88,14 @@ namespace Qars_Admin.EditPanels
                     this.DoorsBox.Text = car.doors.ToString();
                     this.SeatsBox.Text = car.seats.ToString();
 
+                    //Add pictures to ListBox
+                    foreach (CarPhoto photo in car.PhotoList)
+                    {
+                        imageLinkList.Items.Add(photo.Name);
+                    }
+
+
+
                     this.DesciptionBox.Text = car.description.ToString();
                 }
 
@@ -100,41 +112,57 @@ namespace Qars_Admin.EditPanels
             this.Close();
         }
 
-        private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e) {
-            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus) {
+        private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus)
+            {
                 e.Handled = true;
-            } else {
+            }
+            else
+            {
                 e.Handled = false;
                 MessageBox.Show("U mag hier geen getallen invullen.");
             }
         }
 
-        private void TextBoxNumOnly_KeyPress(object sender, KeyEventArgs e) {
-            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemPeriod || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.Delete) {
+        private void TextBoxNumOnly_KeyPress(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemPeriod || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.Delete)
+            {
                 e.Handled = true;
-            } else {
+            }
+            else
+            {
                 e.Handled = false;
                 MessageBox.Show("U mag hier geen letters invullen.");
             }
         }
 
-        private void TextBoxFloatOnly_KeyPress(object sender, KeyEventArgs e) {
-            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.Delete) {
+        private void TextBoxFloatOnly_KeyPress(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.Delete)
+            {
                 e.Handled = true;
-            } else {
+            }
+            else
+            {
                 e.Handled = false;
                 MessageBox.Show("U mag hier geen letters invullen.");
             }
         }
 
-        private void checkFormat_Leave(object sender, EventArgs e) {
+        private void checkFormat_Leave(object sender, EventArgs e)
+        {
             TextBox textbox = sender as TextBox;
             StringBuilder sb = new StringBuilder(textbox.Text);
             sb.Replace("-", string.Empty);
-            try {
+            try
+            {
                 sb.Insert(2, "-");
                 sb.Insert(5, "-");
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
 
             }
             textbox.Text = sb.ToString();
@@ -155,37 +183,46 @@ namespace Qars_Admin.EditPanels
                     connect.InsertCar(this.getCarFromFields());
                     this.Close();
                 }
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
-            } 
+            }
         }
 
-        private void delete_Button_Click(object sender, EventArgs e) {
-            try {
+        private void delete_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 Car car = this.getCarFromFields();
 
                 this.connect.DeleteCar(car);
                 MessageBox.Show(string.Format("De reserving met reserveringnummer: {0} is verwijderd.", car.carID));
                 this.Close();
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show("Het is niet gelukt om de auto te verwijderen, probeer het later opnieuw.");
             }
         }
 
-        private Car getCarFromFields() {
+        private Car getCarFromFields()
+        {
             Car newCar = new Car();
 
             newCar.carID = this.car.carID;
-            
-        
+
+
             // search for the esteblishment if from combobox
-            foreach (Establishment est in this.establishmentList) {
-                if (EsteblishmentComboBox.Text == est.name) {
+            foreach (Establishment est in this.establishmentList)
+            {
+                if (EsteblishmentComboBox.Text == est.name)
+                {
                     newCar.establishmentID = est.establishmentID;
                     break;
                 }
             }
-            
+
             newCar.brand = this.BrandBox.Text;
             newCar.model = this.ModelBox.Text;
             newCar.category = this.CategoryBox.Text;
@@ -202,7 +239,7 @@ namespace Qars_Admin.EditPanels
             newCar.weight = Int32.Parse(this.WeightBox.Text);
 
             newCar.available = this.AvailableBox.Checked;
-            
+
             newCar.navigation = this.NavigationBox.Checked;
             newCar.cruisecontrol = this.CruisecontrolBox.Checked;
             newCar.parkingAssist = this.ParkingassistBox.Checked;
@@ -223,6 +260,29 @@ namespace Qars_Admin.EditPanels
             newCar.description = this.DesciptionBox.Text;
 
             return newCar;
+        }
+
+        private void imageLinkList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int photoID = imageLinkList.SelectedIndex;
+            CarPhotoPictureBox.ImageLocation = car.PhotoList[photoID].Photolink;
+
+        }
+
+        private void add_Button_Click(object sender, EventArgs e)
+        {
+            int highestCarID = (from m in car.PhotoList select m.PhotoID).Max();
+            highestCarID++;
+
+            AddCarPhoto addphoto = new AddCarPhoto(car.carID, highestCarID, this);
+            addphoto.ShowDialog();
+        }
+
+        public void addCarPhoto(CarPhoto carPhoto)
+        {
+            car.PhotoList.Add(carPhoto);
+            //Refresh list with photos
+            imageLinkList.Items.Add(carPhoto.Name);
         }
     }
 }

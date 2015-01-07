@@ -54,6 +54,12 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditPanels\AddCarPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPanels\AddCarPhoto.Designer.cs">
+      <DependentUpon>AddCarPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditPanels\EditCarWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="SimpleClasses\simpleReservation.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPanels\AddCarPhoto.resx">
+      <DependentUpon>AddCarPhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditPanels\EditReservationWindow.resx">
       <DependentUpon>EditReservationWindow.cs</DependentUpon>
