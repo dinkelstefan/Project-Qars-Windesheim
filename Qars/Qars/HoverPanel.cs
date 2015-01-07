@@ -75,8 +75,8 @@ namespace Qars
                        "Vermogen: " + c.horsepower.ToString() + "\n" + "Deuren: " + c.doors + "\n" +
                        "Stoelen: " + c.seats.ToString() + "\n";
 
-            if (c.Fuelusage != -1)
-                info.Text += "Verbruik: " + c.Fuelusage.ToString() + " Km/L \n";
+            if (c.fuelusage != -1)
+                info.Text += "Verbruik: " + c.fuelusage.ToString() + " Km/L \n";
 
             info.Text += c.motor;
 

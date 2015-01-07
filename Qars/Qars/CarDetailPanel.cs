@@ -50,7 +50,7 @@ namespace Qars
 
             Label priceperkm = createLabel("Kilometerprijs: ", 100, 375, 125, 25, 14, FontStyle.Regular);
             Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 100, 500, 65, 27, 14, FontStyle.Regular);
-          
+
 
             if (discount != null)
             {
@@ -60,7 +60,7 @@ namespace Qars
                 discountLabelB.Font = new Font("Ariel", 13, FontStyle.Bold);
                 discountLabelB.Width = 125;
                 discountLabelB.Top = 60;
-                discountLabelB.Left = beginAmount.Left + (beginAmount.Width-10);
+                discountLabelB.Left = beginAmount.Left + (beginAmount.Width - 10);
                 discountLabelB.ForeColor = System.Drawing.Color.Green;
                 discountLabelB.Text = " =  €" + qarsApplication.carList[carNumber].startprice * ((double)1 - ((double)discount.percentage / 100));
                 this.Controls.Add(discountLabelB);
@@ -71,7 +71,7 @@ namespace Qars
                 discountLabelP.Font = new Font("Ariel", 13, FontStyle.Bold);
                 discountLabelP.Width = 125;
                 discountLabelP.Top = 100;
-                discountLabelP.Left = ppk.Left + (ppk.Width-10);
+                discountLabelP.Left = ppk.Left + (ppk.Width - 10);
                 discountLabelP.ForeColor = System.Drawing.Color.Green;
                 discountLabelP.Text = " =  €" + qarsApplication.carList[carNumber].rentalprice * ((double)1 - ((double)discount.percentage / 100));
                 this.Controls.Add(discountLabelP);
@@ -165,7 +165,7 @@ namespace Qars
             int countFailure = 0;
             int countSuccess = 0;
 
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 26; i++)
             {
 
                 if (countSuccess == 7 || countSuccess == 14 || countSuccess == 21)
@@ -271,7 +271,7 @@ namespace Qars
                             break;
                         }
                     case 6:
-                        if (list[carnumber].Fuelusage == -1)
+                        if (list[carnumber].fuelusage == -1)
                         {
                             countFailure++;
                             break;
@@ -280,7 +280,7 @@ namespace Qars
                         else
                         {
                             createLabel("Verbruik:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].Fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(list[carnumber].fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -553,6 +553,21 @@ namespace Qars
                         {
                             createLabel("Ruimte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
+                            top += 30;
+                            countFailure++;
+                            countSuccess++;
+                            break;
+                        }
+                    case 25:
+                        if (list[carnumber].licenseplate == "")
+                        {
+                            countFailure++;
+                            break;
+                        }
+                        else
+                        {
+                            createLabel("Kenteken:", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].licenseplate, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             countFailure++;
                             countSuccess++;

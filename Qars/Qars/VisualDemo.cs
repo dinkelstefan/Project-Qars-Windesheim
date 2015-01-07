@@ -21,7 +21,6 @@ namespace Qars
 
         public int imageWidth = 160;
         public int imageHeigth = 160;
-        public int carNumber = 0; //This has to be the tile number!
         public HoverPanel hp;
 
         public List<Damage> damageList = new List<Damage>();
@@ -122,7 +121,6 @@ namespace Qars
             }
         }
         //backoffice/franchise      
-
         public void AddCompare(int number)
         {
             compareList.Add(carList[number]);
@@ -133,7 +131,6 @@ namespace Qars
             UpdateCompareLabel();
 
         }
-
         public void RemoveCompare(int number)
         {
             compareList.Remove(carList[number]);
@@ -144,7 +141,6 @@ namespace Qars
             UpdateCompareLabel();
 
         }
-
         public void UpdateCompareLabel()
         {
             label3.Text = "";
@@ -157,8 +153,6 @@ namespace Qars
                 }
             }
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             List<double> discountPrices = new List<double>();
@@ -182,20 +176,17 @@ namespace Qars
             ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
-
         public void OpenDetails(int number, Discount d)
         {
             CarDetailPanel cp = new CarDetailPanel(number, userID, this, d);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             //searchWizard.Visible = !searchWizard.Visible;
             //updateTileView();
         }
-
         public void updateTileView()
         {
 
@@ -241,14 +232,12 @@ namespace Qars
 
             }
         }
-
         private void showAllCars(object sender, EventArgs e)
         {
             carList = db.SelectCar();
             totalCarList = carList;
             updateTileView();
         }
-
         private void LogInOrRegisterButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine(userID);
@@ -258,7 +247,6 @@ namespace Qars
             Console.WriteLine(userID);
             ChangeAccountDetails(userID);
         }
-
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             LogOut logout = new LogOut();
@@ -267,18 +255,6 @@ namespace Qars
             {
                 this.userID = 0;
                 ChangeAccountDetails(userID);
-            }
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                ListViewItem item = listView1.SelectedItems[0];
-                if (item.SubItems[3].Text == "Ja")
-                {
-                    MessageBox.Show("Weet u zeker dat u uw reservering wilt verwijderen?", "Pas op!", MessageBoxButtons.YesNo);
-                }
             }
         }
     }
