@@ -65,7 +65,7 @@ namespace Qars
             customerList = db.SelectUsers();
 
             updateTileView();
-
+            
             this.Controls.Add(hp);
             hp.BringToFront();
             ChangeAccountDetails(userID);
