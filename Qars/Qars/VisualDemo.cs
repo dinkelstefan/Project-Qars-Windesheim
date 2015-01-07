@@ -83,8 +83,6 @@ namespace Qars
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
                 ReservationsLabel.Visible = true;
-                pictureLicense.ImageLocation = customerList[UserID].driverslicenselink;
-
 
 
                 foreach (var item in reservationList)
@@ -269,6 +267,18 @@ namespace Qars
             {
                 this.userID = 0;
                 ChangeAccountDetails(userID);
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem item = listView1.SelectedItems[0];
+                if (item.SubItems[3].Text == "Ja")
+                {
+                    MessageBox.Show("Weet u zeker dat u uw reservering wilt verwijderen?", "Pas op!", MessageBoxButtons.YesNo);
+                }
             }
         }
     }

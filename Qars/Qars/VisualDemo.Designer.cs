@@ -51,12 +51,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TileView = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureLicense = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.TileView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLicense)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -134,7 +132,6 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel8.Controls.Add(this.pictureLicense);
             this.panel8.Controls.Add(this.listView1);
             this.panel8.Controls.Add(this.ReservationsLabel);
             this.panel8.Controls.Add(this.LogOutButton);
@@ -163,6 +160,7 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.Visible = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ModelColumnHeader
             // 
@@ -198,7 +196,7 @@
             // LogOutButton
             // 
             this.LogOutButton.Enabled = false;
-            this.LogOutButton.Location = new System.Drawing.Point(881, 116);
+            this.LogOutButton.Location = new System.Drawing.Point(883, 54);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(116, 63);
             this.LogOutButton.TabIndex = 20;
@@ -281,14 +279,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
-            // pictureLicense
-            // 
-            this.pictureLicense.Location = new System.Drawing.Point(414, 54);
-            this.pictureLicense.Name = "pictureLicense";
-            this.pictureLicense.Size = new System.Drawing.Size(100, 50);
-            this.pictureLicense.TabIndex = 26;
-            this.pictureLicense.TabStop = false;
-            // 
             // VisualDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,7 +304,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.TileView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLicense)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,7 +334,6 @@
         private System.Windows.Forms.ColumnHeader StartDateColumnHeader;
         private System.Windows.Forms.ColumnHeader EndDateColumnHeader;
         private System.Windows.Forms.ColumnHeader ConfirmedColumnHeader;
-        private System.Windows.Forms.PictureBox pictureLicense;
 
     }
 }

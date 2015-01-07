@@ -412,14 +412,14 @@ namespace Qars
         {
             int result = 0;
             int ReservationID = 0;
-            string query = "SELECT max(ReservationID) FROM Reservation";
+            string query = "SELECT count(*) FROM Reservation";
 
             try
             {
                 if (this.OpenConnection())
                 {
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    ReservationID = (Int32)cmd.ExecuteScalar();
+                    ReservationID = Convert.ToInt32(cmd.ExecuteScalar());
                     CloseConnection();
                 }
 
@@ -456,8 +456,9 @@ namespace Qars
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message + e.Source);
                 return false;
             }
 
@@ -466,14 +467,14 @@ namespace Qars
         {
             int result = 0;
             int UserID = 0;
-            string query = "SELECT max(UserID) FROM User";
+            string query = "SELECT COUNT(*) FROM User";
 
             try
             {
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    UserID = (Int32)cmd.ExecuteScalar();
+                    UserID = Convert.ToInt32(cmd.ExecuteScalar());
                     UserID++;
                     CloseConnection();
                 }
