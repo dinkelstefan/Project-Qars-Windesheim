@@ -177,7 +177,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(496, 898);
+            this.saveButton.Location = new System.Drawing.Point(876, 765);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(111, 35);
             this.saveButton.TabIndex = 23;
@@ -187,7 +187,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(380, 898);
+            this.cancelButton.Location = new System.Drawing.Point(760, 765);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(111, 35);
             this.cancelButton.TabIndex = 24;
@@ -754,7 +754,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(20, 897);
+            this.button1.Location = new System.Drawing.Point(20, 765);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 35);
@@ -811,12 +811,13 @@
             this.delete_Button.TabIndex = 53;
             this.delete_Button.Text = "-";
             this.delete_Button.UseVisualStyleBackColor = true;
+            this.delete_Button.Click += new System.EventHandler(this.delete_Button_Click_1);
             // 
             // EditCarWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 951);
+            this.ClientSize = new System.Drawing.Size(1007, 814);
             this.Controls.Add(this.delete_Button);
             this.Controls.Add(this.add_Button);
             this.Controls.Add(this.CarPhotoPictureBox);

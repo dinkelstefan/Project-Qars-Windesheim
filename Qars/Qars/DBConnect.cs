@@ -689,6 +689,7 @@ namespace Qars
                 Console.WriteLine(query);
                 if (this.OpenConnection() == true)
                 {
+                    MySqlTransaction transaction = connection.BeginTransaction();
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("discription", car.description);
                     cmd.Parameters.AddWithValue("startprice", car.startprice);
@@ -698,15 +699,61 @@ namespace Qars
                     Console.WriteLine(cmd.CommandText);
                     cmd.ExecuteNonQuery();
 
+
+                    List<int> PhotoIDs = new List<int>();
                     string query2 = "SElECT PhotoID From Photo";
+                    cmd.CommandText = query2;
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        PhotoIDs.Add(SafeGetInt(dataReader, 0));
+                    }
+                    dataReader.Close();
+                    foreach (CarPhoto c in car.PhotoList)
+                    {
+                        bool exists = false;
+                        foreach (int i in PhotoIDs)
+                        { 
+                            if (c.PhotoID == i)
+                            {
+                                exists = true;
+                                Console.WriteLine(c.PhotoID);
+                            }
+                        }
+
+                        if (!exists)
+                        {
+                            query = "INSERT INTO Photo (PhotoID, CarID, Name, Description, Datetaken, Photolink) ";
+                            query += "VALUES(@photoid, @carid, @name, @description, @datetaken, @photolink)";
+                            cmd.CommandText = query;
+
+                            string file = c.Photolink; ;
+                            string fileExtension = "." + file.Split('.').Last();
+                            Console.WriteLine(fileExtension);
+                            string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, c.PhotoID + fileExtension);
+
+                            cmd.Parameters.AddWithValue("@photoid", c.PhotoID);
+                            cmd.Parameters.AddWithValue("@carid", c.CarID);
+                            cmd.Parameters.AddWithValue("@name", c.Name);
+                            cmd.Parameters.AddWithValue("@description", c.Description);
+                            cmd.Parameters.AddWithValue("@datetaken", c.Datetaken);
+                            cmd.Parameters.AddWithValue("@photolink", remoteLink);
+
+                            Console.WriteLine(cmd.CommandText);
+                            cmd.ExecuteNonQuery();
+
+                        }
 
 
+                    }
+                    transaction.Commit();
 
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Fout tijdens het updaten van de auto");
+
+                MessageBox.Show("Fout tijdens het updaten van de auto" + e);
             }
             finally
             {
@@ -744,6 +791,29 @@ namespace Qars
             catch (Exception)
             {
                 MessageBox.Show("Deze klant kan niet verwijdert worden, omdat er waarschijnlijk nog reserveringen gepland staan. Als u de klant wilt verwijderen moeten eerst de reserveringen verwijdert worden.");
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+        public void DeletePhoto(CarPhoto photo)
+        {
+            string query = "DELETE From Photo ";
+            query += string.Format("WHERE PhotoID = {0}", photo.PhotoID);
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    OpenConnection();
+                }
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fout tijdens het verwijderen van de foto.");
             }
             finally
             {

@@ -86,6 +86,8 @@ namespace Qars_Admin.EditPanels
 
         private void save_Button_Click(object sender, EventArgs e)
         {
+            //set right format for the database
+            dateTimePicker.CustomFormat = "dd-mm-yyyy";
             CarPhoto photo = new CarPhoto(this.HighestPhotoID, this.CarID, nameTextBox.Text, descriptionTextBox.Text, dateTimePicker.Text, photoLinkTextBox.Text);
             carWindow.addCarPhoto(photo);
             this.Close();

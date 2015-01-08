@@ -186,7 +186,7 @@ namespace Qars_Admin.EditPanels
                 }
 
                 List<string> files = this.readFilesFromFTP(car);
-                this.uploadCarPhoto(car, files);
+                this.uploadCarPhoto(ref car, files);
 
                 MessageBox.Show("De auto en de bijbehorende foto's zijn bijgewerkt.");
             }
@@ -273,7 +273,10 @@ namespace Qars_Admin.EditPanels
 
         private void imageLinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarPhotoPictureBox.ImageLocation = car.PhotoList[imageLinkList.SelectedIndex].Photolink;
+            if (imageLinkList.SelectedIndex < imageLinkList.Items.Count && imageLinkList.SelectedIndex != -1)
+            {
+                CarPhotoPictureBox.ImageLocation = car.PhotoList[imageLinkList.SelectedIndex].Photolink;
+            }
         }
 
         private void add_Button_Click(object sender, EventArgs e)
@@ -292,7 +295,7 @@ namespace Qars_Admin.EditPanels
             //Refresh list with photos
             imageLinkList.Items.Add(carPhoto.Name);
         }
-        private void uploadCarPhoto(Car car, List<string> files)
+        private void uploadCarPhoto(ref Car car, List<string> files)
         {
             string ftpServerIP = "ftp.pqrojectqars.herobo.com";
             string ftpUserID = "a8158354";
@@ -310,7 +313,7 @@ namespace Qars_Admin.EditPanels
                         exists = true;
                     }
                 }
-                
+
                 Console.WriteLine(exists.ToString());
                 if (!exists)
                 {
@@ -375,37 +378,93 @@ namespace Qars_Admin.EditPanels
         private List<string> readFilesFromFTP(Car car)
         {
             List<string> files = new List<string>();
+            try
+            {
+
+                string ftpServerIP = "ftp.pqrojectqars.herobo.com";
+                string ftpUserID = "a8158354";
+                string ftpPassword = "Quintor1";
+                FtpLib.FtpConnection ftp = new FtpLib.FtpConnection(ftpServerIP, ftpUserID, ftpPassword);
+                ftp.Open();
+                ftp.Login();
+
+                string directory = string.Format("/public_html/Images/{0}/{1}/{2}/", car.brand, car.model, car.colour);
+                if (ftp.DirectoryExists(directory))
+                {
+                    ftp.SetCurrentDirectory(directory);
+                    foreach (var dir in ftp.GetDirectories(directory))
+                    {
+                        Console.WriteLine(dir.Name);
+                        foreach (var file in dir.GetFiles())
+                        {
+                            files.Add(file.Name);
+                            Console.WriteLine(file.Name);
+                            Console.WriteLine(file.LastAccessTime);
+                        }
+                    }
+                }
+                else
+                {
+                    string newDirectory = "public_html/Images/";
+                    //Check if brand directory exists, else create one
+                    if (!ftp.DirectoryExists(newDirectory + car.brand))
+                    {
+                        newDirectory += car.brand;
+                        ftp.CreateDirectory(newDirectory);
+                        newDirectory += "/";
+                    }
+                    else
+                    {
+                        newDirectory += car.brand + "/";
+                    }
+
+                    //Check if model directory exists, else create one
+                    if (!ftp.DirectoryExists(newDirectory + car.model))
+                    {
+                        newDirectory += car.model;
+                        ftp.CreateDirectory(newDirectory);
+                        newDirectory += "/";
+                    }
+                    else
+                    {
+                        newDirectory += car.model + "/";
+                    }
+
+                    //Check if colour directory exists, else create one
+                    if (!ftp.DirectoryExists(newDirectory + car.colour))
+                    {
+                        newDirectory += car.colour;
+                        ftp.CreateDirectory(newDirectory);
+                        newDirectory += "/";
+                    }
+                    ftp.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fout tijdens het ophalen van de foto's van de server");
+            }
+            return files;
+
+        }
+        private void removeFileFromFTP(Car car, CarPhoto photoToDelete)
+        {
             string ftpServerIP = "ftp.pqrojectqars.herobo.com";
             string ftpUserID = "a8158354";
             string ftpPassword = "Quintor1";
             FtpLib.FtpConnection ftp = new FtpLib.FtpConnection(ftpServerIP, ftpUserID, ftpPassword);
             ftp.Open();
             ftp.Login();
+            try
+            {
+                string directory = string.Format("/public_html/Images/{0}/{1}/{2}/", car.brand, car.model, car.colour);
 
-            string directory = string.Format("/public_html/Images/{0}/{1}/{2}/", car.brand, car.model, car.colour);
-            if (ftp.DirectoryExists(directory))
-            {
-                ftp.SetCurrentDirectory(directory);
-                foreach (var dir in ftp.GetDirectories(directory))
-                {
-                    Console.WriteLine(dir.Name);
-                    foreach (var file in dir.GetFiles())
-                    {
-                        files.Add(file.Name);
-                        Console.WriteLine(file.Name);
-                        Console.WriteLine(file.LastAccessTime);
-                    }
-                }
-            }
-            else
-            {
                 string newDirectory = "public_html/Images/";
-
-                //Check if brand directory exists, else create one
-                if (!ftp.DirectoryExists(newDirectory + car.brand))
+                //Check if brand directory exists
+                if (ftp.DirectoryExists(newDirectory + car.brand))
                 {
                     newDirectory += car.brand;
-                    ftp.CreateDirectory(newDirectory);
+                    ftp.SetCurrentDirectory(car.brand + "/");
                     newDirectory += "/";
                 }
                 else
@@ -413,11 +472,11 @@ namespace Qars_Admin.EditPanels
                     newDirectory += car.brand + "/";
                 }
 
-                //Check if model directory exists, else create one
-                if (!ftp.DirectoryExists(newDirectory + car.model))
+                //Check if model directory exists
+                if (ftp.DirectoryExists(newDirectory + car.model))
                 {
                     newDirectory += car.model;
-                    ftp.CreateDirectory(newDirectory);
+                    ftp.SetCurrentDirectory(car.model + "/");
                     newDirectory += "/";
                 }
                 else
@@ -425,16 +484,42 @@ namespace Qars_Admin.EditPanels
                     newDirectory += car.model + "/";
                 }
 
-                //Check if colour directory exists, else create one
-                if (!ftp.DirectoryExists(newDirectory + car.colour))
+                //Check if colour directory exists
+                if (ftp.DirectoryExists(newDirectory + car.colour))
                 {
                     newDirectory += car.colour;
-                    ftp.CreateDirectory(newDirectory);
+                    ftp.SetCurrentDirectory(car.colour + "/");
                     newDirectory += "/";
                 }
+                Console.WriteLine(ftp.GetCurrentDirectory());
 
+
+                ftp.RemoveFile(photoToDelete.PhotoID.ToString());
             }
-            return files;
+            catch (Exception)
+            {
+                MessageBox.Show("Het verwijderen van de foto van de server is niet gelukt");
+            }
+        }
+
+        private void delete_Button_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Wilt u deze foto echt verwijderen?", "Foto verwijderen", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int index = imageLinkList.SelectedIndex;
+                CarPhoto photo = car.PhotoList[index];
+
+                try
+                {
+                    this.connect.DeletePhoto(photo);
+                    this.removeFileFromFTP(car, photo);
+                    this.imageLinkList.Items.Remove(imageLinkList.SelectedIndex);
+                    MessageBox.Show("De foto is verwijdert.");
+                } catch(Exception ex){
+                    MessageBox.Show("Het verwijdern van de foto is niet gelukt." + ex);
+                }
+            }
         }
     }
 }
