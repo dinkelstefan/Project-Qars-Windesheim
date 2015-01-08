@@ -14,11 +14,11 @@ namespace Qars
         public List<Car> cars { get; set; }
         public List<double> discounts { get; set; }
 
-        public string[] compareItems = { "startprice", "rentalprice", "brand", "model", "category", "modelyear", "horsepower", "doors", "seats", "Fuelusage", "motor" };
+        public string[] compareItems = { "startprice", "rentalprice", "brand", "model", "category", "modelyear", "horsepower", "doors", "seats", "fuelusage", "motor" };
         //items in code are given in English. In the application the translation is shown.
         public string[] compareItemsTranslation = { "startprijs", "Huurprijs", "Merk", "model", "Categorie", "Bouwjaar", "Vermogen", "Deuren", "Stoelen", "Verbruik", "Motor" };
         public List<string> checkHighest = new List<String> { "modelyear", "horsepower", "doors", "seats" };
-        public List<string> checkLowest = new List<String> { "startprice", "rentalprice", "Fuelusage" };
+        public List<string> checkLowest = new List<String> { "startprice", "rentalprice", "fuelusage" };
         public List<Label> allLabels { get; set; }
         public List<PictureBox> pictures { get; set; }
         public Graphics graphics;

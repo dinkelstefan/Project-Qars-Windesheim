@@ -39,9 +39,8 @@ namespace Qars
             this.UserID = qarsApp.userID;
             InitializeComponent();
             this.carID = carID;
-            stringList = createSpecInfo(qarsApplication.carList, carID);
+            stringList = createSpecInfo(new DBConnect().SelectCar(), carID);
             getReservations();
-
         }
         public bool ValidateInput(string firstname, string lastname, string age, string streetname, string streetnumber, string streetnumbersuffix, string city, string postalcode, string email, string phonenumber, string startdate, string enddate, string kilometres, string pickupcity, string pickupstreetname, string pickupstreetnumber, string pickupstreetnumbersuffix, string comment)
         {
@@ -440,6 +439,8 @@ namespace Qars
         }
         private void openCalender(object sender, EventArgs e)
         {
+            BoldDatesLabel.Text = " Dikgedrukte datums\r zijn niet beschikbaar";
+            BoldDatesLabel.Visible = true;
             monthCalendar.MinDate = DateTime.Today; //The minimum date is today
 
             MaskedTextBox b = (MaskedTextBox)sender; //b is assigned to the textbox on which the user clicked
@@ -464,7 +465,7 @@ namespace Qars
             {
                 ChooseDateLabel.Text = "Kies een einddatum";
                 ChooseDateLabel.Visible = true;
-                monthCalendar.MaxDate = DateTime.MaxValue;  //The maximum date is the maximum value a DateTime object can hold
+                monthCalendar.MaxDate = DateTime.Today.AddYears(1);  //The maximum date is the maximum value a DateTime object can hold
                 amountEndDateOpened += 1;
 
                 if (amountEndDateOpened == 1) //If the enddate calendar has been opened for the first time, it must be the same as the startdate
@@ -483,9 +484,21 @@ namespace Qars
         {
             monthCalendar.Hide();
             ChooseDateLabel.Visible = false;
+            BoldDatesLabel.Visible = false;
+
         }
         private void rentCarClick(object sender, EventArgs e)
         {
+            string kilometres = "0";
+            if (KilometerTextBox.Text == "" && UnlimitedKilometresCheckBox.Checked)
+            {
+                kilometres = "0";
+            }
+            else
+            {
+                kilometres = KilometerTextBox.Text;
+            }
+
             try
             {
                 if (carHasReservation)
@@ -503,18 +516,19 @@ namespace Qars
             bool emailResult = false;
 
             validateResult = ValidateInput(firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, PostalCodeTextBox.Text, emailTextbox.Text, phonenumberTextbox.Text,
-               startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+               startdateTextbox.Text, enddateTextbox.Text, kilometres, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
 
             if (validateResult == true)
-                databaseResult = InsertIntoDatabase(carID, UserID, startdateTextbox.Text, enddateTextbox.Text, Convert.ToInt32(KilometerTextBox.Text), pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+                databaseResult = InsertIntoDatabase(carID, UserID, startdateTextbox.Text, enddateTextbox.Text, Convert.ToInt32(kilometres), pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
             if (databaseResult == true)
-                emailResult = SendEmail(carID, firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, PostalCodeTextBox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, KilometerTextBox.Text, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
+                emailResult = SendEmail(carID, firstnameTextbox.Text, lastnameTextbox.Text, ageTextBox.Text, streetnameTextbox.Text, streetnumberTextbox.Text, streetnumbersuffixTextbox.Text, cityTextbox.Text, PostalCodeTextBox.Text, emailTextbox.Text, phonenumberTextbox.Text, startdateTextbox.Text, enddateTextbox.Text, kilometres, pickupCityTextbox.Text, pickupStreetNameTextbox.Text, pickupStreetnumberTextbox.Text, pickupStreetnumberSuffixTextbox.Text, commentTextbox.Text);
             if (emailResult == true)
                 MessageBox.Show("U ontvangt z.s.m. een email met daarin uw reserveringsbewijs.");
         }
         private void closeRentCarPanel(object sender, EventArgs e)
         {
             this.Dispose();
+
         }
         private void WrongDate(int error)
         {
@@ -560,11 +574,12 @@ namespace Qars
 
                     TimeSpan ts = endDate - startDate;
                     int differenceInDays = ts.Days;
+
                     for (int i = 1; i <= differenceInDays; i++) //For all the days the reservation has, make them bold in the calendar
                     {
                         monthCalendar.AddBoldedDate(startDate.AddDays(i));
                         if (i == differenceInDays) //There has to be a 1 day gap between reservations, this makes sure this shows up
-                            monthCalendar.AddBoldedDate(startDate.AddDays(i + 1));
+                            monthCalendar.RemoveBoldedDate(startDate.AddDays(i + 1));
                     }
                     bolddates = monthCalendar.BoldedDates;
                 }
@@ -695,6 +710,20 @@ namespace Qars
             if (month.Length == 1) //part of the stringbuilder
                 month = "0" + month;
             return day + "-" + month + "-" + year;
+        }
+
+        private void UnlimitedKilometresCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UnlimitedKilometresCheckBox.Checked)
+            {
+                KilometerTextBox.Enabled = false;
+                KilometerTextBox.Text = "";
+            }
+            else
+            {
+                KilometerTextBox.Enabled = true;
+                KilometerTextBox.Text = "";
+            }
         }
     }
 }

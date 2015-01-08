@@ -124,6 +124,7 @@ namespace Qars
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -208,17 +209,17 @@ namespace Qars
                         newCar.storagespace = SafeGetDouble(dataReader, 25);
                         newCar.gearsamount = SafeGetInt(dataReader, 26);
                         newCar.motor = SafeGetString(dataReader, 27);
-                        newCar.Fuelusage = SafeGetInt(dataReader, 28);
+                        newCar.fuelusage = SafeGetInt(dataReader, 28);
                         newCar.startprice = SafeGetInt(dataReader, 29);
                         newCar.rentalprice = SafeGetDouble(dataReader, 30);
                         newCar.sellingprice = SafeGetDouble(dataReader, 31);
                         newCar.available = SafeGetBoolean(dataReader, 32);
                         newCar.description = SafeGetString(dataReader, 33);
-
+                        newCar.licenseplate = SafeGetString(dataReader, 34);
                         // see if the car has photos, and at the first one to the list
                         try
                         {
-                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 34), SafeGetInt(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39)));
+                            newCar.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 35), SafeGetInt(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39), SafeGetString(dataReader, 40)));
                         }
                         catch (System.Data.SqlTypes.SqlNullValueException)
                         {
@@ -236,7 +237,7 @@ namespace Qars
                             {
                                 try
                                 {
-                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 34), SafeGetInt(dataReader, 35), SafeGetString(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39)));
+                                    car.PhotoList.Add(new CarPhoto(SafeGetInt(dataReader, 35), SafeGetInt(dataReader, 36), SafeGetString(dataReader, 37), SafeGetString(dataReader, 38), SafeGetString(dataReader, 39), SafeGetString(dataReader, 40)));
                                 }
                                 catch (System.Data.SqlTypes.SqlNullValueException)
                                 {
@@ -411,14 +412,14 @@ namespace Qars
         {
             int result = 0;
             int ReservationID = 0;
-            string query = "SELECT max(ReservationID) FROM Reservation";
+            string query = "SELECT count(*) FROM Reservation";
 
             try
             {
                 if (this.OpenConnection())
                 {
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    ReservationID = (Int32)cmd.ExecuteScalar();
+                    ReservationID = Convert.ToInt32(cmd.ExecuteScalar());
                     CloseConnection();
                 }
 
@@ -455,8 +456,9 @@ namespace Qars
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message + e.Source);
                 return false;
             }
 
@@ -465,14 +467,14 @@ namespace Qars
         {
             int result = 0;
             int UserID = 0;
-            string query = "SELECT max(UserID) FROM User";
+            string query = "SELECT COUNT(*) FROM User";
 
             try
             {
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    UserID = (Int32)cmd.ExecuteScalar();
+                    UserID = Convert.ToInt32(cmd.ExecuteScalar());
                     UserID++;
                     CloseConnection();
                 }
@@ -538,7 +540,7 @@ namespace Qars
 
                 dataReader.Close();
                 this.CloseConnection();
-               
+
                 return localDiscountList;
             }
             else
@@ -546,7 +548,7 @@ namespace Qars
                 return null;
             }
         }
-        
+
 
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {

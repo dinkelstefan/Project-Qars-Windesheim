@@ -37,6 +37,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.LogInOrRegisterButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.ModelColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartDateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EndDateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ConfirmedColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ReservationsLabel = new System.Windows.Forms.Label();
             this.LogOutButton = new System.Windows.Forms.Button();
             this.WelcomeInfoLabel = new System.Windows.Forms.Label();
             this.WelcomeLabel = new System.Windows.Forms.Label();
@@ -126,6 +132,8 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel8.Controls.Add(this.listView1);
+            this.panel8.Controls.Add(this.ReservationsLabel);
             this.panel8.Controls.Add(this.LogOutButton);
             this.panel8.Controls.Add(this.LogInOrRegisterButton);
             this.panel8.Controls.Add(this.WelcomeInfoLabel);
@@ -135,10 +143,58 @@
             this.panel8.Size = new System.Drawing.Size(1025, 182);
             this.panel8.TabIndex = 10;
             // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ModelColumnHeader,
+            this.StartDateColumnHeader,
+            this.EndDateColumnHeader,
+            this.ConfirmedColumnHeader});
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.Location = new System.Drawing.Point(533, 41);
+            this.listView1.Name = "listView1";
+            this.listView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listView1.Size = new System.Drawing.Size(323, 138);
+            this.listView1.TabIndex = 25;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.Visible = false;            // 
+            // ModelColumnHeader
+            // 
+            this.ModelColumnHeader.Text = "Model";
+            this.ModelColumnHeader.Width = 100;
+            // 
+            // StartDateColumnHeader
+            // 
+            this.StartDateColumnHeader.Text = "Begindatum";
+            this.StartDateColumnHeader.Width = 69;
+            // 
+            // EndDateColumnHeader
+            // 
+            this.EndDateColumnHeader.Text = "Einddatum";
+            this.EndDateColumnHeader.Width = 66;
+            // 
+            // ConfirmedColumnHeader
+            // 
+            this.ConfirmedColumnHeader.Text = "Bevestigd";
+            // 
+            // ReservationsLabel
+            // 
+            this.ReservationsLabel.AutoSize = true;
+            this.ReservationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReservationsLabel.ForeColor = System.Drawing.Color.White;
+            this.ReservationsLabel.Location = new System.Drawing.Point(549, 1);
+            this.ReservationsLabel.Name = "ReservationsLabel";
+            this.ReservationsLabel.Size = new System.Drawing.Size(289, 39);
+            this.ReservationsLabel.TabIndex = 23;
+            this.ReservationsLabel.Text = "Uw reserveringen";
+            this.ReservationsLabel.Visible = false;
+            // 
             // LogOutButton
             // 
             this.LogOutButton.Enabled = false;
-            this.LogOutButton.Location = new System.Drawing.Point(881, 54);
+            this.LogOutButton.Location = new System.Drawing.Point(883, 54);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(116, 63);
             this.LogOutButton.TabIndex = 20;
@@ -272,6 +328,12 @@
         private System.Windows.Forms.Button LogInOrRegisterButton;
         private System.Windows.Forms.Button LogOutButton;
         public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label ReservationsLabel;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader ModelColumnHeader;
+        private System.Windows.Forms.ColumnHeader StartDateColumnHeader;
+        private System.Windows.Forms.ColumnHeader EndDateColumnHeader;
+        private System.Windows.Forms.ColumnHeader ConfirmedColumnHeader;
 
     }
 }

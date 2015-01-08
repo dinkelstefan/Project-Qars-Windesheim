@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
+
 namespace Qars
 {
     public partial class VisualDemo : Form
@@ -20,7 +21,6 @@ namespace Qars
 
         public int imageWidth = 160;
         public int imageHeigth = 160;
-        public int carNumber = 0; //This has to be the tile number!
         public HoverPanel hp;
 
         public List<Damage> damageList = new List<Damage>();
@@ -37,7 +37,7 @@ namespace Qars
 
         public VisualDemo()
         {
-			discountList = new List<Discount>(db.CheckDiscounts());
+            discountList = new List<Discount>(db.CheckDiscounts());
             totalCarList = db.SelectCar();
             this.userID = 0;
             carList = totalCarList;
@@ -48,7 +48,7 @@ namespace Qars
             this.searchWizard.BringToFront();
             this.searchWizard.Location = new System.Drawing.Point(0, 71);
             this.searchWizard.Name = "searchWizard1";
-           // this.searchWizard.Size = new System.Drawing.Size(250, 850);
+            // this.searchWizard.Size = new System.Drawing.Size(250, 850);
             this.searchWizard.TabIndex = 11;
             this.searchWizard.Visible = true;
             this.Controls.Add(this.searchWizard);
@@ -57,7 +57,7 @@ namespace Qars
             DoubleBuffered = true;
             hp = new HoverPanel(this);
 
-            
+
 
             EstablishmentList = db.SelectEstablishment();
             reservationList = db.SelectReservation();
@@ -81,7 +81,29 @@ namespace Qars
                 customerList = db.SelectUsers();
                 WelcomeLabel.Text = string.Format("Hallo {0}", customerList[UserID].firstname);
                 WelcomeInfoLabel.Text = "U bent nu ingelogd! \rWanneer u een auto wilt huren zullen uw persoonlijke gegevens ingevuld zijn";
+                ReservationsLabel.Visible = true;
 
+
+                foreach (var item in reservationList)
+                {
+                    if (item.UserID == UserID)//The current user
+                    {
+                        ListViewItem listviewitem = new ListViewItem(carList[item.carID].brand + " " + carList[item.carID].model);
+                        listviewitem.SubItems.Add(item.startdate);
+                        listviewitem.SubItems.Add(item.enddate);
+                        if (item.confirmed)
+                        {
+                            listviewitem.SubItems.Add("Ja");
+                        }
+                        else
+                        {
+                            listviewitem.SubItems.Add("Nee");
+                        }
+                        listView1.Items.Add(listviewitem);
+                    }
+
+                }
+                listView1.Visible = true;
             }
             else
             {
@@ -94,10 +116,11 @@ namespace Qars
                 LogOutButton.Enabled = false;
                 LogInOrRegisterButton.Enabled = true;
                 LogInOrRegisterButton.Visible = true;
+                ReservationsLabel.Visible = false;
+                listView1.Visible = false;
             }
         }
         //backoffice/franchise      
-
         public void AddCompare(int number)
         {
             compareList.Add(carList[number]);
@@ -108,7 +131,6 @@ namespace Qars
             UpdateCompareLabel();
 
         }
-
         public void RemoveCompare(int number)
         {
             compareList.Remove(carList[number]);
@@ -119,7 +141,6 @@ namespace Qars
             UpdateCompareLabel();
 
         }
-
         public void UpdateCompareLabel()
         {
             label3.Text = "";
@@ -132,45 +153,40 @@ namespace Qars
                 }
             }
         }
-
-       
         private void button1_Click(object sender, EventArgs e)
         {
-                 List<double> discountPrices = new List<double>();
+            List<double> discountPrices = new List<double>();
 
-                foreach(Car car in compareList)
+            foreach (Car car in compareList)
+            {
+                var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
+
+                if(match != null)
                 {
-                    var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
-
-                    if(match != null)
-                    {
-                        discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
-                        discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.KMPercentage / 100))); 
-                    }
-                    else
-                    {
-                        discountPrices.Add(car.startprice);
-                        discountPrices.Add(car.rentalprice);
-                    }
+                    discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
+                    discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.KMPercentage / 100))); 
                 }
-            
+                else
+                {
+                    discountPrices.Add(car.startprice);
+                    discountPrices.Add(car.startprice);
+                }
+            }
+
             ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
-
         public void OpenDetails(int number, Discount d)
         {
             CarDetailPanel cp = new CarDetailPanel(number, userID, this, d);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             //searchWizard.Visible = !searchWizard.Visible;
             //updateTileView();
         }
-
         public void updateTileView()
         {
 
@@ -199,7 +215,7 @@ namespace Qars
             {
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
-                {           
+                {
                     var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
                     tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this, match);
                     TileView.Controls.Add(tp);
@@ -216,7 +232,6 @@ namespace Qars
 
             }
         }
-
         private void showAllCars(object sender, EventArgs e)
         {
             carList = db.SelectCar();
@@ -230,7 +245,6 @@ namespace Qars
             searchWizard.filteredList.Clear();
             searchWizard.countCarLabel1.Text = "Aantal gevonden auto's: ";
         }
-
         private void LogInOrRegisterButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine(userID);
@@ -239,11 +253,7 @@ namespace Qars
             userID = loginform.returnUserID();
             Console.WriteLine(userID);
             ChangeAccountDetails(userID);
-
-
-
         }
-
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             LogOut logout = new LogOut();
@@ -261,3 +271,4 @@ namespace Qars
         }
     }
 }
+
