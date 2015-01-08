@@ -60,6 +60,33 @@
     <Compile Include="ComparePricePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FTPConnection.cs" />
+    <Compile Include="LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogOut.Designer.cs">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordHash.cs" />
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TermsOfService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TermsOfService.Designer.cs">
+      <DependentUpon>TermsOfService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToS.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Damage.cs" />
@@ -96,6 +123,12 @@
     <EmbeddedResource Include="CarDetailPanel.resx">
       <DependentUpon>CarDetailPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogOut.resx">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -105,8 +138,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RentCarPanel.resx">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TermsOfService.resx">
+      <DependentUpon>TermsOfService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TileListPanel.resx">
       <DependentUpon>TileListPanel.cs</DependentUpon>

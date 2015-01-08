@@ -66,7 +66,7 @@ namespace Qars
                         "Huur: €";
 
             if (discount != null)
-                info.Text += (c.rentalprice * ((double)1 - ((double)discount.percentage / 100))).ToString();
+                info.Text += Math.Round((c.rentalprice * ((double)1 - ((double)discount.KMPercentage / 100))), 2).ToString();
             else
                 info.Text += c.rentalprice;
 

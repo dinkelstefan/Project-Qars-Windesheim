@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ namespace Qars
             sideMargin = 100;
             topMargin = 27;
             Height = 570;
-            Width = 1045;
+            Width = 1016;
             columnWidth = (Width - sideMargin) / list.Count;
             pictureHeight = 200;
             pictureMargin = 1;
@@ -45,7 +46,7 @@ namespace Qars
             discounts = dList;
 
             this.Top = 70;
-            this.Left = 221;
+            this.Left = 250;
 
             pictures = new List<PictureBox>();
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -98,7 +99,7 @@ namespace Qars
 
                     if (j < 2)
                     {
-                        tempLabel.Text = Convert.ToString(discounts[j+(i*2)]);
+                        tempLabel.Text = Convert.ToString(discounts[j + (i * 2)]);
                     }
                     else
                         tempLabel.Text = Convert.ToString(GetPropValue(cars[i], compareItems[j]));
@@ -157,7 +158,6 @@ namespace Qars
         public void CheckHighest(string item, ref Label label, Car car)
         {
             double[] compare = new double[cars.Count];
-
             for (int i = 0; i < compare.Length; i++)
             {
                 compare[i] = Convert.ToDouble(GetPropValue(cars[i], item));
@@ -172,13 +172,24 @@ namespace Qars
 
         public void CheckLowest(string item, ref Label label, Car car)
         {
+            Debug.WriteLine(item);
             double[] compare = new double[cars.Count];
+            
             for (int i = 0; i < compare.Length; i++)
             {
-                compare[i] = Convert.ToDouble(GetPropValue(cars[i], item));
+                if (!item.Equals("Fuelusage"))
+                    if (item.Equals("rentalprice"))
+                        compare[i] = discounts[(i * 2) + 1];
+                    else
+                        compare[i] = discounts[i * 2];
+                else
+                    compare[i] = Convert.ToDouble(GetPropValue(cars[i], item));
             }
-            double maxValue = compare.Min();
-            if (maxValue == Convert.ToDouble(GetPropValue(car, item)))
+
+            //double maxValue = compare.Min();
+            int minIndex = Array.IndexOf(compare, compare.Min());
+
+            if (car == cars[minIndex])
             {
                 label.Text = label.Text + " \u221A";
                 label.Font = new Font("Calibri", 14, FontStyle.Bold);
