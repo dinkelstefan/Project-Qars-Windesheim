@@ -697,6 +697,11 @@ namespace Qars
 
                     Console.WriteLine(cmd.CommandText);
                     cmd.ExecuteNonQuery();
+
+                    string query2 = "SElECT PhotoID From Photo";
+
+
+
                 }
             }
             catch (Exception)
@@ -873,6 +878,38 @@ namespace Qars
                 return false;
 
 
+        }
+
+        public int getHighestPhotoID()
+        {
+            Console.WriteLine("start!");
+            int maxPhotoID = -1;
+            string query = "SELECT max(PhotoID) From Photo";
+
+            try
+            {
+                Console.WriteLine("Start2!");
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                    Console.WriteLine("Start3!");
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                Console.WriteLine("Start4!");
+                maxPhotoID = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Start5!");
+                maxPhotoID++;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Fout bij het ophalen van het laatste fotonummer." + e);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return maxPhotoID;
         }
     }
 

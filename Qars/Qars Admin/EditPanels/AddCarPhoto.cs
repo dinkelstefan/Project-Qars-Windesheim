@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace Qars_Admin.EditPanels
         private int CarID;
         private int HighestPhotoID;
         private EditCarWindow carWindow;
+        bool JPG;
         public AddCarPhoto(int CarID, int HighestPhotoID, EditCarWindow carWindow)
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Qars_Admin.EditPanels
 
         private void photoLinkTextBox_Enter(object sender, EventArgs e)
         {
-            bool JPG = true;
+
             bool error = false;
             openFileDialog.Multiselect = false;
             openFileDialog.Filter = "JPG files (*.JPG)|*.jpg|PNG files(*.PNG)|*.PNG";
@@ -86,6 +88,7 @@ namespace Qars_Admin.EditPanels
         {
             CarPhoto photo = new CarPhoto(this.HighestPhotoID, this.CarID, nameTextBox.Text, descriptionTextBox.Text, dateTimePicker.Text, photoLinkTextBox.Text);
             carWindow.addCarPhoto(photo);
+            this.Close();
         }
     }
 }
