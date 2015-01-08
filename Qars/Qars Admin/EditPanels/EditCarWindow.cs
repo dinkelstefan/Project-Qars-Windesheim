@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qars;
+using System.Net;
+using System.IO;
+using FtpLib;
 
 namespace Qars_Admin.EditPanels
 {
@@ -81,7 +84,7 @@ namespace Qars_Admin.EditPanels
                     this.StorageBox.Text = car.storagespace.ToString();
                     this.GearsBox.Text = car.gearsamount.ToString();
                     this.MotorBox.Text = car.motor.ToString();
-                    this.FuelusageBox.Text = car.Fuelusage.ToString();
+                    this.FuelusageBox.Text = car.fuelusage.ToString();
                     this.StartpriceBox.Text = car.startprice.ToString();
                     this.RentalpriceBox.Text = car.rentalprice.ToString();
                     this.SellingpriceBox.Text = car.sellingprice.ToString();
@@ -93,8 +96,6 @@ namespace Qars_Admin.EditPanels
                     {
                         imageLinkList.Items.Add(photo.Name);
                     }
-
-
 
                     this.DesciptionBox.Text = car.description.ToString();
                 }
@@ -114,7 +115,7 @@ namespace Qars_Admin.EditPanels
 
         private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus)
+            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || e.KeyData == Keys.RShiftKey || e.KeyData == Keys.LShiftKey || e.KeyData == Keys.Shift || e.KeyData == Keys.ShiftKey)
             {
                 e.Handled = true;
             }
@@ -172,21 +173,26 @@ namespace Qars_Admin.EditPanels
         {
             try
             {
+                Car car = this.getCarFromFields();
                 if (!add)
                 {
-                    Car carToUpdate = this.getCarFromFields();
-                    this.connect.UpdateCar(carToUpdate);
+                    this.connect.UpdateCar(car);
                     this.Close();
                 }
                 else
                 {
-                    connect.InsertCar(this.getCarFromFields());
+                    connect.InsertCar(car);
                     this.Close();
                 }
+
+                List<string> files = this.readFilesFromFTP(car);
+                this.uploadCarPhoto(car, files);
+
+                MessageBox.Show("De auto en de bijbehorende foto's zijn bijgewerkt.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet.");
+                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet." + ex);
             }
         }
 
@@ -250,7 +256,7 @@ namespace Qars_Admin.EditPanels
             newCar.storagespace = Double.Parse(this.StorageBox.Text);
             newCar.gearsamount = Int32.Parse(this.StorageBox.Text);
             newCar.motor = this.MotorBox.Text;
-            newCar.Fuelusage = Int32.Parse(this.FuelusageBox.Text);
+            newCar.fuelusage = Int32.Parse(this.FuelusageBox.Text);
             newCar.startprice = Int32.Parse(this.StartpriceBox.Text);
             newCar.rentalprice = Double.Parse(this.RentalpriceBox.Text);
             newCar.sellingprice = Double.Parse(this.SellingpriceBox.Text);
@@ -258,24 +264,26 @@ namespace Qars_Admin.EditPanels
             newCar.seats = Int32.Parse(this.DoorsBox.Text);
 
             newCar.description = this.DesciptionBox.Text;
+            newCar.PhotoList = car.PhotoList;
+
+
 
             return newCar;
         }
 
         private void imageLinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int photoID = imageLinkList.SelectedIndex;
-            CarPhotoPictureBox.ImageLocation = car.PhotoList[photoID].Photolink;
-
+            CarPhotoPictureBox.ImageLocation = car.PhotoList[imageLinkList.SelectedIndex].Photolink;
         }
 
         private void add_Button_Click(object sender, EventArgs e)
         {
-            int highestCarID = (from m in car.PhotoList select m.PhotoID).Max();
-            highestCarID++;
-
-            AddCarPhoto addphoto = new AddCarPhoto(car.carID, highestCarID, this);
-            addphoto.ShowDialog();
+            int highestCarID = connect.getHighestPhotoID();
+            if (highestCarID != -1)
+            {
+                AddCarPhoto addphoto = new AddCarPhoto(car.carID, highestCarID, this);
+                addphoto.ShowDialog();
+            }
         }
 
         public void addCarPhoto(CarPhoto carPhoto)
@@ -284,5 +292,152 @@ namespace Qars_Admin.EditPanels
             //Refresh list with photos
             imageLinkList.Items.Add(carPhoto.Name);
         }
+        private void uploadCarPhoto(Car car, List<string> files)
+        {
+            string ftpServerIP = "ftp.pqrojectqars.herobo.com";
+            string ftpUserID = "a8158354";
+            string ftpPassword = "Quintor1";
+            int i = 0;
+            foreach (CarPhoto photo in car.PhotoList)
+            {
+                bool exists = false;
+                foreach (string file in files)
+                {
+                    string file1 = photo.PhotoID + ".jpg";
+                    string file2 = photo.PhotoID + ".png";
+                    if (file1 == file || file2 == file)
+                    {
+                        exists = true;
+                    }
+                }
+                
+                Console.WriteLine(exists.ToString());
+                if (!exists)
+                {
+                    Console.WriteLine(photo.Name);
+
+                    string localphotolink = photo.Photolink;
+                    bool JPG = true;
+                    bool error = false;
+                    //string localphotolink = photo.Photolink; //local file
+
+                    FileInfo fi = new FileInfo(localphotolink);
+                    long fileSize = fi.Length; //The size of the current file in bytes.file
+                    if (fileSize > 2621440)
+                    {
+                        localphotolink = "";
+                        MessageBox.Show("Uw gekozen foto is te groot");
+                        break;
+                    }
+                    else
+                    {
+                        string extension = fi.Extension;
+                        if (extension == ".jpg")
+                        {
+                            JPG = true;
+                        }
+                        else if (extension == ".png")
+                        {
+                            JPG = false;
+                        }
+                        else
+                        {
+                            error = true;
+                        }
+                        if (error == false)
+                        {
+                            try
+                            {
+                                string filename = "ftp://" + ftpServerIP + "/public_html/Images/" + car.brand + "/" + car.model + "/" + car.colour + "/" + photo.PhotoID + extension;
+                                FtpWebRequest ftpReq = (FtpWebRequest)WebRequest.Create(filename);
+                                ftpReq.UseBinary = true;
+                                ftpReq.Method = WebRequestMethods.Ftp.UploadFile;
+                                ftpReq.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
+                                byte[] b = File.ReadAllBytes(localphotolink);
+
+                                ftpReq.ContentLength = b.Length;
+                                using (Stream s = ftpReq.GetRequestStream())
+                                {
+                                    s.Write(b, 0, b.Length);
+                                }
+
+                                FtpWebResponse ftpResp = (FtpWebResponse)ftpReq.GetResponse();
+                            }
+                            catch (Exception e)
+                            {
+                                MessageBox.Show("Fout!" + e);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        private List<string> readFilesFromFTP(Car car)
+        {
+            List<string> files = new List<string>();
+            string ftpServerIP = "ftp.pqrojectqars.herobo.com";
+            string ftpUserID = "a8158354";
+            string ftpPassword = "Quintor1";
+            FtpLib.FtpConnection ftp = new FtpLib.FtpConnection(ftpServerIP, ftpUserID, ftpPassword);
+            ftp.Open();
+            ftp.Login();
+
+            string directory = string.Format("/public_html/Images/{0}/{1}/{2}/", car.brand, car.model, car.colour);
+            if (ftp.DirectoryExists(directory))
+            {
+                ftp.SetCurrentDirectory(directory);
+                foreach (var dir in ftp.GetDirectories(directory))
+                {
+                    Console.WriteLine(dir.Name);
+                    foreach (var file in dir.GetFiles())
+                    {
+                        files.Add(file.Name);
+                        Console.WriteLine(file.Name);
+                        Console.WriteLine(file.LastAccessTime);
+                    }
+                }
+            }
+            else
+            {
+                string newDirectory = "public_html/Images/";
+
+                //Check if brand directory exists, else create one
+                if (!ftp.DirectoryExists(newDirectory + car.brand))
+                {
+                    newDirectory += car.brand;
+                    ftp.CreateDirectory(newDirectory);
+                    newDirectory += "/";
+                }
+                else
+                {
+                    newDirectory += car.brand + "/";
+                }
+
+                //Check if model directory exists, else create one
+                if (!ftp.DirectoryExists(newDirectory + car.model))
+                {
+                    newDirectory += car.model;
+                    ftp.CreateDirectory(newDirectory);
+                    newDirectory += "/";
+                }
+                else
+                {
+                    newDirectory += car.model + "/";
+                }
+
+                //Check if colour directory exists, else create one
+                if (!ftp.DirectoryExists(newDirectory + car.colour))
+                {
+                    newDirectory += car.colour;
+                    ftp.CreateDirectory(newDirectory);
+                    newDirectory += "/";
+                }
+
+            }
+            return files;
+        }
     }
 }
+
+
+

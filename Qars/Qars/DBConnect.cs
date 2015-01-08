@@ -208,14 +208,13 @@ namespace Qars
                         newCar.storagespace = SafeGetDouble(dataReader, 25);
                         newCar.gearsamount = SafeGetInt(dataReader, 26);
                         newCar.motor = SafeGetString(dataReader, 27);
-                        newCar.Fuelusage = SafeGetInt(dataReader, 28);
+                        newCar.fuelusage = SafeGetInt(dataReader, 28);
                         newCar.startprice = SafeGetInt(dataReader, 29);
                         newCar.rentalprice = SafeGetDouble(dataReader, 30);
                         newCar.sellingprice = SafeGetDouble(dataReader, 31);
                         newCar.available = SafeGetBoolean(dataReader, 32);
                         newCar.description = SafeGetString(dataReader, 33);
-                        newCar.LicensePlate = SafeGetString(dataReader, 34);
-
+                        newCar.licenseplate = SafeGetString(dataReader, 34);
                         // see if the car has photos, and at the first one to the list
                         try
                         {
@@ -445,7 +444,7 @@ namespace Qars
         {
             int result = 0;
             int ReservationID = 0;
-
+            string query = "SELECT count(*) FROM Reservation";
 
             try
             {
@@ -455,7 +454,6 @@ namespace Qars
                     OpenConnection();
                 }
                 MySqlTransaction transaction = connection.BeginTransaction();
-                string query = "SELECT max(ReservationID) FROM Reservation";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 ReservationID = Convert.ToInt32(cmd.ExecuteScalar());
@@ -494,8 +492,9 @@ namespace Qars
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message + e.Source);
                 return false;
             }
             finally
@@ -507,7 +506,7 @@ namespace Qars
         {
             int result = 0;
             int UserID = 0;
-
+            string query = "SELECT COUNT(*) FROM User";
 
             try
             {
@@ -517,7 +516,6 @@ namespace Qars
                 }
 
                 MySqlTransaction transaction = connection.BeginTransaction();
-                string query = "SELECT max(UserID) FROM User";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 UserID = (Int32)cmd.ExecuteScalar();
                 UserID++;
@@ -611,7 +609,7 @@ namespace Qars
                 cmd.Parameters.AddWithValue("@storagespace", SafeInsertDouble(car.storagespace));
                 cmd.Parameters.AddWithValue("@gearsamount", SafeInsertInt(car.gearsamount));
                 cmd.Parameters.AddWithValue("@motor", SafeInsertString(car.motor));
-                cmd.Parameters.AddWithValue("@fuelusage", SafeInsertInt(car.Fuelusage));
+                cmd.Parameters.AddWithValue("@fuelusage", SafeInsertInt(car.fuelusage));
                 cmd.Parameters.AddWithValue("@startprice", SafeInsertDouble(car.startprice));
                 cmd.Parameters.AddWithValue("@sellingprice", SafeInsertDouble(car.sellingprice));
                 cmd.Parameters.AddWithValue("@rentalprice", SafeInsertDouble(car.rentalprice));
@@ -754,7 +752,7 @@ namespace Qars
                     cmd.Parameters.AddWithValue("@storagespace", SafeInsertDouble(car.storagespace));
                     cmd.Parameters.AddWithValue("@gearsamount", SafeInsertInt(car.gearsamount));
                     cmd.Parameters.AddWithValue("@motor", SafeInsertString(car.motor));
-                    cmd.Parameters.AddWithValue("@fuelusage", SafeInsertInt(car.Fuelusage));
+                    cmd.Parameters.AddWithValue("@fuelusage", SafeInsertInt(car.fuelusage));
                     cmd.Parameters.AddWithValue("@startprice", SafeInsertDouble(car.startprice));
                     cmd.Parameters.AddWithValue("@sellingprice", SafeInsertDouble(car.sellingprice));
                     cmd.Parameters.AddWithValue("@rentalprice", SafeInsertDouble(car.rentalprice));
@@ -765,6 +763,11 @@ namespace Qars
 
                     Console.WriteLine(cmd.CommandText);
                     cmd.ExecuteNonQuery();
+
+                    string query2 = "SElECT PhotoID From Photo";
+
+
+
                 }
             }
             catch (Exception)
@@ -942,6 +945,38 @@ namespace Qars
                 return false;
 
 
+        }
+
+        public int getHighestPhotoID()
+        {
+            Console.WriteLine("start!");
+            int maxPhotoID = -1;
+            string query = "SELECT max(PhotoID) From Photo";
+
+            try
+            {
+                Console.WriteLine("Start2!");
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                    Console.WriteLine("Start3!");
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                Console.WriteLine("Start4!");
+                maxPhotoID = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Start5!");
+                maxPhotoID++;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Fout bij het ophalen van het laatste fotonummer." + e);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return maxPhotoID;
         }
     }
 

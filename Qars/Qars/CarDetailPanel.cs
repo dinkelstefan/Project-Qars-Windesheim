@@ -166,7 +166,7 @@ namespace Qars
             int countFailure = 0;
             int countSuccess = 0;
 
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 26; i++)
             {
 
                 if (countSuccess == 7 || countSuccess == 14 || countSuccess == 21)
@@ -272,7 +272,7 @@ namespace Qars
                             break;
                         }
                     case 6:
-                        if (list[carnumber].Fuelusage == -1)
+                        if (list[carnumber].fuelusage == -1)
                         {
                             countFailure++;
                             break;
@@ -281,7 +281,7 @@ namespace Qars
                         else
                         {
                             createLabel("Verbruik:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].Fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(list[carnumber].fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -554,6 +554,21 @@ namespace Qars
                         {
                             createLabel("Ruimte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(list[carnumber].storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
+                            top += 30;
+                            countFailure++;
+                            countSuccess++;
+                            break;
+                        }
+                    case 25:
+                        if (list[carnumber].licenseplate == "")
+                        {
+                            countFailure++;
+                            break;
+                        }
+                        else
+                        {
+                            createLabel("Kenteken:", top, left1, width1, height, 12, FontStyle.Bold);
+                            createLabel(list[carnumber].licenseplate, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             countFailure++;
                             countSuccess++;

@@ -464,7 +464,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registratieformulier";
-            this.Load += new System.EventHandler(this.RegisterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
