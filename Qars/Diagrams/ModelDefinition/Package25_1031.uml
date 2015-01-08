@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="5339ceb9-ccf0-4cb0-bc6a-b8c125d831ed"
+  name="Util"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="b25f8c39-0eae-4c7c-ba0f-c0f45eb06821"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DQars.Util"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="dabd6c99-7c31-44df-a8eb-b5aa35a3150e"
+        name="Mail"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="31daf8ff-5143-4fd3-8459-4defcecf1666"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="4be981b5-7cc6-4ce9-9e6a-3579c114c987"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dabeb205-37b8-4b1f-a3d5-74bb6d07f76a">
+                <propertyInstance
+                  Id="d421fd35-5b40-4d5e-ba16-d12debe58890"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b4666c1f-32f9-4605-aae5-c7ea09f38d1a">
+                <propertyInstance
+                  Id="431873ce-08b0-45d4-b2ff-467133c151c0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9165f426-6fc3-4b3d-b785-0b11b52c96ae">
+                <propertyInstance
+                  Id="e1327eb5-ae74-4dcb-8564-761c7aaab205"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5494012d-ca6b-4598-ae72-a7722ba672e7">
+                <propertyInstance
+                  Id="ddd3b7fc-4229-4ba7-b08f-710c38c0c9a6"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0900380a-f9bb-475b-b1b0-2773c1a10325">
+                <propertyInstance
+                  Id="5ac38633-422c-4652-95be-fb1e8d6ffce4"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="dd48b7de-2ce4-408d-a7a9-57254d454419"
+            name="message"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="24f1da01-155d-47f8-bd6c-682b894c49d8"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3Dmessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="96aa4628-31aa-4b46-bc07-fae87f62120e"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a611dbc5-81ed-4ee8-998c-ea2a64d7cb00">
+                    <propertyInstance
+                      Id="f43e6ca9-aea6-4dcd-8f12-7a1c30f678f8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a12ae8af-2490-4678-a358-66d44cc4ed4b">
+                    <propertyInstance
+                      Id="f9636722-82bf-4bcd-b897-3b18d1c75515"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fb05029-654c-429e-b005-69ea4ff79dfe">
+                    <propertyInstance
+                      Id="a8c6ea11-863b-47d0-9f2e-6063c92bf64a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="803bc03b-2b4f-48a8-9226-7b27873fa63a">
+                    <propertyInstance
+                      Id="07492de9-9fce-4dfe-8a18-6c8024feab0a"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0a731be-5ea6-42fc-a74d-0f058562caf3">
+                    <propertyInstance
+                      Id="6c439304-73ff-4766-9acb-4bbbf953bde7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="4a7a7c6b-7767-4281-aed0-ea3a04b25fc3"
+                LastKnownName="MailMessage"
+                LastKnownLocation="Package26_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0f9973cc-54f5-4779-8b41-5fb08150eec3"
+            name="client"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="cc530e89-9d1a-4d40-927c-63781103b953"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3Dclient"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1e531f57-0a9b-4e82-bffe-3763ddaa7c4d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="438d8af2-4f0e-41b7-9d3e-ec894d3f3b67">
+                    <propertyInstance
+                      Id="f3ebfcbf-b860-4199-89b4-d905e4a74d0b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="796a3f92-82b8-4b86-bb6e-d6e9afe42176">
+                    <propertyInstance
+                      Id="1292536f-74ba-4f3e-b99b-d4c72e805bb6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb13d316-2b0a-4989-a4bc-1493bedcfe3e">
+                    <propertyInstance
+                      Id="7b398b07-f3ef-4206-9128-a07877e3f4c4"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e823a4ee-fe06-4c5c-a01e-d58153e8a495">
+                    <propertyInstance
+                      Id="b09de5c8-2eec-452e-9147-d7125b1a4bbe"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="efadb070-8ad3-46d6-b998-5cf6d4f33f4f">
+                    <propertyInstance
+                      Id="fa651c44-00b9-4be9-aa8e-a857aa201a1d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="c42c92fc-988b-44ec-99c1-dcee0f74af16"
+                LastKnownName="SmtpClient"
+                LastKnownLocation="Package26_1031.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d70e898e-ed35-4e48-b85c-6b7a8718b0f1"
+            name="addTo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a683e601-dbe4-4b51-8717-8dbb0a60fe97"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D(Name%3DaddTo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8392edf9-921c-433b-9004-7e2c1e321a64"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff421225-bec0-4484-b50e-dfe6bee694f3">
+                    <propertyInstance
+                      Id="6a60fc9d-c3b0-47ac-852c-f055b914d0c4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d11ea191-ff8b-46ff-82bf-23d4169b38cc">
+                    <propertyInstance
+                      Id="799b0710-54f2-4106-9c81-8cbd4fbfcf9c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9dd2de1-a9a3-4c48-bb78-95f5a38fc810">
+                    <propertyInstance
+                      Id="d43f9c43-54d0-42f6-8462-b18363b06d4c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c248125d-1b31-425f-9914-6e439367fe06">
+                    <propertyInstance
+                      Id="4617771b-db5e-4184-b014-1cd76b4ce3e5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d82e00a2-bd38-4873-ac3f-c08abd725ef5">
+                    <propertyInstance
+                      Id="befbf5c9-76c8-4893-8547-4bdab7bc16c2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd463ecd-ccf9-4dab-9ea7-853ccb0a3181">
+                    <propertyInstance
+                      Id="5c4e6353-efaf-4993-b84a-c934c0574f5b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eb644b92-4a62-4cac-adf5-4d632b5a6241"
+                  name="email"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ff34fdd6-b31d-45f1-aa8b-ae6717ed50a5"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D(Name%3DaddTo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Demail"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="47d04b58-a9ad-447a-ad27-e8df6216a751"
+            name="addSubject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e08a80c3-937d-4b6b-8244-3783db32f6c3"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D(Name%3DaddSubject OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="94023b47-07c5-44e1-b30d-4e6ac6cf411d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0dd8fe33-f5d8-43a4-83ac-8a013950e3d7">
+                    <propertyInstance
+                      Id="12a500c9-9805-490f-be30-49bbf080b9fc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db350cc0-ff06-46a5-b9df-dd29d8470470">
+                    <propertyInstance
+                      Id="039ef0b2-bc86-4edf-9e1f-27bf4786dcbf"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e80433c8-bcce-4248-8735-e044c0b0a758">
+                    <propertyInstance
+                      Id="e1e6a888-0820-4742-a718-14bc4c4355b9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="825971a0-3a31-439a-9736-9de15bfc5ef4">
+                    <propertyInstance
+                      Id="9d44cacf-9049-4fc7-ab30-da7f1e36aff1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbacdeee-a68f-4b5a-8c38-9b0bfa5c975b">
+                    <propertyInstance
+                      Id="4273f86d-016d-435c-b0d4-b5bb6275612b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8ac6fa99-a117-4a4b-88ec-347ab1e3fd8d">
+                    <propertyInstance
+                      Id="5e23671c-24c4-49a6-957a-22e5feb4687f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ff499289-b0bf-4dc7-befe-7c0243799fe3"
+                  name="subject"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="edb0cb9a-df49-41bf-926c-a349cf737bb2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D(Name%3DaddSubject OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dsubject"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4cbc7fa5-410f-4705-93ad-77efbc61ad6f"
+            name="addBody"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1d38fc7c-ec44-4003-818e-60c9c785aad7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D(Name%3DaddBody OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d2475e5c-c76e-45d4-aed2-05cbecc9948f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47cb43af-d5e3-4933-9ff7-04309472e0c4">
+                    <propertyInstance
+                      Id="b871d074-062c-49bf-af45-d41d7195be45"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb8a4bc5-b439-456f-a6f3-140ea65612da">
+                    <propertyInstance
+                      Id="0298bdad-c2b6-4cd1-8aee-a030de39586c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91eeebbc-adc2-471c-9ba2-eb58891c4298">
+                    <propertyInstance
+                      Id="4003a5d7-76fa-4e7b-895c-d035dbc6807a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e921b71-5d0b-4d76-a144-e53351073aee">
+                    <propertyInstance
+                      Id="cafe24b3-d882-4bdd-90b9-3b6909859293"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b31480e-91b9-4923-8a20-6962ce1131d4">
+                    <propertyInstance
+                      Id="d12d62b5-ab41-4ce7-b87b-cb3f57cecc7e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b50a7cc1-7ec6-48d8-afd5-dc3a57710305">
+                    <propertyInstance
+                      Id="1a50c2fc-137a-41a9-a34d-abb352ad0c09"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ff9a2937-a84f-4935-bd39-a1e529f48bf6"
+                  name="body"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="470fa341-65a3-4e57-aad1-270e3614d2a5"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D(Name%3DaddBody OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dbody"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="99d7153d-e214-420b-a635-042c4ce60c4d"
+            name="sendEmail"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e484a407-38fa-415f-aea2-6ae5084bbe53"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3DsendEmail"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e1666639-57ee-4d6d-8589-a98f8b49f0fe"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="083e30eb-0318-4cc0-b328-a432232b3bbf">
+                    <propertyInstance
+                      Id="dcd6f6c2-0783-43dc-82d6-405274591f9f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ccaebba-2d5d-49db-9add-69dd9bcd518c">
+                    <propertyInstance
+                      Id="5948d1d1-96b0-4022-b752-f49c82468138"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3f8c435a-2fa7-447b-9e6c-b70f511f427b">
+                    <propertyInstance
+                      Id="fc459a03-0da2-4bf9-89e7-489e6432c7a8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b31860e3-989f-4860-99da-f2896931a08b">
+                    <propertyInstance
+                      Id="4668feab-5036-4186-8615-df73c5c1b41d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a59b6d48-0dd3-45f7-abb3-4c76b9e319d0">
+                    <propertyInstance
+                      Id="07051e05-96a0-4d2e-8496-21a688d4dd93"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7616a025-444a-409c-870b-2c6f7f80f5c3">
+                    <propertyInstance
+                      Id="d1420162-e655-44e9-b9b2-f5977523560b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="5228c7cc-a376-4686-8340-2c10421bd13d"
+            name="Mail"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3ffe5181-32bc-4659-a9b6-0b91d7b9dc9f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Util Type%3DMail Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6c1d596c-6471-4949-8fdb-010d7ec9684c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83b49c6c-1a36-491e-86fb-b4e2ac96d283">
+                    <propertyInstance
+                      Id="c4f3d596-4799-4c5d-8872-4c25319e0ef2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="089a4e03-eceb-49f9-b6b4-ad2b94897fb5">
+                    <propertyInstance
+                      Id="e7710889-b46b-424f-bda7-cbd20519b1bd"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5164d7a3-c3e9-4a03-afdc-31b818c33eb8">
+                    <propertyInstance
+                      Id="a810b910-b860-4cba-9702-b43b5cb19edb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="394ba1ea-f90f-48d4-b43d-7a7b9c5b5c5b">
+                    <propertyInstance
+                      Id="46ed542e-cbb3-4072-a54d-1e94e8fe6124"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f71206f5-5b63-4edb-b354-e48c914b9a4a">
+                    <propertyInstance
+                      Id="b2d5921f-930c-4db7-b3c0-fa1d19cc452c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17c3a727-6fed-4069-b676-bd650ec082ca">
+                    <propertyInstance
+                      Id="22f20cf2-c37a-48db-943e-e7cd1bdc461d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
