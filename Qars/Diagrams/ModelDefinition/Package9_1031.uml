@@ -1,0 +1,3264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="24a36803-efa8-43e7-ab12-0e5cbefa1946"
+  name="Panels"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="437282c2-3975-48b2-8e36-20a00b4f95f9"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DQars_Admin.Panels"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="7adfc104-7638-4485-b69d-614363639bd5">
+      <profileInstance
+        Id="36432158-38de-46f1-bd3b-cbff1de6595d"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="90f80f0e-fca2-4862-bd6c-b0be3c773dc1"
+        name="ForecastAdminPanel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="43bb7182-c543-477a-8a38-87b583cea758"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d1c8a18a-1173-43e4-95a5-7d68e648743a"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="79460f39-5163-42b3-891e-56b39004f0bd">
+                <propertyInstance
+                  Id="9afb2202-3b51-4634-8c23-fc3910e8857f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8e7b7abd-5310-4879-8ad4-cb2f6e3b0543">
+                <propertyInstance
+                  Id="e30b91e1-84ba-4976-9f17-e937f77755d9"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d95071cf-4254-4c27-b1ab-ae34f6a89e26">
+                <propertyInstance
+                  Id="36940506-23a8-4f95-a058-7baa5097524b"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="01b3c6e4-bb5f-4c93-8b12-3dbca021805c">
+                <propertyInstance
+                  Id="3ee4d715-5159-4a42-912c-6b751839f6b5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f7d30bb1-cac5-4047-b04e-0fd6e44caa54">
+                <propertyInstance
+                  Id="adf4956f-78fa-49cf-90e1-3bbdf2e40503"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="5f0777d2-2146-4bff-9329-ca54eac62fed"
+            isSubstitutable="false">
+            <classMoniker
+              Id="637a7779-706d-4b78-bbeb-4a008bb29cb2"
+              LastKnownName="UserControl"
+              LastKnownLocation="Package4_1031.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="6bd9511a-14a8-493e-93f0-a59073edc460"
+            name="databaseConnection"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f4923647-9a42-4c79-9cf2-e80a482da2d2"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3DdatabaseConnection"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c2624a1b-d4cf-44a3-aaf1-25df211f0e6b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4359ae24-dfaf-47af-b21b-067bd6fed076">
+                    <propertyInstance
+                      Id="2132fc88-29d6-42ac-a483-df3af4fc38e8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="70994e35-d77a-4232-9c64-27f07003b395">
+                    <propertyInstance
+                      Id="0fe5228c-237d-4890-93a6-0d278ff35bd6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="693b0846-9b95-4e17-b277-51367116bd40">
+                    <propertyInstance
+                      Id="ec5c77ad-9a2e-4932-b2b6-f661e3a3f094"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e0dbcb8-6009-47eb-99de-f53c558d17c1">
+                    <propertyInstance
+                      Id="5d7b0b05-a822-4f56-a332-9b79531e17b2"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7af6546b-d48b-482f-a90d-2dec816fd720">
+                    <propertyInstance
+                      Id="78ac9eef-1145-43f1-ae8c-4362db7b757b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                LastKnownName="DBConnect"
+                LastKnownLocation="Package6_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4ffaa357-e5cd-4f71-9f3f-1586a672a06c"
+            name="components"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="5a654f31-e5dc-4442-8bd9-7485a5476154"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3Dcomponents"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a09e1410-80ca-4d6f-85cd-5b101837b964"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1fd45700-0dc8-440c-beca-5bf6ad8448c4">
+                    <propertyInstance
+                      Id="7bb482a8-0f8f-4991-a04d-e9b474cc3bfc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="104f3a2f-1eb1-4275-9ca3-e5a419068a7e">
+                    <propertyInstance
+                      Id="e38c2061-1ec8-4104-9007-c1de21b51e6d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4a0fc2eb-6506-4372-8ff2-5f3910e0699a">
+                    <propertyInstance
+                      Id="4c43289f-7cb6-45a7-aab7-bf3435ec5109"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="163848b3-1734-4945-9f24-33abb7ce2777">
+                    <propertyInstance
+                      Id="7f174161-3b41-45a7-b5b6-87938f23ab06"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="59033bd1-d7f5-49a0-b9bd-1e4093ced921">
+                    <propertyInstance
+                      Id="dc902fec-c2f8-4799-865a-675a5b0cd33b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="913c0fe4-ef8c-4b07-9c8d-91d77be6593d"
+                LastKnownName="IContainer"
+                LastKnownLocation="Package5_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6b6affc4-28a5-4eab-9f64-6c0c3c1ea28c"
+            name="update_Button"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4d493bd9-63e9-4522-a223-c0981c637c2b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3Dupdate_Button"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="68958113-0dcc-4a7c-bc26-d755d9abdaa3"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="02ad2541-fc7b-4e85-aaf7-2361e67869e8">
+                    <propertyInstance
+                      Id="8e8cdc97-93bd-4ed3-8794-78ef735e4a2a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="25234150-721f-4e98-97f1-4b7043fbff9b">
+                    <propertyInstance
+                      Id="1ea001fd-4ba4-436e-949c-676efc018054"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc362541-dfad-4f84-bd2e-11b1a34b5098">
+                    <propertyInstance
+                      Id="ca5c8ab1-315a-4176-bdd1-2f0a76db5ee5"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf938649-a66c-41ce-8f8a-b26cc34b68e9">
+                    <propertyInstance
+                      Id="26e732b0-a447-4b18-b271-0454e22d4205"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9cf0a067-3fa5-4516-9aec-6ff4fceb65b4">
+                    <propertyInstance
+                      Id="366f72a3-f0a2-406b-88b2-2a8272547185"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="a0b9751b-5d59-4c98-90fe-f052ec70f808"
+                LastKnownName="Button"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ec009ee3-3d1f-42db-bf38-f8c59c450dbf"
+            name="ForecastDataGridView"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="647aeb3c-5bda-4a42-97a8-bb4c171516e9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3DForecastDataGridView"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9d528a03-a257-4f36-884b-d1a1c13b6bb6"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d8869ac-23f9-4b13-9f89-0f47a02323f7">
+                    <propertyInstance
+                      Id="01be5182-2632-43b3-b2c7-4b29b61e52ef"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d8ab615-8c98-4350-9a8f-40ba0417982b">
+                    <propertyInstance
+                      Id="797cd21f-81df-46cc-8e3e-d91533e11f4e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f16751ec-0ea3-4578-9bbf-d93c8e2725af">
+                    <propertyInstance
+                      Id="116ef18f-5b56-464f-8a41-c40e195d235f"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49097d58-feab-47c3-8599-a9561040ad5f">
+                    <propertyInstance
+                      Id="7fb13edf-f8c8-41d9-8fe8-fc8359538c7f"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4a356ab7-cce2-4a03-a598-bbcd54e0b256">
+                    <propertyInstance
+                      Id="cd9db973-9d41-4441-b9cd-3801ba3a7859"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="07a05fa9-dc76-4586-83bb-99b01e986a20"
+                LastKnownName="DataGridView"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="b2795b72-d1f0-46f3-9d62-11da435f8d5e"
+            name="ForecastAdminPanel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="04336168-c6d3-492c-9d5e-a65444274647"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d8ad0020-211b-4dfb-bb52-d878d95712c2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf661e2b-9f48-4d10-8d49-ce0c0899d8f2">
+                    <propertyInstance
+                      Id="e356bbda-0c8d-445a-84fc-b1129d827f3b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="098a5b8d-d9d6-4c48-af63-ef23ff366c08">
+                    <propertyInstance
+                      Id="c385cfa6-c8c6-4811-80a9-01f4b11230da"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13e85dc6-8326-4712-a6d6-f17e3c2d78d3">
+                    <propertyInstance
+                      Id="c1ec23c4-1d1c-4952-b31a-5a9a36a89075"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca3125d7-e9b9-4f8b-a023-dfd889787777">
+                    <propertyInstance
+                      Id="add80fca-d630-4cf6-be37-a6a84192e176"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0733ee2b-d137-4324-b81c-07c3de629894">
+                    <propertyInstance
+                      Id="f87f2b7e-f60b-4cf4-8dba-ef2d7a7dd456"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ed9c988-c999-4f48-9f92-9dfea5c93528">
+                    <propertyInstance
+                      Id="11d4dcae-270a-4278-b5ab-8c98d8145fc5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e208e2be-3919-4706-908a-6cde2b8f5ecc"
+                  name="connection"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f326e019-9da9-46f0-99fa-446a76ee8780"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)]) ParameterIdentifier%3Dconnection"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                      LastKnownName="DBConnect"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1aea7510-bb34-471f-ba73-2c06c51bbce1"
+            name="refreshList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="776cb883-680d-4c62-ae71-3dbfa2d0b095"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3DrefreshList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5bbcf6dd-5143-49ed-851f-613f8740985c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ffd64bc9-0197-4908-90c5-94a1a3f23351">
+                    <propertyInstance
+                      Id="a23f15ce-5de0-4812-ad37-8bc48dd71a58"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2cab68fb-123b-4fcd-b5e4-32bb50462d4f">
+                    <propertyInstance
+                      Id="c6b4a3a6-7914-4e99-859c-10a16e500e98"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd711a8e-5e86-41bb-afb4-2aae5d9bd4da">
+                    <propertyInstance
+                      Id="15537bfc-0678-485e-9e26-1169b6c49666"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8681aa1a-d0df-4723-9f7d-3758bed85e31">
+                    <propertyInstance
+                      Id="92dbfae0-3ef1-4e10-ac47-650c1592149d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc957c5d-6444-42d5-a06d-682344886b43">
+                    <propertyInstance
+                      Id="328a1bbb-3fe0-445a-9e43-f25972bdb0eb"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21ee2987-85f0-4ec1-99b8-34f51b72b52b">
+                    <propertyInstance
+                      Id="e0bf7d7b-798b-47c9-87b0-c689e0128c75"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="d54ebaec-8407-49b5-b5e4-fd52a2c1adf2"
+            name="update_Button_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1a832377-1482-4108-adb1-fb9301314284"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3Dupdate_Button_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="dbcde169-8072-4eee-bf06-ad13fcb18865"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ab6171a2-cd88-42a1-bc4b-f6de8319e4b5">
+                    <propertyInstance
+                      Id="a0c9b95e-91bc-4b50-a316-968601c9e095"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36d42b7d-17ac-40de-a2ad-d66dd4bfce2f">
+                    <propertyInstance
+                      Id="417b4cd9-461c-43cc-bf45-da9cafb67d35"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ce71509-aeca-46cb-b38f-d8bf76851b2a">
+                    <propertyInstance
+                      Id="49f04b6f-9bc6-4bff-a326-3c6429c014e3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ea8f775-c6df-4b6d-b609-2ada39806904">
+                    <propertyInstance
+                      Id="f444b255-0680-4125-9cd6-96ec28b99e32"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e30258e7-3bdb-4651-9550-3b51781134c2">
+                    <propertyInstance
+                      Id="6aace224-4555-40d9-aabc-d71a427abd7a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5851bd52-2c4b-47b3-a743-b17ec4d20f84">
+                    <propertyInstance
+                      Id="eb2ca283-e3c8-4359-b431-ddc1705305ea"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7661ecef-e8de-4ef8-a183-a3fbc5cf527f"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b9ad368b-ccd4-444e-98d2-bdcf67dce1e0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3Dupdate_Button_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="253e9aa1-a389-47e0-a1d0-7fdcbfa1602e"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7af37277-8444-4f15-a0a9-dd91f13bd380"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3Dupdate_Button_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="67ea3fdd-dbc6-4d52-937c-28219107e968"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c62b20f3-836d-4e0c-9282-d6667422948d"
+            name="Dispose"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3098f8ae-2cd8-42a9-a989-db8a8d38cfa6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="14541d2d-4fb0-4043-8611-30a9b3510980"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3f12dbf1-03e2-4c50-99c6-c3e3898176f5">
+                    <propertyInstance
+                      Id="6122e6e8-f9a2-4198-b55a-51963923e4b4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3240c9f5-265e-48dd-b8ec-0a9fd23c058a">
+                    <propertyInstance
+                      Id="c8dfcb2b-c960-4460-b3a6-ad8bf00ac9e5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="28f4c0b7-5f4e-42c6-a671-84de278136e8">
+                    <propertyInstance
+                      Id="4f419cf9-6cde-4658-9783-6738fe4c0473"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cab11a55-fa89-46f7-b37f-b1d2506baff2">
+                    <propertyInstance
+                      Id="a99a6134-9121-48fe-a7d2-13f140eb9d60"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="65000eee-8b13-4a2f-a171-6b2f305511e0">
+                    <propertyInstance
+                      Id="16f107ed-f9cb-4564-a933-22fdfdc77113"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07376ccb-194c-4db5-9b2b-3a69ab6def39">
+                    <propertyInstance
+                      Id="18a1c9ee-7c22-47dd-8f66-eb59be2d7761"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f36b7fa8-6f59-4744-b1fc-5a1f79ee1955"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3dbac75f-043e-43cb-ac08-573876ffb8b8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="85dba36c-f253-4977-92e7-b37962d29773"
+            name="InitializeComponent"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6a02e05a-9866-468a-a8d2-fa9f385db7a3"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DForecastAdminPanel Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b20375cb-3a49-4acc-8b43-488d56219777"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29c3938e-5a73-4887-926f-facdeef6d8a5">
+                    <propertyInstance
+                      Id="a4598e54-c9a6-42aa-a3ce-26fbfa183e7d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06eab631-45d5-4808-900a-b016ae36ca0f">
+                    <propertyInstance
+                      Id="ce7765a9-5293-43a8-9401-acfcc0f9f8a4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0ad1613-ed18-47ad-9d84-f85ad180aad8">
+                    <propertyInstance
+                      Id="6c91495d-d044-42ec-8f99-9b9048735a2b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee0c65bd-c2b6-4ef6-832b-c84546c1b071">
+                    <propertyInstance
+                      Id="ec0c29c0-0eaa-41d4-a979-9589158e53c8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93557109-4326-4a01-8314-7d95f8e36e7f">
+                    <propertyInstance
+                      Id="7e192086-3032-40b4-8d5e-ca7d2543d94b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2760d764-12d8-4c34-a116-c8546d1c375c">
+                    <propertyInstance
+                      Id="4ed4fa4e-c9bf-4952-ad8a-1550c475e71c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="aa8c32dd-7447-424f-a2dc-8217a03ae744"
+        name="ReservationAdminPanel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="dec62407-6396-4487-ae25-d0b1aacc27bc"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="777e12de-1009-4919-b481-b63a32ed9c08"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ceed54db-23bc-4120-bebe-614a4d52386a">
+                <propertyInstance
+                  Id="3e9d9626-3934-4e04-90e8-468df749022f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9f6f2513-9d10-4f63-87dd-758bc5fd025d">
+                <propertyInstance
+                  Id="d2f70dd9-386c-4bb7-b882-8ef455c4045b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ddd6e30a-e896-471d-bd5c-6df46b04cbfb">
+                <propertyInstance
+                  Id="22602d62-cd9e-4923-a966-11a122d11117"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="776ce60c-69f5-4a41-8d11-099d57dcc787">
+                <propertyInstance
+                  Id="b9256b07-ef83-44a2-afad-2957cb5832c4"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd85ea39-92e0-43ad-b585-448399341382">
+                <propertyInstance
+                  Id="0ccb5226-c216-4bb4-ab82-94c7787777fd"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="51ed6a76-05ee-4478-a5df-d0d1eb062d4f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="637a7779-706d-4b78-bbeb-4a008bb29cb2"
+              LastKnownName="UserControl"
+              LastKnownLocation="Package4_1031.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="963299e2-dafd-44d8-979b-2cb56277969d"
+            name="databaseConnection"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e40d5683-28ba-4be6-ab32-178c83f2aa57"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3DdatabaseConnection"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="05289a50-e8ed-4972-a091-8b3c8fbdea10"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3568cd1-d7ad-41e6-8264-763e458d4bfc">
+                    <propertyInstance
+                      Id="eb62e183-2276-483c-bd5f-bab458588361"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a9f7c30-c33e-481e-997c-2dbaa6af4202">
+                    <propertyInstance
+                      Id="15dc0f07-ad90-4e6c-8416-13ba31f89aa2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="511a9836-0303-4e47-9058-07189b2ae728">
+                    <propertyInstance
+                      Id="ebd65cd8-06d1-4be4-9d42-bd19d4e84e86"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="027dfe4a-5ed6-4177-a8ae-1c320f8d4641">
+                    <propertyInstance
+                      Id="4345fca9-79da-4868-93b2-bcfa8d73e117"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5aba9e2a-7078-4278-b018-2e0729cbf1fa">
+                    <propertyInstance
+                      Id="3e646eec-6cc1-43cd-9476-cd0e94dbf68a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                LastKnownName="DBConnect"
+                LastKnownLocation="Package6_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4798287c-07ca-4d63-903a-5ee81e41646d"
+            name="adminForm"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6ed2ed06-1b5f-4550-908f-0ba3ccc72d61"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3DadminForm"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e95048ea-2c94-4586-8a44-13d3c6add937"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8319c318-b409-404f-a729-e169d83d7937">
+                    <propertyInstance
+                      Id="be52e1f3-077a-4f1d-bf01-6ec895ac1de8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6c4debd-7821-43de-8421-161db201f06d">
+                    <propertyInstance
+                      Id="fda6acc7-2e20-48b5-b7b6-4fea70e07830"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49212fb5-a784-46ff-b0a9-e5580cf368c7">
+                    <propertyInstance
+                      Id="c1cb218d-f1fb-4ede-9530-fa911f90340a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7635a186-31c1-47af-83f9-963bcf063cba">
+                    <propertyInstance
+                      Id="ad9cb783-d6aa-4942-83db-c73df6ec830b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19c7fad2-7651-4c8f-8af9-f532328096d6">
+                    <propertyInstance
+                      Id="af40eea1-c91f-43b6-be6d-f0c70a7fee59"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="9213e803-07f9-43dd-91e7-e3df672e1710"
+                LastKnownName="AdminForm"
+                LastKnownLocation="Package_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="63fd7074-bdc5-41ed-bdf7-44a52028568e"
+            name="reservationList"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ad0e8f11-ee8a-4c33-a05a-5420d6b829f7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3DreservationList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="720f3f54-6c95-4392-b2b3-24cff09e5350"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b74f406-9a90-4629-b2eb-5807a5fdff4e">
+                    <propertyInstance
+                      Id="a26673ce-f6f6-4b6a-94e8-3a336c73a57f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="592e8a8c-51b6-4dc7-9fb4-bc78ebba70a9">
+                    <propertyInstance
+                      Id="5d09da10-f875-4b36-8e94-17e6c80c85bf"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38740e0d-e98e-4c84-9032-6c6cf46a13aa">
+                    <propertyInstance
+                      Id="6634b25e-d8bd-4933-b8a1-bc25d9a37457"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d130422c-6703-43a8-9e86-6fcf088001be">
+                    <propertyInstance
+                      Id="a2ebb058-6144-476f-b1f8-006bcc5882fd"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d0b9e3b-3164-4bc6-bff4-b4a0298918d4">
+                    <propertyInstance
+                      Id="861f1fc9-59a3-4ef8-a36d-8036f58b6af1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="fcd50d9f-35f8-419d-99e5-a96a6ef3f368"
+                LastKnownName="List&lt;Reservation‎&gt;"
+                LastKnownLocation="Package8_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f1cfab59-234e-412d-b59d-e1b52135cbd3"
+            name="components"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6b0ca588-137e-4df4-a959-b038e3d4e594"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3Dcomponents"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c52c7480-5aaa-4601-8355-6417451974d2"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4474923-9762-4cb2-b412-b46d9f911a91">
+                    <propertyInstance
+                      Id="9b08eeed-6202-4c18-8a04-d6769239b6f5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00dfe9ec-4aa4-4a68-bd37-709233fe0e70">
+                    <propertyInstance
+                      Id="e7637c06-574d-45de-a92d-7a4515e6739c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="74c2ad88-8866-4b26-8107-f25592e83c91">
+                    <propertyInstance
+                      Id="e92d75b7-db67-4528-958a-1adbba608b2f"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc6c1a2f-00ef-4c56-b34c-c1d43d0f6d66">
+                    <propertyInstance
+                      Id="1e499b5e-98dc-4d82-bdb8-340dc1d0fc06"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76673919-920a-4486-93f5-9599de1458f7">
+                    <propertyInstance
+                      Id="36fcd1df-1e70-44be-9350-50a37c4e5bf1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="913c0fe4-ef8c-4b07-9c8d-91d77be6593d"
+                LastKnownName="IContainer"
+                LastKnownLocation="Package5_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a50105f2-8f60-484f-907b-2eda5a5a0a69"
+            name="reservationDataGridView"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0bf77648-37d0-4ea0-8ae6-ea2e32f874a6"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3DreservationDataGridView"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f5a69c1a-0996-4930-8b6a-e0e4d027591d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="292d0e66-dbaa-4853-8530-158ba8f4702a">
+                    <propertyInstance
+                      Id="55a6fb78-0e35-4568-89a2-5eb045b4e701"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c15e27be-e7e0-4282-8922-09123e6210bc">
+                    <propertyInstance
+                      Id="b3483c75-3c2a-4207-a693-462a4290ba50"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4828f29d-5579-4833-9196-50217fad2a5f">
+                    <propertyInstance
+                      Id="9b8165f8-cd7a-4ef5-8f88-6505700ec084"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d161f7a-ee7a-4b70-a659-4889fb89c0d2">
+                    <propertyInstance
+                      Id="ed7576d9-ae22-406a-bffb-24d3e1317351"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db8e88a5-8732-4bad-9265-2a05958b9f4f">
+                    <propertyInstance
+                      Id="0e4277da-4965-4864-a6bd-be0636906199"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="07a05fa9-dc76-4586-83bb-99b01e986a20"
+                LastKnownName="DataGridView"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="01a95d70-fbcf-43d0-9ba7-09203dc47999"
+            name="ReservationAdminPanel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="94bd4a6e-4e5c-44d3-bade-2f671ddd6a04"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin Type%3DAdminForm)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="82962e9d-758a-4053-8e40-f9027bc52129"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71e0d6eb-2f66-49a5-b38f-eba18db4caee">
+                    <propertyInstance
+                      Id="a630e260-6a72-4c3c-b1cd-682666d6c2f4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c5c28437-cf81-4c30-9d86-40499990904e">
+                    <propertyInstance
+                      Id="917ecc49-9b0d-47a4-a651-c7cd8091d3e1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19cec552-3af8-44c6-a725-ccc309689d13">
+                    <propertyInstance
+                      Id="5fbde7df-1042-4ddd-bf03-6ffa2f4f1540"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d166c063-baf6-43cf-b16f-a575a88a0f5a">
+                    <propertyInstance
+                      Id="d02ead87-74f1-4a56-9c69-c7ced14600e0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85725018-82c6-47d1-965c-ce58890b4cb4">
+                    <propertyInstance
+                      Id="ed015646-9766-4d75-8be4-2ee2d1550ec8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6fee470-7fdc-4443-9df0-c3070797ec84">
+                    <propertyInstance
+                      Id="98013868-ba56-4cf7-a85b-73761ed271e6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0e908a48-92d3-479f-b373-0b9cde771306"
+                  name="connection"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a01802c4-eb79-4d63-bc58-629a7fc71cf3"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin Type%3DAdminForm)]) ParameterIdentifier%3Dconnection"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                      LastKnownName="DBConnect"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d6af8755-54c5-49ee-acc2-b2e480b372cc"
+                  name="adminform"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b8af9dda-3e33-4156-be81-d92729fa132d"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin Type%3DAdminForm)]) ParameterIdentifier%3Dadminform"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9213e803-07f9-43dd-91e7-e3df672e1710"
+                      LastKnownName="AdminForm"
+                      LastKnownLocation="Package_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="03aab3de-ee27-437e-82bb-d9e746dca54d"
+            name="RefreshList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6d6e0b56-5abb-4ef1-b0e3-6a1a08317b70"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3DRefreshList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ec2fdede-e960-4243-b6bc-04c4dbc90a2c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7fc7f3ff-10c7-4f8f-9767-dd06cff30ed3">
+                    <propertyInstance
+                      Id="5f9ffc11-d77a-45ed-94af-de96a9bc2b71"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb2dd2ac-0134-4b72-b0a3-d3850859c550">
+                    <propertyInstance
+                      Id="f0e22922-d6b5-40e5-9728-aeadfe3f51aa"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="31869e75-4ba9-45c7-8b77-53e6b153032b">
+                    <propertyInstance
+                      Id="6e67bbf4-1cdb-45b3-80e3-120dac275b98"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d51f22e-6b7c-43e4-ba02-90b4ba2fcfa5">
+                    <propertyInstance
+                      Id="a463d9e9-6b15-41d5-b2c9-b2e3dfeb1bd5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9825ff3-ca2f-45b6-8a57-edd4be13fd84">
+                    <propertyInstance
+                      Id="81bb7a46-690e-47a8-a6f1-920de51a5753"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="276b7392-5738-4831-b299-7c0cbb57c135">
+                    <propertyInstance
+                      Id="e815d8c4-6721-4fcd-836a-f74936c48c7f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="da3b6cf1-5bc6-4c2f-a21f-aec3a6f27ec6"
+            name="dataGridView1_CellClick"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="98cd5dfd-3e1a-416b-bfbb-07355eaf66bd"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3DdataGridView1_CellClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DDataGridViewCellEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f3ce1060-0e7b-43d6-93ec-eb97cc7790f1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89904b06-16cc-4ea3-90f4-7607c7cd5754">
+                    <propertyInstance
+                      Id="946f109d-dfca-40d0-b1e1-463c71b365f6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="33e582e1-b447-4e30-9643-5760da524bae">
+                    <propertyInstance
+                      Id="6816e9ac-e7e7-4fa2-857b-5a8b9f09581f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08e7fd81-97b6-4bfa-ab71-377d94e65543">
+                    <propertyInstance
+                      Id="d836cae3-cf8b-4cc6-b91c-e27db4d3ce21"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="baf38b54-f88b-4157-b5c9-44b5d720a50a">
+                    <propertyInstance
+                      Id="99865e80-4b9c-4c55-b54a-9085ea84996a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40876da2-5901-4f57-810f-4f7d75ccde14">
+                    <propertyInstance
+                      Id="cd41c0bf-f492-4943-97d1-b2b5402d9acf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d964f18b-1695-4194-b682-cd2e3ceff52c">
+                    <propertyInstance
+                      Id="6bd7fd03-e7e4-4a07-9b80-95633cef468b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="762242d9-de7e-4b06-ba65-090666591f90"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="92c31926-5f1e-4cb5-a09b-047296e99af8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3DdataGridView1_CellClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DDataGridViewCellEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8836bd32-9243-49b8-9e4d-c75100fd9b42"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7a2e63f2-55ce-4527-9bda-83716c63dde2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3DdataGridView1_CellClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DDataGridViewCellEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="a8b3e721-b236-4c2c-9460-cca169aed752"
+                      LastKnownName="DataGridViewCellEventArgs"
+                      LastKnownLocation="Package4_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="41f19217-298e-4657-b21d-128e3cd8f2ab"
+            name="Dispose"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="10e05101-2ac4-474e-9ac7-597f02d1a183"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f6fd2532-bb78-4c01-8d0c-d8af6428bbd0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9658ee4b-7466-45dd-a170-668a2f9530c1">
+                    <propertyInstance
+                      Id="ff3788e2-5186-42a3-9a55-d0181dc1f929"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fce01904-387c-4ad1-8e30-663a318a7cd9">
+                    <propertyInstance
+                      Id="8cc37071-4ca5-48ce-924c-a4f29122365f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12b41c1b-756b-4037-b226-dcf22e4012b5">
+                    <propertyInstance
+                      Id="915e4953-cb5a-41c8-b750-074b093e1f5c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7cdee0b8-e866-494d-9a6b-f6b1b340ab50">
+                    <propertyInstance
+                      Id="cc75cfd2-fbdb-464d-b463-d616e4dbcaf3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4aa83594-3b65-4c0b-bb0a-c17f44fd4a29">
+                    <propertyInstance
+                      Id="4d20a4df-5bb8-4371-98f8-4e60235c1b70"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37db3690-5b60-4b15-95b1-17d4b549717a">
+                    <propertyInstance
+                      Id="0d8c3f21-36b5-4d8f-8d12-5cf9feda80c0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a56898a3-b462-4064-9f98-42f1c02e5690"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b6941611-5fa8-4b6c-b0e7-21d0c069d308"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6c66453e-3107-41e3-86f5-819da68d15d7"
+            name="InitializeComponent"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bd0cfc43-6364-4868-82b6-1c4738761a56"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DReservationAdminPanel Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="baa06ef1-d076-427b-861b-3d1163ed0811"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e0f9e642-dd6e-4438-82c1-f8acb432d612">
+                    <propertyInstance
+                      Id="24a0f99a-41b9-4e01-90c3-0e38352e29ed"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d8f5b0df-448b-4491-9347-a516a268a933">
+                    <propertyInstance
+                      Id="b50e629c-274b-4b8f-bf10-9b0013bd1562"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f14a80d4-205a-4788-908d-b934a4a95046">
+                    <propertyInstance
+                      Id="d6079398-fa2a-4a5c-b4a7-a97e7b329ef3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe11d241-2ba9-4b87-af19-207cc41cf036">
+                    <propertyInstance
+                      Id="abbc3c6a-e189-4f8d-a242-a519798ddb1c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6fb54e03-d226-41ae-8b69-4d99f3470ae0">
+                    <propertyInstance
+                      Id="84e761ad-305c-4c52-afa7-d2305df21045"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b0b3105-3da8-4c29-94e5-d54dd3f73043">
+                    <propertyInstance
+                      Id="031ad8e7-df7c-4bb2-ac6b-8f114d85a6fa"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b80b49e5-0a28-421d-b686-fd42ba4462f2"
+        name="ToSAdminPanel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="9bf232a9-e266-4579-b644-59212248e3e3"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="579c1068-86bb-43e3-b4ab-11407e66262a"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d8005fda-e370-4cb0-9ebf-1ff123856ca7">
+                <propertyInstance
+                  Id="ce90fcde-d710-46b2-aa48-39d2c46f3aa4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5d883981-48ac-4a11-b09e-b6dd7d62cebd">
+                <propertyInstance
+                  Id="c71486a7-4270-480c-a2d8-636afabf7029"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d49faa39-8081-4720-8c48-1acc4112aab2">
+                <propertyInstance
+                  Id="b851c665-15de-4476-9fe1-b891218cc1cf"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="085ec45c-96b4-4832-a020-9cbc1c4678ea">
+                <propertyInstance
+                  Id="4b3116d3-ee89-4544-8040-acf6a87ed694"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="eb30b881-339c-4c01-8643-2dff6b5ae9f0">
+                <propertyInstance
+                  Id="68736823-9622-4423-9079-663c8c750e79"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="99922762-ab25-402e-a900-2edfe12e661a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="637a7779-706d-4b78-bbeb-4a008bb29cb2"
+              LastKnownName="UserControl"
+              LastKnownLocation="Package4_1031.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="e8b8f368-4958-4a53-8b75-66774238e7be"
+            name="connection"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="95a0a1b1-b4c3-4072-83f6-f271eb43786d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3Dconnection"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c2849ac6-818f-4373-a50e-28d14906ce96"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23d0a0d0-dae5-4947-a596-ce1fe7adb1a1">
+                    <propertyInstance
+                      Id="7e2da93e-e9de-40ef-bf15-8f754829d8d2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af5648ff-92e0-4ff0-b623-eba72160799e">
+                    <propertyInstance
+                      Id="d0cee8d7-b62d-430d-b856-6b795507fa1f"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd49a144-4c5b-47bd-924e-e7c9b7635f54">
+                    <propertyInstance
+                      Id="485f1e31-421b-423b-97df-9b33f337ff4a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e583cb4b-da9a-4df4-b8cf-94e338708ae4">
+                    <propertyInstance
+                      Id="9ca2a01c-c496-4aba-8648-decd9d1a9051"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6a119fc-df0e-48d4-b3d4-7082c9807659">
+                    <propertyInstance
+                      Id="8d41c002-fe55-4d2b-818d-5801193f3b1f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                LastKnownName="DBConnect"
+                LastKnownLocation="Package6_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="16adad63-046f-4044-906f-57e8853eff0d"
+            name="components"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="89f03096-644c-4155-be09-8769f2fd7ff9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3Dcomponents"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2528058f-faf8-455f-96c4-36e72686b050"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6377ff01-8671-4295-aec3-2ce89a4c1874">
+                    <propertyInstance
+                      Id="a029d195-6f84-4bab-9f6b-d3f7665cec53"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1fce0ae-4332-412c-a584-9c92d3e9ec70">
+                    <propertyInstance
+                      Id="c93fadef-3284-4ba2-bd76-d7c0035b4574"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1d78f1d-5843-4324-a704-9cdd6ef9c7fc">
+                    <propertyInstance
+                      Id="f47521aa-8904-4ff6-84df-99f4041cf995"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="efe24cbd-13d6-4541-9180-ef011cf85dfd">
+                    <propertyInstance
+                      Id="75a614af-59f4-4791-b921-c8384b1f4236"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e49f9fe1-712f-41f2-9c4d-621eaee693d0">
+                    <propertyInstance
+                      Id="63f9ad35-3fb2-4131-87cb-1119aa553e23"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="913c0fe4-ef8c-4b07-9c8d-91d77be6593d"
+                LastKnownName="IContainer"
+                LastKnownLocation="Package5_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e1f8a347-ee4f-4982-9815-d2a7122112b0"
+            name="ToSTextBox"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6c58d5c1-fc92-4034-ada0-a3688443d98b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3DToSTextBox"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ad74502c-76b9-490f-be60-6576a8db0381"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="761ce963-0238-4376-a137-7433e8472cd4">
+                    <propertyInstance
+                      Id="caf57094-6cf9-4ed1-9034-f928b52b91cc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ecb78309-767c-41d2-8096-c9e5733f61fb">
+                    <propertyInstance
+                      Id="36518eb2-dca3-4526-b025-696c4ae7f1e8"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0eeccdc7-bea6-4d6f-8a59-676c98fd3e7e">
+                    <propertyInstance
+                      Id="398f7acf-e4f4-4062-ba0c-68be7a95ff82"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f08e1db3-bc6c-4cf8-b824-d30a2f00575e">
+                    <propertyInstance
+                      Id="c805cde0-8b15-41a7-85bc-024d3b76a116"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="378180c1-a136-4fb8-b495-103d05805dec">
+                    <propertyInstance
+                      Id="675a1876-1503-4b4d-8d89-88a2c184420e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="31ceb791-33a1-46d0-92a3-61d7a1b32269"
+                LastKnownName="RichTextBox"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6a17c658-92d0-4feb-8f37-5c0768dbf591"
+            name="save_Button"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="116ab184-84b1-463a-b36c-30eafb142c9d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3Dsave_Button"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4b95861f-89f3-4e54-86cb-515cfbbc26ba"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0583467-018e-4088-b6fa-05cfe01b5c0e">
+                    <propertyInstance
+                      Id="2f702ca4-1ce8-446e-abba-6626496b4d6d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="631bdd9b-3432-4e0d-8278-edf4bd7db740">
+                    <propertyInstance
+                      Id="5f75f1ed-117b-472c-9dc7-886fbfdf66af"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0dcc8f70-28df-45c5-8bb3-908de84a0a75">
+                    <propertyInstance
+                      Id="9167c70b-96ed-454f-a057-ee61b51a2b78"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b5e65be4-90bb-447d-9a97-fa63d8603c5e">
+                    <propertyInstance
+                      Id="c680508e-d871-4601-a454-f368356a0636"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5dad1ff1-f56f-42be-b379-24d6137f9466">
+                    <propertyInstance
+                      Id="5f9842b1-4a73-4116-827f-eac9b65bf622"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="a0b9751b-5d59-4c98-90fe-f052ec70f808"
+                LastKnownName="Button"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="41507fa2-a063-42c2-bc6d-135c73bc5547"
+            name="label1"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ac087a64-535e-4fcf-b39d-7c5006c5b86d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3Dlabel1"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="af5dd43d-d237-4f87-850f-e5e6eac4e366"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3633c087-f0ed-4746-90d2-7c97b763cc8e">
+                    <propertyInstance
+                      Id="1670f913-1ac6-48e8-8477-13273b2ae7bd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a4bfada-4897-4fd6-b3cf-19a838d3b367">
+                    <propertyInstance
+                      Id="38ea2923-c478-475a-bf6e-295cb8fb3b7e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="703acf7c-46ed-4038-8406-8e5c0d12d8df">
+                    <propertyInstance
+                      Id="cb782a77-6431-45fb-9e05-55b5bd56bd3a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="59c8bef3-e9f2-45b6-a88a-bde852129f04">
+                    <propertyInstance
+                      Id="1450ca66-34be-4f3e-8d7f-cb7f370acf11"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22d90615-3a86-440f-971e-b77a341fd4c7">
+                    <propertyInstance
+                      Id="b14b575b-1de3-49f2-aa0c-6447728a19a9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="d1365d3d-2398-4f61-8dda-32010e15bc30"
+                LastKnownName="Label"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="da8dd63a-142b-4d4c-a1f2-ba11043240cb"
+            name="ToSDate"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="280d3408-03e2-435c-ac60-c54e51c75e61"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3DToSDate"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="30d2f633-d789-4f69-9ef9-93f35b999cb1"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b804db11-db5a-48e7-b93b-d2a8d6c5e04c">
+                    <propertyInstance
+                      Id="2889b5a4-268b-467d-b817-78cbac8da1f7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e8a5487-488d-4af0-96be-6ccd936989fc">
+                    <propertyInstance
+                      Id="ea776338-7f0b-475e-b4df-0547c096c45c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15c2cda9-9dd3-47d4-9f21-d3876a312348">
+                    <propertyInstance
+                      Id="21fcf22b-82dd-4894-bf93-55982abd5d1c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c5bfdabf-076a-4d6a-a0dd-ef9bfd065635">
+                    <propertyInstance
+                      Id="9f52ad25-ae02-4003-8c08-c86ab35484b0"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d811a6c9-2894-4060-a1ad-b83d522ba022">
+                    <propertyInstance
+                      Id="7e859535-55cd-40b7-8a7e-51df8878600b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="d1365d3d-2398-4f61-8dda-32010e15bc30"
+                LastKnownName="Label"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="571209f8-d875-4689-8374-b0b592c2424e"
+            name="ToSAdminPanel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="dfe12ab8-2576-4515-8aa1-e381ec9cc22e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c27bd71b-5e57-46c7-9dfe-3df332fcc6cd"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3f510a94-3970-4d95-a9e7-3cc4e20e6184">
+                    <propertyInstance
+                      Id="fb9e25cb-243c-4df4-a6ed-d1dbe4fbf09f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4a085e77-cc2d-4ca4-8a47-2d40f9d4728f">
+                    <propertyInstance
+                      Id="682f42bc-c6f8-4230-93fb-729db992bb78"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0725010b-f49f-4b8d-91a7-1b7f15cdc1d3">
+                    <propertyInstance
+                      Id="01782e40-a45c-4b13-8a29-c67911ba27e7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1762294-d108-44f4-8640-51050ee26c96">
+                    <propertyInstance
+                      Id="0be69b29-c861-4c8d-8e07-339540c5fbdc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e36e01cc-f2cc-4ba6-a3f4-c4ef381cdd2b">
+                    <propertyInstance
+                      Id="871e15d7-83f3-4795-a8f0-04790a425992"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be928bf0-9a33-4b31-9a44-d2385062602c">
+                    <propertyInstance
+                      Id="cf9213bd-e38a-4ed5-9e9d-68a0accf02d7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a557138e-c6fb-442b-91bd-83b359746e4d"
+                  name="connection"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f67eb01f-2f25-4763-a442-53692f07bce8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)]) ParameterIdentifier%3Dconnection"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                      LastKnownName="DBConnect"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="722d883a-387d-49c4-ab03-6c6744d0a33e"
+            name="save_Button_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d2f389eb-46aa-4a5a-8957-f91b51fd576e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3Dsave_Button_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ed50df8a-0465-461a-8d98-b5cef24c5757"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27c4306d-2eaa-435d-b9cb-7e05fdbea0be">
+                    <propertyInstance
+                      Id="ca382025-6252-437a-8866-866d404685f8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="708fa59a-6874-48d7-bacf-9893f8350872">
+                    <propertyInstance
+                      Id="28fbb30e-4aaf-4748-adc2-6acec55fde3e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c22d0c11-7d33-4c40-b340-f22dba6ffa2b">
+                    <propertyInstance
+                      Id="4a8e6146-1e3e-4788-b8b4-088a5df7017f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c11a604-ca3d-42d9-91b0-0209152cc243">
+                    <propertyInstance
+                      Id="40014b51-6964-4d49-a670-aa2810d6e442"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f152043d-a748-4d83-be37-81bd9f036da8">
+                    <propertyInstance
+                      Id="67a95e96-288f-4a03-ab8a-175c319804a7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9652c644-28d8-49ca-968b-0e13c5dce329">
+                    <propertyInstance
+                      Id="36f7f9bb-90e9-44e4-9718-e32134808d46"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="65082a40-3f3b-4f69-afde-899dcfd7c0b9"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8c8349b3-71e0-4584-9719-0a682810ddb8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3Dsave_Button_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2ed21785-52cf-4941-a78a-1a280ee1997e"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1443bf01-5b92-40d6-97cb-1c0401bcb68e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3Dsave_Button_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="67ea3fdd-dbc6-4d52-937c-28219107e968"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fd1f6654-a0d0-49dd-bedf-e24ef0076dfd"
+            name="Dispose"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5f9774b7-a3ad-4f79-8d4f-cc8eb7ef6f2e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d9fefdd2-e7e1-4718-8b74-3cef4268a173"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e759c524-30f0-44ac-b6ca-669d8e0804b1">
+                    <propertyInstance
+                      Id="366c5806-ba84-4d0e-ac92-23f16b263caa"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d87e47a-9d0c-434a-8842-720f7e19a02d">
+                    <propertyInstance
+                      Id="24b7b66f-12a8-4959-bdf2-b5366477bd3b"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="683301aa-8d47-477c-af4b-6dab6b6de7fc">
+                    <propertyInstance
+                      Id="21c0a6d3-40be-4a35-b240-f581eda3f7c8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4bc40575-06e4-4791-9855-b3084e860e66">
+                    <propertyInstance
+                      Id="8eea6312-da1c-45e1-aafc-33c8f132e288"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19e2ddee-6021-49ba-8139-eae9adffae42">
+                    <propertyInstance
+                      Id="5a6ea6ad-674a-4d3f-8da3-937425c62805"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14eba67f-b180-462c-92aa-38d9eab2a41c">
+                    <propertyInstance
+                      Id="7a3400a0-0283-4e48-a988-ff7b6191b68e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0cfb5d7f-add9-4881-9db1-14ac3210efd6"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f0ebbbe0-5cf0-48fa-b29c-a73888b65ab2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c498472f-e9e7-43eb-8017-aac022448fcc"
+            name="InitializeComponent"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a466ebb0-ad77-4269-805a-c91952a26365"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DToSAdminPanel Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2f89b725-be06-4ef5-a0a7-5b222bc5dc20"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ec23556-30b2-4330-80d4-8a7edbc22368">
+                    <propertyInstance
+                      Id="d4f61a79-e8c9-4ef3-adeb-2da025996887"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="091120f7-d6e9-4431-9b93-0658ffc4d407">
+                    <propertyInstance
+                      Id="eb6e6558-7cdd-4f42-8ac0-bed95a6c9f32"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48d6638d-2cc2-44d4-92f0-ee9cde12377c">
+                    <propertyInstance
+                      Id="475c867e-de23-4741-899f-e09710c615c6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f2de44b7-2191-48a7-be91-b5c7221e3390">
+                    <propertyInstance
+                      Id="7c950f82-e1a6-4f02-bdee-5f28aacb6cee"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55874c76-9739-4ba0-9869-658649aa205c">
+                    <propertyInstance
+                      Id="a59a35a8-303b-431d-9146-32663376fced"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51f70eb7-c1c5-4dac-8769-67b544ac16e1">
+                    <propertyInstance
+                      Id="28974b2c-4d4c-48dc-aaae-bf243f5064de"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fa1e8ed5-5dfa-4e4f-b8d4-883953c59947"
+        name="UserAdminPanel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="be47ac61-5049-466b-8b06-1b72ca07a990"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0248e947-16ae-4a31-aa78-4441605b4424"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="15feb696-4015-4edb-90a7-7ac83da5b853">
+                <propertyInstance
+                  Id="d2a6f63c-8efe-45b5-bee6-2d417d59555b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b27e1922-354c-42c0-97c8-cfa1291a677c">
+                <propertyInstance
+                  Id="2412ff13-856d-468d-b3b4-4e5feab59c60"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="58491c5e-73a5-4622-90d2-c3814d2395cc">
+                <propertyInstance
+                  Id="c597d56f-522a-44d7-b943-a98387081915"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="38693f88-3980-41bd-8271-0ecdf6bbe2f4">
+                <propertyInstance
+                  Id="1584b4f8-fdc3-4e72-ae6f-717af91ed6e5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="430d22d9-d743-423d-9505-09f89d546d85">
+                <propertyInstance
+                  Id="1dc9c77e-69ef-489e-b50c-f05a238ae89c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="65a9db50-41bd-4fa3-852d-1a4d2fbfd1b0"
+            isSubstitutable="false">
+            <classMoniker
+              Id="637a7779-706d-4b78-bbeb-4a008bb29cb2"
+              LastKnownName="UserControl"
+              LastKnownLocation="Package4_1031.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="68c65cbd-b943-4ec5-8dc4-98c6998fd282"
+            name="databaseConnection"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9364a504-283d-4fa5-adce-3593fd54b6ae"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3DdatabaseConnection"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cfc5a24b-28f7-4772-a0e5-06ad2712b151"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="948fbf0b-84e2-43e8-ba59-8a77d3cabd2a">
+                    <propertyInstance
+                      Id="f561d2cb-4c4a-4cd1-bcf2-4d918a53c568"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="720a1a9d-c5fb-4ebc-8312-960ffbdb42ce">
+                    <propertyInstance
+                      Id="69968d43-363f-4d48-858a-c5345d7b6247"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="250f40d6-162d-4a8d-80b2-1efda1981750">
+                    <propertyInstance
+                      Id="61d80c32-6c42-4018-8cce-a8a89f82a0c0"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f512517-5a98-4054-9941-64a8ab714f4d">
+                    <propertyInstance
+                      Id="b6b5c1dc-3088-4a7d-94d4-2fb0630c0f66"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="28af0934-80c1-4530-a633-38fe36f917d0">
+                    <propertyInstance
+                      Id="f6f2ab67-ef49-40c8-a05a-5478059a6adf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                LastKnownName="DBConnect"
+                LastKnownLocation="Package6_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="da95269e-f369-47ac-8bf8-10da32971268"
+            name="userList"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="175b637a-5a07-4e73-8247-a2e0d4eb20b5"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3DuserList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b4adeb4b-5751-4f84-9346-5f8433d54060"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68e0d015-e866-4c65-b303-f7f1b94fed2d">
+                    <propertyInstance
+                      Id="3b5785da-1d84-4f97-87fc-13d3182200ac"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6a6b764-59b6-40d1-aeb9-14b301101ad2">
+                    <propertyInstance
+                      Id="05261ef8-c58b-4606-bbad-c77d75cc1dd7"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6de3090a-5995-43fe-a24c-74757c03beff">
+                    <propertyInstance
+                      Id="f805d254-1cd4-4899-ad0a-aea2e98e0341"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1a0a430-0796-44cc-862a-5a89cf3fdd3d">
+                    <propertyInstance
+                      Id="a0e2e73b-3750-4375-8511-0b6dd6f925fa"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="16c37048-cead-4a47-b7d8-eabcd0d628c6">
+                    <propertyInstance
+                      Id="0e336a90-a3b2-436f-9b64-85964b4469ad"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="9106ff80-7dab-44f0-97c9-7ac402287e5a"
+                LastKnownName="List&lt;User‎&gt;"
+                LastKnownLocation="Package8_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a4438b59-2fda-40b2-b81a-175962cee3c0"
+            name="adminForm"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4b115da9-57f8-473a-90b8-dfe07549c2ea"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3DadminForm"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ef6d011a-6277-40df-8cf5-30c94945c5ed"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e97ca233-2135-4bba-aed6-d8fafc7ee97d">
+                    <propertyInstance
+                      Id="29b79899-e960-40de-b2cc-4a1b9cf8ab68"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ff14fda-5308-41a4-8bf8-29614a6f9f02">
+                    <propertyInstance
+                      Id="10a89a82-79b4-41fc-8aa6-13b03a3745a1"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c235ddd4-14e3-4974-9f72-1244537e9f42">
+                    <propertyInstance
+                      Id="d784865d-640a-4f7f-8c87-43f44c705e6e"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="11541f24-8672-4506-9150-b216507b0799">
+                    <propertyInstance
+                      Id="8d1c1816-73e9-4387-a5c7-70347c7b5378"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f9ea0cc-1d06-4e93-88af-bd218ca4bb88">
+                    <propertyInstance
+                      Id="c423f465-aee7-4102-9dd5-22b4dd21db19"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="9213e803-07f9-43dd-91e7-e3df672e1710"
+                LastKnownName="AdminForm"
+                LastKnownLocation="Package_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="87d94284-02b7-4e24-98cb-cbe6dc142165"
+            name="components"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0f628ff2-5381-47b3-bcd0-1917c84760dc"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3Dcomponents"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="63698a23-ef2c-4270-9784-119b611766d6"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9ae5483-2d76-4f22-850f-c43aaf6001d5">
+                    <propertyInstance
+                      Id="b4c2779b-8c82-4d9b-ae1b-737266a56f03"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5861dd2e-1ff0-4f5d-9d8e-fe595d9abe85">
+                    <propertyInstance
+                      Id="8143978d-a623-4474-8d4c-39791aa6fb59"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec5aeac9-1bfd-4c73-a14d-1c4dcd23704f">
+                    <propertyInstance
+                      Id="f1f7bd8b-1493-4f19-96ad-e541adaae743"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86ece58b-f8ca-4a08-b6b3-499498bd01e8">
+                    <propertyInstance
+                      Id="73cdd1b7-8407-444c-9983-ea084109fa86"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="568c9cd1-a038-471d-b280-9747e51f3365">
+                    <propertyInstance
+                      Id="554cf404-75b7-4440-a963-44259634676d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="913c0fe4-ef8c-4b07-9c8d-91d77be6593d"
+                LastKnownName="IContainer"
+                LastKnownLocation="Package5_1031.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d09912f8-7093-4f4c-8b8e-0e2e91573aa8"
+            name="userDataGridView"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="15a6b0fb-f091-41b5-b4fd-fac4435e5881"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3DuserDataGridView"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="55c6443e-e662-474f-aa30-36eb30612c8f"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4f65540-8e21-4fef-a145-8c0c74de5f69">
+                    <propertyInstance
+                      Id="645e5d39-77b0-4810-bc8a-3a14fbd3457c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b269562-b8ec-43a1-ba3f-a5826905270d">
+                    <propertyInstance
+                      Id="893fad32-50ca-4613-acdd-686646b27f09"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a08b2bd-e3f3-4a0f-99c5-f7eff2b8bc88">
+                    <propertyInstance
+                      Id="7a872708-57f2-47f0-a9ab-19bc93a4f6e7"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b12a05fc-8857-485d-859c-4dc5c72d76a2">
+                    <propertyInstance
+                      Id="7f804056-1bf3-4498-b680-ea32ff7ae241"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f2f376e-002d-4c66-a4c6-606a942a8ed3">
+                    <propertyInstance
+                      Id="aa456ef6-21ef-4eba-8f96-afb97a94b558"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="07a05fa9-dc76-4586-83bb-99b01e986a20"
+                LastKnownName="DataGridView"
+                LastKnownLocation="Package4_1031.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="31383f5d-bf45-43f4-b400-aa99490977e8"
+            name="UserAdminPanel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1391b898-9087-43c4-96cc-dc2d81107e15"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin Type%3DAdminForm)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5793f755-b3f7-458f-9908-a023efe086aa"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa346e97-1483-4caf-b7f8-f8bba6d343ae">
+                    <propertyInstance
+                      Id="ae8ada3a-80f9-4092-b234-f52e567154ba"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd9b3ed9-6353-41f2-a5c8-c220b9315d14">
+                    <propertyInstance
+                      Id="ee7e58c5-67e6-4329-b6b5-0c3fdd1767e1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="669349ed-3d7d-4ff4-bc37-66af007455ca">
+                    <propertyInstance
+                      Id="5a6a9f0b-789c-4da9-a80a-22040db1a813"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="887697d4-d2c5-473d-aea9-daf8ff8f32f9">
+                    <propertyInstance
+                      Id="951e7c0d-6f83-4d22-a5db-4c934391f1fb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="977eb1d6-352e-4917-a44a-9d2fbbcc9ed2">
+                    <propertyInstance
+                      Id="b205cf76-4d5a-4db1-bec6-61ad7a0e66ba"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ef438a9-9a29-4668-8cb6-9c56fb033d7d">
+                    <propertyInstance
+                      Id="98438c61-8668-4c38-bdd7-0c166aad3948"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="92c72267-f2d1-42e7-abdd-cd593c9a9004"
+                  name="connection"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2e79ad76-8057-4077-9c2e-afb50c855518"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin Type%3DAdminForm)]) ParameterIdentifier%3Dconnection"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e3fd3955-7046-4cbc-a637-aaca990ab074"
+                      LastKnownName="DBConnect"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e173604e-bd61-4c05-8452-1fd1092120c1"
+                  name="adminform"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2302efa7-41a0-4d88-962e-5b520484cd09"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin Type%3DAdminForm)]) ParameterIdentifier%3Dadminform"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9213e803-07f9-43dd-91e7-e3df672e1710"
+                      LastKnownName="AdminForm"
+                      LastKnownLocation="Package_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f44fd011-4790-4120-859f-d3b13db5659d"
+            name="refreshList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e3e82593-0c72-49dd-b88e-ea8a0b94cd83"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3DrefreshList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="74dc0dc8-25e7-4fbd-a7e2-4549515b0681"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a865a3a3-d7e9-4bb8-8fde-0bfb6a9bdb7e">
+                    <propertyInstance
+                      Id="76868425-0f27-4041-bb1b-7e907c0c6928"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="075cd7b6-c04b-40c4-921d-395cf705312f">
+                    <propertyInstance
+                      Id="7206c020-83ec-42d0-bbb0-e0f692ace0cc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b13927f4-a89e-4424-a681-b961d6b0371c">
+                    <propertyInstance
+                      Id="f31ed243-b4f2-4ea0-9771-171d4c3232b8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e7123d5-1847-4b14-8ab0-b4a458add51f">
+                    <propertyInstance
+                      Id="1acad174-bd1d-4c8b-95b4-7382a46631bd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="03bc3b88-b0a0-4f05-b3f5-eee10e48ae46">
+                    <propertyInstance
+                      Id="42db58d1-c58c-407d-99b9-652dcfd5dc55"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e776b525-d38b-4c18-a617-7127529db1bf">
+                    <propertyInstance
+                      Id="8bac6af6-4ba0-41b0-b607-7e87068be124"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="51de83fa-c108-424b-87d7-31c635547190"
+            name="userDataGridView_CellClick"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="b8e8ca00-cf55-4a6f-9eca-93a4c37020ae"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3DuserDataGridView_CellClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DDataGridViewCellEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bbb12e39-4394-4e63-8499-8dcde2c3fae5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32dc80db-c101-4a4d-aab6-4efa26f93524">
+                    <propertyInstance
+                      Id="f72a971f-57c3-418e-a94e-0b36c99d08a5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="97424233-d151-4514-bd50-807da9272e5f">
+                    <propertyInstance
+                      Id="c3a549d6-48ff-4457-a431-7166725b6273"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="165bea5d-3d85-41cd-8767-5d799dedb888">
+                    <propertyInstance
+                      Id="da586484-a805-4a19-aeb8-0dd390cae882"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ac395f4-f847-44c5-b87a-d49305e6b6ba">
+                    <propertyInstance
+                      Id="d101cc23-34b1-429c-b2b2-dd3b2748806d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3db44768-ca0a-49cf-8aa0-e37d595c4a65">
+                    <propertyInstance
+                      Id="c020fa65-9678-4d13-9db7-9f775a21267d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48b62b6c-01de-4c43-9bb5-624d61863ce1">
+                    <propertyInstance
+                      Id="fe348d8b-1978-4b5f-85cc-791e198b13d2"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="490ce60d-882c-480b-93b7-ef0c43ba4d66"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="01db9140-2838-4c5d-b0ff-c6132eaea022"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3DuserDataGridView_CellClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DDataGridViewCellEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ea67ebd7-3134-4410-a13d-e94780f08076"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="793ddb15-beda-4c03-abac-b15c582accaa"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3DuserDataGridView_CellClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DDataGridViewCellEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="a8b3e721-b236-4c2c-9460-cca169aed752"
+                      LastKnownName="DataGridViewCellEventArgs"
+                      LastKnownLocation="Package4_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7719450c-d4c8-4a3a-8cee-d34dd03dcb69"
+            name="Dispose"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="852c4fd8-6c0c-40b1-8ce2-cd6dce27f1ee"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4348958b-ed88-4ede-bf8d-5652c6d69697"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b626039-a24c-40c2-b5a2-8b57585fe3af">
+                    <propertyInstance
+                      Id="efddb8a5-c246-423f-9448-22d1ad97cbe5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e64b5bd1-a4d4-4ae9-802a-ea0f524562d7">
+                    <propertyInstance
+                      Id="407cddd7-8bc2-4a07-8385-0d3a6574857c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b734fa14-f529-43a3-a8af-1d0f1beb08e4">
+                    <propertyInstance
+                      Id="344fc05d-a444-451f-8a32-2dadc85b7105"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7006b5e5-0f23-4c5a-b6a2-796289fac674">
+                    <propertyInstance
+                      Id="4890fc96-8fdb-4c61-baf9-3af9d5abbb27"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8515c457-0f91-48c2-a722-9da50764a3fa">
+                    <propertyInstance
+                      Id="f95fbad6-aebe-48ca-8943-1260719435af"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c214fce8-4a2c-4134-9f84-67360e1da775">
+                    <propertyInstance
+                      Id="fad59c5a-0496-4f56-a791-948cd3ff4a54"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="781b2453-55e4-4525-9478-6bede5c826ae"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5a092723-6b09-4840-b9b5-ab90b13d12c8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ba150165-68c1-446e-813f-cbe4e8c8837c"
+            name="InitializeComponent"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="332d4864-7ae9-4d5f-978d-bf6fd978bb6b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.Panels Type%3DUserAdminPanel Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8a80f596-18b3-431f-bd03-b6749ff4283c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc450aba-cde6-4085-bc49-c9719e7d8439">
+                    <propertyInstance
+                      Id="455df68f-eac3-462f-8bc1-e3c5ee354cfa"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d5679b9-47ad-4e08-b282-b824c2aa90da">
+                    <propertyInstance
+                      Id="dfdcce72-46e1-4212-b664-25e255d91a0b"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50ea4799-d81d-4735-b4d6-f4e6318460d7">
+                    <propertyInstance
+                      Id="e4905b28-ddf1-49b7-b2db-8dcb9dd38ed8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1eb388ef-238f-49af-9bc6-4090ce6098c4">
+                    <propertyInstance
+                      Id="776e00da-4009-4f2e-8876-6a4b4d35c55d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="77997b11-d7cb-41d4-9904-88f655c2fe66">
+                    <propertyInstance
+                      Id="814a008e-b7df-4a58-ae63-5be5b016c6b4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94f69ddf-a6af-4d1b-8758-82a37ae76502">
+                    <propertyInstance
+                      Id="cb627691-b4cc-4b88-826c-e1efef836ca7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
