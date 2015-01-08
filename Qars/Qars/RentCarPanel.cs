@@ -178,7 +178,7 @@ namespace Qars
                 else
                 {
                     emailLabel.ForeColor = Color.Red;
-                    MessageBox.Show("Uw emailadres is niet correct!");
+                    MessageBox.Show("Er ging iets fout. Controleer de gegevens in het rood.");
                     return false;
                 }
             }

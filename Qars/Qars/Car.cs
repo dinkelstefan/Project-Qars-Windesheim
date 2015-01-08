@@ -43,6 +43,7 @@ namespace Qars
         public int Fuelusage { get; set; }
         public string motor { get; set; }
         public List<CarPhoto> PhotoList { get; set; }
+        public string LicensePlate { get; set; }
 
         public Car()
         {

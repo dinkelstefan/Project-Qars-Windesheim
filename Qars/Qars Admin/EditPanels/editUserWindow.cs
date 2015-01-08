@@ -41,7 +41,7 @@ namespace Qars_Admin.EditPanels
             foreach (Establishment est in establishmentList)
             {
                 establishmentComboBox.Items.Add(est.name);
-                if (user.Esthablishment == est.establishmentID)
+                if (user.Establishment == est.establishmentID)
                 {
                         establishmentComboBox.SelectedIndex = i;
                 }
@@ -68,7 +68,7 @@ namespace Qars_Admin.EditPanels
             user.streetnumbersuffix = streetnumberSuffixTextBox.Text;
             user.phonenumber = phonenumberTextBox.Text;
             user.emailaddress = emailadresTextBox.Text;
-            user.Esthablishment = establishmentComboBox.SelectedIndex + 1;
+            user.Establishment = establishmentComboBox.SelectedIndex + 1;
 
             return user;
         }
