@@ -30,6 +30,7 @@
         {
             this.searchWizardTabControl = new System.Windows.Forms.TabControl();
             this.searchTabpage1 = new System.Windows.Forms.TabPage();
+            this.NoneRadioButton = new System.Windows.Forms.RadioButton();
             this.countCarLabel1 = new System.Windows.Forms.Label();
             this.nextButton1 = new System.Windows.Forms.Button();
             this.searchButton1 = new System.Windows.Forms.Button();
@@ -80,7 +81,6 @@
             this.cruiseControlCheckBox = new System.Windows.Forms.CheckBox();
             this.bluetoothCheckBox = new System.Windows.Forms.CheckBox();
             this.question5Label = new System.Windows.Forms.Label();
-            this.NoneRadioButton = new System.Windows.Forms.RadioButton();
             this.searchWizardTabControl.SuspendLayout();
             this.searchTabpage1.SuspendLayout();
             this.searchTabpage2.SuspendLayout();
@@ -125,6 +125,22 @@
             this.searchTabpage1.Size = new System.Drawing.Size(240, 538);
             this.searchTabpage1.TabIndex = 0;
             this.searchTabpage1.Text = "Vraag 1";
+            this.searchTabpage1.Click += new System.EventHandler(this.searchTabpage1_Click);
+            // 
+            // NoneRadioButton
+            // 
+            this.NoneRadioButton.AutoSize = true;
+            this.NoneRadioButton.Checked = true;
+            this.NoneRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoneRadioButton.Location = new System.Drawing.Point(29, 340);
+            this.NoneRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.NoneRadioButton.Name = "NoneRadioButton";
+            this.NoneRadioButton.Size = new System.Drawing.Size(134, 27);
+            this.NoneRadioButton.TabIndex = 14;
+            this.NoneRadioButton.TabStop = true;
+            this.NoneRadioButton.Text = "Maakt niet uit";
+            this.NoneRadioButton.UseVisualStyleBackColor = true;
+            this.NoneRadioButton.CheckedChanged += new System.EventHandler(this.selectCarType);
             // 
             // countCarLabel1
             // 
@@ -780,21 +796,6 @@
             this.question5Label.TabIndex = 3;
             this.question5Label.Text = "Welke extra\'s moeten er op de auto zitten?";
             // 
-            // NoneRadioButton
-            // 
-            this.NoneRadioButton.AutoSize = true;
-            this.NoneRadioButton.Checked = true;
-            this.NoneRadioButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoneRadioButton.Location = new System.Drawing.Point(29, 340);
-            this.NoneRadioButton.Margin = new System.Windows.Forms.Padding(2);
-            this.NoneRadioButton.Name = "NoneRadioButton";
-            this.NoneRadioButton.Size = new System.Drawing.Size(134, 27);
-            this.NoneRadioButton.TabIndex = 14;
-            this.NoneRadioButton.TabStop = true;
-            this.NoneRadioButton.Text = "Maakt niet uit";
-            this.NoneRadioButton.UseVisualStyleBackColor = true;
-            this.NoneRadioButton.CheckedChanged += new System.EventHandler(this.selectCarType);
-            // 
             // searchWizard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -867,11 +868,11 @@
         private System.Windows.Forms.Button previousButton3;
         private System.Windows.Forms.Button previousButton4;
         private System.Windows.Forms.Label countCarLabel2;
-        private System.Windows.Forms.Label countCarLabel1;
         private System.Windows.Forms.Label countCarLabel3;
         private System.Windows.Forms.Label countCarLabel4;
         private System.Windows.Forms.Label countCarLabel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton NoneRadioButton;
+        public System.Windows.Forms.Label countCarLabel1;
     }
 }

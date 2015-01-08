@@ -531,6 +531,7 @@ namespace Qars
                     newDiscount.carID = SafeGetInt(dataReader, 1);
                     newDiscount.percentage = SafeGetInt(dataReader, 2);
                     newDiscount.validation = SafeGetString(dataReader, 3);
+                    newDiscount.KMPercentage = SafeGetInt(dataReader, 4);
 
                     localDiscountList.Add(newDiscount);
                 }

@@ -12,5 +12,6 @@ namespace Qars
         public int discountID;
         public int percentage;
         public string validation;
+        public int KMPercentage;
     }
 }

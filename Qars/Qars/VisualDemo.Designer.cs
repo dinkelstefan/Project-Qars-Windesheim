@@ -209,6 +209,7 @@
             this.TileView.Name = "TileView";
             this.TileView.Size = new System.Drawing.Size(1015, 568);
             this.TileView.TabIndex = 12;
+            this.TileView.Paint += new System.Windows.Forms.PaintEventHandler(this.TileView_Paint);
             // 
             // button2
             // 
@@ -219,6 +220,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Toon alles";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.showAllCars);
             // 
             // VisualDemo
@@ -266,10 +268,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel TileView;
         private Views.searchWizard searchWizard;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button LogInOrRegisterButton;
         private System.Windows.Forms.Button LogOutButton;
+        public System.Windows.Forms.Button button2;
 
     }
 }

@@ -129,7 +129,11 @@ namespace Qars
             if(discount != null)
             {
                 e.Graphics.FillRectangle(new SolidBrush(Color.Green), new Rectangle(0, 120, 150, 30));
-                e.Graphics.DrawString(discount.percentage + "% korting!", new Font("Aharoni", 15, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 130f);
+
+                if(discount.percentage > discount.KMPercentage)
+                    e.Graphics.DrawString("Tot " + discount.percentage + "% korting!", new Font("Aharoni", 15, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 130f);
+                else
+                    e.Graphics.DrawString("Tot " + discount.KMPercentage + "% korting!", new Font("Aharoni", 15, FontStyle.Bold), new SolidBrush(Color.Black), 0f, 130f);
             }
         }
 

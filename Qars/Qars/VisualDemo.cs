@@ -128,7 +128,7 @@ namespace Qars
             {
                 foreach (Car c in compareList)
                 {
-                    label3.Text += c.brand + " | ";
+                    label3.Text += c.brand + " " + c.model + "" + " | ";
                 }
             }
         }
@@ -145,12 +145,12 @@ namespace Qars
                     if(match != null)
                     {
                         discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
-                        discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.percentage / 100))); 
+                        discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.KMPercentage / 100))); 
                     }
                     else
                     {
                         discountPrices.Add(car.startprice);
-                        discountPrices.Add(car.startprice);
+                        discountPrices.Add(car.rentalprice);
                     }
                 }
             
@@ -222,6 +222,13 @@ namespace Qars
             carList = db.SelectCar();
             totalCarList = carList;
             updateTileView();
+            compareList.Clear();
+            discountList.Clear();
+            label3.Text = "";
+            button1.Visible = false;
+            button2.Visible = false;
+            searchWizard.filteredList.Clear();
+            searchWizard.countCarLabel1.Text = "Aantal gevonden auto's: ";
         }
 
         private void LogInOrRegisterButton_Click(object sender, EventArgs e)
@@ -246,6 +253,11 @@ namespace Qars
                 this.userID = 0;
                 ChangeAccountDetails(userID);
             }
+        }
+
+        private void TileView_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

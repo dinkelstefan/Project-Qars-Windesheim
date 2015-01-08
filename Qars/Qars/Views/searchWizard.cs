@@ -64,6 +64,7 @@ namespace Qars.Views
             {
                 Console.WriteLine("-----------Zoek resultaat-----------------");
                 printList(filteredList);
+                this.qarsApplication.button2.Visible = true;
             }
             else
             {
@@ -71,6 +72,7 @@ namespace Qars.Views
                 Console.WriteLine("-----------Toon alles----------------");
                 printList(copyList);
                 Console.WriteLine("-------------------------------------------");
+                this.qarsApplication.button2.Visible = false;
             }
 
             if (filteredList.Count > 0)
@@ -334,6 +336,11 @@ namespace Qars.Views
             {
                 Console.WriteLine(car.ToString());
             }
+        }
+
+        private void searchTabpage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
