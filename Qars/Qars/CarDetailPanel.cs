@@ -87,54 +87,55 @@ namespace Qars
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
             CreateSpecInfo(this.qarsApplication.carList, carNumber);
 
-
-
-            //look up if the car is available
-            foreach (var res in this.qarsApplication.reservationList)
+            List<Reservation> ReservationList = new DBConnect().SelectReservation(); //Get the most recent list
+            List<User> UserList = new DBConnect().SelectUsers(); //Get the most recent list
+            List<Reservation> tempReservationList = new List<Reservation>();
+            bool carhasReservation = false;
+            foreach (var res in ReservationList)
             {
-                bool reservationEntryFound = false;
-                if (reservationEntryFound == false)
+                if (res.carID == carNumber)
                 {
-
-                    if (!this.qarsApplication.carList[carNumber].available)
+                    carhasReservation = true;
+                    tempReservationList.Add(res);
+                }
+            }
+            if (carhasReservation)
+            {
+                foreach (var item in tempReservationList)
+                {
+                    TimeSpan tisp = Convert.ToDateTime(item.enddate) - Convert.ToDateTime(item.startdate);
+                    int differenceindays = tisp.Days;
+                    for (int i = 0; i <= differenceindays; i++)
                     {
-                        if (res.carID == carNumber)
+                        if (Convert.ToDateTime(item.startdate).AddDays(i) == DateTime.Today)
                         {
-                            reservationEntryFound = true;
-                            hire.BackColor = Color.Orange;
                             hire.Text = "Verhuurd";
+                            hire.BackColor = Color.Orange;
+                            break;
                         }
                     }
                 }
-                else
-                {
-                    break;
-                }
+
+
                 //look up if the car is being repaired
                 foreach (var rep in this.qarsApplication.damageList)
                 {
-                    bool damageEntryFound = false;
-                    if (damageEntryFound == false)
+
+                    if (rep.carID == carNumber && rep.repaired == false)
                     {
-                        if (rep.carID == carNumber && rep.repaired == false)
+                        if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
                         {
-                            if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
-                            {
-                                hire.Text = "Reparatie";
-                            }
-                            else
-                            {
-                                hire.Text = "Niet beschikbaar";
-                            }
-                            hire.BackColor = Color.Red;
-                            hire.Enabled = false;
+                            hire.Text = "Reparatie";
                         }
-                    }
-                    else
-                    {
-                        break;
+                        else
+                        {
+                            hire.Text = "Niet beschikbaar";
+                        }
+                        hire.BackColor = Color.Red;
+                        hire.Enabled = false;
                     }
                 }
+
 
                 //Create the small pictures
                 int left = 22;

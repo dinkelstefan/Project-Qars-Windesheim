@@ -36,7 +36,7 @@ namespace Qars_Admin.Panels
 
             foreach (User user in userList)
             {
-                if (user.Esthablishment == adminForm.currentUser.Esthablishment || adminForm.currentUser.accountLevel == 4)
+                if (user.Establishment == adminForm.currentUser.Establishment || adminForm.currentUser.accountLevel == 4)
                 {
                     simpleUserList.Add(new simpleUser(user.UserID, user.accountLevel, user.username, user.firstname, user.lastname, user.city, user.phonenumber, user.emailaddress));
                 }

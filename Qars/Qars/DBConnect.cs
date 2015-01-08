@@ -97,6 +97,7 @@ namespace Qars
                 // check if username exsists
                 if (username == user.username)
                 {
+
                     // check if password is correct
                     if (password == user.password)
                     {
@@ -111,8 +112,7 @@ namespace Qars
                 }
             }
             return incorrectUser;
-        }
-
+        } //Hash this thing like the LogInUser thingy does it
         public int LogInUser(string username, string password)
         {
             int userID = 0;
@@ -393,7 +393,7 @@ namespace Qars
                     newUser.phonenumber = SafeGetString(dataReader, 12);
                     newUser.emailaddress = SafeGetString(dataReader, 13);
                     newUser.driverslicenselink = SafeGetString(dataReader, 14);
-                    newUser.Esthablishment = SafeGetInt(dataReader, 15);
+                    newUser.Establishment = SafeGetInt(dataReader, 15);
 
                     localUserList.Add(newUser);
                 }
@@ -410,14 +410,31 @@ namespace Qars
         }
         public void UpdateUser(User user)
         {
+
             string query = "Update User ";
-            query += string.Format("Set AccountLevel={0}, Username='{1}', Password='{2}',Firstname='{3}', Lastname='{4}',Age={5},Postalcode='{6}',City='{7}', Streetname='{8}', Streetnumber={9}, Streetnumbersuffix='{10}', Phonenumber='{11}', Emailaddress='{12}', Driverslicencelink='{13}', Establishment={14} ", user.accountLevel, user.username, user.password, user.firstname, user.lastname, user.age, user.postalcode, user.city, user.streetname, user.streetnumber, user.streetnumbersuffix, user.phonenumber, user.emailaddress, user.driverslicenselink, user.Esthablishment);
-            query += string.Format("Where UserID = {0} ", user.UserID);
+            query += string.Format("Set AccountLevel=@accountlevel, Username='@username', Password='@password',Firstname='@firstname', Lastname='@lastname',Age=@age,Postalcode='@postalcode',City='@city', Streetname='@streetname', Streetnumber=@streetnumber, Streetnumbersuffix='@streetnumbersuffix', Phonenumber='@phonenumber', Emailaddress='@emailaddress', Driverslicencelink='@driverslicenselink', Establishment=@establishment");
+            query += string.Format("Where UserID = @userID");
 
             Console.WriteLine(query);
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@userID", SafeInsertInt(user.UserID));
+                cmd.Parameters.AddWithValue("@accountlevel", SafeInsertInt(user.accountLevel));
+                cmd.Parameters.AddWithValue("@username", SafeInsertString(user.username));
+                cmd.Parameters.AddWithValue("@password", SafeInsertString(PasswordHash.CreateHash(user.password)));
+                cmd.Parameters.AddWithValue("@firstname", SafeInsertString(user.firstname));
+                cmd.Parameters.AddWithValue("@lastname", SafeInsertString(user.lastname));
+                cmd.Parameters.AddWithValue("@age", SafeInsertInt(user.age));
+                cmd.Parameters.AddWithValue("@postalcode", SafeInsertString(user.postalcode));
+                cmd.Parameters.AddWithValue("@city", SafeInsertString(user.city));
+                cmd.Parameters.AddWithValue("@streetname", SafeInsertString(user.streetname));
+                cmd.Parameters.AddWithValue("@streetnumber", user.streetnumber);
+                cmd.Parameters.AddWithValue("@streetnumbersuffix", user.streetnumbersuffix);
+                cmd.Parameters.AddWithValue("@phonenumber", SafeInsertString(user.phonenumber));
+                cmd.Parameters.AddWithValue("@emailaddress", SafeInsertString(user.emailaddress));
+                cmd.Parameters.AddWithValue("@driverslicenselink", SafeInsertString(user.driverslicenselink));
+                cmd.Parameters.AddWithValue("@establishment", SafeInsertInt(user.Establishment)); //Isn't this a foreign key? Edit Database model!
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
@@ -439,7 +456,7 @@ namespace Qars
                 MySqlTransaction transaction = connection.BeginTransaction();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                ReservationID = (Int32)cmd.ExecuteScalar();
+                ReservationID = Convert.ToInt32(cmd.ExecuteScalar());
 
 
                 ReservationID++;
@@ -449,19 +466,19 @@ namespace Qars
                 int convertPaidtoInt = 0;
                 cmd.CommandText = query2;
 
-                cmd.Parameters.AddWithValue("@reservationid", ReservationID);
-                cmd.Parameters.AddWithValue("@carid", reservation.carID);
-                cmd.Parameters.AddWithValue("@UserID", reservation.UserID);
-                cmd.Parameters.AddWithValue("@startdate", reservation.startdate);
-                cmd.Parameters.AddWithValue("@enddate", reservation.enddate);
-                cmd.Parameters.AddWithValue("@confirmed", convertConfirmedToInt);
-                cmd.Parameters.AddWithValue("@Kilometres", reservation.kilometres);
-                cmd.Parameters.AddWithValue("@pickupcity", reservation.pickupcity);
-                cmd.Parameters.AddWithValue("@pickupstreetname", reservation.pickupstreetname);
-                cmd.Parameters.AddWithValue("@pickupnumber", reservation.pickupstreetnumber);
-                cmd.Parameters.AddWithValue("@pickupnumbersuffix", reservation.pickupstreetnumbersuffix);
-                cmd.Parameters.AddWithValue("@paid", convertPaidtoInt);
-                cmd.Parameters.AddWithValue("@comment", reservation.comment);
+                cmd.Parameters.AddWithValue("@reservationid", SafeInsertInt(reservation.reservationID));
+                cmd.Parameters.AddWithValue("@carid", SafeInsertInt(reservation.carID));
+                cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(reservation.UserID));
+                cmd.Parameters.AddWithValue("@startdate", SafeInsertString(reservation.startdate));
+                cmd.Parameters.AddWithValue("@enddate", SafeInsertString(reservation.enddate));
+                cmd.Parameters.AddWithValue("@confirmed", SafeInsertInt(convertConfirmedToInt));
+                cmd.Parameters.AddWithValue("@Kilometres", SafeInsertInt(reservation.kilometres));
+                cmd.Parameters.AddWithValue("@pickupcity", SafeInsertString(reservation.pickupcity));
+                cmd.Parameters.AddWithValue("@pickupstreetname", SafeInsertString(reservation.pickupstreetname));
+                cmd.Parameters.AddWithValue("@pickupnumber", SafeInsertInt(reservation.pickupstreetnumber));
+                cmd.Parameters.AddWithValue("@pickupnumbersuffix", SafeInsertString(reservation.pickupstreetnumbersuffix));
+                cmd.Parameters.AddWithValue("@paid", SafeInsertInt(convertPaidtoInt));
+                cmd.Parameters.AddWithValue("@comment", SafeInsertString(reservation.comment));
 
                 result = cmd.ExecuteNonQuery();
                 transaction.Commit();
@@ -484,7 +501,6 @@ namespace Qars
             {
                 CloseConnection();
             }
-
         }
         public bool InsertCustomer(User customer)
         {
@@ -531,7 +547,6 @@ namespace Qars
 
             catch (Exception e)
             {
-                MessageBox.Show("Fout! " + e);
                 return false;
             }
             finally
@@ -545,10 +560,10 @@ namespace Qars
 
 
         }
-        public bool InsertCar(Car car)
+        public bool InsertCar(Car car) //Create LicensePlate input field in the form!
         {
             Console.WriteLine(car.brand);
-            bool succes = false;
+            int queryresult = 0;
             try
             {
                 if (connection.State != ConnectionState.Open)
@@ -559,53 +574,62 @@ namespace Qars
                 string query = "Select max(CarID) From Car";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                int maxCarId = (Int32)cmd.ExecuteScalar();
+                int maxCarId = Convert.ToInt32(cmd.ExecuteScalar());
                 maxCarId++;
 
-                query = "INSERT INTO Car(CarID, EstablishmentID, Brand, Model, Category, Modelyear, Automatic, Kilometers, Colour, Doors, Stereo, Bluetooth, HorsePower, Length, Width, Height, Weight, Navigation, Cruisecontrol, Parkingassist, 4WD, Cabrio, Airco, Seats, MOTDate, Storagespace, Gearsamount, Motor, Fuelusage, Startprice, Rentalprice, Sellingprice, Available, Description)";
-                query += "Values(@maxCarId,1,@brand, @model, @category, @modelyear, @automatic, @kilometers, @color, @door,@stereo,@bluetooth,@horsepower,@length,@width,@height,@weight,@navigation,@cruisecontrol,@parkingassist,@4wd,@cabrio,@airco,@seats,@motd,@storagespace,@gearsamount,@motor,@fuelusage,@startprice,@rentalprice,@sellingprice,@available,@description); ";
+                query = "INSERT INTO Car(CarID, EstablishmentID, Brand, Model, Category, Modelyear, Automatic, Kilometers, Colour, Doors, Stereo, Bluetooth, HorsePower, Length, Width, Height, Weight, Navigation, Cruisecontrol, Parkingassist, 4WD, Cabrio, Airco, Seats, MOTDate, Storagespace, Gearsamount, Motor, Fuelusage, Startprice, Rentalprice, Sellingprice, Available, Description, LicensePlate)";
+                query += "Values(@maxCarId,@establishmentID,@brand, @model, @category, @modelyear, @automatic, @kilometers, @color, @door,@stereo,@bluetooth,@horsepower,@length,@width,@height,@weight,@navigation,@cruisecontrol,@parkingassist,@4wd,@cabrio,@airco,@seats,@motd,@storagespace,@gearsamount,@motor,@fuelusage,@startprice,@rentalprice,@sellingprice,@available,@description, @licenseplate); ";
 
                 cmd.CommandText = query;
 
-                cmd.Parameters.AddWithValue("@maxCarId", maxCarId);
-                cmd.Parameters.AddWithValue("@brand", car.brand);
-                cmd.Parameters.AddWithValue("@model", car.model);
-                cmd.Parameters.AddWithValue("@category", car.category);
-                cmd.Parameters.AddWithValue("@modelyear", car.modelyear);
+                cmd.Parameters.AddWithValue("@maxCarId", SafeInsertInt(maxCarId));
+                cmd.Parameters.AddWithValue("@establishmentID", SafeInsertInt(1)); //Why is there no car.establishmentID link or something??
+                cmd.Parameters.AddWithValue("@brand", SafeInsertString(car.brand));
+                cmd.Parameters.AddWithValue("@model", SafeInsertString(car.model));
+                cmd.Parameters.AddWithValue("@category", SafeInsertString(car.category));
+                cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
                 cmd.Parameters.AddWithValue("@automatic", car.automatic);
-                cmd.Parameters.AddWithValue("@kilometers", car.kilometres);
-                cmd.Parameters.AddWithValue("@color", car.colour);
-                cmd.Parameters.AddWithValue("@door", car.doors);
+                cmd.Parameters.AddWithValue("@kilometers", SafeInsertInt(car.kilometres));
+                cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
+                cmd.Parameters.AddWithValue("@door", SafeInsertInt(car.doors));
                 cmd.Parameters.AddWithValue("@stereo", car.stereo);
                 cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
-                cmd.Parameters.AddWithValue("@horsepower", car.horsepower);
-                cmd.Parameters.AddWithValue("@length", car.length);
-                cmd.Parameters.AddWithValue("@width", car.width);
-                cmd.Parameters.AddWithValue("@height", car.height);
-                cmd.Parameters.AddWithValue("@weight", car.weight);
+                cmd.Parameters.AddWithValue("@horsepower", SafeInsertDouble(car.horsepower));
+                cmd.Parameters.AddWithValue("@length", SafeInsertInt(car.length));
+                cmd.Parameters.AddWithValue("@width", SafeInsertInt(car.width));
+                cmd.Parameters.AddWithValue("@height", SafeInsertInt(car.height));
+                cmd.Parameters.AddWithValue("@weight", SafeInsertInt(car.weight));
                 cmd.Parameters.AddWithValue("@navigation", car.navigation);
                 cmd.Parameters.AddWithValue("@cruisecontrol", car.cruisecontrol);
                 cmd.Parameters.AddWithValue("@parkingassist", car.parkingAssist);
                 cmd.Parameters.AddWithValue("@4wd", car.fourwheeldrive);
                 cmd.Parameters.AddWithValue("@cabrio", car.cabrio);
-                cmd.Parameters.AddWithValue("@motd", car.motdate);
-                cmd.Parameters.AddWithValue("@seats", car.seats);
-                cmd.Parameters.AddWithValue("@storagespace", car.storagespace);
-                cmd.Parameters.AddWithValue("@gearsamount", car.gearsamount);
-                cmd.Parameters.AddWithValue("@motor", car.motor);
-                cmd.Parameters.AddWithValue("@fuelusage", car.fuelusage);
-                cmd.Parameters.AddWithValue("@startprice", car.startprice);
-                cmd.Parameters.AddWithValue("@sellingprice", car.sellingprice);
-                cmd.Parameters.AddWithValue("@rentalprice", car.rentalprice);
+                cmd.Parameters.AddWithValue("@motd", SafeInsertString(car.motdate));
+                cmd.Parameters.AddWithValue("@seats", SafeInsertInt(car.seats));
+                cmd.Parameters.AddWithValue("@storagespace", SafeInsertDouble(car.storagespace));
+                cmd.Parameters.AddWithValue("@gearsamount", SafeInsertInt(car.gearsamount));
+                cmd.Parameters.AddWithValue("@motor", SafeInsertString(car.motor));
+                cmd.Parameters.AddWithValue("@fuelusage", SafeInsertInt(car.fuelusage));
+                cmd.Parameters.AddWithValue("@startprice", SafeInsertDouble(car.startprice));
+                cmd.Parameters.AddWithValue("@sellingprice", SafeInsertDouble(car.sellingprice));
+                cmd.Parameters.AddWithValue("@rentalprice", SafeInsertDouble(car.rentalprice));
                 cmd.Parameters.AddWithValue("@available", car.available);
-                cmd.Parameters.AddWithValue("@description", car.description);
+                cmd.Parameters.AddWithValue("@description", SafeInsertString(car.description));
                 cmd.Parameters.AddWithValue("@airco", car.airco);
+                cmd.Parameters.AddWithValue("@licenseplate", SafeInsertString(car.LicensePlate)); //Create Licenseplate Label and textbox! 
 
 
-                cmd.ExecuteNonQuery();
+                queryresult = cmd.ExecuteNonQuery();
                 transaction.Commit();
                 MessageBox.Show("De auto is toegevoegd.");
-                succes = true;
+                if (queryresult > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception w)
             {
@@ -615,11 +639,9 @@ namespace Qars
             {
                 CloseConnection();
             }
-
-            return succes;
+            return false;
         }
 
-        //Check if there are discounts
         public List<Discount> CheckDiscounts()
         {
             string query = " SELECT * FROM Discount ";
@@ -654,13 +676,25 @@ namespace Qars
         public void UpdateReservation(Reservation reservation)
         {
             string query = "Update Reservation ";
-            query += string.Format("SET Startdate='{0}',Enddate='{1}', Confirmed={2}, Kilometres={3}, Pickupcity='{4}', Pickupstreetname='{5}', Pickupstreetnumber={6}, Pickupstreetnumbersuffix='{7}', Paid={8}, Comment='{9}' ", reservation.startdate, reservation.enddate, reservation.confirmed, reservation.kilometres, reservation.pickupcity, reservation.pickupstreetname, reservation.pickupstreetnumber, reservation.pickupstreetnumbersuffix, reservation.paid, reservation.comment);
-            query += string.Format("Where ReservationID = " + reservation.reservationID);
+            query += string.Format("SET Startdate='@startdate',Enddate='@enddate', Confirmed=@confirmed, Kilometres=@kilometres, Pickupcity='@pickupcity', Pickupstreetname='@pickupstreetname', Pickupstreetnumber=@pickupstreetnumber, Pickupstreetnumbersuffix='@pickupstreetnumbersuffix', Paid=@paid, Comment='@comment' ");
+            query += string.Format("Where ReservationID = @resID");
 
             Console.WriteLine(query);
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@startdate", SafeInsertString(reservation.startdate));
+                cmd.Parameters.AddWithValue("@enddate", SafeInsertString(reservation.enddate));
+                cmd.Parameters.AddWithValue("@confirmed", reservation.confirmed);
+                cmd.Parameters.AddWithValue("@kilometres", SafeInsertInt(reservation.kilometres));
+                cmd.Parameters.AddWithValue("@pickupcity", SafeInsertString(reservation.pickupcity));
+                cmd.Parameters.AddWithValue("@pickupstreetname", SafeInsertString(reservation.pickupstreetname));
+                cmd.Parameters.AddWithValue("@pickupstreetnumber", SafeInsertInt(reservation.pickupstreetnumber));
+                cmd.Parameters.AddWithValue("@pickupstreetnumbersuffix", SafeInsertString(reservation.pickupstreetnumbersuffix));
+                cmd.Parameters.AddWithValue("@paid", reservation.paid);
+                cmd.Parameters.AddWithValue("@comment", SafeInsertString(reservation.comment));
+                cmd.Parameters.AddWithValue("@resID", SafeInsertInt(reservation.reservationID));
+
                 Console.WriteLine(cmd.CommandText);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
@@ -669,11 +703,12 @@ namespace Qars
         public void DeleteReservation(Reservation reservation)
         {
             string query = "DELETE FROM Reservation ";
-            query += string.Format("WHERE ReservationID = {0}", reservation.reservationID);
+            query += string.Format("WHERE ReservationID = @reservationID");
 
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@reservationID", SafeInsertInt(reservation.reservationID));
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
@@ -681,8 +716,8 @@ namespace Qars
         public void UpdateCar(Car car)
         {
             string query = "Update Car ";
-            query += string.Format("SET EstablishmentID={0},Brand='{1}', Model='{2}', Category='{3}', Modelyear={4}, Automatic={5}, Kilometers={6}, Colour='{7}', Doors={8}, Stereo={9}, Bluetooth={10}, Horsepower={11}, Length={12}, Width={13}, Height={14}, Weight={15}, Navigation={16}, Cruisecontrol={17}, Parkingassist={18}, 4WD={19}, Cabrio={20}, Airco={21}, Seats={22}, MOTDate='{23}', Storagespace={24}, Gearsamount={25}, Motor='{26}', Fuelusage={27}, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available={28}, Description=@discription ", car.establishmentID, car.brand, car.model, car.category, car.modelyear, car.automatic, car.kilometres, car.colour, car.doors, car.stereo, car.bluetooth, car.horsepower, car.length, car.width, car.height, car.weight, car.navigation, car.cruisecontrol, car.parkingAssist, car.fourwheeldrive, car.cabrio, car.airco, car.seats, car.motdate, car.storagespace, car.gearsamount, car.motor, car.fuelusage, car.available);
-            query += string.Format("Where carID = " + car.carID);
+            query += string.Format("SET EstablishmentID=@establishmentID,Brand='@brand', Model='@model', Category='@category', Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometres, Colour='@colour', Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate='@motd', Storagespace=@storagespace, Gearsamount=@gearsamount, Motor='@motor', Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description='@description', LicensePlate='@licenseplate");
+            query += string.Format("Where carID = @carid");
 
             try
             {
@@ -691,10 +726,41 @@ namespace Qars
                 {
                     MySqlTransaction transaction = connection.BeginTransaction();
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("discription", car.description);
-                    cmd.Parameters.AddWithValue("startprice", car.startprice);
-                    cmd.Parameters.AddWithValue("rentalprice", car.rentalprice);
-                    cmd.Parameters.AddWithValue("sellingprice", car.sellingprice);
+                    cmd.Parameters.AddWithValue("@carid", SafeInsertInt(car.carID));
+                    cmd.Parameters.AddWithValue("@establishmentID", SafeInsertInt(car.establishmentID));
+                    cmd.Parameters.AddWithValue("@brand", SafeInsertString(car.brand));
+                    cmd.Parameters.AddWithValue("@model", SafeInsertString(car.model));
+                    cmd.Parameters.AddWithValue("@category", SafeInsertString(car.category));
+                    cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
+                    cmd.Parameters.AddWithValue("@automatic", car.automatic);
+                    cmd.Parameters.AddWithValue("@kilometers", SafeInsertInt(car.kilometres));
+                    cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
+                    cmd.Parameters.AddWithValue("@door", SafeInsertInt(car.doors));
+                    cmd.Parameters.AddWithValue("@stereo", car.stereo);
+                    cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
+                    cmd.Parameters.AddWithValue("@horsepower", SafeInsertDouble(car.horsepower));
+                    cmd.Parameters.AddWithValue("@length", SafeInsertInt(car.length));
+                    cmd.Parameters.AddWithValue("@width", SafeInsertInt(car.width));
+                    cmd.Parameters.AddWithValue("@height", SafeInsertInt(car.height));
+                    cmd.Parameters.AddWithValue("@weight", SafeInsertInt(car.weight));
+                    cmd.Parameters.AddWithValue("@navigation", car.navigation);
+                    cmd.Parameters.AddWithValue("@cruisecontrol", car.cruisecontrol);
+                    cmd.Parameters.AddWithValue("@parkingassist", car.parkingAssist);
+                    cmd.Parameters.AddWithValue("@4wd", car.fourwheeldrive);
+                    cmd.Parameters.AddWithValue("@cabrio", car.cabrio);
+                    cmd.Parameters.AddWithValue("@motd", SafeInsertString(car.motdate));
+                    cmd.Parameters.AddWithValue("@seats", SafeInsertInt(car.seats));
+                    cmd.Parameters.AddWithValue("@storagespace", SafeInsertDouble(car.storagespace));
+                    cmd.Parameters.AddWithValue("@gearsamount", SafeInsertInt(car.gearsamount));
+                    cmd.Parameters.AddWithValue("@motor", SafeInsertString(car.motor));
+                    cmd.Parameters.AddWithValue("@fuelusage", SafeInsertInt(car.fuelusage));
+                    cmd.Parameters.AddWithValue("@startprice", SafeInsertDouble(car.startprice));
+                    cmd.Parameters.AddWithValue("@sellingprice", SafeInsertDouble(car.sellingprice));
+                    cmd.Parameters.AddWithValue("@rentalprice", SafeInsertDouble(car.rentalprice));
+                    cmd.Parameters.AddWithValue("@available", car.available);
+                    cmd.Parameters.AddWithValue("@description", SafeInsertString(car.description));
+                    cmd.Parameters.AddWithValue("@airco", car.airco);
+                    cmd.Parameters.AddWithValue("@licenseplate", SafeInsertString(car.LicensePlate)); //Create Licenseplate Label and textbox! 
 
                     Console.WriteLine(cmd.CommandText);
                     cmd.ExecuteNonQuery();
@@ -763,11 +829,12 @@ namespace Qars
         public void DeleteCar(Car car)
         {
             string query = "DELETE FROM Car ";
-            query += string.Format("WHERE CarID = {0}", car.carID);
+            query += string.Format("WHERE CarID = @carid");
 
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@carid", SafeInsertInt(car.carID));
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
@@ -775,7 +842,7 @@ namespace Qars
         public void DeleteUser(User user)
         {
             string query = "DELETE From User ";
-            query += "Where UserID=" + user.UserID;
+            query += "Where UserID = @userid";
 
             try
             {
@@ -785,12 +852,13 @@ namespace Qars
                 }
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@userid", SafeInsertInt(user.UserID));
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("De gebruiker met het nummer: " + user.UserID + " is verwijderd.");
             }
             catch (Exception)
             {
-                MessageBox.Show("Deze klant kan niet verwijdert worden, omdat er waarschijnlijk nog reserveringen gepland staan. Als u de klant wilt verwijderen moeten eerst de reserveringen verwijdert worden.");
+                MessageBox.Show("Deze klant kan niet verwijderd worden, omdat er waarschijnlijk nog reserveringen gepland staan. Als u de klant wilt verwijderen moeten eerst de reserveringen verwijdert worden.");
             }
             finally
             {
@@ -892,10 +960,9 @@ namespace Qars
         {
             return String.Compare(string1, string2, true, System.Globalization.CultureInfo.InvariantCulture) == 0 ? true : false;
         }
-
         public List<ToS> selectToS()
         {
-            string query = " SELECT ToSID, ToS, date FROM ToS where ToSID = 0";
+            string query = " SELECT ToSID, ToS, date FROM ToS where ToSID = 0 LIMIT 1";
             List<ToS> ToSList = new List<ToS>();
 
             if (this.OpenConnection() == true)
