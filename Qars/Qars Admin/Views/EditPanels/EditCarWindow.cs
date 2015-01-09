@@ -117,7 +117,7 @@ namespace Qars_Admin.Views.EditPanels
 
         private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || e.KeyData == Keys.RShiftKey || e.KeyData == Keys.LShiftKey || e.KeyData == Keys.Shift || e.KeyData == Keys.ShiftKey)
+            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || Keys.Shift == Control.ModifierKeys || e.KeyData == Keys.CapsLock)
             {
                 e.Handled = true;
             }
