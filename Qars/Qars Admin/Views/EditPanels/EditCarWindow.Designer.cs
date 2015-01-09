@@ -104,6 +104,8 @@
             this.CarPhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.add_Button = new System.Windows.Forms.Button();
             this.delete_Button = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.licensePlateTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.CarPhotoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,7 +214,7 @@
             // 
             // MOTDate
             // 
-            this.MOTDate.Location = new System.Drawing.Point(865, 57);
+            this.MOTDate.Location = new System.Drawing.Point(865, 19);
             this.MOTDate.Name = "MOTDate";
             this.MOTDate.Size = new System.Drawing.Size(116, 26);
             this.MOTDate.TabIndex = 32;
@@ -475,7 +477,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label21.Location = new System.Drawing.Point(700, 15);
+            this.label21.Location = new System.Drawing.Point(375, 413);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(62, 26);
             this.label21.TabIndex = 6;
@@ -485,7 +487,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label22.Location = new System.Drawing.Point(700, 56);
+            this.label22.Location = new System.Drawing.Point(700, 17);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(121, 26);
             this.label22.TabIndex = 6;
@@ -681,7 +683,7 @@
             // AircoBox
             // 
             this.AircoBox.AutoSize = true;
-            this.AircoBox.Location = new System.Drawing.Point(865, 23);
+            this.AircoBox.Location = new System.Drawing.Point(542, 418);
             this.AircoBox.Name = "AircoBox";
             this.AircoBox.Size = new System.Drawing.Size(22, 21);
             this.AircoBox.TabIndex = 20;
@@ -690,7 +692,7 @@
             // CabrioBox
             // 
             this.CabrioBox.AutoSize = true;
-            this.CabrioBox.Location = new System.Drawing.Point(540, 386);
+            this.CabrioBox.Location = new System.Drawing.Point(542, 386);
             this.CabrioBox.Name = "CabrioBox";
             this.CabrioBox.Size = new System.Drawing.Size(22, 21);
             this.CabrioBox.TabIndex = 20;
@@ -812,11 +814,30 @@
             this.delete_Button.UseVisualStyleBackColor = true;
             this.delete_Button.Click += new System.EventHandler(this.delete_Button_Click_1);
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label36.Location = new System.Drawing.Point(700, 52);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(104, 26);
+            this.label36.TabIndex = 54;
+            this.label36.Text = "Kenteken";
+            // 
+            // licensePlateTextBox
+            // 
+            this.licensePlateTextBox.Location = new System.Drawing.Point(865, 51);
+            this.licensePlateTextBox.Name = "licensePlateTextBox";
+            this.licensePlateTextBox.Size = new System.Drawing.Size(116, 26);
+            this.licensePlateTextBox.TabIndex = 33;
+            // 
             // EditCarWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 814);
+            this.Controls.Add(this.licensePlateTextBox);
+            this.Controls.Add(this.label36);
             this.Controls.Add(this.delete_Button);
             this.Controls.Add(this.add_Button);
             this.Controls.Add(this.CarPhotoPictureBox);
@@ -979,5 +1000,7 @@
         private System.Windows.Forms.PictureBox CarPhotoPictureBox;
         private System.Windows.Forms.Button add_Button;
         private System.Windows.Forms.Button delete_Button;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox licensePlateTextBox;
     }
 }

@@ -75,7 +75,7 @@ namespace Qars_Admin.Views.EditPanels
                     this.WeightBox.Text = car.weight.ToString();
 
                     this.AvailableBox.Checked = car.available;
-
+                    this.licensePlateTextBox.Text = car.licenseplate;
                     this.NavigationBox.Checked = car.navigation;
                     this.CruisecontrolBox.Checked = car.cruisecontrol;
                     this.ParkingassistBox.Checked = car.parkingAssist;
@@ -207,7 +207,9 @@ namespace Qars_Admin.Views.EditPanels
                 this.connect.DeleteCar(car);
                 foreach (CarPhoto photo in car.PhotoList)
                 {
-                    this.removeFileFromFTP(car, photo);
+                    string file = photo.Photolink; ;
+                    string fileExtension = "." + file.Split('.').Last();
+                    this.removeFileFromFTP(car, photo, fileExtension);
                 }
 
                 this.Close();
@@ -251,7 +253,7 @@ namespace Qars_Admin.Views.EditPanels
             newCar.weight = Int32.Parse(this.WeightBox.Text);
 
             newCar.available = this.AvailableBox.Checked;
-
+            newCar.LicensePlate = this.licensePlateTextBox.Text;
             newCar.navigation = this.NavigationBox.Checked;
             newCar.cruisecontrol = this.CruisecontrolBox.Checked;
             newCar.parkingAssist = this.ParkingassistBox.Checked;
@@ -298,7 +300,7 @@ namespace Qars_Admin.Views.EditPanels
         public void addCarPhoto(CarPhoto carPhoto)
         {
             car.PhotoList.Add(carPhoto);
-            
+
             //Refresh list with photos
             imageLinkList.Items.Add(carPhoto.Name);
         }
