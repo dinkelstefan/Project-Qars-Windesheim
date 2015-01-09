@@ -302,7 +302,6 @@ namespace Qars
         }
         private bool UploadDriversLicensePhoto(string Image, string username)
         {
-
             string extension = ".PNG";
             if (JPG)
             {

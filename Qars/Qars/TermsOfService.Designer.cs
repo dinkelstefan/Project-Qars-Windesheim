@@ -119,6 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 386);
+            this.ControlBox = false;
             this.Controls.Add(this.userView);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.save);
@@ -126,6 +127,7 @@
             this.Controls.Add(this.lastEdited);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.close);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "TermsOfService";

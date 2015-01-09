@@ -10,7 +10,7 @@ using System.Net;
 
 namespace Qars.Util
 {
-    class Mail
+    public class Mail
     {
         private MailMessage message;
         private SmtpClient client;

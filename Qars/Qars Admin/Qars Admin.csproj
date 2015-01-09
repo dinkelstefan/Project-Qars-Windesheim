@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ftplib">
+      <HintPath>Lib\ftplib.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Qars\bin\Debug\MySql.Data.dll</HintPath>
@@ -54,6 +57,54 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditPanels\AddCarPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPanels\AddCarPhoto.Designer.cs">
+      <DependentUpon>AddCarPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditPanels\EditCarWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPanels\EditCarWindow.Designer.cs">
+      <DependentUpon>EditCarWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditPanels\EditReservationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPanels\EditReservationWindow.Designer.cs">
+      <DependentUpon>EditReservationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditPanels\editUserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPanels\editUserWindow.Designer.cs">
+      <DependentUpon>editUserWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ForecastAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ForecastAdminPanel.Designer.cs">
+      <DependentUpon>ForecastAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ToSAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ToSAdminPanel.Designer.cs">
+      <DependentUpon>ToSAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\UserAdminPanel.Designer.cs">
+      <DependentUpon>UserAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ReservationAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ReservationAdminPanel.Designer.cs">
+      <DependentUpon>ReservationAdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="signInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +113,45 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Panels\CarAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\CarAdminPanel.Designer.cs">
+      <DependentUpon>CarAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleClasses\SimpleCar.cs" />
+    <Compile Include="SimpleClasses\simpleForecast.cs" />
+    <Compile Include="SimpleClasses\simpleUser.cs" />
+    <Compile Include="SimpleClasses\simpleReservation.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPanels\AddCarPhoto.resx">
+      <DependentUpon>AddCarPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPanels\EditReservationWindow.resx">
+      <DependentUpon>EditReservationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPanels\editUserWindow.resx">
+      <DependentUpon>editUserWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPanels\EditCarWindow.resx">
+      <DependentUpon>EditCarWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\CarAdminPanel.resx">
+      <DependentUpon>CarAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ForecastAdminPanel.resx">
+      <DependentUpon>ForecastAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ToSAdminPanel.resx">
+      <DependentUpon>ToSAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\UserAdminPanel.resx">
+      <DependentUpon>UserAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\reservationAdminPanel.resx">
+      <DependentUpon>ReservationAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="signInForm.resx">
       <DependentUpon>signInForm.cs</DependentUpon>
@@ -76,7 +164,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\Qars.Car.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +188,12 @@
       <Project>{272d6397-e2ba-4c9b-a457-db1877711075}</Project>
       <Name>Qars</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PicNotAvailable.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
