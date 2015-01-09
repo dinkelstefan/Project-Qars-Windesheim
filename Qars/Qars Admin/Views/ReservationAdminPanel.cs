@@ -11,6 +11,7 @@ using Qars;
 using Qars_Admin.Views.EditPanels;
 using Qars.Models;
 using Qars.Models.DBObjects;
+using Qars_Admin.Models.SimpleClasses;
 
 namespace Qars_Admin.Views
 {

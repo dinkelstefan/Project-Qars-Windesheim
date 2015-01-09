@@ -194,6 +194,58 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="f43ef257-bac4-42cf-a64b-2731e4a3cb89"
+            isDerived="false"
+            sourceEndRoleName="simpleReservation"
+            targetEndRoleName="ReservationAdminPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a123453d-ede0-4d5f-89dc-88dd75e46991"
+              LastKnownName="ReservationAdminPanel"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="46081d44-8cb8-4448-885e-4d821836c841"
+                  name="simpleReservation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="9b75ddae-1740-4617-b9f2-729963a6712d"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="3d4611be-d6f1-43c6-b01d-fa8d0a3aa85d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="28854a48-62f6-4347-8ea6-abe1ccfb837e"
+                  name="ReservationAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -1414,6 +1466,60 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="2f46199d-3ff4-4ee5-a8b2-dedca67c8eb6"
+            isDerived="false"
+            sourceEndRoleName="SimpleCar"
+            targetEndRoleName="CarAdminPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2c7cc99e-ca54-463c-bd7c-ad6714cfe83c"
+              LastKnownName="CarAdminPanel"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="721bbcfb-7df5-4324-8402-f79d3dc8b8a9"
+                  name="SimpleCar"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ec42be60-3b68-446d-9150-b1430fc472ee"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="09980535-bd09-4b83-abe0-39dcf64920af"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="000dd9a1-427f-4413-b713-bb87d030efdc"
+                  name="CarAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="d57c5adf-3496-4e15-821b-c6799011fbca"
@@ -2237,6 +2343,60 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="4874fa80-12ca-4cbb-b638-0d8ab9935310"
+            isDerived="false"
+            sourceEndRoleName="simpleForecast"
+            targetEndRoleName="ForecastAdminPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="62d3f8a4-9785-434f-9583-7d5b2eab4560"
+              LastKnownName="ForecastAdminPanel"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1aad86e0-23bf-4a52-ba35-3273a2698d12"
+                  name="simpleForecast"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d58a0c9d-6d79-482a-a534-879232a9e3ec"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="69cd45e8-794f-45d0-93fc-2859798baf8e"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="10e36173-321b-48be-94e4-d7e53293f747"
+                  name="ForecastAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="24eb6cf4-f3ad-4450-9f8c-1d57b91221e3"
@@ -3159,6 +3319,60 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="26c56e94-76de-4574-96ca-9e2be06c3617"
+            isDerived="false"
+            sourceEndRoleName="simpleUser"
+            targetEndRoleName="UserAdminPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="51e42dd8-8ac2-43e8-9416-6afdc644808d"
+              LastKnownName="UserAdminPanel"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ea1c081d-b748-49ae-a10c-63e54648fcc0"
+                  name="simpleUser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="095c4fe3-5bef-4a65-87e6-aa8406df7a68"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c2fbce1d-01dd-4643-ac0f-2ef0dc743ca3"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5069bc60-6bb9-40a5-94da-84a71155a4c9"
+                  name="UserAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="7b86c5a1-ae0a-4b9c-a2bb-a8ca3fbdfda9"

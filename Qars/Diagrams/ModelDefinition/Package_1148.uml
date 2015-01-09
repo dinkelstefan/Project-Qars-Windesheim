@@ -60,6 +60,164 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="cf039b95-d181-47ee-8504-1e7b69e2e764"
+            isDerived="false"
+            sourceEndRoleName="Mail"
+            targetEndRoleName="RegisterForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="29ebf32d-4af6-4bed-8110-0bb8121d1d22"
+              LastKnownName="RegisterForm"
+              LastKnownLocation="Package_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4fad590d-0718-44ed-9952-6975e03fbe9f"
+                  name="Mail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="49f9177c-966c-469d-8e9c-293212d4f7c3"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f22d6fa1-b1ab-4c63-8d51-d6da1561a188"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="12c5eedb-aeb8-4eaa-9d08-8b19da24a8ce"
+                  name="RegisterForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7b2b167b-296a-42bc-bb78-14f7bdd6f7af"
+            isDerived="false"
+            sourceEndRoleName="Mail"
+            targetEndRoleName="RentCarPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1e8556ec-ddac-4b61-8253-cdda338ddb6c"
+              LastKnownName="RentCarPanel"
+              LastKnownLocation="Package_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8268c74a-529f-4067-a443-fcc0c389f798"
+                  name="Mail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e3736e8a-8053-42b5-ae7c-11a9cef761fe"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6545f3c8-24ee-4d13-9175-95294a0fb69e"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5d11ec19-c554-416f-96a2-366e8b060840"
+                  name="RentCarPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1322737c-9451-48a1-9255-185eeabc79f3"
+            isDerived="false"
+            sourceEndRoleName="Mail"
+            targetEndRoleName="EditReservationWindow"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ad4e6358-48b4-4bb7-8e1d-3a566789829d"
+              LastKnownName="EditReservationWindow"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1c1e5b52-0dbc-49ee-98a0-089a9f8638d7"
+                  name="Mail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f73bf710-bfc7-433c-a8f4-120a496777e2"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="93aacb85-c04c-49db-aa06-93ff8e3c4005"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f1ff1e0c-1ce7-4851-93d1-1151a6997333"
+                  name="EditReservationWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="dd48b7de-2ce4-408d-a7a9-57254d454419"
@@ -645,6 +803,60 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="b034af2a-0a5c-49fc-a506-0218f92c432c"
+            isDerived="false"
+            sourceEndRoleName="PasswordHash"
+            targetEndRoleName="DBConnect"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
+              LastKnownName="DBConnect"
+              LastKnownLocation="Package1_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb34f756-1c57-4231-b2e5-67181703b96a"
+                  name="PasswordHash"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="80ad97bd-fec9-426f-a50f-fb6bcce785a6"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0c71ed3f-19bb-4854-a03e-a418a530f6d4"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0bdb3462-3528-41c0-8497-89f0c1570b01"
+                  name="DBConnect"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="db107951-a7b6-472e-9b11-d8384bffc20e"

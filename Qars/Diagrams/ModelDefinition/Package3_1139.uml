@@ -70,6 +70,47 @@
               LastKnownLocation="Package4_1031.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="65248e71-ab94-48f7-aacf-eea9ff2c81a6"
+            isDerived="false"
+            sourceEndRoleName="ReservationAdminPanel"
+            targetEndRoleName="AdminForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f5f853e6-6f5b-4ac9-816f-c463e465c5ba"
+              LastKnownName="AdminForm"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="82006873-7af0-48d0-88b1-30c9ae6f77c5"
+                  name="ReservationAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="affcaff1-f4d8-42ea-9753-92661eff1485"
+                  name="AdminForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="bf864fbd-2b15-4963-abca-10f4bd89ed1d"
@@ -135,7 +176,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -488,7 +529,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -906,6 +947,47 @@
               LastKnownLocation="Package4_1031.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="7bbcea30-afc4-4804-b203-cfa9b4fb6175"
+            isDerived="false"
+            sourceEndRoleName="CarAdminPanel"
+            targetEndRoleName="AdminForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f5f853e6-6f5b-4ac9-816f-c463e465c5ba"
+              LastKnownName="AdminForm"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dd05e052-0d28-4b6b-b22f-887635b71cfc"
+                  name="CarAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7c15f3c0-d65e-4344-a13b-abeedca39f6b"
+                  name="AdminForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="56ab1323-7ae4-4432-91b7-ff3c218bfcbc"
@@ -971,7 +1053,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -1458,7 +1540,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -1963,6 +2045,47 @@
               LastKnownLocation="Package4_1031.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="973cf700-cd49-4126-94b5-88400e6533bb"
+            isDerived="false"
+            sourceEndRoleName="ToSAdminPanel"
+            targetEndRoleName="AdminForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f5f853e6-6f5b-4ac9-816f-c463e465c5ba"
+              LastKnownName="AdminForm"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f36f07b9-d9c5-4ade-b0fe-f0e36fa982d7"
+                  name="ToSAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8a6f8366-c817-47f2-99ad-1c697e42f161"
+                  name="AdminForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="d105c12c-28c5-4bd8-8eba-e24bdd5c08fe"
@@ -2028,7 +2151,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -2448,7 +2571,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -2782,6 +2905,47 @@
               LastKnownLocation="Package4_1031.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="8043465a-6044-4800-bb27-aa2c28a804ea"
+            isDerived="false"
+            sourceEndRoleName="ForecastAdminPanel"
+            targetEndRoleName="AdminForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f5f853e6-6f5b-4ac9-816f-c463e465c5ba"
+              LastKnownName="AdminForm"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="25decd85-bf89-4d47-b8d4-11113b6eb7c9"
+                  name="ForecastAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="79d0afd5-a50f-4ed1-8d40-73e96d09dbec"
+                  name="AdminForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="cdf1ada9-a31d-44a8-b54c-c379bd14f6e3"
@@ -2847,7 +3011,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -3133,7 +3297,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -3599,6 +3763,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="9b2b6893-3025-4025-b097-802ec291b8d0"
+            isDerived="false"
+            sourceEndRoleName="AdminForm"
+            targetEndRoleName="signInForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="68b0d4db-6640-4bee-8de7-224d68fa5fed"
+              LastKnownName="signInForm"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c51eefd-7a21-41a1-b06f-bc1d5724fe1a"
+                  name="AdminForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aeee21b2-6050-412d-87a1-5f8333d40839"
+                  name="signInForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -3745,7 +3948,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -4519,7 +4722,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -7240,6 +7443,47 @@
               LastKnownLocation="Package4_1031.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="3b4d44c3-e1d0-4514-b237-aaa430422da1"
+            isDerived="false"
+            sourceEndRoleName="UserAdminPanel"
+            targetEndRoleName="AdminForm"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f5f853e6-6f5b-4ac9-816f-c463e465c5ba"
+              LastKnownName="AdminForm"
+              LastKnownLocation="Package3_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a1e48f72-78fa-48c6-996d-6e19c529745d"
+                  name="UserAdminPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="782352ca-86c5-4ba8-ac75-398ca4f7a98d"
+                  name="AdminForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="0b901297-9202-4dc3-b654-31eb11035c50"
@@ -7305,7 +7549,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -7658,7 +7902,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -8076,6 +8320,47 @@
               LastKnownLocation="Package4_1031.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="6f15d9d4-45ed-439f-b74d-c5de72394424"
+            isDerived="false"
+            sourceEndRoleName="signInForm"
+            targetEndRoleName="Program"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="de77196b-74f7-4b66-abdf-3835a9dffc06"
+              LastKnownName="Program"
+              LastKnownLocation="Package2_1139.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f866b212-a7f1-458f-95a6-911ca0adad2f"
+                  name="signInForm"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5677ae33-a216-42ee-97cb-8fab3fd67cc3"
+                  name="Program"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="47beda41-6cf9-48da-bf3b-bb7194a2558e"
@@ -8939,7 +9224,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -11388,7 +11673,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -12291,7 +12576,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -14070,7 +14355,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -15079,7 +15364,7 @@
               <classMoniker
                 Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                 LastKnownName="DBConnect"
-                LastKnownLocation="Package_1139.uml" />
+                LastKnownLocation="Package1_1139.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -20629,7 +20914,7 @@
                     <classMoniker
                       Id="b3ba41ff-4eb3-4b4e-8f14-ac02b5735bef"
                       LastKnownName="DBConnect"
-                      LastKnownLocation="Package_1139.uml" />
+                      LastKnownLocation="Package1_1139.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
