@@ -571,7 +571,7 @@ namespace Qars.Views
                             break;
                         }
                     case 25:
-                        if (list[carnumber].licenseplate == "")
+                        if (list[carnumber].LicensePlate == "")
                         {
                             countFailure++;
                             break;
@@ -579,7 +579,7 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Kenteken:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].licenseplate, top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(list[carnumber].LicensePlate, top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             countFailure++;
                             countSuccess++;

@@ -216,7 +216,7 @@ namespace Qars.Models
                         newCar.sellingprice = SafeGetDouble(dataReader, 31);
                         newCar.available = SafeGetBoolean(dataReader, 32);
                         newCar.description = SafeGetString(dataReader, 33);
-                        newCar.licenseplate = SafeGetString(dataReader, 34);
+                        newCar.LicensePlate = SafeGetString(dataReader, 34);
                         // see if the car has photos, and at the first one to the list
                         try
                         {

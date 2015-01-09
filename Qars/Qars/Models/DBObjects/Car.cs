@@ -42,7 +42,6 @@ namespace Qars.Models.DBObjects
         public string description { get; set; }
         public int fuelusage { get; set; }
         public string motor { get; set; }
-        public string licenseplate { get; set; }
         public List<CarPhoto> PhotoList { get; set; }
         public string LicensePlate { get; set; }
 

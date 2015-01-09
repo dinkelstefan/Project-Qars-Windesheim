@@ -75,7 +75,7 @@ namespace Qars_Admin.Views.EditPanels
                     this.WeightBox.Text = car.weight.ToString();
 
                     this.AvailableBox.Checked = car.available;
-                    this.licensePlateTextBox.Text = car.licenseplate;
+                    this.licensePlateTextBox.Text = car.LicensePlate;
                     this.NavigationBox.Checked = car.navigation;
                     this.CruisecontrolBox.Checked = car.cruisecontrol;
                     this.ParkingassistBox.Checked = car.parkingAssist;
