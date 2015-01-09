@@ -140,7 +140,6 @@
             this.ModelBox.Name = "ModelBox";
             this.ModelBox.Size = new System.Drawing.Size(116, 26);
             this.ModelBox.TabIndex = 17;
-            this.ModelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxAlphabeticalChars_KeyPress);
             // 
             // ModelyearBox
             // 
