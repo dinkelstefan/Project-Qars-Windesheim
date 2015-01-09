@@ -716,7 +716,7 @@ namespace Qars
         public void UpdateCar(Car car)
         {
             string query = "Update Car ";
-            query += string.Format("SET EstablishmentID=@establishmentID,Brand='@brand', Model='@model', Category='@category', Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometres, Colour='@colour', Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate='@motd', Storagespace=@storagespace, Gearsamount=@gearsamount, Motor='@motor', Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description='@description', LicensePlate='@licenseplate");
+            query += string.Format("SET EstablishmentID=@establishmentID,Brand='@brand', Model='@model', Category='@category', Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometres, Colour='@colour', Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate='@motd', Storagespace=@storagespace, Gearsamount=@gearsamount, Motor='@motor', Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description='@description', LicensePlate='@licenseplate' ");
             query += string.Format("Where carID = @carid");
 
             try
@@ -733,9 +733,9 @@ namespace Qars
                     cmd.Parameters.AddWithValue("@category", SafeInsertString(car.category));
                     cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
                     cmd.Parameters.AddWithValue("@automatic", car.automatic);
-                    cmd.Parameters.AddWithValue("@kilometers", SafeInsertInt(car.kilometres));
+                    cmd.Parameters.AddWithValue("@kilometres", SafeInsertInt(car.kilometres));
                     cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
-                    cmd.Parameters.AddWithValue("@door", SafeInsertInt(car.doors));
+                    cmd.Parameters.AddWithValue("@doors", SafeInsertInt(car.doors));
                     cmd.Parameters.AddWithValue("@stereo", car.stereo);
                     cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
                     cmd.Parameters.AddWithValue("@horsepower", SafeInsertDouble(car.horsepower));
@@ -779,7 +779,7 @@ namespace Qars
                     {
                         bool exists = false;
                         foreach (int i in PhotoIDs)
-                        { 
+                        {
                             if (c.PhotoID == i)
                             {
                                 exists = true;
@@ -793,7 +793,8 @@ namespace Qars
                             query += "VALUES(@photoid, @carid, @name, @description, @datetaken, @photolink)";
                             cmd.CommandText = query;
 
-                            string file = c.Photolink; ;
+                            string file = c.Photolink;
+                            ;
                             string fileExtension = "." + file.Split('.').Last();
                             Console.WriteLine(fileExtension);
                             string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, c.PhotoID + fileExtension);

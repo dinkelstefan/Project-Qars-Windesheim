@@ -320,7 +320,6 @@ namespace Qars_Admin.EditPanels
                     Console.WriteLine(photo.Name);
 
                     string localphotolink = photo.Photolink;
-                    bool JPG = true;
                     bool error = false;
                     //string localphotolink = photo.Photolink; //local file
 
@@ -335,15 +334,7 @@ namespace Qars_Admin.EditPanels
                     else
                     {
                         string extension = fi.Extension;
-                        if (extension == ".jpg")
-                        {
-                            JPG = true;
-                        }
-                        else if (extension == ".png")
-                        {
-                            JPG = false;
-                        }
-                        else
+                        if (extension != ".jpg" || extension != ".png")
                         {
                             error = true;
                         }
@@ -352,6 +343,7 @@ namespace Qars_Admin.EditPanels
                             try
                             {
                                 string filename = "ftp://" + ftpServerIP + "/public_html/Images/" + car.brand + "/" + car.model + "/" + car.colour + "/" + photo.PhotoID + extension;
+                                Console.WriteLine(filename);
                                 FtpWebRequest ftpReq = (FtpWebRequest)WebRequest.Create(filename);
                                 ftpReq.UseBinary = true;
                                 ftpReq.Method = WebRequestMethods.Ftp.UploadFile;
@@ -459,12 +451,12 @@ namespace Qars_Admin.EditPanels
             {
                 string directory = string.Format("/public_html/Images/{0}/{1}/{2}/", car.brand, car.model, car.colour);
 
-                string newDirectory = "public_html/Images/";
+                string newDirectory = "/public_html/Images/";
                 //Check if brand directory exists
                 if (ftp.DirectoryExists(newDirectory + car.brand))
                 {
                     newDirectory += car.brand;
-                    ftp.SetCurrentDirectory(car.brand + "/");
+                    ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/");
                     newDirectory += "/";
                 }
                 else
@@ -476,7 +468,7 @@ namespace Qars_Admin.EditPanels
                 if (ftp.DirectoryExists(newDirectory + car.model))
                 {
                     newDirectory += car.model;
-                    ftp.SetCurrentDirectory(car.model + "/");
+                    ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/" + car.model + "/");
                     newDirectory += "/";
                 }
                 else
@@ -488,17 +480,18 @@ namespace Qars_Admin.EditPanels
                 if (ftp.DirectoryExists(newDirectory + car.colour))
                 {
                     newDirectory += car.colour;
-                    ftp.SetCurrentDirectory(car.colour + "/");
+                    ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/" + car.model + "/" + car.colour + "/");
                     newDirectory += "/";
                 }
                 Console.WriteLine(ftp.GetCurrentDirectory());
 
 
-                ftp.RemoveFile(photoToDelete.PhotoID.ToString());
+                ftp.RemoveFile(photoToDelete.PhotoID.ToString() + ".jpg");
+                Console.WriteLine(ftp.GetCurrentDirectory() + "/" + photoToDelete.PhotoID.ToString() + ".jpg");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Het verwijderen van de foto van de server is niet gelukt");
+                MessageBox.Show("Het verwijderen van de foto van de server is niet gelukt " + e.Message);
             }
         }
 
@@ -516,7 +509,9 @@ namespace Qars_Admin.EditPanels
                     this.removeFileFromFTP(car, photo);
                     this.imageLinkList.Items.Remove(imageLinkList.SelectedIndex);
                     MessageBox.Show("De foto is verwijdert.");
-                } catch(Exception ex){
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show("Het verwijdern van de foto is niet gelukt." + ex);
                 }
             }
