@@ -46,16 +46,16 @@
             this.UsernameTextBox.MaxLength = 50;
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.UsernameTextBox.TabIndex = 0;
+            this.UsernameTextBox.TabIndex = 1;
             // 
             // PasswordTextBox
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(104, 59);
             this.PasswordTextBox.MaxLength = 255;
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '*';
+            this.PasswordTextBox.PasswordChar = '•';
             this.PasswordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.TabIndex = 2;
             // 
             // UsernameLabel
             // 
@@ -100,7 +100,7 @@
             this.LoggingInButton.Location = new System.Drawing.Point(236, 28);
             this.LoggingInButton.Name = "LoggingInButton";
             this.LoggingInButton.Size = new System.Drawing.Size(75, 51);
-            this.LoggingInButton.TabIndex = 8;
+            this.LoggingInButton.TabIndex = 3;
             this.LoggingInButton.Text = "Log In";
             this.LoggingInButton.UseVisualStyleBackColor = true;
             this.LoggingInButton.Click += new System.EventHandler(this.LoggingInButton_Click);
@@ -110,7 +110,7 @@
             this.CancelButton2.Location = new System.Drawing.Point(12, 91);
             this.CancelButton2.Name = "CancelButton2";
             this.CancelButton2.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton2.TabIndex = 9;
+            this.CancelButton2.TabIndex = 5;
             this.CancelButton2.Text = "Annuleer";
             this.CancelButton2.UseVisualStyleBackColor = true;
             this.CancelButton2.Click += new System.EventHandler(this.CancelButton2_Click);
@@ -120,7 +120,7 @@
             this.RegisterButton.Location = new System.Drawing.Point(236, 91);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(75, 23);
-            this.RegisterButton.TabIndex = 10;
+            this.RegisterButton.TabIndex = 4;
             this.RegisterButton.Text = "Registreer";
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click_1);

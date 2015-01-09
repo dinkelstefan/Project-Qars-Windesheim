@@ -118,7 +118,7 @@
             this.PasswordTextBox.Location = new System.Drawing.Point(106, 79);
             this.PasswordTextBox.MaxLength = 255;
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '*';
+            this.PasswordTextBox.PasswordChar = '•';
             this.PasswordTextBox.Size = new System.Drawing.Size(100, 20);
             this.PasswordTextBox.TabIndex = 2;
             // 
@@ -335,7 +335,7 @@
             this.CancelButton1.Location = new System.Drawing.Point(333, 466);
             this.CancelButton1.Name = "CancelButton1";
             this.CancelButton1.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton1.TabIndex = 34;
+            this.CancelButton1.TabIndex = 16;
             this.CancelButton1.Text = "Annuleer";
             this.CancelButton1.UseVisualStyleBackColor = true;
             this.CancelButton1.Click += new System.EventHandler(this.CancelButton1_Click);

@@ -61,7 +61,7 @@
             this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(124, 20);
-            this.usernameTextBox.TabIndex = 2;
+            this.usernameTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
@@ -70,14 +70,14 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(124, 20);
-            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.TabIndex = 2;
             // 
             // SignInButton
             // 
             this.SignInButton.Location = new System.Drawing.Point(145, 79);
             this.SignInButton.Name = "SignInButton";
             this.SignInButton.Size = new System.Drawing.Size(75, 23);
-            this.SignInButton.TabIndex = 4;
+            this.SignInButton.TabIndex = 3;
             this.SignInButton.Text = "Log in";
             this.SignInButton.UseVisualStyleBackColor = true;
             this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
