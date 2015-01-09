@@ -58,9 +58,6 @@
     <Compile Include="Views\ComparePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Views\ComparePricePanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Models\FTPConnection.cs" />
     <Compile Include="Views\LogInForm.cs">
       <SubType>Form</SubType>
