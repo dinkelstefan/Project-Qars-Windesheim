@@ -734,7 +734,7 @@ namespace Qars
                     cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
                     cmd.Parameters.AddWithValue("@automatic", car.automatic);
                     cmd.Parameters.AddWithValue("@kilometres", SafeInsertInt(car.kilometres));
-                    cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
+                    cmd.Parameters.AddWithValue("@colour", SafeInsertString(car.colour));
                     cmd.Parameters.AddWithValue("@doors", SafeInsertInt(car.doors));
                     cmd.Parameters.AddWithValue("@stereo", car.stereo);
                     cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
