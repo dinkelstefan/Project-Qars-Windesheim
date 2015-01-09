@@ -449,7 +449,7 @@ namespace Qars_Admin.Views.EditPanels
             return files;
 
         }
-        private void removeFileFromFTP(Car car, CarPhoto photoToDelete)
+        private void removeFileFromFTP(Car car, CarPhoto photoToDelete, string extension)
         {
             string ftpServerIP = "ftp.pqrojectqars.herobo.com";
             string ftpUserID = "a8158354";
@@ -461,12 +461,12 @@ namespace Qars_Admin.Views.EditPanels
             {
                 string directory = string.Format("/public_html/Images/{0}/{1}/{2}/", car.brand, car.model, car.colour);
 
-                string newDirectory = "public_html/Images/";
+                string newDirectory = "/public_html/Images/";
                 //Check if brand directory exists
                 if (ftp.DirectoryExists(newDirectory + car.brand))
                 {
                     newDirectory += car.brand;
-                    ftp.SetCurrentDirectory(car.brand + "/");
+                    ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/");
                     newDirectory += "/";
                 }
                 else
@@ -478,7 +478,7 @@ namespace Qars_Admin.Views.EditPanels
                 if (ftp.DirectoryExists(newDirectory + car.model))
                 {
                     newDirectory += car.model;
-                    ftp.SetCurrentDirectory(car.model + "/");
+                    ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/" + car.model + "/");
                     newDirectory += "/";
                 }
                 else
@@ -490,17 +490,18 @@ namespace Qars_Admin.Views.EditPanels
                 if (ftp.DirectoryExists(newDirectory + car.colour))
                 {
                     newDirectory += car.colour;
-                    ftp.SetCurrentDirectory(car.colour + "/");
+                    ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/" + car.model + "/" + car.colour + "/");
                     newDirectory += "/";
                 }
                 Console.WriteLine(ftp.GetCurrentDirectory());
 
 
-                ftp.RemoveFile(photoToDelete.PhotoID.ToString());
+                ftp.RemoveFile(photoToDelete.PhotoID.ToString() + extension);
+                Console.WriteLine(ftp.GetCurrentDirectory() + "/" + photoToDelete.PhotoID.ToString() + extension); //fix this
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Het verwijderen van de foto van de server is niet gelukt");
+                MessageBox.Show("Het verwijderen van de foto van de server is niet gelukt " + e.Message);
             }
         }
 
@@ -511,14 +512,18 @@ namespace Qars_Admin.Views.EditPanels
             {
                 int index = imageLinkList.SelectedIndex;
                 CarPhoto photo = car.PhotoList[index];
+                FileInfo fi = new FileInfo(photo.Photolink);
+                string extension = fi.Extension;
 
                 try
                 {
                     this.connect.DeletePhoto(photo);
-                    this.removeFileFromFTP(car, photo);
+                    this.removeFileFromFTP(car, photo, extension);
                     this.imageLinkList.Items.Remove(imageLinkList.SelectedIndex);
                     MessageBox.Show("De foto is verwijdert.");
-                } catch(Exception ex){
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show("Het verwijdern van de foto is niet gelukt." + ex);
                 }
             }

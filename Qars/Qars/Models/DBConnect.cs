@@ -120,7 +120,7 @@ namespace Qars.Models
             int userID = 0;
             string usernameQuery = "";
             string passwordQuery = "";
-            string query = String.Format("SELECT UserID, Username, Password FROM User WHERE Username = '{0}'", username);
+            string query = String.Format("SELECT UserID, Username, Password FROM User WHERE Username = @username");
 
             if (this.OpenConnection() == true)
             {
@@ -414,7 +414,7 @@ namespace Qars.Models
         {
 
             string query = "Update User ";
-            query += string.Format("Set AccountLevel=@accountlevel, Username='@username', Password='@password',Firstname='@firstname', Lastname='@lastname',Age=@age,Postalcode='@postalcode',City='@city', Streetname='@streetname', Streetnumber=@streetnumber, Streetnumbersuffix='@streetnumbersuffix', Phonenumber='@phonenumber', Emailaddress='@emailaddress', Driverslicencelink='@driverslicenselink', Establishment=@establishment");
+            query += string.Format("Set AccountLevel=@accountlevel, Username=@username, Password=@password,Firstname=@firstname, Lastname=@lastname,Age=@age,Postalcode=@postalcode,City=@city, Streetname=@streetname, Streetnumber=@streetnumber, Streetnumbersuffix=@streetnumbersuffix, Phonenumber=@phonenumber, Emailaddress=@emailaddress, Driverslicencelink=@driverslicenselink, Establishment=@establishment");
             query += string.Format("Where UserID = @userID");
 
             Console.WriteLine(query);
@@ -580,7 +580,7 @@ namespace Qars.Models
                 maxCarId++;
 
                 query = "INSERT INTO Car(CarID, EstablishmentID, Brand, Model, Category, Modelyear, Automatic, Kilometers, Colour, Doors, Stereo, Bluetooth, HorsePower, Length, Width, Height, Weight, Navigation, Cruisecontrol, Parkingassist, 4WD, Cabrio, Airco, Seats, MOTDate, Storagespace, Gearsamount, Motor, Fuelusage, Startprice, Rentalprice, Sellingprice, Available, Description, LicensePlate)";
-                query += "Values(@maxCarId,@establishmentID,@brand, @model, @category, @modelyear, @automatic, @kilometers, @color, @door,@stereo,@bluetooth,@horsepower,@length,@width,@height,@weight,@navigation,@cruisecontrol,@parkingassist,@4wd,@cabrio,@airco,@seats,@motd,@storagespace,@gearsamount,@motor,@fuelusage,@startprice,@rentalprice,@sellingprice,@available,@description, @licenseplate); ";
+                query += "Values(@maxCarId,@establishmentID,@brand, @model, @category, @modelyear, @automatic, @kilometres, @colour, @doors,@stereo,@bluetooth,@horsepower,@length,@width,@height,@weight,@navigation,@cruisecontrol,@parkingassist,@4wd,@cabrio,@airco,@seats,@motd,@storagespace,@gearsamount,@motor,@fuelusage,@startprice,@rentalprice,@sellingprice,@available,@description, @licenseplate); ";
 
                 cmd.CommandText = query;
 
@@ -591,9 +591,9 @@ namespace Qars.Models
                 cmd.Parameters.AddWithValue("@category", SafeInsertString(car.category));
                 cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
                 cmd.Parameters.AddWithValue("@automatic", car.automatic);
-                cmd.Parameters.AddWithValue("@kilometers", SafeInsertInt(car.kilometres));
-                cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
-                cmd.Parameters.AddWithValue("@door", SafeInsertInt(car.doors));
+                cmd.Parameters.AddWithValue("@kilometres", SafeInsertInt(car.kilometres));
+                cmd.Parameters.AddWithValue("@colour", SafeInsertString(car.colour));
+                cmd.Parameters.AddWithValue("@doors", SafeInsertInt(car.doors));
                 cmd.Parameters.AddWithValue("@stereo", car.stereo);
                 cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
                 cmd.Parameters.AddWithValue("@horsepower", SafeInsertDouble(car.horsepower));
@@ -679,7 +679,7 @@ namespace Qars.Models
         public void UpdateReservation(Reservation reservation)
         {
             string query = "Update Reservation ";
-            query += string.Format("SET Startdate='@startdate',Enddate='@enddate', Confirmed=@confirmed, Kilometres=@kilometres, Pickupcity='@pickupcity', Pickupstreetname='@pickupstreetname', Pickupstreetnumber=@pickupstreetnumber, Pickupstreetnumbersuffix='@pickupstreetnumbersuffix', Paid=@paid, Comment='@comment' ");
+            query += string.Format("SET Startdate=@startdate,Enddate=@enddate, Confirmed=@confirmed, Kilometres=@kilometres, Pickupcity=@pickupcity, Pickupstreetname=@pickupstreetname, Pickupstreetnumber=@pickupstreetnumber, Pickupstreetnumbersuffix=@pickupstreetnumbersuffix, Paid=@paid, Comment=@comment ");
             query += string.Format("Where ReservationID = @resID");
 
             Console.WriteLine(query);
@@ -719,7 +719,7 @@ namespace Qars.Models
         public void UpdateCar(Car car)
         {
             string query = "Update Car ";
-            query += string.Format("SET EstablishmentID=@establishmentID,Brand='@brand', Model='@model', Category='@category', Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometres, Colour='@colour', Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate='@motd', Storagespace=@storagespace, Gearsamount=@gearsamount, Motor='@motor', Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description='@description', LicensePlate='@licenseplate");
+            query += string.Format("SET EstablishmentID=@establishmentID,Brand=@brand, Model=@model, Category=@category, Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometres, Colour=@colour, Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate=@motd, Storagespace=@storagespace, Gearsamount=@gearsamount, Motor=@motor, Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description=@description, LicensePlate=@licenseplate ");
             query += string.Format("Where carID = @carid");
 
             try
@@ -736,9 +736,9 @@ namespace Qars.Models
                     cmd.Parameters.AddWithValue("@category", SafeInsertString(car.category));
                     cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
                     cmd.Parameters.AddWithValue("@automatic", car.automatic);
-                    cmd.Parameters.AddWithValue("@kilometers", SafeInsertInt(car.kilometres));
-                    cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
-                    cmd.Parameters.AddWithValue("@door", SafeInsertInt(car.doors));
+                    cmd.Parameters.AddWithValue("@kilometres", SafeInsertInt(car.kilometres));
+                    cmd.Parameters.AddWithValue("@colour", SafeInsertString(car.colour));
+                    cmd.Parameters.AddWithValue("@doors", SafeInsertInt(car.doors));
                     cmd.Parameters.AddWithValue("@stereo", car.stereo);
                     cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
                     cmd.Parameters.AddWithValue("@horsepower", SafeInsertDouble(car.horsepower));
@@ -770,7 +770,7 @@ namespace Qars.Models
 
 
                     List<int> PhotoIDs = new List<int>();
-                    string query2 = "SElECT PhotoID From Photo";
+                    string query2 = "SELECT PhotoID From Photo";
                     cmd.CommandText = query2;
                     MySqlDataReader dataReader = cmd.ExecuteReader();
                     while (dataReader.Read())
@@ -782,7 +782,7 @@ namespace Qars.Models
                     {
                         bool exists = false;
                         foreach (int i in PhotoIDs)
-                        { 
+                        {
                             if (c.PhotoID == i)
                             {
                                 exists = true;
@@ -793,18 +793,19 @@ namespace Qars.Models
                         if (!exists)
                         {
                             query = "INSERT INTO Photo (PhotoID, CarID, Name, Description, Datetaken, Photolink) ";
-                            query += "VALUES(@photoid, @carid, @name, @description, @datetaken, @photolink)";
+                            query += "VALUES(@photoid, @carid2, @name, @description2, @datetaken, @photolink)";
                             cmd.CommandText = query;
 
-                            string file = c.Photolink; ;
+                            string file = c.Photolink;
+                            ;
                             string fileExtension = "." + file.Split('.').Last();
                             Console.WriteLine(fileExtension);
                             string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, c.PhotoID + fileExtension);
 
                             cmd.Parameters.AddWithValue("@photoid", c.PhotoID);
-                            cmd.Parameters.AddWithValue("@carid", c.CarID);
+                            cmd.Parameters.AddWithValue("@carid2", c.CarID);
                             cmd.Parameters.AddWithValue("@name", c.Name);
-                            cmd.Parameters.AddWithValue("@description", c.Description);
+                            cmd.Parameters.AddWithValue("@description2", c.Description);
                             cmd.Parameters.AddWithValue("@datetaken", c.Datetaken);
                             cmd.Parameters.AddWithValue("@photolink", remoteLink);
 
