@@ -647,7 +647,7 @@ namespace Qars.Models
                     command.Parameters.AddWithValue("@Name", photo.Name);
                     command.Parameters.AddWithValue("@Description", photo.Description);
                     command.Parameters.AddWithValue("@Datetaken", photo.Datetaken);
-                    command.Parameters.AddWithValue("@Photolink", photo.Photolink);
+                    command.Parameters.AddWithValue("@Photolink", remoteLink);
 
                     command.ExecuteNonQuery();
                     maxCarId++;
