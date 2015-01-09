@@ -547,7 +547,7 @@ namespace Qars.Models
                 transaction.Commit();
             }
 
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }

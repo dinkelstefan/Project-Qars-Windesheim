@@ -20,7 +20,6 @@ namespace Qars_Admin.Views.EditPanels
         private int CarID;
         private int HighestPhotoID;
         private EditCarWindow carWindow;
-        bool JPG;
         public AddCarPhoto(int CarID, int HighestPhotoID, EditCarWindow carWindow)
         {
             InitializeComponent();
@@ -57,15 +56,7 @@ namespace Qars_Admin.Views.EditPanels
                 {
                     string extension = fi.Extension;
                     Console.WriteLine(extension);
-                    if (extension == ".jpg")
-                    {
-                        JPG = true;
-                    }
-                    else if (extension == ".png")
-                    {
-                        JPG = false;
-                    }
-                    else
+                    if (extension != ".png" || extension != ".jpg")
                     {
                         error = true;
                     }
@@ -75,7 +66,6 @@ namespace Qars_Admin.Views.EditPanels
                         photoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                         photoLinkTextBox.Text = openFileDialog.FileName;
                     }
-
                 }
             }
         }

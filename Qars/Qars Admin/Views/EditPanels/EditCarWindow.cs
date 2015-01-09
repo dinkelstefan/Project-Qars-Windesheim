@@ -302,7 +302,6 @@ namespace Qars_Admin.Views.EditPanels
             string ftpServerIP = "ftp.pqrojectqars.herobo.com";
             string ftpUserID = "a8158354";
             string ftpPassword = "Quintor1";
-            int i = 0;
             foreach (CarPhoto photo in car.PhotoList)
             {
                 bool exists = false;
@@ -322,7 +321,6 @@ namespace Qars_Admin.Views.EditPanels
                     Console.WriteLine(photo.Name);
 
                     string localphotolink = photo.Photolink;
-                    bool JPG = true;
                     bool error = false;
                     //string localphotolink = photo.Photolink; //local file
 
@@ -337,18 +335,11 @@ namespace Qars_Admin.Views.EditPanels
                     else
                     {
                         string extension = fi.Extension;
-                        if (extension == ".jpg")
-                        {
-                            JPG = true;
-                        }
-                        else if (extension == ".png")
-                        {
-                            JPG = false;
-                        }
-                        else
+                        if (extension != ".jpg" || extension != ".png")
                         {
                             error = true;
                         }
+
                         if (error == false)
                         {
                             try
