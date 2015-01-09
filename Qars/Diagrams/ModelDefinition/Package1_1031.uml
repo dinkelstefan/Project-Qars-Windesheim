@@ -1158,6 +1158,73 @@
                 LastKnownLocation="Package4_1031.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="d9e25449-d115-4595-954d-7f1dae48d960"
+            name="JPG"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7c55a7e8-093b-41c7-b0a9-5898fb78379b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DAddCarPhoto Member%3DJPG"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="22f79d55-7e1f-4bff-82d3-c35fe70fc1fe"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d42370e-2e7b-47dd-abee-fd56128730f5">
+                    <propertyInstance
+                      Id="5f57d36d-e185-4829-bb9c-c3dfedacc878"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22361e15-abfa-40f3-a1ae-d63a465e8800">
+                    <propertyInstance
+                      Id="1538b08f-1e7a-48a3-aecb-a5f2c90fdc4a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc1caa84-97fb-4238-b26a-014bae9fc821">
+                    <propertyInstance
+                      Id="f916be2b-fe96-419d-a805-aa0dc68c8ed3"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d0e5e2c-a2a2-4e43-bec9-20f836cccada">
+                    <propertyInstance
+                      Id="9f580c1a-4915-46ff-9279-842d3aa7f568"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68253bef-963a-48ac-a7bb-1179a99264a6">
+                    <propertyInstance
+                      Id="6cd396f5-8842-4b5b-ac6c-71abf7ac553a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="Diagrams.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -8701,7 +8768,7 @@
             </appliedStereotypesInternal>
           </operation>
           <operation
-            Id="beafe2f0-f74d-4923-8c3c-9ba9c790d850"
+            Id="bbdea71c-e5bc-4094-8345-9c8c5cbc7248"
             name="EditCarWindow"
             isLeaf="false"
             isStatic="false"
@@ -8710,54 +8777,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="34397c96-492b-4f0c-81cf-f1a843761fc4"
+                Id="01f500dd-c645-460e-acbd-8ed01e19d9f9"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DEstablishment)]))%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="4d6c0e3a-9f6f-4571-8ee7-26dbafb7fe07"
+                Id="fd6e16b7-e7c5-472d-a086-542acc825db7"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1d5398dc-b02a-44d0-a092-a45ec675ad30">
+                    Id="73ea0552-0756-46a6-a305-34f24f7eccf6">
                     <propertyInstance
-                      Id="50d5b17b-9054-4a9a-8b7d-49b7a2dd77f8"
+                      Id="a4bbe30b-f63a-4095-8c16-fc707ece749e"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ce60f8c5-15dc-423a-82f4-90534614ed78">
+                    Id="1dae14b7-39bf-48cc-ad78-41d64f5dd83a">
                     <propertyInstance
-                      Id="f91506b3-10e6-4dc7-aa1a-eea69b97437b"
+                      Id="39f074e5-820e-4108-a700-faed7fe97c13"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="feb72ef4-7f84-4943-b904-e3a2dc7af2f4">
+                    Id="b1c9d0c8-8358-4256-96f3-3d9ded928d6e">
                     <propertyInstance
-                      Id="734d251e-20b2-460b-8579-93f27559a89e"
+                      Id="f173b355-2d68-4be2-b49d-d53847b17cbf"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="40d8b2f8-e598-42a1-b769-25fc3486d1c9">
+                    Id="758cfaf2-fe23-438e-b885-80c30d41ccf1">
                     <propertyInstance
-                      Id="27c655aa-8fe6-4085-a510-ef5a9a2bd17a"
+                      Id="b95d3b5b-4f39-4b45-9e90-41bdabfe4b29"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="c28bbc03-4583-44b8-ba98-e5030fe335ce">
+                    Id="47c6e72f-ccb9-497c-9550-eb7e94c935ff">
                     <propertyInstance
-                      Id="06217dc5-ebe5-4290-8fc2-0d135c6908c2"
+                      Id="f505a339-a5d7-4851-a5c9-e2c6db65129f"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="fbabe939-8325-4a61-a7be-21ae57b864dc">
+                    Id="1494101d-7a67-4734-97d4-b4cc2c41eb25">
                     <propertyInstance
-                      Id="4889f811-9e79-44d2-a566-55b7fa776e26"
+                      Id="873027c2-d5db-4f63-bd73-d1d2cbe78bbf"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -8767,12 +8834,12 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="f2b76296-aef4-4a3f-bfd5-ea3cee848b28"
+                  Id="cadff97e-0ab6-4836-a606-89047d9ea2e1"
                   name="car"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="eab36f74-36cc-42f1-9e3b-763458b893fb"
+                      Id="7c139774-174e-40ce-a64f-b5a4c74c1250"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DEstablishment)]))%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Dcar"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -8786,12 +8853,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="2f579449-a2d4-4122-98e0-cc79ec0f2c17"
+                  Id="29c0ada2-8868-4c99-8370-8eea150904d9"
                   name="estList"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="597af124-734b-4869-95a3-b4816b624ee1"
+                      Id="9f2b34c3-a9a3-4ba7-b5c2-36e783f9e515"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DEstablishment)]))%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3DestList"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -8805,12 +8872,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="6ea458fd-f521-4fe4-bead-d1c21bf1b0b9"
+                  Id="1fd86b9c-c0e4-466e-87f7-1ae4d6c865dd"
                   name="connect"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="c7fbad12-1452-445f-a381-784feb6e851e"
+                      Id="981fb94d-b8f2-4123-9a9b-93bcc105730f"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DEstablishment)]))%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Dconnect"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -8824,12 +8891,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="cf6e06b6-add0-479f-bfbf-0127b84f903f"
+                  Id="c304b103-eb74-43ca-bc16-fd473a2a2ed4"
                   name="add"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="d84cf760-847d-4ed3-af5c-4a5fe3b63813"
+                      Id="057866c1-b73e-4a21-a693-44cdf4b0d831"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DEstablishment)]))%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Dadd"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -8838,6 +8905,423 @@
                       Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
                       LastKnownName="Boolean"
                       LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2995793d-e688-4ba8-9fba-354503473c2f"
+            name="uploadCarPhoto"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="81a49f45-b26e-49e2-a317-9423836c9802"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DuploadCarPhoto OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar ParamKind%3DRef)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="60743be1-ac08-4022-96b1-05a14336eeb5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c9054e6-90ab-4a82-945a-4daaa4be513b">
+                    <propertyInstance
+                      Id="216a7bae-7acc-4baa-a9b2-445926663df1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="379dcb1a-f099-4ed1-ab8f-35308ffc4e1a">
+                    <propertyInstance
+                      Id="1893c34b-4344-4237-b7ea-c9fe71268cf0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a752d93a-66b7-42c8-952a-4bc803f539d5">
+                    <propertyInstance
+                      Id="22b58d50-43d2-4b97-9dcf-7340c09297ff"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ef9d60a-a54c-49d1-9ab9-442e68256a99">
+                    <propertyInstance
+                      Id="53bb1305-2081-4636-86ac-fe5b80b46548"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12e63ba9-b33c-43f1-8909-92602b3fc6d1">
+                    <propertyInstance
+                      Id="a7593b8a-7838-426c-b405-347c1911f9a4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8dc52245-1810-4282-a929-034d5f754471">
+                    <propertyInstance
+                      Id="1be5ce8d-9e05-4862-952d-d8810a1ffebe"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="898b70d6-401d-49d1-876a-011a6cc5e1af"
+                  name="car"
+                  direction="InOut">
+                  <referencesInternal>
+                    <reference
+                      Id="e8b92505-ced1-4510-9ddd-2ae87fbeec7c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DuploadCarPhoto OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar ParamKind%3DRef)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))]) ParameterIdentifier%3Dcar"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="d339d7dd-32c1-49c4-8ee8-bc78f24ed469"
+                      LastKnownName="Car"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9919227a-0179-41b4-8add-5c78ec9dbae0"
+                  name="files"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6259aa87-b65f-492d-900b-94488d3b66e6"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DuploadCarPhoto OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar ParamKind%3DRef)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))]) ParameterIdentifier%3Dfiles"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e8882d7d-7d76-498f-9a30-e00984b0fd71"
+                      LastKnownName="List&lt;String‎&gt;"
+                      LastKnownLocation="Package8_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="39b17e75-40dd-4df0-85ec-4349f68294d3"
+            name="readFilesFromFTP"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ac010c26-5447-4040-a9e0-ba36ca8c5cb3"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DreadFilesFromFTP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d045faca-cc44-4a24-ad56-c7f5918bdeab"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5eba0c72-5f6e-4f0a-b6f4-4ea210b5c8ca">
+                    <propertyInstance
+                      Id="a912efea-e83f-4ce1-b7d5-e829b4ca0260"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94e8d622-096a-4345-b5e1-93fe2496c9d5">
+                    <propertyInstance
+                      Id="9438caa0-cf98-4a55-a1a1-ac3db5b06394"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22b5962d-7755-4543-8afd-398fca4c2c7c">
+                    <propertyInstance
+                      Id="7e9a71f0-b183-4fc6-855f-48a179e6348b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a386c350-d338-42b8-b6b3-69ed345f28fd">
+                    <propertyInstance
+                      Id="43b87a41-e6fa-4678-98d0-ddf27819a7ec"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83f86267-c417-4ef1-ba59-0a7e02ab63e0">
+                    <propertyInstance
+                      Id="8e87083e-bf46-4cb4-af46-edee5cecedad"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d4c053bf-a74b-42a2-a5c8-a3918d692424">
+                    <propertyInstance
+                      Id="a19da75e-e306-4a12-a73b-7bf348abd2f7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8ff89905-b55f-43f1-9b88-05a33d442613"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e8882d7d-7d76-498f-9a30-e00984b0fd71"
+                      LastKnownName="List&lt;String‎&gt;"
+                      LastKnownLocation="Package8_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9496dd3e-4857-4dfe-a011-67fe1b424613"
+                  name="car"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="cb2514e2-8d77-4e2f-9d03-102e6dbbf3ad"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DreadFilesFromFTP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]) ParameterIdentifier%3Dcar"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="d339d7dd-32c1-49c4-8ee8-bc78f24ed469"
+                      LastKnownName="Car"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="69c90f1d-2e2a-42b1-adfc-8d11c6900c23"
+            name="removeFileFromFTP"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7c2561af-3b21-4b1a-8fd1-748a14e5fb35"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DremoveFileFromFTP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarPhoto)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="71212925-941d-4d52-8e81-1f6d83749747"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e556242-6b2c-4b6d-a56d-8e979b2d69e7">
+                    <propertyInstance
+                      Id="3b1d71e1-43cf-4219-978f-f49a69e44c85"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68d85ddc-bdea-451a-8864-56706b38108f">
+                    <propertyInstance
+                      Id="6cb0efb1-98c4-4d3d-9190-03cb4f4d06f1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a6366ba-87fa-4cc6-ac8e-cf28d4602def">
+                    <propertyInstance
+                      Id="e087327a-9a32-4229-8e69-b63508316446"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b956222-d97a-43be-bde2-0b51934bdbf7">
+                    <propertyInstance
+                      Id="7392077b-346d-4462-99f5-b9974494f67e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0895a497-cb06-4e0a-834e-30cac0193905">
+                    <propertyInstance
+                      Id="44bb4cd2-aced-4138-8afb-a0c0c8443e77"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddd8d2d1-0bd1-4e16-935b-b1976fb4551a">
+                    <propertyInstance
+                      Id="a7b752db-c3fd-4549-90f7-bc881a712a43"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8f901538-b47d-408a-9f63-6f735c1b39c8"
+                  name="car"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="da355421-3658-4631-80ad-fe1b355b06ba"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DremoveFileFromFTP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarPhoto)]) ParameterIdentifier%3Dcar"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="d339d7dd-32c1-49c4-8ee8-bc78f24ed469"
+                      LastKnownName="Car"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7de98781-af37-41c2-a1af-b9b8f8b9b0f0"
+                  name="photoToDelete"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="29d7b8b3-79c5-4fe9-8c79-97ae014237ba"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3DremoveFileFromFTP OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarPhoto)]) ParameterIdentifier%3DphotoToDelete"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c310c6b0-f4ee-4aa0-bc24-7a570e68af43"
+                      LastKnownName="CarPhoto"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="83d9287e-221c-4e13-9271-d4a876f5a6d3"
+            name="delete_Button_Click_1"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="36f12413-ddc6-4f9d-9f0d-7bc59d26430d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3Ddelete_Button_Click_1 OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="89cd1749-7273-4857-a051-7a01a5db1d9a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af92a978-236a-49ca-ab53-ebe59f233a7f">
+                    <propertyInstance
+                      Id="07400a27-6153-4f88-be6f-84708b352637"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb3f0f96-cd9e-494c-acbb-3758d22c1bbf">
+                    <propertyInstance
+                      Id="68e9f01d-37d7-4f7d-874c-706625cad53d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d5b0ca9-8765-4d34-869b-42247d4d2c77">
+                    <propertyInstance
+                      Id="fdc0fa52-75eb-4a38-a25b-e34db2b972d5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bfd7091-8176-4fca-8d67-8c55c6444193">
+                    <propertyInstance
+                      Id="944644f9-cfbb-4bd7-8d2c-d5d965fa31f9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7b1d409c-4fe2-45b6-867c-299078641723">
+                    <propertyInstance
+                      Id="f8f74a1f-6d83-4b7c-a63c-f573a77a564a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="917a286f-29a3-4be0-84cd-156ea8f01436">
+                    <propertyInstance
+                      Id="921f9256-ca12-4cfd-91c9-468cecf65da9"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="585478bf-10f2-4aab-a62a-75c4523175fe"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fbef0710-57ab-41d7-bfeb-310ffd7e502b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3Ddelete_Button_Click_1 OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c179a634-35e6-42c8-ac7f-dd1bb07aea57"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2ec7ce37-1566-4d27-9e5a-9521ca4e5142"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars Admin%2Fbin%2FDebug%2FQars Admin.exe&quot; Namespace%3DQars_Admin.EditPanels Type%3DEditCarWindow Member%3D(Name%3Ddelete_Button_Click_1 OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="67ea3fdd-dbc6-4d52-937c-28219107e968"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package2_1031.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>

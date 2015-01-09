@@ -12,6 +12,9 @@ using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;     //nieuw toegevoegd
 using System.Threading.Tasks;
+using Qars.Views;
+using Qars.Models;
+using Qars.Models.DBObjects;
 
 
 namespace Unit_Tests_Qars

@@ -798,404 +798,6 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <targetEnds>
-          <association
-            Id="22a5cc9e-9fec-4041-b2ac-e45e19485b00"
-            isDerived="false"
-            sourceEndRoleName="Car"
-            targetEndRoleName="PhotoList"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="ac8b8316-894e-4415-a105-46ade21833e0"
-              LastKnownName="List&lt;CarPhoto‎&gt;"
-              LastKnownLocation="Package8_1031.uml" />
-            <description>Property PhotoList references type List&lt;CarPhoto‎&gt;.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="30b88875-667b-4c94-bad5-f021788518d8"
-                  name="Car"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="c4accd17-3f16-49f8-b166-fe82113eb342"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="13797b1a-85be-40f9-8ae9-0b091dd3f341"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0db60426-6fcd-4bb1-9564-108231450def"
-                  name="PhotoList"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="d1f9d3c6-06de-422f-941e-9fe92ec45e63"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="e78d94dc-4e0a-4a6c-a371-46ca1c1ecc00"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="f650a9e1-4c4a-40ba-8499-f93d71ff7386"
-            isDerived="false"
-            sourceEndRoleName="Car"
-            targetEndRoleName="horsepower"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="6bc66b31-0e77-47ec-8577-61479f1f819f"
-              LastKnownName="Double"
-              LastKnownLocation="Package2_1031.uml" />
-            <description>Property horsepower references type Double.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="6093dc7f-f68f-4839-b6a3-4341ffc1e693"
-                  name="Car"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="a8310c7d-90c1-48f3-a864-23ee7af7d13d"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="cd7e61d9-4944-40f6-a96e-e446e3f84785"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="29f61d62-8a69-4b1a-bffc-9e5690edc030"
-                  name="horsepower"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="cc69ae31-3a8e-4af2-b6ac-47110e4ad0c7"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="1c2ba9ec-cf56-4696-a14b-08b63b1a29fd"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="520fa253-2029-432f-a623-00f872143f46"
-            isDerived="false"
-            sourceEndRoleName="Car"
-            targetEndRoleName="rentalprice"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="6bc66b31-0e77-47ec-8577-61479f1f819f"
-              LastKnownName="Double"
-              LastKnownLocation="Package2_1031.uml" />
-            <description>Property rentalprice references type Double.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4c936d63-7e61-4bdd-932a-1ed512c2c3df"
-                  name="Car"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="b070ace7-db8f-4946-bd01-90166dedbe45"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="9aaebf19-5dd5-4fe9-8b20-1ef0d84bd3b4"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="d04decb9-0afc-47c7-be93-f97e2adbd289"
-                  name="rentalprice"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="f8678f60-bebc-4a21-bf64-c5f7b341a523"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="ad3841e9-0352-40f4-8bc5-9ffa993b2550"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="234f705b-e5ed-4683-9245-6f1618ca9f4c"
-            isDerived="false"
-            sourceEndRoleName="Car"
-            targetEndRoleName="sellingprice"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="6bc66b31-0e77-47ec-8577-61479f1f819f"
-              LastKnownName="Double"
-              LastKnownLocation="Package2_1031.uml" />
-            <description>Property sellingprice references type Double.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0ba818b4-e99a-4d4f-b9d6-90f999694a8a"
-                  name="Car"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="064cc403-e88a-4a1e-bd8b-fd95bd44abb3"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="c0c9b9b4-1358-4c1c-a544-dfd8339b5617"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="73823d2d-1aa4-4554-ba82-6f5f9e630fff"
-                  name="sellingprice"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="05bb12a5-4cf4-4cc4-8185-cc35f2917d8c"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="296efee3-a478-43a8-85c1-40d3c8dccc8d"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="5103d5d5-cb57-4f8a-b302-2ce1f8757811"
-            isDerived="false"
-            sourceEndRoleName="Car"
-            targetEndRoleName="startprice"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="6bc66b31-0e77-47ec-8577-61479f1f819f"
-              LastKnownName="Double"
-              LastKnownLocation="Package2_1031.uml" />
-            <description>Property startprice references type Double.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="7cc8dc84-87a5-46b7-b120-5b824e5b87f1"
-                  name="Car"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="550c9782-d754-4686-8d72-ac55e5c746fe"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="45e30ef6-7d1c-4731-9ffd-b9d7c0fac196"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="cc122938-2fbf-4e29-a3e3-8bcfa622f4e0"
-                  name="startprice"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="cdb907fb-c49b-4da9-b60c-879869d05765"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="4b2e2e16-d160-4ba7-ad73-da0793879ba2"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="5f920433-04eb-4a08-880a-dd16638f3ffe"
-            isDerived="false"
-            sourceEndRoleName="Car"
-            targetEndRoleName="storagespace"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="6bc66b31-0e77-47ec-8577-61479f1f819f"
-              LastKnownName="Double"
-              LastKnownLocation="Package2_1031.uml" />
-            <description>Property storagespace references type Double.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="f6b88fb5-05a6-4c15-ba85-1779ee1f5b33"
-                  name="Car"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="8eba3fcd-99b7-4cdb-89cc-1d521556dd3b"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="53bf44b9-4655-4f66-ac56-8ceb7a8ebe16"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="b406a6a4-fbb7-4455-8172-458343789222"
-                  name="storagespace"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="9c78c686-d32e-4939-84d2-1033e1baa8ea"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="ec1ac426-3591-49a9-9b60-c80e45c97fcc"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="7d391a2f-4b54-423b-8b5d-c2162a793694"
@@ -3438,86 +3040,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="ed676df5-e750-427a-a2ab-7e3e1533d253"
-            name="Fuelusage"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <referencesInternal>
-              <reference
-                Id="08f9b0e0-9de0-4e96-81b6-6829a7b29988"
-                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar Member%3DFuelusage"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="0a31b0bd-3d8f-4e3a-9f4b-d5c15afb46cb"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="0ef59ab5-db87-4adc-a6a5-0d35dfda2a69">
-                    <propertyInstance
-                      Id="9821c6db-6231-4c8b-b470-7b35d6d63cdb"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="c8d84dfe-5d61-4053-aa0b-9fcd5d038a00">
-                    <propertyInstance
-                      Id="7b913641-ee3b-4c88-992d-7eb582fc319e"
-                      name="Get"
-                      value="public" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a5869968-a5ef-48d7-82ed-2744e22b027d">
-                    <propertyInstance
-                      Id="b18cf4f9-7730-431e-901b-bbf73642e3df"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="8fdfcc00-53f8-4d19-82a1-f6a8be983be5">
-                    <propertyInstance
-                      Id="577e72eb-9dfa-4838-a739-f00b4f266a1b"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="8e522683-3ac9-4601-bc16-eef767824daa">
-                    <propertyInstance
-                      Id="900d8103-c15c-4138-96b9-798e9d916b9c"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="f753fc35-54d6-40c4-9ccb-001b02cd7e46">
-                    <propertyInstance
-                      Id="a8d51ae1-ac61-435f-ab3d-9318f68fa2ea"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="38e98fd5-37f7-4f26-9d48-d102b20808fd">
-                    <propertyInstance
-                      Id="f7f1994f-ec17-4067-9780-a15824677bb6"
-                      name="Set"
-                      value="public" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
-                LastKnownLocation="Diagrams.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="76c7c9c4-cf6d-4c41-8d50-7a69dfc38369"
             name="startprice"
             isLeaf="false"
@@ -3997,6 +3519,228 @@
                 LastKnownLocation="Diagrams.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="6cb50cbb-dd69-4418-aeee-75ac3ea38523"
+            name="fuelusage"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="46bdedfb-2248-4447-a9f7-c367de5da420"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar Member%3Dfuelusage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3e582d2c-34d1-4e78-8788-dfb950242887"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fec3a26e-e74a-4056-b5ca-aaf4dd7d9dad">
+                    <propertyInstance
+                      Id="65384895-a091-49a0-81ec-e8902d23db6d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00b9b3d0-6222-412a-a4f7-38ba85637f41">
+                    <propertyInstance
+                      Id="fda7c91d-ceef-46ea-bfc0-d30b0364492b"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2a5c885-3f75-4465-b3d5-b77d108e5577">
+                    <propertyInstance
+                      Id="801ca43a-20f2-4bda-811b-3df063382666"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62b904aa-c04e-4ba7-8073-18b3c149b5d8">
+                    <propertyInstance
+                      Id="a7d36912-8334-41b0-b9c1-bfb16497388f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c1ac57c-45de-4faa-9396-9d5f921aeef5">
+                    <propertyInstance
+                      Id="35784b72-e673-48bb-94e3-ce1072e6bf86"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c92cfa4-fbf8-4bf6-8577-f4bc64548885">
+                    <propertyInstance
+                      Id="5d21784b-4c5d-41ed-887f-49bf98f3d36b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89175e53-5807-4ca1-9e13-5542cd935618">
+                    <propertyInstance
+                      Id="6d7f8620-a14b-40e9-8c5c-c033f804f49b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="4326046a-9340-4e0a-947c-c84e472e2bfe"
+            name="licenseplate"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="41ef75e1-9498-4ec6-882a-5c99224e7756"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar Member%3Dlicenseplate"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3e8bf618-a906-4b7c-81f0-93cc94eda95d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a09e8886-4ba1-4e7b-85b8-1647d38ac9e2">
+                    <propertyInstance
+                      Id="ca2b9fbe-0323-4c2d-bdad-ad86887e43b3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a099ac1-7038-40cd-855b-05f020e47b24">
+                    <propertyInstance
+                      Id="37547e19-1f1d-4da2-b2f4-1e3f528ab222"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1beee41-a227-4f03-b7d5-f8197a43ce13">
+                    <propertyInstance
+                      Id="6996093a-65a0-4abf-9cb8-8a275b444181"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4af71978-1998-4d85-b20b-a5db415c8f87">
+                    <propertyInstance
+                      Id="3c400903-6e3f-47c4-9d49-8164aeff0703"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d75e993-acdc-482c-be4b-9662448aa844">
+                    <propertyInstance
+                      Id="11a9dcbf-f5c7-4d1d-8b8d-c86bc1001570"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47468222-7e08-42d4-94d3-8227f40321f7">
+                    <propertyInstance
+                      Id="f7f7d812-1c8f-4457-a7b2-1ac4f2f946e9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18fb360f-ec7e-4dca-b613-440d35f10f99">
+                    <propertyInstance
+                      Id="b34e6804-8cde-4397-96b0-4bccd35729e9"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="01f694a2-8abe-4f2e-8677-c6f2df64c6b1"
+            name="LicensePlate"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="922242a4-bfc4-4001-8ad8-9cd931200253"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar Member%3DLicensePlate"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="58893cd4-a08d-4f7c-87ee-cc236b1cd11f"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5465dc01-e5c4-408d-88d8-ce4a66d32a4a">
+                    <propertyInstance
+                      Id="de119b2c-fe66-4006-b5e5-ca75de411bb1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad80817f-64d0-47c9-b579-0373a42ba72a">
+                    <propertyInstance
+                      Id="0698076d-d663-45a6-a6cb-3b733b0e3588"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ea2f122-afac-4308-8f49-85e965b73b84">
+                    <propertyInstance
+                      Id="638451ca-21e0-4dcf-86cb-c79f6b7b9831"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="842aa817-a832-4bda-9e1e-6459ec5c20e5">
+                    <propertyInstance
+                      Id="c4608682-a50e-4642-9db4-4b82375da7b7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8598f74b-0a32-48c6-b705-f93c9e55f192">
+                    <propertyInstance
+                      Id="c8bf3201-7477-4bb9-bbbc-a1bd5e828463"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a07ba519-8152-469c-9302-471b761c35b2">
+                    <propertyInstance
+                      Id="729fcf9c-4867-421c-8384-3e1fd27b48f4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e532476-48cb-4fca-b29f-b3167450e61f">
+                    <propertyInstance
+                      Id="56983f62-49aa-4ae4-96ba-4f19e76443de"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -4079,7 +3823,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="04732816-379b-434f-8533-34afe8ab3c15"
+            Id="ea31dbe5-cd07-41e2-88dc-0c64a6ab57ee"
             name="Car"
             isLeaf="false"
             isStatic="false"
@@ -4088,54 +3832,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="2adb2feb-e941-4c3e-8dfc-799ec01c1985"
+                Id="b1351036-3c8c-44a8-a2f9-317d94893a5c"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="21345d84-2cf2-4b27-88cb-55b39ffb954c"
+                Id="8fc16573-bcc7-4ce4-b41f-3502c5935e37"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="29cc9159-271e-427d-bbf3-b87f59810dff">
+                    Id="a565ac2a-d31d-4159-afac-30925ab9372c">
                     <propertyInstance
-                      Id="a321cedc-208f-4c79-9a28-9b1b44d59da3"
+                      Id="63565b5e-d8f2-4100-9713-5f00093bdd79"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="94e80a9d-16f2-4163-aee3-0483c4231e79">
+                    Id="afa47778-369d-481e-98e4-cda786673b31">
                     <propertyInstance
-                      Id="f0ae2563-e790-4f61-ac89-dcdbd72bd9c6"
+                      Id="c365c0df-5207-4c3d-bd61-47a0e75e9f62"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="c0ac04d5-cc11-44da-86fc-c0b5403f54dd">
+                    Id="c95fb939-8bef-46ed-905e-363b41f92600">
                     <propertyInstance
-                      Id="d960e5bc-557d-4782-9508-401d70bc10f2"
+                      Id="ef7ed992-71f7-4e91-91ee-8f23e2497d04"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="6c53b9ef-918a-424a-98cf-f1d08252cacf">
+                    Id="ce09cc26-83db-4f86-b4d6-abf21452cebc">
                     <propertyInstance
-                      Id="2ba71cdc-cfed-4727-8acf-2f79aefc7296"
+                      Id="0d0b9ce4-7719-4238-bbde-abd47f28abe0"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e8f3b195-278c-4930-8f68-0fbb29a2142b">
+                    Id="e499f789-10ae-4e1b-ab58-29d5b3236939">
                     <propertyInstance
-                      Id="5a6f4917-943b-4d86-b033-6122c2329c21"
+                      Id="c523f489-134b-44e5-b269-2ba7d6425f2b"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="28a6fcda-a453-45ef-a308-5e51f6f8abce">
+                    Id="af2111e9-45bf-4ec6-86bb-d18f6fbf8dc2">
                     <propertyInstance
-                      Id="2709a6f8-aee7-4cc9-9d78-b34bc08934eb"
+                      Id="b0dbd234-ae4c-4df7-84ce-f0632f13cb4b"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -5086,7 +4830,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="1ab2ff82-aa8c-4c1c-8cfd-2c94432daf7f"
+            Id="c0051eba-4c7f-4ba6-ba4a-795daf594129"
             name="Establishment"
             isLeaf="false"
             isStatic="false"
@@ -5095,54 +4839,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="8277e2e8-8afd-4d36-864d-23688fa920a9"
+                Id="3f7a3ffc-a3ea-4822-bdef-9e9b437ae6de"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DEstablishment Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="91acaf49-8a2d-4aff-9725-cc769758a176"
+                Id="a3f6776d-2a30-499c-b90d-08ff74d6fa3d"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="10bbb0f2-a02a-4879-95ed-ca181b6ae7c5">
+                    Id="6d251d18-78da-4a43-b83e-f2938085cac1">
                     <propertyInstance
-                      Id="d042517f-0d48-4032-b699-01ea43effc07"
+                      Id="667b83f3-b173-4d47-8ea6-03ab5da3df66"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="8acdf6ac-f662-4ed5-8104-19afb87f5a2a">
+                    Id="839d2ec9-6eab-439b-8c58-f3b69cbeee6e">
                     <propertyInstance
-                      Id="e6104e4e-a5cf-4420-bd31-dcae5d343d12"
+                      Id="097f685b-e81e-471a-836d-c98eae9781a5"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="3fde2ee2-f253-4710-89a2-91a6bb9c4a18">
+                    Id="4b353478-9ed5-4260-94b0-be90d017f3f6">
                     <propertyInstance
-                      Id="8ec5e369-cf69-43e7-8fdf-e4e9edabb759"
+                      Id="1005c364-b114-4b39-9707-e3b23de65921"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="4b6778f8-806c-4035-8d25-4aadac2ac508">
+                    Id="89713b5f-68e5-4d27-9b37-bee84e381f9d">
                     <propertyInstance
-                      Id="bdfb34a7-ee24-4316-871b-65897d1fc1c6"
+                      Id="e90b643d-17e5-4581-a0b9-55f81edeb020"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="bdf7280d-4c70-456a-bfad-d8d64edd36f1">
+                    Id="ad21be9c-8861-49c0-92eb-2d3a41bdc6fd">
                     <propertyInstance
-                      Id="6da4d2f5-70ff-4b58-a87a-6e773dbb6519"
+                      Id="65fc2ac0-7362-4de4-b652-b0a8374de0a1"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="9bc63f00-0af8-4627-893c-6cd153ba0b33">
+                    Id="8a24e982-c606-46e0-8a13-6b9653ab8d03">
                     <propertyInstance
-                      Id="bae0e10a-0dfa-4026-802f-53e02c2c156d"
+                      Id="790501f5-3aaf-4cb7-854d-bd390aea3258"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -8447,7 +8191,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="2d4bb5f7-3ee6-4084-876e-95532bb62632"
+            Id="bd12d501-d62e-493f-9a45-409206aafaa7"
             name="DBConnect"
             isLeaf="false"
             isStatic="false"
@@ -8456,60 +8200,225 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="43ec5693-f4d5-4e6a-8d3c-35c72e4e493a"
+                Id="9860e108-d113-465d-8c4b-c61cacc375c1"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="d514fded-277f-4b0c-a55f-a6d8a86714b2"
+                Id="37540f6f-6778-440f-92c2-19d87ff7b673"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="30cf3b7c-0479-4dc7-a03a-7e61717b5a54">
+                    Id="d8e5719c-c8a6-4202-b790-67e0d50f0bf5">
                     <propertyInstance
-                      Id="e6b48904-f5ec-4e82-922b-bedaf39a53b4"
+                      Id="bf2b035d-e81e-41cd-b61b-d68dbff3de22"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="d7253bb5-db57-4070-a4f6-182bd0284d95">
+                    Id="116ffaaa-b219-44f1-a3c2-168c8f0b7243">
                     <propertyInstance
-                      Id="90eee053-5ec6-47ba-a83e-f22609bcf553"
+                      Id="1633ac1e-e50b-4655-9d96-a95fa5621a23"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="a24208d4-1497-47e3-9c36-f4cd5959d539">
+                    Id="cac3a466-7ec8-4464-9e04-28855d0b13fe">
                     <propertyInstance
-                      Id="c9430301-a2af-459f-b419-52406cb0fff7"
+                      Id="b6446958-d987-43e0-8992-a5894d3cefaa"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="c6f3b23f-a8c2-4c52-86e1-93a691b8fc1e">
+                    Id="54196d69-4cd0-4a1d-8067-9b31432cdbc6">
                     <propertyInstance
-                      Id="a4a3c8ac-6f23-471f-bea3-ed9fe8470ce2"
+                      Id="642c1396-f770-41b2-99b0-df6e7148746a"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="359364b1-1a9d-4696-a1e3-b045903e5168">
+                    Id="e5d0a789-29ae-4777-9191-40e7d257d4a1">
                     <propertyInstance
-                      Id="4d3663de-9bb8-4156-9eac-4eaac94e0876"
+                      Id="a1bb911a-6ff0-4691-8212-8b3cb04d7812"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="0b1a287a-2a10-4e86-911b-27fe38bde0de">
+                    Id="325ea2df-9c8f-45c8-9532-6faa99e4e29c">
                     <propertyInstance
-                      Id="56f094b8-f1ca-4895-8634-3e0046eb81ca"
+                      Id="90124702-8a92-4694-a0d3-aac56699eb61"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="53d11f99-910f-4506-bfaf-e4aeedae3c73"
+            name="getHighestPhotoID"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="dbf423e4-ac7d-4442-886f-a06e25ef3e2d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect Member%3DgetHighestPhotoID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f3a573ce-76a5-490b-af5f-c8d3e3cb37f5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9426e0c6-1514-4411-b476-e6ce947a5287">
+                    <propertyInstance
+                      Id="e6f6123f-e2af-4ecf-aa58-ebd286184bcb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c708044-ede8-4718-b83d-01ba7005dab2">
+                    <propertyInstance
+                      Id="523e963e-e4ef-4aca-ad10-46f81750ec7e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d8258383-3cab-4ff6-8c63-e0ca213d75ea">
+                    <propertyInstance
+                      Id="2d74d2c4-80b3-453b-bdbc-77f21c2c990c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7e95a66-80bf-4736-b9f0-b8e74188428d">
+                    <propertyInstance
+                      Id="84ed6e88-b6ad-491d-aadc-4b187362356c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d961c8d-5871-49e0-b4d1-edb14307f0c4">
+                    <propertyInstance
+                      Id="b7aa0a76-be3c-49a5-a153-b67c26c69b16"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d4c4cd90-113c-4200-a00d-d26a9b08af8f">
+                    <propertyInstance
+                      Id="b62dd922-ec08-4d43-b575-a5b29ec22c5b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0db5b80b-ec8a-4582-91d7-40b61cbfa241"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Diagrams.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d14cc3d7-6c6b-4bdb-a2c4-53548da381d9"
+            name="DeletePhoto"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4128cd13-d171-4df5-98b6-ea497d6650e4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect Member%3D(Name%3DDeletePhoto OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarPhoto)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="544b7efe-04ee-4e9f-a414-4dfa62b3914c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1fb5dda-b225-4810-9d38-32e7bbed3313">
+                    <propertyInstance
+                      Id="ee200bde-18de-46ce-92c7-00eb3e6bf151"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b468fbfe-f7da-4c97-be5f-0d7c312134ea">
+                    <propertyInstance
+                      Id="2d71ef7d-e24b-4676-b50c-a9f16a6aa1d6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b67adab-8472-47c5-b1c8-e96467c4d8ac">
+                    <propertyInstance
+                      Id="98228903-a8f1-4642-af1f-1aad48a6dc24"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbe2499e-76bb-4308-89ea-c5556d8ada4e">
+                    <propertyInstance
+                      Id="19a5ecb1-7ddd-447f-bb05-2bcc3e76d5e8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f93c296-f128-4af1-99e9-3fc6015befec">
+                    <propertyInstance
+                      Id="ddb83311-5a54-4617-ad88-cb81b0cbcbe3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5db39f75-1044-4b3c-afd5-d5c4b6afdb00">
+                    <propertyInstance
+                      Id="73eaf121-2284-427f-8228-735e0fb0b0f6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ff538c27-260f-46c8-a448-ba3e898d04cb"
+                  name="photo"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c1a62577-68b2-4074-8645-40d0977e65af"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDBConnect Member%3D(Name%3DDeletePhoto OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarPhoto)]) ParameterIdentifier%3Dphoto"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c310c6b0-f4ee-4aa0-bc24-7a570e68af43"
+                      LastKnownName="CarPhoto"
+                      LastKnownLocation="Package6_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -9614,7 +9523,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="8fbaec90-b827-4e7f-b8c3-dc5099e16a9d"
+            Id="18c3a2f3-9a15-46fd-b272-b041a43f18a9"
             name="Reservation"
             isLeaf="false"
             isStatic="false"
@@ -9623,54 +9532,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="d61441fb-e750-4571-b146-2cfacfb39f55"
+                Id="7bb58493-effd-4b13-8df6-caecafe781a6"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DReservation Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="3ac2d413-b995-476d-8661-206a586b0a80"
+                Id="740c3406-8d6d-493f-adde-f6d3ce7e0153"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1df2b5ee-7ffb-43c5-ac08-e25f37f0cc4f">
+                    Id="c94e5b9c-6810-4856-b067-164ac8a61512">
                     <propertyInstance
-                      Id="710e4f0f-2f26-474d-8338-41aabf09a212"
+                      Id="5c736032-203c-45ae-a08a-7e3a7dfe32b8"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="eaa1918f-d3b8-4473-ac9a-406a7a485df1">
+                    Id="260a2fa2-77a8-47d6-a84e-744f5a99dc19">
                     <propertyInstance
-                      Id="8fff1b4f-0663-4dc9-9ca4-37f44b86bf03"
+                      Id="dbaadca1-5ad1-45a3-9c46-07dca1505615"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="57641470-06ad-4790-9889-5ca58a91ed54">
+                    Id="8cec7a96-1880-469b-bb4e-278cbe43fe91">
                     <propertyInstance
-                      Id="08977865-5202-48e6-a418-903c5052ffda"
+                      Id="917a1d62-9390-4471-a1bd-67a0f3e83c64"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="7228b039-9b9d-4537-bf8d-3a81846be58f">
+                    Id="c19197ae-6fba-4f03-9583-4364d986f285">
                     <propertyInstance
-                      Id="c8f889a9-839e-44d4-ae9c-7a1931eccfca"
+                      Id="de29327d-9324-4b48-bf36-4d1d946dd201"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="95c41ebd-6bc9-4e76-bf84-921d4f36cc57">
+                    Id="be2f0108-98b0-42fa-ade4-74cf6613c9cd">
                     <propertyInstance
-                      Id="ed577926-66c1-4ab5-89b2-aa2200f43d4e"
+                      Id="718da0e5-f9a5-4350-9177-a77d8ff5ec8a"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="0b402a2c-4a7d-4d80-b4b9-067de727b228">
+                    Id="35b0dc1d-02a1-476c-9967-7f08d4d73660">
                     <propertyInstance
-                      Id="f8ce9a9f-7c59-4d9a-9186-d406f3d7c492"
+                      Id="fed54ab6-e6f1-4d68-9db1-b5f4b490ce21"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -10939,8 +10848,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="6aa6782c-67d2-48e0-a840-f6f9fb8d0152"
-            name="Esthablishment"
+            Id="a46639ad-d09b-417b-891e-8dc30fce3d00"
+            name="Establishment"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -10950,61 +10859,61 @@
             isComposite="false">
             <referencesInternal>
               <reference
-                Id="eaa087ed-270e-44e0-a635-0c789098fa58"
-                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DUser Member%3DEsthablishment"
+                Id="e996deab-8c5b-446d-bd7b-cc747cc2de66"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DUser Member%3DEstablishment"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="b77f13df-7c7a-439a-8c31-7970d414ba35"
+                Id="e6be4007-c3b0-4e27-9efb-e8eecc73a633"
                 name="property"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="2a39d142-5848-4840-a742-a942277f31b0">
+                    Id="75bdfc9e-94a7-47b9-b3d3-d1037888ac03">
                     <propertyInstance
-                      Id="c2dc55db-f47e-49ff-a024-7cee099df951"
+                      Id="301f0694-7344-4910-9f87-ce4f31c504c0"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="c5ec013a-6b7d-494b-828e-cdbf360e1645">
+                    Id="e6ec34ca-82d6-426d-89d4-3a6ec956ed23">
                     <propertyInstance
-                      Id="84d5f855-a8a7-4787-a2bb-7bea0791aac3"
+                      Id="a128babe-f8fa-4b5e-9d55-6c46e96850b9"
                       name="Get"
                       value="public" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="fde36024-71d0-408e-8b00-bcd49b1a6a45">
+                    Id="0c6da1c8-4187-4f8b-8537-30a3bb4734fb">
                     <propertyInstance
-                      Id="ee1c235b-5879-495d-b53d-d2eb5687bd4b"
+                      Id="ac8d009e-ee7e-45af-80c1-c80de4dd9402"
                       name="HasBody"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="b9c3afef-72f9-4eb7-b70d-06f4b8438840">
+                    Id="42bed3d9-60ce-4d46-a8ab-812a2cd880ff">
                     <propertyInstance
-                      Id="eb4a9141-5e20-4996-8cbb-d13c498eac98"
+                      Id="06ff2bd3-e47b-45f3-8e78-b5cdf0a2f8eb"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="207b6949-5ea9-41c7-a50a-2cd8b4f99426">
+                    Id="147747a3-6ebb-4e5a-9179-7a1675493609">
                     <propertyInstance
-                      Id="d793e0d8-4b55-47ba-9465-b08bcce0202b"
+                      Id="b6d3fd8d-bf3a-4590-842b-e1c8b1c36f53"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="c7649627-a196-445a-be20-5c1d2f26d344">
+                    Id="f4d379fe-ef2f-440a-a10a-e697a2dbe69f">
                     <propertyInstance
-                      Id="833b6ddb-8af0-40ae-bfc2-c6d4c49f4d70"
+                      Id="4f4ff459-0bea-42b2-addd-fc522598f56b"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="fc980771-ed77-4b50-bfaf-73d15033f0e0">
+                    Id="4f29c83f-7802-449c-860e-57a8fe21ff74">
                     <propertyInstance
-                      Id="c75657eb-4b24-4003-a3b6-f31f7c9d6e5d"
+                      Id="5d21af04-ebbb-4d79-b6e6-5346b06a58a7"
                       name="Set"
                       value="public" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -11021,7 +10930,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="c8e1b23b-dad1-4273-aef4-ae590e278c33"
+            Id="9e6827ce-cdf4-4b98-94ce-4c357489dba4"
             name="User"
             isLeaf="false"
             isStatic="false"
@@ -11030,54 +10939,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="41dafb79-8c01-4f0a-b154-e4ee0c2d2c21"
+                Id="e4815de0-513a-4114-bce0-b9c2d92b8223"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DUser Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="f866e92f-9c29-42c3-80ee-cbfe7cf1e54a"
+                Id="25509b94-bf72-478e-a9a0-58d3b2fbf79b"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ef646276-4439-4352-b2ec-bde53f86a4d9">
+                    Id="ad7ed5e1-d222-4d95-a1b3-a31fed3585ba">
                     <propertyInstance
-                      Id="e09b606a-dbb4-416f-953c-21e25f88a245"
+                      Id="7a097019-7dd5-4ece-a636-aa2d65bc9a54"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="b24fc2e9-6d1e-4de4-913a-2db4f7344386">
+                    Id="98eb0c0c-f6b6-4b41-9c96-88e87b183e2f">
                     <propertyInstance
-                      Id="3388c81b-d994-41bf-bfe2-121884736541"
+                      Id="0e356200-9070-4149-941b-ed6a91876b4d"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="dead7de4-f64d-46f1-a8c0-390dd80c8701">
+                    Id="da50c6a2-14b5-4ba5-8b68-28d7af55460d">
                     <propertyInstance
-                      Id="1555c253-4322-4aea-b206-0f1dd6361433"
+                      Id="02ab1e34-6724-446e-a880-a5e3a76d1121"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="30d068a9-55cb-4d96-b5c9-5dc54bea1746">
+                    Id="85aadb9f-d4f8-4deb-b075-5096704a41c5">
                     <propertyInstance
-                      Id="bdafaae7-2d80-4e06-89c1-14256b79b145"
+                      Id="75d696c9-90c6-4f8c-84d5-233836f00be1"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="70e4e7f6-7c1e-494a-9b83-b0bf3cbe945a">
+                    Id="c0493baa-9d52-45c2-b474-14271fb988fe">
                     <propertyInstance
-                      Id="bb00c1b2-4bc6-423c-a92d-cfd36cf360d7"
+                      Id="94c30d00-de40-42ed-8fd5-1ec32c6392ac"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ca57b135-0004-47fc-bdc0-1871259db9d5">
+                    Id="88e56423-e5fa-4057-a79a-995c2f71fa59">
                     <propertyInstance
-                      Id="554fc9d8-3245-4e97-b36f-b4b03248d83a"
+                      Id="fe66205b-9802-4a45-802b-cbdebb3ac8fa"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -12877,7 +12786,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="d7faf34a-b3ab-45a0-8b75-375708000022"
+            Id="127d9628-69ab-47db-b687-871a2dc5b892"
             name="CreateSpecInfo"
             visibility="Private"
             isLeaf="false"
@@ -12887,54 +12796,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="b0743d82-181c-4d13-a131-85f0e9b8df77"
+                Id="77c70794-267d-442f-82a7-ab0961dd9cdc"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarDetailPanel Member%3D(Name%3DCreateSpecInfo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="f55082b8-d83f-4e12-aa61-37961c90dba6"
+                Id="5f0c6e41-adfa-484f-ac45-59e0139a989e"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="57331a59-a533-4cfa-98ae-b86f701711f7">
+                    Id="2e8e65ac-3dbc-411e-be74-e6c354b2d436">
                     <propertyInstance
-                      Id="e273b385-14ad-4cbf-9fca-af5e8c6e0cb2"
+                      Id="e3420bca-db72-4c1a-8d69-0a73fe4c8ed8"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="934d907e-d62d-4d58-9cfe-7f87f0863b68">
+                    Id="1a642d16-3304-45b0-b96c-9121ef0beea8">
                     <propertyInstance
-                      Id="574bed4e-b93f-4698-a9f6-98be3a07dc7f"
+                      Id="1c1b19bb-e86f-43ea-85b1-08bed0f52cae"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f193439b-a743-4132-8e6c-59dab187a175">
+                    Id="8f25e357-e9e2-4c05-8f37-e5c208e76e35">
                     <propertyInstance
-                      Id="76a38c72-713c-4bc7-bcbc-3957639130d7"
+                      Id="3e76a08f-1812-47a2-87cd-3f7411fc3c9d"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="49e82963-d922-4571-97d3-7dbf61d0b6a4">
+                    Id="d550a10f-dc5f-4854-93a6-68cce4e44448">
                     <propertyInstance
-                      Id="4274507b-6119-49d1-8059-088adf936830"
+                      Id="daf4e7f1-651c-4b18-ad88-f6fc03e634c5"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="35778db0-4633-4993-8664-92b0eccc08d9">
+                    Id="304ff8ef-fb1c-4d0e-bc59-0a5f1b72b597">
                     <propertyInstance
-                      Id="fd3df263-c520-4f77-b955-2c29f58c78c2"
+                      Id="cd38ab31-a826-4d82-a2ad-664ab6f6879b"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e6006733-fdc1-4206-9511-d238febb61be">
+                    Id="a00b1198-f43f-4486-a8ca-372edc4c7886">
                     <propertyInstance
-                      Id="55843048-0d86-41a3-959c-7cea098c1183"
+                      Id="6ec937fe-736e-476c-8709-bcdcaa6c1b18"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -12944,12 +12853,12 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="e3a2a88c-9622-4eff-ab9a-8f2a0df7a719"
+                  Id="6f3a25fe-4bda-4f08-85c9-718ac413eeb4"
                   name="list"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="f40f85f2-5985-4ec8-84fe-768e56449885"
+                      Id="930fac6f-29d8-43d6-8819-b33b19f32547"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarDetailPanel Member%3D(Name%3DCreateSpecInfo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dlist"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -12963,12 +12872,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="0c4aada5-2697-4c93-8b45-9bf30ee6c256"
+                  Id="d25c271f-0a4d-48ad-ba69-47fc269b5730"
                   name="carnumber"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="265cfcbc-c6e5-4903-906c-4b18c2a8cf00"
+                      Id="3239757e-995d-4e43-b2e7-12871a2a9477"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCarDetailPanel Member%3D(Name%3DCreateSpecInfo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dcarnumber"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -13795,72 +13704,6 @@
                     Id="d8d4e9df-99c8-4bc5-86eb-dbe87e72a01e">
                     <propertyInstance
                       Id="bf46ee12-a94e-4b1f-a892-ed0ba7cb92ab"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
-                LastKnownLocation="Diagrams.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="0aea5bfd-338a-4ddc-ad39-5e69c46cc8af"
-            name="carNumber"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <referencesInternal>
-              <reference
-                Id="c5c56edf-f193-4bae-9c58-468411cd5b67"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DVisualDemo Member%3DcarNumber"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="dd8ff61a-09db-4bbe-91aa-b77757659a80"
-                name="field"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="31f6dd2a-d7b2-4dce-90d2-3854925c62ee">
-                    <propertyInstance
-                      Id="bc7dd1ad-00d4-47a8-917e-cc3a899c79c4"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="56964726-182e-44ff-9215-5c3a6f982dff">
-                    <propertyInstance
-                      Id="8b9b500d-724c-4864-9f0a-37184b65dd9a"
-                      name="IsConst"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="7dd6d974-332e-4e03-ad73-528cd0dbeeba">
-                    <propertyInstance
-                      Id="ae8b762c-e9eb-44e5-ab55-d29b02da8c94"
-                      name="IsNullable"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="4cd0d505-c05e-4812-b98c-7f9855c73c77">
-                    <propertyInstance
-                      Id="b6efb08c-1aae-4d6f-8d07-6c18da157db8"
-                      name="IsVolatile"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="db13f7ab-0bfb-41fc-87f4-13eef244f1b3">
-                    <propertyInstance
-                      Id="e404a262-e659-4107-aad5-59346b133730"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -15007,13 +14850,12 @@
               <classMoniker
                 Id="e9d1ea93-2aeb-42e7-a683-213057300f19"
                 LastKnownName="searchWizard"
-                LastKnownLocation="Package23_1031.uml" />
+                LastKnownLocation="Package_1139.uml" />
             </type_NamedElement>
           </property>
           <property
             Id="4edf4545-fd05-4cd0-ab7e-331e20adf9e1"
             name="button2"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -16860,7 +16702,7 @@
             </appliedStereotypesInternal>
           </operation>
           <operation
-            Id="b554cd8e-82ce-4997-8a0a-922a074c7ee9"
+            Id="e2d89432-f917-42d9-8dc2-b44ea5608250"
             name="VisualDemo"
             isLeaf="false"
             isStatic="false"
@@ -16869,60 +16711,166 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="992f7c81-c664-4186-ba34-a39c12b96cf2"
+                Id="1d5ccd6e-3765-4e4c-9474-9feee464a263"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DVisualDemo Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="0c4a887c-64ad-4826-8694-32ec973829c5"
+                Id="1643805a-ddf1-4765-9c6d-4bda2878c6a2"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="de6c6bcf-163a-451f-986b-d35799410cec">
+                    Id="39504a3d-c7f2-4961-8b7a-acd249540b9b">
                     <propertyInstance
-                      Id="1c7c897e-6186-434c-afd6-e21c1c284803"
+                      Id="32a540bd-7ac8-48f5-8b71-a8811c31651b"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="65cb47a5-3a51-420b-898b-2596de00a754">
+                    Id="9c19b553-f3d5-412b-a9f3-a901d6db4dc6">
                     <propertyInstance
-                      Id="1106d21f-43f4-4b14-a711-a28d39af3509"
+                      Id="bf06ae2f-aca8-4f95-85c5-3cebb8193e43"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e7ebfa3c-8e61-4d83-acf0-3c2dd0772d3b">
+                    Id="e09e29ab-d3a2-47f7-807b-a201ff262d9e">
                     <propertyInstance
-                      Id="2cad4133-5383-4d4e-aaa9-167b0331171b"
+                      Id="8c56b912-88a3-4a0b-867b-391268a253db"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="da526896-a298-4e8d-8436-f086fef109bd">
+                    Id="64019e0c-bdf4-4cb5-9f6e-c5e5b2e3ef4a">
                     <propertyInstance
-                      Id="7033e409-9e31-40d4-9521-712a8ccbc854"
+                      Id="e375b62d-1241-465f-a36b-05fe1bdf3b0c"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="9a4aea83-6233-4e61-bc41-0713daa753b4">
+                    Id="c5446206-d582-4752-afbe-07a90ae14ebf">
                     <propertyInstance
-                      Id="54bd5f09-3627-4566-8f0f-664427c67e8a"
+                      Id="e6407e51-cf57-45d2-8f1b-3b9c18dc3398"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="31e7cc32-c890-4963-9854-7dd04004da82">
+                    Id="f33c451d-0cd7-4b58-a3c4-965d93c9ff4a">
                     <propertyInstance
-                      Id="10c91e50-98dc-4bbd-8136-27c698c4d6be"
+                      Id="3ac83f60-82dd-47df-a067-e5fabb95e198"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="a61bbb20-cbfc-4d3f-be41-1120448f7ba4"
+            name="TileView_Paint"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f7452735-87cc-4b7f-8941-995134b1f9cf"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DVisualDemo Member%3D(Name%3DTileView_Paint OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DPaintEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="010acd39-8ac4-41d3-945f-7d7b18c2b760"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d302af1d-c721-40a4-8404-ce71a5c5507c">
+                    <propertyInstance
+                      Id="1e56c1f8-b1ea-4cf2-b9a0-7c30d732716b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87e5d092-a5e8-4db9-83a4-d91ec6b17de4">
+                    <propertyInstance
+                      Id="800cfba2-55ae-4c0b-b7a0-3f1bc39fa797"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f8ddfb3-efc7-4673-a374-b1005eb05284">
+                    <propertyInstance
+                      Id="410e4a3f-5c7d-49f6-b03e-d6faacbd36c2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f463ac4-63fb-494e-969f-e2aad4955085">
+                    <propertyInstance
+                      Id="48df2ae8-9011-4eca-8938-22cbb3da79fa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c3b1f6a-4778-4256-97ad-84e55fd8589b">
+                    <propertyInstance
+                      Id="455e9e56-0b4d-4eaa-97c1-c9b665cd04b1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8f7fdea0-a513-43c2-8d6d-a86567e5b4bc">
+                    <propertyInstance
+                      Id="16e80f1f-5b36-4c1c-8c73-d858b780869a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39666f17-5e12-4d45-bcdd-015b321d9050"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e0927605-6153-49a7-b720-96fd729b1310"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DVisualDemo Member%3D(Name%3DTileView_Paint OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DPaintEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9b3f6b76-fd73-4b97-9ea3-047bdf27ae54"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b62f46af-b61d-4815-b6dc-bf3a1a9a0dd8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DVisualDemo Member%3D(Name%3DTileView_Paint OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DPaintEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9c34b9e4-a33b-4179-893b-0db4e3fc431b"
+                      LastKnownName="PaintEventArgs"
+                      LastKnownLocation="Package4_1031.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -17248,10 +17196,76 @@
                 LastKnownLocation="Diagrams.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="1c48aa83-31c6-4563-a40a-c17e62e10f3e"
+            name="KMPercentage"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6b594deb-1cdb-40f2-94d4-a030a6db38a6"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDiscount Member%3DKMPercentage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="444e9654-ad74-4cbf-85a2-a603194148b8"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14accda2-8297-4d4e-a322-1f60f713485c">
+                    <propertyInstance
+                      Id="47985d8f-e0eb-47fa-a78b-12de348095dd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b92c1615-ab31-4cf1-b8af-d5546812eb09">
+                    <propertyInstance
+                      Id="934cd083-531b-4acd-9945-00b41c2f63c3"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="99220a71-6ff8-4618-b14a-b8808db5da6f">
+                    <propertyInstance
+                      Id="a2679772-adcc-499e-b7d6-e3995c7a5fb4"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6d00c4d-0a0a-494f-b149-f2d25ec35a4e">
+                    <propertyInstance
+                      Id="a322e1d5-c6d0-4d78-ab6f-7c6b0ce1a407"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b8a1574-c5d8-4052-a49c-903f062f15a5">
+                    <propertyInstance
+                      Id="77c34255-df9b-473d-ab7f-114a465dffc6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="Diagrams.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="2651bfda-2771-42df-b6a0-cf24479ae6d8"
+            Id="e82fd597-c026-4fb4-930e-627fb47a5bd6"
             name="Discount"
             isLeaf="false"
             isStatic="false"
@@ -17260,54 +17274,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="fb2d34c5-95f0-4b53-9789-ea661ee1db94"
+                Id="8149baf6-3c96-4761-b276-6c4c0b482e6e"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDiscount Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="d878d0cc-fac9-4153-8580-291da2c5b1e3"
+                Id="729b5539-9157-4d9a-b4df-16cd58eef861"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ed8b8489-a04f-46bf-929f-7e3aa9434534">
+                    Id="13bed33a-cfa3-4aab-bc7b-e29c48212ee8">
                     <propertyInstance
-                      Id="d64f71e2-3e93-4487-b296-5e759919dbdf"
+                      Id="42cda5f4-dd25-45eb-9bf1-52db86dfa31f"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="d327a0b8-0d90-4c3b-aba8-8c315702947e">
+                    Id="3a366457-e90d-448e-abeb-a58873d0c2db">
                     <propertyInstance
-                      Id="c8a15ea4-acfb-4cf5-934e-d4cb4a1186e0"
+                      Id="c5ff2e5c-0467-4efb-971a-4128874b6d5d"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="5f43032e-d34b-4b11-aa90-096b3fd5afed">
+                    Id="68b61528-cf81-48a7-a7e5-a234fa47e841">
                     <propertyInstance
-                      Id="1f49cdfb-000a-4971-8566-821698436a22"
+                      Id="ec821a0e-71e7-4ca8-8a90-9866d14762ab"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="65b7b0a7-ebaa-4887-81ec-3fa811f82576">
+                    Id="d3f63155-f218-4a49-aac4-ad9750c8513c">
                     <propertyInstance
-                      Id="30805b1b-e958-4e83-99a6-b1537c52cfc2"
+                      Id="6ae5e505-4df4-4041-bc04-5a834167f6c8"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="6dbf0014-437e-4db7-8a34-4383de8ad287">
+                    Id="1c471b72-2bf8-4d25-9859-045b3c1f7869">
                     <propertyInstance
-                      Id="b3af3b75-7e27-4508-a7fa-1732b6f1ca07"
+                      Id="434f8bb1-7575-4119-a96f-71fb8d00249b"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="06be11fe-2bb3-443f-b443-ad8079015067">
+                    Id="9beaf52e-0895-4b52-8079-28e9baa758f8">
                     <propertyInstance
-                      Id="59e01983-78dd-43c9-8912-2f413e443046"
+                      Id="76f7ea77-c29e-427c-aa9a-99f657e06d14"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -19367,7 +19381,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="92f87661-8e10-4bb5-8d55-8ac9271a11cb"
+            Id="41c33502-7092-4581-bb6f-449bf69960e9"
             name="ComparePanel"
             isLeaf="false"
             isStatic="false"
@@ -19376,54 +19390,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="0ff974cd-eb2b-440d-840b-1d3b92ae6c96"
+                Id="fb0817bf-5105-4f8e-bf0a-03ebed7bdf18"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DComparePanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DDouble)]))])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="196b6339-e0ad-4c0f-910e-2382cb6f24f9"
+                Id="00c0212b-9dba-48d0-af29-104d03b185b7"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="b834676c-56bd-439c-b0af-76995b992b10">
+                    Id="17ee10cc-b3ac-4b49-9cf9-5545adf9b7c5">
                     <propertyInstance
-                      Id="46bb536e-c689-4e27-b473-d094ec7299b9"
+                      Id="aae7b80b-2537-4cba-9a75-c30f30eed3d6"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="58fa246d-1184-4579-bddf-e9c30dd635be">
+                    Id="419ece2f-791b-461c-aec5-2f1876975376">
                     <propertyInstance
-                      Id="48744e53-aa8a-4c5c-9468-1892c9645e73"
+                      Id="023ca1db-aa94-4a41-a4ff-4e76d972e73c"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f775c8db-ca27-461d-83a8-f89e93fe1a5c">
+                    Id="63fa1407-526a-4530-b8fe-c03205e21972">
                     <propertyInstance
-                      Id="83c63179-cc17-477d-a22b-d8346716916a"
+                      Id="6e757f3e-df8d-40f5-9249-d36f9b081172"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e186f6d6-efa6-40a9-951f-80fe55939d24">
+                    Id="836bb698-bb1b-4531-87e9-d7b3d2763b2f">
                     <propertyInstance
-                      Id="46f925f4-392c-4b3d-a581-5a3608b32f46"
+                      Id="2114efa7-6a15-44d2-8884-553e66d00530"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="47fc0565-3869-43bd-bd71-e661f10cda6b">
+                    Id="d602e287-ba89-4ba5-868d-c1deabb05b62">
                     <propertyInstance
-                      Id="dba166c7-390d-423d-ae6d-c4d830659e72"
+                      Id="89491917-9cd3-44d2-8d39-f80a1cccbd78"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f2df691d-f126-4c29-af62-50ce41c3c8d8">
+                    Id="6b558f61-17f5-4158-8749-ea1fde18a273">
                     <propertyInstance
-                      Id="db0ac7e2-e5a9-459d-99d4-80689a844dfa"
+                      Id="add4a400-fe53-4a40-9050-59bcf7bfab74"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -19433,12 +19447,12 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="82d4720c-4651-43a2-9992-aa6d168b5824"
+                  Id="d5482543-ce53-40f8-9433-5f9f17e98602"
                   name="list"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="57f7c5fd-37bd-4a87-a7c7-6d43f3e7e27e"
+                      Id="ec257d24-e9ca-4601-8b67-77a88a231006"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DComparePanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DDouble)]))]) ParameterIdentifier%3Dlist"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -19452,12 +19466,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="cc1b80c5-1b97-4a8b-8fa6-86479e3edfc1"
+                  Id="3ba8f452-a2c3-485c-aba1-619fc01d8a25"
                   name="dList"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="90d1ea9a-94c3-4cd7-95be-705d929ae59f"
+                      Id="f323e721-0811-4a9f-8fef-65c9612355fa"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DComparePanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DDouble)]))]) ParameterIdentifier%3DdList"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -20534,7 +20548,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="355333c2-7226-448c-92c5-84b4dbbc1b9e"
+            Id="78026254-46ca-4290-8972-63307a4c82e6"
             name="ComparePricePanel"
             isLeaf="false"
             isStatic="false"
@@ -20543,54 +20557,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="7f7c114b-e42b-4dd1-b32b-5baad9b984f5"
+                Id="8f6276d2-3ad2-4ee7-9dc2-f65105c729a3"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DComparePricePanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="b7a129da-58ac-4392-9fb7-f94d005d4bdc"
+                Id="e0a3cb0e-4a6d-4c4e-bc66-ba2527423684"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="18dc3221-3f27-4e17-8432-935f11c01912">
+                    Id="7b55908c-27f3-4dea-82db-5eb8a2fff498">
                     <propertyInstance
-                      Id="f5ed0fc1-2e80-43a7-945f-a0816966ee2e"
+                      Id="14132248-f298-435d-b39a-86cf575603ee"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e8cbf21f-7132-48cf-ba64-286629e7ae38">
+                    Id="23c7ec98-3e8e-41dd-8861-b5f09ed11ad3">
                     <propertyInstance
-                      Id="de4b750e-a6c5-463f-b07c-682be0102a9a"
+                      Id="d2114207-3f0d-4fd7-83eb-1f04c7b2ca08"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="adbbac3c-58f0-4788-abc8-30a9f66f4089">
+                    Id="434eef28-7547-4ee0-8e39-503a3390ca13">
                     <propertyInstance
-                      Id="8bc006b6-0daa-465a-8756-6fa24b0cb26f"
+                      Id="ab1c2a7a-7bdd-4876-bf69-96b1f62bfc8b"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="5ab4f6ca-1b66-470d-8501-f884fc6b341c">
+                    Id="17c6f879-e510-4f77-875d-fb08f6e15e66">
                     <propertyInstance
-                      Id="8b542b07-39a0-4de8-b87c-d235475abf50"
+                      Id="7b7d448c-d5b0-490c-8ff2-1b18ac71ca59"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="d85f660d-190a-41ad-8d8e-2415eee71886">
+                    Id="ec502a06-6489-4d18-bfda-9086fabc9fcc">
                     <propertyInstance
-                      Id="cbd6de4a-322d-42e4-8994-56aa9601ea58"
+                      Id="e9b84eae-b38f-4059-96d4-b36f060a9f2e"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="803419f1-e25a-445e-b425-6a8d888f63cf">
+                    Id="f0bba3d7-fa8e-474b-a914-14c34ac4d79d">
                     <propertyInstance
-                      Id="dd6b0dfe-e3c4-46f1-b96c-51a4a94c63a9"
+                      Id="aeba6c97-f3eb-4313-8754-e85cad2e98a5"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -20600,12 +20614,12 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="b9037323-41cc-47b3-a5a5-81a83bb891c1"
+                  Id="f0620267-f9f5-4df0-9221-c760861159d7"
                   name="list"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="d43d595b-7669-45a4-8905-e6dd87837525"
+                      Id="5f4906ce-a0df-40e7-9c34-3fe08d6630af"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DComparePricePanel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))]) ParameterIdentifier%3Dlist"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -20922,7 +20936,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="09d0ce8c-4c76-4b91-993f-a66afb7cdc11"
+            Id="6ee3ff51-b2eb-4961-8285-e60733b1c559"
             name="ToS"
             isLeaf="false"
             isStatic="false"
@@ -20931,54 +20945,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="58130071-b79d-4452-8266-490661b46bc6"
+                Id="748e6e22-7e3c-4d5b-9b4f-44cb6c402f10"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DToS Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="8630bd08-2b0d-4dc8-b132-3b06b4cde906"
+                Id="2ea52a69-2076-470b-a486-b95d276f2f75"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="93687746-d4db-49c2-b02f-24e00fbaa013">
+                    Id="88f9ab61-7c4f-4b3b-bf4e-7bed80acaa82">
                     <propertyInstance
-                      Id="7c5d1abb-89a8-439c-b37d-f694c06e887c"
+                      Id="a57dc153-a2d0-498c-8cd1-55c7af7e0524"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f48f7424-f9fd-436c-b526-592d1ac3a8d5">
+                    Id="84839383-9fa6-4f4b-beb4-dceb619abac3">
                     <propertyInstance
-                      Id="bb9f630a-5eb4-4517-a367-50a9df995bdc"
+                      Id="86b1481d-64de-456c-bdfe-890fbe6b3d7d"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="5d64923e-9426-44d8-95e6-82223081b901">
+                    Id="3da164ec-d425-46c9-aca2-581ffecad948">
                     <propertyInstance
-                      Id="d0c83b57-388f-4d0c-af98-6ffe820f896c"
+                      Id="dd5a8bb9-e0eb-4225-85cd-66ca0bb7da31"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="7fb9f3de-81e9-429c-af69-1d7636c4102e">
+                    Id="c0eb969f-00a3-45f6-a876-0c56bc910cc7">
                     <propertyInstance
-                      Id="95d682cc-aadf-427e-981a-2b1b5e8142e6"
+                      Id="05db4d73-ca14-4746-a601-2451d6e02bf6"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="2d4f901e-2c62-47fc-beab-54aff91bfa9d">
+                    Id="5b647b28-1036-4280-9798-06e3dc971f0a">
                     <propertyInstance
-                      Id="f13ae6ff-bfd1-40cc-b8d2-27310bfab86b"
+                      Id="c9c783d8-44ce-4d76-9e76-5af596a55f81"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="bf5acbf2-1134-407d-98e8-580a4d11737f">
+                    Id="c11925c3-2163-4a67-9045-74b15dcc1ede">
                     <propertyInstance
-                      Id="94ec09d3-b743-4cfa-938b-95d20f1bf9c9"
+                      Id="940363c8-af44-4ada-8d14-7bf6894359a5"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -21369,7 +21383,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="0595c1a4-d6d8-471f-bebe-43f64a7d5d2c"
+            Id="30a81a2d-faef-4134-9992-c5be353fc8de"
             name="Damage"
             isLeaf="false"
             isStatic="false"
@@ -21378,54 +21392,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="9bdee9de-2740-496d-81ab-f99e2a3f2e84"
+                Id="61f707af-0ddb-4c2d-b84c-4b3f24e39afa"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DDamage Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="a3fb97b5-4351-437e-9565-3d63871688cc"
+                Id="cb0d5648-aae6-4d5f-99ab-485891fcb686"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e54b2b9b-5ca6-4544-b05e-c68b6a3096d5">
+                    Id="7c015501-5c3c-419f-aee3-4744ad591c58">
                     <propertyInstance
-                      Id="c3d26fa4-83ed-47f6-aa81-7baaa62dbf7a"
+                      Id="44d4c01d-94ac-4c62-be18-3b45e7d33a0d"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1e519a70-1377-4545-9023-a01a24e4a01f">
+                    Id="4831055a-4f56-46a2-902e-dd06baac4026">
                     <propertyInstance
-                      Id="ff6b06f5-5ea3-41ea-9f54-a9804d6ad506"
+                      Id="01cef880-9d8d-4369-8db9-79f61fa2fb3d"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="6ecb5f54-d95f-4ab9-a105-7a888b4bd366">
+                    Id="1b6cdadb-4a1e-4e93-80cf-6ed6d6f375b2">
                     <propertyInstance
-                      Id="568668c2-baed-48dc-b35d-91511dd28d1c"
+                      Id="94907fd9-aa72-4405-a40d-5760e4dd3f0b"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="42e1a2ee-7c9a-4f74-b0a5-3274ed9740a0">
+                    Id="ebebbfb3-7eea-4880-9022-d02a002d1e16">
                     <propertyInstance
-                      Id="c579555a-f5c5-4a34-9817-a37fd7378396"
+                      Id="009b5fdb-8668-4c8e-b3f3-4fffc6701d21"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ae039b87-4b47-449b-8438-364e1022fe2a">
+                    Id="7a276863-02ea-429f-8d79-7b71eb5c32f8">
                     <propertyInstance
-                      Id="f11e40de-9f39-4c6d-a8d0-4ed891bafe18"
+                      Id="9f38b30a-8dea-4634-90c5-63c210409a5f"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="2b663d8b-36e1-476f-aa7a-b442f17d6640">
+                    Id="6d6de2ec-29cb-40e9-ba73-edf927f80bf7">
                     <propertyInstance
-                      Id="fc996b7f-81bb-4f76-8c63-346c59754ab6"
+                      Id="006dc538-05c5-4acb-a77c-9dc33f6241a6"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -25612,7 +25626,7 @@
             </appliedStereotypesInternal>
           </operation>
           <operation
-            Id="0ea022b7-c1b8-41e6-a7cb-ea5a8b71e5dc"
+            Id="cdba24de-3aee-41d4-9fa8-bb3529f6eac2"
             name="LogOut"
             isLeaf="false"
             isStatic="false"
@@ -25621,54 +25635,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="f5e00b16-0c56-4c45-b549-411a4c8a1319"
+                Id="0b3df4f3-422d-4135-8400-86a3068eba8a"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DLogOut Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="dbd0a711-faa2-478a-a7fd-56698f5a4adb"
+                Id="9f7027bb-c1d9-479c-9629-ac1054454851"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="fdc1e6d7-3ae5-4752-8416-902a02667b7f">
+                    Id="d7411e67-601c-4fbd-9822-02cec3a888c0">
                     <propertyInstance
-                      Id="5fdc39b8-f59a-4236-b194-e2e1ce6f3459"
+                      Id="19fcac06-077a-4d15-bde0-3d5092db75c7"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f4f978a4-6a0b-437f-9b22-e454f2a1ff08">
+                    Id="f89c78ed-d3df-4fa9-88d7-5bc4cae8c297">
                     <propertyInstance
-                      Id="55aab0ac-a707-4f88-af04-023c06660e6a"
+                      Id="a1f5dcd7-c40b-44d6-bae0-d9c9101bee29"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="2e295fee-b5a0-493e-80c1-70b8fa49db55">
+                    Id="348ad051-9a8c-4714-87bf-d677ba67a104">
                     <propertyInstance
-                      Id="bfaf7009-af65-4570-ac55-ee5284e382cb"
+                      Id="4db0fc6e-6f18-4112-ad75-ee0db057e177"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="cabae0ed-cd65-4593-b929-08ead13ec4b2">
+                    Id="a4751336-0f31-4038-a783-4b3400fdd50e">
                     <propertyInstance
-                      Id="51f5d632-7c5c-491f-9fdf-333f2d25cb5a"
+                      Id="310859a0-ee81-4ac7-a67c-c78d8fab03fb"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="7757cff6-ba67-4570-bba9-0b40589ca7c0">
+                    Id="e5312977-3451-49c2-8b65-ec3aec6c4562">
                     <propertyInstance
-                      Id="272ac0ad-dd68-4ed0-a97c-bf0cb9a0a6c4"
+                      Id="adfb6824-63d1-4047-9e61-fdf984a0c98b"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="d8ae2848-0d1e-43e2-bb4d-ccf927e1d697">
+                    Id="b7320319-f9a3-4cac-b49c-5f4c0d135c67">
                     <propertyInstance
-                      Id="4979d28f-7209-4e16-b800-dfd359e124e7"
+                      Id="3c7d9cf5-2a1d-488e-9d94-293953e48040"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -26641,7 +26655,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="c005d389-844b-4f0d-86c6-54c70cf36bda"
+            Id="c8ec284d-9c3f-4401-8322-9f7f06d2c932"
             name="PasswordHash"
             isLeaf="false"
             isStatic="false"
@@ -26650,181 +26664,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="0d803bb0-6383-4ace-b954-258b6885bbe9"
+                Id="a446c1f8-807f-414c-afbd-14ab5baef85a"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DPasswordHash Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="3e691341-ce97-4486-b0a0-8ffdb0a0c867"
+                Id="e30e2709-cf1c-4db3-a039-b19b35d4bf3d"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="758acae5-6cc7-4ed4-a115-911352395b37">
+                    Id="c1a0d43b-9f5d-408c-8b49-19073f6e919f">
                     <propertyInstance
-                      Id="08086b85-66ab-40ed-8c59-da7b480802d1"
+                      Id="5cab1e73-999e-4177-814e-437d33f2e6cd"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="099b0030-1002-42a0-89e5-53e2250d9bbb">
+                    Id="db26be8a-d60a-4668-8dd5-d794b299fda9">
                     <propertyInstance
-                      Id="534fa294-6983-4e5e-b192-6e149530dac6"
+                      Id="dd08b172-45be-42fb-861a-0acf0cf41577"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1e348b86-b572-4b5c-b201-5bfdeee2de89">
+                    Id="fd16ec29-6c62-484c-bd75-e27ac6870cb5">
                     <propertyInstance
-                      Id="ee824664-70ff-4404-ab11-b3230ee29071"
+                      Id="0fb013e1-3fef-4df2-b47d-559a5380e35a"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="608a177e-339e-4dc4-8f2d-d1574eb0a634">
+                    Id="1368459d-58a0-47ab-8b6b-3c1d5e22dfd0">
                     <propertyInstance
-                      Id="436f2a3b-98b5-4a8c-acbd-25aa55c71d72"
+                      Id="951c836e-fffd-4da2-923c-a21b2c498917"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="18df4d3d-1cef-49f7-8a14-ff3ca83284cb">
+                    Id="e0f038de-9e98-4b1d-862d-e16f9cafdec3">
                     <propertyInstance
-                      Id="41098e11-9e17-4664-9000-0262e5c84520"
+                      Id="7e734740-5945-43a6-96db-8041b87511f2"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="4169db42-690d-4f6f-b879-92cb1c74142e">
+                    Id="100df0e6-604b-4542-af38-dd9a379ef9a4">
                     <propertyInstance
-                      Id="cd8ec987-3727-4f5b-92f7-7233cb669d0f"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="5ada9cde-9c3f-46f2-afac-301a5c29d6f0"
-        name="Program"
-        visibility="Package"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <referencesInternal>
-          <reference
-            Id="6be313e9-2b14-4b89-a230-08ffa31df7e8"
-            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DProgram"
-            tag="ViewCode" />
-        </referencesInternal>
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="ee9b7d85-d485-48ce-a8e2-573cea9fd1ba"
-            name="class"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="83d8e902-39a4-4a26-8c33-74c66c308f37">
-                <propertyInstance
-                  Id="10b45ca9-4a08-4938-9a53-533ff4bdb724"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="11a42d5e-a6df-4198-b7c6-cf24a43ab245">
-                <propertyInstance
-                  Id="aa5226d6-7316-4ab6-b1fd-f713b3b38da5"
-                  name="IsPartial"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="ee5ed68b-628d-4243-b97f-0d0bda40cdb0">
-                <propertyInstance
-                  Id="7c45ee2c-a466-44b3-a6eb-b6ca0fbd1c72"
-                  name="IsStatic"
-                  value="True" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="b95b9f48-0892-4bf1-b06a-027bbbbb20ae">
-                <propertyInstance
-                  Id="aa284155-56d5-42e7-90a2-d60bff3253d2"
-                  name="IsUnsafe"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="892dc493-130b-4ed0-a047-173588a515b6">
-                <propertyInstance
-                  Id="adfe8b14-7136-4dbc-95a8-7e77897efe07"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="044aaa8e-4b3d-4dd9-8eff-b4a3621272c4"
-            name="Main"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <referencesInternal>
-              <reference
-                Id="c59d1cd9-f2ad-410d-a9b7-843dbe11d937"
-                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DProgram Member%3DMain"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="70a64681-7786-4631-a20f-04c066514f85"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="691afb60-989c-4657-bc3a-56d555ebdc71">
-                    <propertyInstance
-                      Id="df6c028b-947b-4aca-88d9-430e362620f7"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="5cba5227-9eda-4988-b08c-40830588f92b">
-                    <propertyInstance
-                      Id="23eebdbb-36c2-40c2-a8e9-70b64471e066"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="635f3272-a536-4517-9797-b478f6c428a4">
-                    <propertyInstance
-                      Id="de228cbf-602c-42fd-b5a9-21eae41badcf"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="9c8d1586-8cb2-443e-abb4-c87b59db27e2">
-                    <propertyInstance
-                      Id="598e6986-c89c-4a68-b39a-2c547912eae2"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="ba3af54e-6dec-4613-9405-1549446f6441">
-                    <propertyInstance
-                      Id="0396d08d-3833-4b43-88fa-88abfaf64f35"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="61d07cf7-2463-4404-bf77-97faa4592a46">
-                    <propertyInstance
-                      Id="f6ef3a7f-817a-4cbe-9e27-0ca24de30f7f"
+                      Id="fadf5f75-7a80-4081-bdef-97ab5b4600ca"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -27034,73 +26921,6 @@
                 Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
                 LastKnownName="String"
                 LastKnownLocation="Diagrams.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="c1867a3a-d8fb-4605-b31b-4b60d8236c88"
-            name="driverslicensephoto"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <referencesInternal>
-              <reference
-                Id="35eaf69e-6eea-4c39-b17c-0d788fdcb97c"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRegisterForm Member%3Ddriverslicensephoto"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="8130d4ea-f8de-4655-bdd8-5be3eb822371"
-                name="field"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="62e1819c-c58f-4b83-8f55-73b483be098f">
-                    <propertyInstance
-                      Id="a9776907-73be-42ba-aa8c-4d44e7d57209"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="2b4cad2d-2fc2-4da2-b805-deb0360f8343">
-                    <propertyInstance
-                      Id="500ca568-0845-4b79-9c28-88978192d964"
-                      name="IsConst"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="1afe548f-a64c-4116-8dcb-c7571c53964b">
-                    <propertyInstance
-                      Id="25686890-841f-4d1c-8b62-76c6d15eabcc"
-                      name="IsNullable"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="3b7be3c1-f1e1-450c-9741-4911d8141668">
-                    <propertyInstance
-                      Id="d59c2815-04e9-4e56-b908-b5a7defe381a"
-                      name="IsVolatile"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="c14c7aa0-4936-4d8f-9381-91e7087fb00e">
-                    <propertyInstance
-                      Id="76a8fb72-5ffa-45ec-b14d-42d2fc2e2aa7"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <classMoniker
-                Id="f38fd9c2-5fac-474f-ac9b-c2370bfda932"
-                LastKnownName="Image"
-                LastKnownLocation="Package11_1031.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -31967,112 +31787,6 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="53c8feb3-a98c-4676-b67a-4791f757a6ba"
-            name="RegisterForm_Load"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <referencesInternal>
-              <reference
-                Id="5556c6af-d21c-4d5d-8079-cac246638d2d"
-                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRegisterForm Member%3D(Name%3DRegisterForm_Load OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="cdf12dbf-ed39-4bdb-9681-ed08b3657e64"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="745c3e9c-f37d-4557-a495-36cbd59965b8">
-                    <propertyInstance
-                      Id="87ad51af-c203-4229-8b41-2c8b91d04d20"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a6746e78-2b49-4bb5-b68c-d0785ba5cb04">
-                    <propertyInstance
-                      Id="c87a7146-c0fd-4d21-85c4-268683ce3351"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="bcebe01c-c8c8-40d3-8295-fbb55e7db593">
-                    <propertyInstance
-                      Id="367c027a-96fb-4f56-a4e8-34ca0cf3c577"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="4b44d0ca-1e1a-4366-b32b-53f0187346a8">
-                    <propertyInstance
-                      Id="bcbed542-4ff2-4871-9950-d84e64f3c61b"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="4d10b90c-8861-451f-89c9-c31e7db07b45">
-                    <propertyInstance
-                      Id="475f0ee9-0f36-49f9-9f91-e7a2fe98796c"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="118d2edf-d7af-4566-a2d6-ccd9d9e84ee7">
-                    <propertyInstance
-                      Id="5c76fc0e-7050-49d8-a7cc-52e04f7649cd"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="450ea360-1e28-4ea2-9736-fbebdd0ca7b3"
-                  name="sender"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="51f58761-722a-4825-9104-412618d186f1"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRegisterForm Member%3D(Name%3DRegisterForm_Load OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="55a36b32-c212-4ccc-8fe7-77e7d096ee54"
-                      LastKnownName="Object"
-                      LastKnownLocation="Package2_1031.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="2aa2c415-49ef-4db4-85e2-0b598be8eebc"
-                  name="e"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="f12feb79-e784-4dcd-a0fc-210de9f6b25a"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRegisterForm Member%3D(Name%3DRegisterForm_Load OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="67ea3fdd-dbc6-4d52-937c-28219107e968"
-                      LastKnownName="EventArgs"
-                      LastKnownLocation="Package2_1031.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
             Id="f7098845-09f0-4ee6-9f84-e5d821b431dc"
             name="Dispose"
             visibility="Protected"
@@ -32226,7 +31940,7 @@
             </appliedStereotypesInternal>
           </operation>
           <operation
-            Id="44f13f28-a00e-45b6-9046-5cf9201281ed"
+            Id="496753dc-efa6-4082-9dc2-75a04ed86db8"
             name="RegisterForm"
             isLeaf="false"
             isStatic="false"
@@ -32235,54 +31949,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="480ad7de-43b2-4319-8c55-43054e69a6a0"
+                Id="26e073e8-2caa-45d3-b6e0-4a8e36a0bebf"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRegisterForm Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="7733dd05-647e-47e6-bc31-4e24f28caf3f"
+                Id="13635801-ee6a-4e07-9511-2b7852f6f957"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1b31f51f-913e-4a56-ace4-50deae29ac77">
+                    Id="b81a8e42-aca8-4315-b3ff-c70474abce5b">
                     <propertyInstance
-                      Id="31fbe75c-a782-4422-8e99-114b4338e119"
+                      Id="175c595c-99cd-4192-b872-c3c3f81c6fa6"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="6c5f4db1-24c4-4f25-8621-3ca0736735a9">
+                    Id="d4c55b84-e631-439b-91e8-f0f743e3888c">
                     <propertyInstance
-                      Id="bf04beba-1e67-40ee-89ee-6aa3eb157bbd"
+                      Id="0bfc01c6-4c09-4c9e-a389-1abeec19f397"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f0350245-154b-4775-86a9-82028604eced">
+                    Id="108feed4-ec8a-4a10-887c-03a509409715">
                     <propertyInstance
-                      Id="545786c4-c21f-491c-bc20-2e395cdd7370"
+                      Id="e66e50c8-c8f8-4c5c-aa61-0e73dc53f2bd"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="45dd447f-3558-4a90-82a5-91b9577e8ea4">
+                    Id="a46b6f11-9c8f-4dc5-b99c-2bca8a69fa33">
                     <propertyInstance
-                      Id="de728a9c-78e0-413f-aa7a-0c8a73fa4922"
+                      Id="0830693f-aebf-471b-a047-e7741255cd9c"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="4c0800a8-d48c-4b6d-98c7-63d33ad9166a">
+                    Id="f35236a7-c8b9-46f7-b25a-4b40f479e936">
                     <propertyInstance
-                      Id="acb48c70-216d-4d03-8da2-d782a7f4af0f"
+                      Id="8bba92bf-e09e-43e7-8f97-6a4fbf7e0ff9"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1c83b613-2825-4672-a438-5ae959e4431d">
+                    Id="fdcd0507-cd05-42c5-98d0-2a1a56b233b8">
                     <propertyInstance
-                      Id="b27fde84-85ed-40a0-9cbb-96f71eab7332"
+                      Id="696f429b-2b5f-4de7-88ff-b409f42e4ca0"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -41743,7 +41457,7 @@
             </appliedStereotypesInternal>
           </operation>
           <operation
-            Id="8cd64d6d-09b8-4d40-96ac-10633e459b83"
+            Id="d64bd737-3af3-460a-8ec8-9b252ae00619"
             name="createSpecInfo"
             visibility="Private"
             isLeaf="false"
@@ -41753,54 +41467,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="6ed991b3-a904-4782-97b7-4b431e8d40ad"
+                Id="ba9456d2-7d1b-44ae-866a-9790d578eaf6"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRentCarPanel Member%3D(Name%3DcreateSpecInfo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="06baeb9b-32c4-4f04-b45f-d00f22786782"
+                Id="c7060f16-e8b4-4f39-9d28-96beab36367d"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="a5b5d735-c30c-4619-a415-2000c484e593">
+                    Id="6839488a-8102-4540-a0bd-c600f5ceca96">
                     <propertyInstance
-                      Id="cd343c1f-049a-4c08-a142-45c642f880d7"
+                      Id="79ddd6e8-893a-4b55-a137-c61fbbb2487d"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="2512fdb3-8482-47b8-b5af-7ed0fb9ca147">
+                    Id="ae174756-897a-49d0-89e9-336726ddaa1c">
                     <propertyInstance
-                      Id="2f624da9-5b0c-4f4e-b97e-0c17b7113cb4"
+                      Id="49d2b1cc-76f2-42ef-b5b9-b54ec53e7be1"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="c3092acb-9e3f-417a-afb2-7226d40f51ee">
+                    Id="414dcaf9-415d-4d4c-b31b-7b50291bdd0e">
                     <propertyInstance
-                      Id="1ad1d97d-b7df-4067-8be2-2e40d083a0f1"
+                      Id="fcb0c47a-326f-4645-821c-b178b0397551"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="972e11c8-997c-42d0-8eb2-deb89ac74b2a">
+                    Id="6b8b8cc3-fee4-4578-9c12-f24acd31bdd5">
                     <propertyInstance
-                      Id="5376f4c6-76e2-453b-8efc-7adeadca2048"
+                      Id="ce30c72c-32bc-4724-92f7-fdd3cb4f41a1"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ae673d28-4341-4fc0-b143-946f49932e75">
+                    Id="b51cb0fb-cf2e-49ea-9b46-f10f22ff2cf9">
                     <propertyInstance
-                      Id="ccc1e8d0-81bf-4b13-8a03-789a23ddfe0e"
+                      Id="cae585b0-8c84-4d0e-b55d-9f17c6f1da2f"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="95efa58e-8782-4f48-be86-bab83f4e71ae">
+                    Id="68116f46-edfb-46dd-a286-bffc290b6e1b">
                     <propertyInstance
-                      Id="b19c8e97-e38e-4994-8f1e-5fb57be9be9a"
+                      Id="59c431c6-822a-47c8-bce7-bedb06c84fd0"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -41810,7 +41524,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="0a4ccfe2-5a79-4d4c-9df0-22fbfffb3d8a"
+                  Id="c865dc4c-da7a-4a83-89e5-9e8df13d9734"
                   direction="Return">
                   <type_NamedElement>
                     <classMoniker
@@ -41822,12 +41536,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="567fa29d-7442-4453-b917-a1944c81d7cb"
+                  Id="8c7058aa-1776-488a-b304-ce4be899fc0e"
                   name="list"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="163f8b50-b750-47c2-9bce-393749723307"
+                      Id="a33f915c-b135-417b-89e0-c0bc766c4f6d"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRentCarPanel Member%3D(Name%3DcreateSpecInfo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dlist"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -41841,12 +41555,12 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="eeb743ec-a21c-4dcf-aca2-1640b1b47b17"
+                  Id="4f701c16-6749-45ce-afb2-4766651e9f88"
                   name="carNumber"
                   direction="In">
                   <referencesInternal>
                     <reference
-                      Id="5bca1c77-410d-4278-981d-4fc410810816"
+                      Id="87c90e2a-07f9-4962-ad78-4e6b0faef038"
                       handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DRentCarPanel Member%3D(Name%3DcreateSpecInfo OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DCar)]))%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DcarNumber"
                       tag="ViewCode" />
                   </referencesInternal>
@@ -43194,7 +42908,7 @@
             </appliedStereotypesInternal>
           </operation>
           <operation
-            Id="1d526d5f-fcb8-4127-883f-f85a5a3ebd04"
+            Id="e13f5721-cc0a-4973-b9cf-3cbd57785473"
             name="TermsOfService"
             isLeaf="false"
             isStatic="false"
@@ -43203,54 +42917,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="c1bc7be3-d4f2-403a-8449-987e8964690a"
+                Id="5fe7b14e-caf1-40d7-88f6-1fc950033b6c"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars Type%3DTermsOfService Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="dc00f4d7-354e-47cf-9ce3-5c3acc256ba2"
+                Id="197584bd-ea65-45d2-a009-faf90a491d1f"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="75f3b043-63b6-4a56-9ab7-858198b2c2a4">
+                    Id="f26d5a37-970f-455e-b672-d2ca8dee8b5c">
                     <propertyInstance
-                      Id="e3f36965-8bbe-474d-8a1a-fc9bdb554841"
+                      Id="700fd45e-8bd1-46b3-bfe8-e56c0befc75e"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="9af0ddb1-6185-4489-a67e-0a699ed52320">
+                    Id="458b6c57-edf2-4c91-a6d7-509ea2f928c4">
                     <propertyInstance
-                      Id="4e98f03e-4bf3-4c3e-abf2-69dd0be909d6"
+                      Id="9492dbd9-5820-42bf-9d34-1c6712173743"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="732fc3fa-a01b-4cf1-8aa4-e0fc2e8736c5">
+                    Id="0db5012d-9dd8-44d5-8be8-d865c356a4ed">
                     <propertyInstance
-                      Id="02d6a066-4856-4a51-91cb-8fd605b1684e"
+                      Id="d2d74113-1f92-4f88-a668-fd2af138f867"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="17ce1182-29c7-44c8-b82a-4b16ab6a10d5">
+                    Id="7a1de09f-f3cd-4c94-9c4f-8f0a35b27323">
                     <propertyInstance
-                      Id="3c83b443-1e61-4427-a3e4-abd781fa44f2"
+                      Id="5c7ec6b4-9411-4f12-91e1-c1a40ef4b6cf"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="621e8a29-2e7a-4110-a914-3298e6661ea8">
+                    Id="75f726c8-53d4-4f79-a7d4-08770e296aa4">
                     <propertyInstance
-                      Id="e1e8288b-665a-42e9-9ff9-4ffed901c62e"
+                      Id="425fd2c0-adc3-48e1-87a8-743c0278e8ce"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="6869c422-c448-495c-91db-18945b0c169f">
+                    Id="15005a9c-48ef-4807-a9c5-31395199f398">
                     <propertyInstance
-                      Id="c522116f-ea10-4b08-87ee-877c62514ec7"
+                      Id="506e7683-8c13-4493-a13b-9e155999658d"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -44732,6 +44446,12 @@
         Id="5339ceb9-ccf0-4cb0-bc6a-b8c125d831ed"
         LastKnownName="Util"
         LastKnownLocation="Package25_1031.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1c9d8efa-935c-4ba6-83eb-fbd2b92c320a"
+        LastKnownName="Models"
+        LastKnownLocation="Package1_1137.uml" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

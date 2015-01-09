@@ -48,6 +48,12 @@
         LastKnownName="MySql"
         LastKnownLocation="Package16_1031.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9a93f951-4598-470a-a7ab-062685c1d6f4"
+        LastKnownName="Qars"
+        LastKnownLocation="Package_1138.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

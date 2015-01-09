@@ -368,7 +368,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="b58530a8-3e7f-4307-a25f-63cf7b079689"
+            Id="639d62c6-e6f0-469f-8a7c-8b3d7144182b"
             name="Resources"
             visibility="Package"
             isLeaf="false"
@@ -378,54 +378,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="a9524da7-d89f-4dcc-8a5c-1695f483ba23"
+                Id="a11ef10b-8083-4c14-a272-89dadb9cd508"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Properties Type%3DResources Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="bddcc17b-70e0-4f20-be27-dec9a17cc766"
+                Id="d6f78e70-8bec-4e28-9eb7-fd7b6cceb27e"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ca08d9ac-7e45-4c84-8f08-bb02c0783da8">
+                    Id="29eb4c9a-6684-4932-9175-7d294764c994">
                     <propertyInstance
-                      Id="ef941f32-71e4-48c5-bf6c-d7f764521e5c"
+                      Id="23cc351d-d99d-4449-91b6-4811ab6be17b"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="7f541959-038e-4105-9099-3ded72e4b5e3">
+                    Id="9daf1bb7-2fcd-45f9-9153-b8fca5098c96">
                     <propertyInstance
-                      Id="4183cfc3-b1ee-4449-9ced-ab78531f8ed8"
+                      Id="e326bcb4-34f6-4e2d-899a-7540aaac30cb"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f6fc8806-e5e0-4188-8be9-4b2b73af880e">
+                    Id="f7427537-41f9-4ac0-9b26-f047280a0b62">
                     <propertyInstance
-                      Id="66da8c16-a31d-448b-8fdb-367288c60e3d"
+                      Id="cef8f48c-a31e-4d47-9257-61c9d6654ce3"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="9150a786-958d-4a6a-9621-f2fcff78160f">
+                    Id="a5563435-4bab-42f9-9627-2114288c54c6">
                     <propertyInstance
-                      Id="491095cc-e298-444c-aa41-b9a10f6799b7"
+                      Id="54a09f0d-644a-4f7c-8bb3-fdbf4912b0e5"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="82072fec-6360-435e-af2e-0bebc5fb6f85">
+                    Id="882991b9-b8cd-4c55-8e05-66ba172c14b5">
                     <propertyInstance
-                      Id="77a4eb18-ee82-4aa6-a1d6-69dbf4409aac"
+                      Id="6e6e8758-3779-437f-b0ce-24ede0688884"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="8667069c-ef33-4ddb-920e-43f3913e389f">
+                    Id="6bad353b-1bfe-484b-9ded-357b57ee00d4">
                     <propertyInstance
-                      Id="500c14be-7732-42a3-ba46-d8233ea3f7f4"
+                      Id="32ae521b-9201-4f30-8598-ab50814271ff"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
@@ -722,7 +722,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="1d3137be-8fc0-476a-a243-80d6bfa3819c"
+            Id="6c5947d2-1709-4fce-bbf1-b67881576eba"
             name="Settings"
             isLeaf="false"
             isStatic="false"
@@ -731,54 +731,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="b38be4c8-5934-49c9-a21b-df9f67f6f219"
+                Id="a9ba01f7-1d42-49b8-a059-450258dc838c"
                 handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FUsers%2FStefan%2FDocuments%2FVisual Studio 2013%2FProjects%2FProject-Qars-Windesheim%2FQars%2FQars%2Fbin%2FDebug%2FQars.exe&quot; Namespace%3DQars.Properties Type%3DSettings Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="6ea89cfc-2fc4-462f-b338-d8c4182c1eee"
+                Id="d3e7696f-94e1-4a2e-9898-b9b6ab4bf6dc"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="abafce57-5edc-4d04-bbbf-9be10cdcf14d">
+                    Id="4f3db52a-7ad7-45b9-a62e-4da4892feb71">
                     <propertyInstance
-                      Id="c82c28e5-df97-4cdc-a484-888ed55569cb"
+                      Id="c254e71d-4895-407d-bf8a-9db9a65b5fea"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ae78de22-8170-417a-a2c0-ffc1b7cd529c">
+                    Id="65221fd4-20fa-4795-8fe5-d67217cdef6a">
                     <propertyInstance
-                      Id="efe3091e-06da-48f7-bd5f-5c1dcfa7b6cc"
+                      Id="fabed339-3b95-4417-b516-24a5f9c3044f"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="579e380f-66e9-4770-b378-32341467c9b0">
+                    Id="23f6f35f-0974-4951-a124-ecc7031a58eb">
                     <propertyInstance
-                      Id="85c64327-08d5-4e7c-80fe-cea04cabe12b"
+                      Id="c4dbb5ab-4e8e-4335-a37e-0de4714e99df"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="1c23a3c8-a455-434c-b908-7b6e1f32226f">
+                    Id="8e94a233-36da-46a2-b8b9-bdda8707ec64">
                     <propertyInstance
-                      Id="c42cb066-0f03-45a4-a2cc-24a305014a9a"
+                      Id="af2839bf-6b90-4b6f-b890-154da1c59c51"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="f4be5068-d070-4159-a44a-1a2e9320e61f">
+                    Id="8a8e5649-40ee-47a9-a8c5-728c8c408854">
                     <propertyInstance
-                      Id="1ee8576b-9f7e-4c1b-bc68-e1ed98ed19cd"
+                      Id="211a3399-1484-42ec-8016-a8c0208753ba"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="ad35efdc-5ff3-4f9c-a0d2-7c71c3541f39">
+                    Id="80d5b748-b449-43bc-9b96-9c3638e33ff5">
                     <propertyInstance
-                      Id="e9e80b71-c4ef-4c0e-8a92-8c64d9b1c445"
+                      Id="b28dbbe4-7483-4a2a-ae55-ff11ca128dd8"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>

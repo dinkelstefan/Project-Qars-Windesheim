@@ -51,109 +51,109 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="Views\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
+    <Compile Include="Views\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditPanels\AddCarPhoto.cs">
+    <Compile Include="Views\EditPanels\AddCarPhoto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditPanels\AddCarPhoto.Designer.cs">
+    <Compile Include="Views\EditPanels\AddCarPhoto.Designer.cs">
       <DependentUpon>AddCarPhoto.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditPanels\EditCarWindow.cs">
+    <Compile Include="Views\EditPanels\EditCarWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditPanels\EditCarWindow.Designer.cs">
+    <Compile Include="Views\EditPanels\EditCarWindow.Designer.cs">
       <DependentUpon>EditCarWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditPanels\EditReservationWindow.cs">
+    <Compile Include="Views\EditPanels\EditReservationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditPanels\EditReservationWindow.Designer.cs">
+    <Compile Include="Views\EditPanels\EditReservationWindow.Designer.cs">
       <DependentUpon>EditReservationWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditPanels\editUserWindow.cs">
+    <Compile Include="Views\EditPanels\editUserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditPanels\editUserWindow.Designer.cs">
+    <Compile Include="Views\EditPanels\editUserWindow.Designer.cs">
       <DependentUpon>editUserWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\ForecastAdminPanel.cs">
+    <Compile Include="Views\ForecastAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\ForecastAdminPanel.Designer.cs">
+    <Compile Include="Views\ForecastAdminPanel.Designer.cs">
       <DependentUpon>ForecastAdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\ToSAdminPanel.cs">
+    <Compile Include="Views\ToSAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\ToSAdminPanel.Designer.cs">
+    <Compile Include="Views\ToSAdminPanel.Designer.cs">
       <DependentUpon>ToSAdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\UserAdminPanel.cs">
+    <Compile Include="Views\UserAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\UserAdminPanel.Designer.cs">
+    <Compile Include="Views\UserAdminPanel.Designer.cs">
       <DependentUpon>UserAdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\ReservationAdminPanel.cs">
+    <Compile Include="Views\ReservationAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\ReservationAdminPanel.Designer.cs">
+    <Compile Include="Views\ReservationAdminPanel.Designer.cs">
       <DependentUpon>ReservationAdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="signInForm.cs">
+    <Compile Include="Views\signInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="signInForm.Designer.cs">
+    <Compile Include="Views\signInForm.Designer.cs">
       <DependentUpon>signInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Panels\CarAdminPanel.cs">
+    <Compile Include="Views\CarAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\CarAdminPanel.Designer.cs">
+    <Compile Include="Views\CarAdminPanel.Designer.cs">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="SimpleClasses\SimpleCar.cs" />
-    <Compile Include="SimpleClasses\simpleForecast.cs" />
-    <Compile Include="SimpleClasses\simpleUser.cs" />
-    <Compile Include="SimpleClasses\simpleReservation.cs" />
-    <EmbeddedResource Include="AdminForm.resx">
+    <Compile Include="Models\SimpleClasses\SimpleCar.cs" />
+    <Compile Include="Models\SimpleClasses\simpleForecast.cs" />
+    <Compile Include="Models\SimpleClasses\simpleUser.cs" />
+    <Compile Include="Models\SimpleClasses\simpleReservation.cs" />
+    <EmbeddedResource Include="Views\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditPanels\AddCarPhoto.resx">
+    <EmbeddedResource Include="Views\EditPanels\AddCarPhoto.resx">
       <DependentUpon>AddCarPhoto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditPanels\EditReservationWindow.resx">
+    <EmbeddedResource Include="Views\EditPanels\EditReservationWindow.resx">
       <DependentUpon>EditReservationWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditPanels\editUserWindow.resx">
+    <EmbeddedResource Include="Views\EditPanels\editUserWindow.resx">
       <DependentUpon>editUserWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditPanels\EditCarWindow.resx">
+    <EmbeddedResource Include="Views\EditPanels\EditCarWindow.resx">
       <DependentUpon>EditCarWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\CarAdminPanel.resx">
+    <EmbeddedResource Include="Views\CarAdminPanel.resx">
       <DependentUpon>CarAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ForecastAdminPanel.resx">
+    <EmbeddedResource Include="Views\ForecastAdminPanel.resx">
       <DependentUpon>ForecastAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ToSAdminPanel.resx">
+    <EmbeddedResource Include="Views\ToSAdminPanel.resx">
       <DependentUpon>ToSAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\UserAdminPanel.resx">
+    <EmbeddedResource Include="Views\UserAdminPanel.resx">
       <DependentUpon>UserAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\reservationAdminPanel.resx">
+    <EmbeddedResource Include="Views\reservationAdminPanel.resx">
       <DependentUpon>ReservationAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="signInForm.resx">
+    <EmbeddedResource Include="Views\signInForm.resx">
       <DependentUpon>signInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -181,9 +181,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Qars\Qars.csproj">
       <Project>{272d6397-e2ba-4c9b-a457-db1877711075}</Project>
       <Name>Qars</Name>
@@ -192,9 +189,7 @@
   <ItemGroup>
     <None Include="Resources\PicNotAvailable.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

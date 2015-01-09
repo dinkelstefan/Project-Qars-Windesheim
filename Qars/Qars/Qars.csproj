@@ -50,62 +50,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="CarDetailPanel.cs">
+    <Compile Include="Models\DBObjects\Car.cs" />
+    <Compile Include="Views\CarDetailPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CarPhoto.cs" />
-    <Compile Include="ComparePanel.cs">
+    <Compile Include="Models\DBObjects\CarPhoto.cs" />
+    <Compile Include="Views\ComparePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ComparePricePanel.cs">
+    <Compile Include="Views\ComparePricePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FTPConnection.cs" />
-    <Compile Include="LogInForm.cs">
+    <Compile Include="Models\FTPConnection.cs" />
+    <Compile Include="Views\LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogInForm.Designer.cs">
+    <Compile Include="Views\LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogOut.cs">
+    <Compile Include="Views\LogOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogOut.Designer.cs">
+    <Compile Include="Views\LogOut.Designer.cs">
       <DependentUpon>LogOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="PasswordHash.cs" />
-    <Compile Include="RegisterForm.cs">
+    <Compile Include="Util\PasswordHash.cs" />
+    <Compile Include="Views\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
+    <Compile Include="Views\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TermsOfService.cs">
+    <Compile Include="Views\TermsOfService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TermsOfService.Designer.cs">
+    <Compile Include="Views\TermsOfService.Designer.cs">
       <DependentUpon>TermsOfService.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToS.cs" />
-    <Compile Include="Discount.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="Damage.cs" />
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="Establishment.cs" />
-    <Compile Include="HoverPanel.cs">
+    <Compile Include="Models\DBObjects\ToS.cs" />
+    <Compile Include="Models\DBObjects\Discount.cs" />
+    <Compile Include="Models\DBObjects\User.cs" />
+    <Compile Include="Models\DBObjects\Damage.cs" />
+    <Compile Include="Models\DBConnect.cs" />
+    <Compile Include="Models\DBObjects\Establishment.cs" />
+    <Compile Include="Views\HoverPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RentCarPanel.cs">
+    <Compile Include="Views\RentCarPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RentCarPanel.Designer.cs">
+    <Compile Include="Views\RentCarPanel.Designer.cs">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reservation.cs" />
-    <Compile Include="TileListPanel.cs">
+    <Compile Include="Models\DBObjects\Reservation.cs" />
+    <Compile Include="Views\TileListPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Util\Mail.cs" />
@@ -115,19 +115,19 @@
     <Compile Include="Views\searchWizard.Designer.cs">
       <DependentUpon>searchWizard.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualDemo.cs">
+    <Compile Include="Views\VisualDemo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualDemo.Designer.cs">
+    <Compile Include="Views\VisualDemo.Designer.cs">
       <DependentUpon>VisualDemo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CarDetailPanel.resx">
+    <EmbeddedResource Include="Views\CarDetailPanel.resx">
       <DependentUpon>CarDetailPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogInForm.resx">
+    <EmbeddedResource Include="Views\LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogOut.resx">
+    <EmbeddedResource Include="Views\LogOut.resx">
       <DependentUpon>LogOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -139,22 +139,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegisterForm.resx">
+    <EmbeddedResource Include="Views\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RentCarPanel.resx">
+    <EmbeddedResource Include="Views\RentCarPanel.resx">
       <DependentUpon>RentCarPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TermsOfService.resx">
+    <EmbeddedResource Include="Views\TermsOfService.resx">
       <DependentUpon>TermsOfService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TileListPanel.resx">
+    <EmbeddedResource Include="Views\TileListPanel.resx">
       <DependentUpon>TileListPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\searchWizard.resx">
       <DependentUpon>searchWizard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisualDemo.resx">
+    <EmbeddedResource Include="Views\VisualDemo.resx">
       <DependentUpon>VisualDemo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -170,14 +170,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Models\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
