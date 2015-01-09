@@ -719,7 +719,7 @@ namespace Qars.Models
         public void UpdateCar(Car car)
         {
             string query = "Update Car ";
-            query += string.Format("SET EstablishmentID=@establishmentID,Brand='@brand', Model='@model', Category='@category', Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometres, Colour='@colour', Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate='@motd', Storagespace=@storagespace, Gearsamount=@gearsamount, Motor='@motor', Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description='@description', LicensePlate='@licenseplate");
+            query += string.Format("SET EstablishmentID=@establishmentID,Brand=@brand, Model=@model, Category=@category, Modelyear=@modelyear, Automatic=@automatic, Kilometers=@kilometers, Colour=@colour, Doors=@doors, Stereo=@stereo, Bluetooth=@bluetooth, Horsepower=@horsepower, Length=@length, Width=@width, Height=@height, Weight=@weight, Navigation=@navigation, Cruisecontrol=@cruisecontrol, Parkingassist=@parkingassist, 4WD=@4wd, Cabrio=@cabrio, Airco=@airco, Seats=@seats, MOTDate=@motd, Storagespace=@storagespace, Gearsamount=@gearsamount, Motor=@motor, Fuelusage=@fuelusage, Startprice=@startprice, Rentalprice=@rentalprice, Sellingprice=@sellingprice, Available=@available, Description=@description, LicensePlate=@licenseplate ");
             query += string.Format("Where carID = @carid");
 
             try
@@ -737,8 +737,8 @@ namespace Qars.Models
                     cmd.Parameters.AddWithValue("@modelyear", SafeInsertInt(car.modelyear));
                     cmd.Parameters.AddWithValue("@automatic", car.automatic);
                     cmd.Parameters.AddWithValue("@kilometers", SafeInsertInt(car.kilometres));
-                    cmd.Parameters.AddWithValue("@color", SafeInsertString(car.colour));
-                    cmd.Parameters.AddWithValue("@door", SafeInsertInt(car.doors));
+                    cmd.Parameters.AddWithValue("@colour", SafeInsertString(car.colour));
+                    cmd.Parameters.AddWithValue("@doors", SafeInsertInt(car.doors));
                     cmd.Parameters.AddWithValue("@stereo", car.stereo);
                     cmd.Parameters.AddWithValue("@bluetooth", car.bluetooth);
                     cmd.Parameters.AddWithValue("@horsepower", SafeInsertDouble(car.horsepower));
