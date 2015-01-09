@@ -77,6 +77,7 @@ namespace Qars_Admin.Views {
             Car car = new Car();
             EditCarWindow carWindow = new EditCarWindow(car, estList, databaseConnection, true);
             carWindow.ShowDialog();
+            this.RefreshList();
         }
     }
 }

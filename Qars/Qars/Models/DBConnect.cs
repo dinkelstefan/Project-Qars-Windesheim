@@ -566,6 +566,7 @@ namespace Qars.Models
         {
             Console.WriteLine(car.brand);
             int queryresult = 0;
+
             try
             {
                 if (connection.State != ConnectionState.Open)
@@ -622,8 +623,39 @@ namespace Qars.Models
 
 
                 queryresult = cmd.ExecuteNonQuery();
+
+
+                foreach (CarPhoto photo in car.PhotoList)
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        this.OpenConnection();
+                    }
+
+                    string file = photo.Photolink; ;
+                    string fileExtension = "." + file.Split('.').Last();
+                    Console.WriteLine(fileExtension);
+                    string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, photo.PhotoID + fileExtension);
+
+                    query = "INSERT INTO Photo(PhotoID, CarID, Name, Description, Datetaken, Photolink) ";
+                    query += "VALUES(@PhotoID, @CarID, @Name, @Description, @Datetaken, @Photolink)";
+
+                    command.CommandText = query;
+                    command.Parameters.AddWithValue("@CarID", maxCarId);
+                    command.Parameters.AddWithValue("@PhotoID", photo.PhotoID);
+                    command.Parameters.AddWithValue("@Name", photo.Name);
+                    command.Parameters.AddWithValue("@Description", photo.Description);
+                    command.Parameters.AddWithValue("@Datetaken", photo.Datetaken);
+                    command.Parameters.AddWithValue("@Photolink", photo.Photolink);
+
+                    command.ExecuteNonQuery();
+                    maxCarId++;
+                }
+
+
                 transaction.Commit();
-                MessageBox.Show("De auto is toegevoegd.");
+                MessageBox.Show("De auto met de bijbehorende foto's is toegevoegd.");
                 if (queryresult > 0)
                 {
                     return true;
@@ -832,15 +864,36 @@ namespace Qars.Models
         }
         public void DeleteCar(Car car)
         {
-            string query = "DELETE FROM Car ";
-            query += string.Format("WHERE CarID = @carid");
-
-            if (this.OpenConnection() == true)
+            MySqlTransaction transaction = connection.BeginTransaction();
+            try
             {
+                string query = "DELETE FROM Car ";
+                query += string.Format("WHERE CarID = @carid");
+
+                if (connection.State != ConnectionState.Open)
+                {
+                    this.OpenConnection();
+                }
+
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@carid", SafeInsertInt(car.carID));
                 cmd.ExecuteNonQuery();
-                CloseConnection();
+
+                query = "DELTE FROM Photo WHERE CarID = @carid";
+                cmd.CommandText = query;
+
+                cmd.Parameters.AddWithValue("@carid", SafeInsertInt(car.carID));
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+            }
+            finally
+            {
+                this.CloseConnection();
             }
         }
         public void DeleteUser(User user)
@@ -1023,23 +1076,18 @@ namespace Qars.Models
 
         public int getHighestPhotoID()
         {
-            Console.WriteLine("start!");
             int maxPhotoID = -1;
             string query = "SELECT max(PhotoID) From Photo";
 
             try
             {
-                Console.WriteLine("Start2!");
                 if (connection.State != ConnectionState.Open)
                 {
                     connection.Open();
-                    Console.WriteLine("Start3!");
                 }
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                Console.WriteLine("Start4!");
                 maxPhotoID = Convert.ToInt32(cmd.ExecuteScalar());
-                Console.WriteLine("Start5!");
                 maxPhotoID++;
             }
             catch (Exception e)

@@ -117,7 +117,7 @@ namespace Qars_Admin.Views.EditPanels
 
         private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || e.KeyData == Keys.RShiftKey || e.KeyData == Keys.LShiftKey || e.KeyData == Keys.Shift || e.KeyData == Keys.ShiftKey)
+            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || Keys.Shift == Control.ModifierKeys || e.KeyData == Keys.CapsLock)
             {
                 e.Handled = true;
             }
@@ -205,7 +205,11 @@ namespace Qars_Admin.Views.EditPanels
                 Car car = this.getCarFromFields();
 
                 this.connect.DeleteCar(car);
-                MessageBox.Show(string.Format("De reserving met reserveringnummer: {0} is verwijderd.", car.carID));
+                foreach (CarPhoto photo in car.PhotoList)
+                {
+                    this.removeFileFromFTP(car, photo);
+                }
+
                 this.Close();
             }
             catch (Exception)
@@ -231,13 +235,13 @@ namespace Qars_Admin.Views.EditPanels
                 }
             }
 
-            newCar.brand = this.BrandBox.Text;
-            newCar.model = this.ModelBox.Text;
+            newCar.brand = this.UppercaseFirst(this.BrandBox.Text);
+            newCar.model = this.UppercaseFirst(this.ModelBox.Text);
             newCar.category = this.CategoryBox.Text;
             newCar.modelyear = Int32.Parse(this.ModelyearBox.Text);
             newCar.automatic = this.AutomaticBox.Checked;
             newCar.kilometres = Int32.Parse(this.KilometersBox.Text);
-            newCar.colour = this.ColourBox.Text;
+            newCar.colour = this.UppercaseFirst(this.ColourBox.Text);
             newCar.stereo = this.StereoBox.Checked;
             newCar.bluetooth = this.BluetoothBox.Checked;
             newCar.horsepower = Double.Parse(this.HorsePowerBox.Text);
@@ -294,6 +298,7 @@ namespace Qars_Admin.Views.EditPanels
         public void addCarPhoto(CarPhoto carPhoto)
         {
             car.PhotoList.Add(carPhoto);
+            
             //Refresh list with photos
             imageLinkList.Items.Add(carPhoto.Name);
         }
@@ -518,6 +523,16 @@ namespace Qars_Admin.Views.EditPanels
                     MessageBox.Show("Het verwijdern van de foto is niet gelukt." + ex);
                 }
             }
+        }
+        private string UppercaseFirst(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            char[] a = s.ToCharArray();
+            a[0] = char.ToUpper(a[0]);
+            return new string(a);
         }
     }
 }
