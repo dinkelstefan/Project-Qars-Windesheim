@@ -43,7 +43,12 @@ namespace Qars.Views
                     availableat = "Verkrijgbaar bij: " + company.name;
                 }
             }
-
+            int left = 22;
+            foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
+            {
+                PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
+                left += 88;
+            }
             //all the labels, images and buttons
             Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
 
@@ -147,12 +152,7 @@ namespace Qars.Views
 
 
                 //Create the small pictures
-                int left = 22;
-                foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
-                {
-                    PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
-                    left += 88;
-                }
+
                 //Select the main picture
                 if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
                 {
