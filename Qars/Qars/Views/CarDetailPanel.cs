@@ -23,7 +23,6 @@ namespace Qars.Views
         private Discount discount;
         public CarDetailPanel(int carNumber, int UserID, VisualDemo qarsApp, Discount dis)
         {   //properties of the panel
-
             this.currentCarNumber = carNumber;
             this.Height = 568;
             this.Width = 1016;
@@ -35,7 +34,7 @@ namespace Qars.Views
 
             this.qarsApplication = qarsApp;
             this.UserID = qarsApp.userID;
-
+            CreateSpecInfo(this.qarsApplication.carList[carNumber], carNumber);
             //Look up where the Car is available
             foreach (var company in this.qarsApplication.EstablishmentList)
             {
@@ -96,7 +95,6 @@ namespace Qars.Views
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
 
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
-            CreateSpecInfo(this.qarsApplication.carList, carNumber);
 
             List<Reservation> ReservationList = new DBConnect().SelectReservation(); //Get the most recent list
             List<User> UserList = new DBConnect().SelectUsers(); //Get the most recent list
@@ -164,7 +162,7 @@ namespace Qars.Views
         }
 
 
-        private void CreateSpecInfo(List<Car> list, int carnumber)
+        private void CreateSpecInfo(Car car, int carnumber)
         {
             int left1 = 22;
             int width1 = 120;
@@ -191,7 +189,7 @@ namespace Qars.Views
                 switch (countFailure)
                 {
                     case 0:
-                        if (list[carnumber].category == "")
+                        if (car.category == "")
                         {
                             countFailure++;
                             break;
@@ -199,14 +197,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Categorie:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].category, top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.category, top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 1:
-                        if (list[carnumber].modelyear == -1)
+                        if (car.modelyear == -1)
                         {
                             countFailure++;
                             break;
@@ -214,14 +213,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 2:
-                        if (!list[carnumber].automatic)
+                        if (!car.automatic)
                         {
                             countFailure++;
                             break;
@@ -230,6 +230,7 @@ namespace Qars.Views
                         {
                             createLabel("Automaat:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -237,7 +238,7 @@ namespace Qars.Views
                         }
                     case 3:
 
-                        if (!list[carnumber].automatic)
+                        if (!car.automatic)
                         {
                             countFailure++;
                             break;
@@ -245,15 +246,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Versnellingen:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].gearsamount.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.gearsamount.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
-
                             break;
                         }
                     case 4:
-                        if (list[carnumber].motor == "")
+                        if (car.motor == "")
                         {
                             countFailure++;
                             break;
@@ -261,14 +262,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Motor:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].motor, top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.motor, top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 5:
-                        if (list[carnumber].horsepower == -1)
+                        if (car.horsepower == -1)
                         {
                             countFailure++;
                             break;
@@ -276,14 +278,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Vermogen:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].horsepower + " PK", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.horsepower + " PK", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 6:
-                        if (list[carnumber].fuelusage == -1)
+                        if (car.fuelusage == -1)
                         {
                             countFailure++;
                             break;
@@ -292,14 +295,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Verbruik:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 7:
-                        if (list[carnumber].kilometres == -1)
+                        if (car.kilometres == -1)
                         {
                             countFailure++;
                             break;
@@ -307,14 +311,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Kilometers:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].kilometres.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.kilometres.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 8:
-                        if (list[carnumber].motdate == "")
+                        if (car.motdate == "")
                         {
                             countFailure++;
                             break;
@@ -322,14 +327,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("APK:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].motdate, top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.motdate, top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 9:
-                        if (list[carnumber].length == -1)
+                        if (car.length == -1)
                         {
                             countFailure++;
                             break;
@@ -337,14 +343,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Lengte:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].length + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.length + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 10:
-                        if (list[carnumber].width == -1)
+                        if (car.width == -1)
                         {
                             countFailure++;
                             break;
@@ -352,14 +359,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Breedte:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].width + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.width + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 11:
-                        if (list[carnumber].height == -1)
+                        if (car.height == -1)
                         {
                             countFailure++;
                             break;
@@ -367,14 +375,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Hoogte:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].height + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.height + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 12:
-                        if (list[carnumber].weight == -1)
+                        if (car.weight == -1)
                         {
                             countFailure++;
                             break;
@@ -382,14 +391,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Gewicht:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].weight + " Kilo", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.weight + " Kilo", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 13:
-                        if (list[carnumber].colour == "")
+                        if (car.colour == "")
                         {
                             countFailure++;
                             break;
@@ -397,14 +407,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Kleur:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].colour, top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.colour, top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 14:
-                        if (list[carnumber].doors == -1)
+                        if (car.doors == -1)
                         {
                             countFailure++;
                             break;
@@ -412,14 +423,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Deuren:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].doors.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.doors.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 15:
-                        if (!list[carnumber].stereo)
+                        if (car.stereo)
                         {
                             countFailure++;
                             break;
@@ -428,13 +440,14 @@ namespace Qars.Views
                         {
                             createLabel("Stereo:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 16:
-                        if (!list[carnumber].bluetooth)
+                        if (car.bluetooth)
                         {
                             countFailure++;
                             break;
@@ -443,14 +456,14 @@ namespace Qars.Views
                         {
                             createLabel("Bluetooth:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
-
                             break;
                         }
                     case 17:
-                        if (!list[carnumber].navigation)
+                        if (car.navigation)
                         {
                             countFailure++;
                             break;
@@ -459,13 +472,14 @@ namespace Qars.Views
                         {
                             createLabel("Navigatie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 18:
-                        if (!list[carnumber].cruisecontrol)
+                        if (car.cruisecontrol)
                         {
                             countFailure++;
                             break;
@@ -474,13 +488,14 @@ namespace Qars.Views
                         {
                             createLabel("Cruise Control:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 19:
-                        if (!list[carnumber].parkingAssist)
+                        if (car.parkingAssist)
                         {
                             countFailure++;
                             break;
@@ -489,13 +504,14 @@ namespace Qars.Views
                         {
                             createLabel("Parkeerhulp:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 20:
-                        if (!list[carnumber].fourwheeldrive)
+                        if (car.fourwheeldrive)
                         {
                             countFailure++;
                             break;
@@ -504,13 +520,14 @@ namespace Qars.Views
                         {
                             createLabel("4WD:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 21:
-                        if (!list[carnumber].cabrio)
+                        if (car.cabrio)
                         {
                             countFailure++;
                             break;
@@ -519,13 +536,14 @@ namespace Qars.Views
                         {
                             createLabel("Cabrio:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 22:
-                        if (!list[carnumber].airco)
+                        if (car.airco)
                         {
                             countFailure++;
                             break;
@@ -534,6 +552,7 @@ namespace Qars.Views
                         {
                             createLabel("Airco:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -541,7 +560,7 @@ namespace Qars.Views
                         }
 
                     case 23:
-                        if (list[carnumber].seats == -1)
+                        if (car.seats == -1)
                         {
                             countFailure++;
                             break;
@@ -549,14 +568,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Stoelen:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].seats.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.seats.ToString(), top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 24:
-                        if (list[carnumber].storagespace == -1)
+                        if (car.storagespace == -1)
                         {
                             countFailure++;
                             break;
@@ -564,14 +584,15 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Ruimte:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
                     case 25:
-                        if (list[carnumber].LicensePlate == "")
+                        if (car.LicensePlate == "")
                         {
                             countFailure++;
                             break;
@@ -579,13 +600,16 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Kenteken:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].LicensePlate, top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(car.LicensePlate, top, left, width, height, 12, FontStyle.Regular);
+                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
                             break;
                         }
+
                 }
+
             }
         }
         public void PictureHover(object sender, EventArgs e)
