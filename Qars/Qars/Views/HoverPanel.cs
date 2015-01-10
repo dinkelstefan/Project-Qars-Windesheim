@@ -41,8 +41,6 @@ namespace Qars.Views
         {
             Car car = c;
 
-
-
             if ((x + Width > vd.Width) && (y + Height > vd.Height))
             {
                 Left = x - 155;

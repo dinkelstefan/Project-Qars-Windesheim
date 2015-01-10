@@ -52,13 +52,14 @@ namespace Qars.Views
             //all the labels, images and buttons
             Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
 
-            Label beginprice = createLabel("Beginprijs:", 60, 374, 85, 25, 13, FontStyle.Regular);
+
+            Label beginprice = createLabel("Beginprijs:", 62, 374, 85, 20, 13, FontStyle.Regular);
             Label beginAmount = createLabel("€" + this.qarsApplication.carList[carNumber].startprice, 62, 455, Convert.ToInt32(20 * Math.Floor(Math.Log10(this.qarsApplication.carList[carNumber].startprice) + 1)), 27, 14, FontStyle.Regular);
 
 
             int lengthb = (this.qarsApplication.carList[carNumber].rentalprice.ToString()).Count();
-            Label priceperkm = createLabel("Kilometerprijs:", 100, 375, 116, 25, 13, FontStyle.Regular);
-            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 15 * lengthb, 27, 14, FontStyle.Regular);
+            Label priceperkm = createLabel("Kilometerprijs:", 102, 375, 116, 25, 13, FontStyle.Regular);
+            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 35 * lengthb, 27, 14, FontStyle.Regular);
 
 
             if (discount != null)
