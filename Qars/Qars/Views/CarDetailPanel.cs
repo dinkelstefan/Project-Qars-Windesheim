@@ -164,6 +164,9 @@ namespace Qars.Views
 
         private void CreateSpecInfo(Car car, int carnumber)
         {
+            bool spec7 = false;
+            bool spec14 = false;
+            bool spec21 = false;
             int left1 = 22;
             int width1 = 120;
 
@@ -175,14 +178,33 @@ namespace Qars.Views
             int countFailure = 0;
             int countSuccess = 0;
 
-            for (int i = 0; i < 26; i++)
+            while (countFailure != 25)
             {
 
-                if (countSuccess == 7 || countSuccess == 14 || countSuccess == 21)
+                if (countSuccess == 7 && spec7 == false)
                 {
                     top = 355;
                     left += 240;
                     left1 += 240;
+                    Console.WriteLine("Ik ben nu " + countSuccess + " En failure is " + countFailure);
+                    spec7 = true;
+
+                }
+                else if (countSuccess == 14 && spec14 == false)
+                {
+                    top = 355;
+                    left += 240;
+                    left1 += 240;
+                    Console.WriteLine("Ik ben nu " + countSuccess + " En failure is " + countFailure);
+                    spec14 = true;
+                }
+                else if (countSuccess == 21 && spec21 == false)
+                {
+                    top = 355;
+                    left += 240;
+                    left1 += 240;
+                    Console.WriteLine("Ik ben nu " + countSuccess + " En failure is " + countFailure);
+                    spec21 = true;
                 }
 
 
