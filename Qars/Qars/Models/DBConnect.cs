@@ -796,7 +796,7 @@ namespace Qars.Models
                     cmd.Parameters.AddWithValue("@available", car.available);
                     cmd.Parameters.AddWithValue("@description", SafeInsertString(car.description));
                     cmd.Parameters.AddWithValue("@airco", car.airco);
-                    cmd.Parameters.AddWithValue("@licenseplate", SafeInsertString(car.LicensePlate)); //Create Licenseplate Label and textbox! 
+                    cmd.Parameters.AddWithValue("@licenseplate", SafeInsertString(car.LicensePlate));
 
                     Console.WriteLine(cmd.CommandText);
                     cmd.ExecuteNonQuery();
@@ -830,7 +830,7 @@ namespace Qars.Models
                             cmd.CommandText = query;
 
                             string file = c.Photolink;
-                            ;
+
                             string fileExtension = "." + file.Split('.').Last();
                             Console.WriteLine(fileExtension);
                             string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, c.PhotoID + fileExtension);

@@ -51,22 +51,41 @@ namespace Qars_Admin.Views.EditPanels
                 if (fileSize > 2621440)
                 {
                     photoLink = "";
+                    error = true;
+                    MessageBox.Show("De foto mag maximaal 2.5 megabytes zijn!");
                 }
-                else
+                if (error == false)
                 {
                     string extension = fi.Extension;
                     Console.WriteLine(extension);
-                    if (extension != ".png" || extension != ".jpg")
+                    if (extension == ".png")
+                    {
+                        error = false;
+                    }
+                    else if (extension == ".jpg")
+                    {
+                        error = false;
+                    }
+                    else
                     {
                         error = true;
                     }
-                    if (error == false)
-                    {
-                        photoPictureBox.Image = Image.FromFile(photoLink);
-                        photoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                        photoLinkTextBox.Text = openFileDialog.FileName;
-                    }
                 }
+                else
+                {
+                    MessageBox.Show("Alleen foto's met een .png en .jpg extensie zijn toegestaan!");
+                }
+                if (error == false)
+                {
+                    photoPictureBox.Image = Image.FromFile(photoLink);
+                    photoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    photoLinkTextBox.Text = photoLink;
+                }
+                else
+                {
+                    MessageBox.Show("Uw geselecteerde foto is niet correct!");
+                }
+
             }
         }
 

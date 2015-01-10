@@ -117,7 +117,7 @@ namespace Qars_Admin.Views.EditPanels
 
         private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || Keys.Shift == Control.ModifierKeys || e.KeyData == Keys.CapsLock)
+            if ((e.KeyData >= Keys.A && e.KeyData <= Keys.Z) || e.KeyData == Keys.OemPeriod || e.KeyData == Keys.Back || e.KeyData == Keys.Delete || e.KeyData == Keys.OemMinus || Keys.Shift == Control.ModifierKeys || e.KeyData == Keys.CapsLock)
             {
                 e.Handled = true;
             }
@@ -143,7 +143,7 @@ namespace Qars_Admin.Views.EditPanels
 
         private void TextBoxFloatOnly_KeyPress(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.Delete)
+            if ((e.KeyData >= Keys.D0 && e.KeyData <= Keys.D9) || (e.KeyData >= Keys.NumPad0 && e.KeyData <= Keys.NumPad9) || e.KeyData == Keys.OemMinus || e.KeyData == Keys.Back || e.KeyData == Keys.OemPeriod || e.KeyData == Keys.Delete)
             {
                 e.Handled = true;
             }
@@ -207,7 +207,8 @@ namespace Qars_Admin.Views.EditPanels
                 this.connect.DeleteCar(car);
                 foreach (CarPhoto photo in car.PhotoList)
                 {
-                    string file = photo.Photolink; ;
+                    string file = photo.Photolink;
+
                     string fileExtension = "." + file.Split('.').Last();
                     this.removeFileFromFTP(car, photo, fileExtension);
                 }
@@ -342,7 +343,15 @@ namespace Qars_Admin.Views.EditPanels
                     else
                     {
                         string extension = fi.Extension;
-                        if (extension != ".jpg" || extension != ".png")
+                        if (extension == ".jpg")
+                        {
+                            error = false;
+                        }
+                        else if (extension == ".png")
+                        {
+                            error = false;
+                        }
+                        else
                         {
                             error = true;
                         }
@@ -510,19 +519,18 @@ namespace Qars_Admin.Views.EditPanels
             {
                 int index = imageLinkList.SelectedIndex;
                 CarPhoto photo = car.PhotoList[index];
-                FileInfo fi = new FileInfo(photo.Photolink);
-                string extension = fi.Extension;
+                string fileExtension = "." + photo.Photolink.Split('.').Last();
 
                 try
                 {
                     this.connect.DeletePhoto(photo);
-                    this.removeFileFromFTP(car, photo, extension);
+                    this.removeFileFromFTP(car, photo, fileExtension);
                     this.imageLinkList.Items.Remove(imageLinkList.SelectedIndex);
-                    MessageBox.Show("De foto is verwijdert.");
+                    MessageBox.Show("De foto is verwijderd.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Het verwijdern van de foto is niet gelukt." + ex);
+                    MessageBox.Show("Het verwijderen van de foto is niet gelukt. Foutbericht: " + ex);
                 }
             }
         }

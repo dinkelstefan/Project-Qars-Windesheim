@@ -67,7 +67,7 @@ namespace Qars.Views
             customerList = db.SelectUsers();
 
             updateTileView();
-            
+
             this.Controls.Add(hp);
             hp.BringToFront();
             ChangeAccountDetails(userID);
@@ -163,10 +163,10 @@ namespace Qars.Views
             {
                 var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == car.carID);
 
-                if(match != null)
+                if (match != null)
                 {
                     discountPrices.Add(car.startprice * ((double)1 - ((double)match.percentage / 100)));
-                    discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.KMPercentage / 100))); 
+                    discountPrices.Add(car.rentalprice * ((double)1 - ((double)match.KMPercentage / 100)));
                 }
                 else
                 {

@@ -20,7 +20,7 @@ namespace Qars_Admin.Views
         {
             InitializeComponent();
             this.usernameTextBox.Text = "admin";
-            this.passwordTextBox.Text = "1234";
+            this.passwordTextBox.Text = "QuintorQARS1234";
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
