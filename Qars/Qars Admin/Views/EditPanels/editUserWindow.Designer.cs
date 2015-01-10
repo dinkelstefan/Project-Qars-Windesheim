@@ -200,7 +200,7 @@
             // userIdTextBox
             // 
             this.userIdTextBox.Location = new System.Drawing.Point(201, 25);
-            this.userIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.userIdTextBox.Name = "userIdTextBox";
             this.userIdTextBox.ReadOnly = true;
             this.userIdTextBox.Size = new System.Drawing.Size(54, 20);
@@ -209,7 +209,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(201, 130);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(203, 20);
             this.usernameTextBox.TabIndex = 3;
@@ -217,7 +217,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(201, 162);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.ReadOnly = true;
@@ -227,7 +227,7 @@
             // firstnameTextBox
             // 
             this.firstnameTextBox.Location = new System.Drawing.Point(201, 191);
-            this.firstnameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.firstnameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.firstnameTextBox.Name = "firstnameTextBox";
             this.firstnameTextBox.Size = new System.Drawing.Size(203, 20);
             this.firstnameTextBox.TabIndex = 4;
@@ -236,7 +236,7 @@
             // lastnameTextBox
             // 
             this.lastnameTextBox.Location = new System.Drawing.Point(201, 216);
-            this.lastnameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastnameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.lastnameTextBox.Name = "lastnameTextBox";
             this.lastnameTextBox.Size = new System.Drawing.Size(203, 20);
             this.lastnameTextBox.TabIndex = 5;
@@ -245,7 +245,7 @@
             // ageTextBox
             // 
             this.ageTextBox.Location = new System.Drawing.Point(201, 243);
-            this.ageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ageTextBox.Name = "ageTextBox";
             this.ageTextBox.Size = new System.Drawing.Size(49, 20);
             this.ageTextBox.TabIndex = 6;
@@ -254,7 +254,7 @@
             // postalCodeTextBox
             // 
             this.postalCodeTextBox.Location = new System.Drawing.Point(201, 270);
-            this.postalCodeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.postalCodeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.postalCodeTextBox.Mask = "0000 LL";
             this.postalCodeTextBox.Name = "postalCodeTextBox";
             this.postalCodeTextBox.Size = new System.Drawing.Size(49, 20);
@@ -263,7 +263,7 @@
             // streetnameTextBox
             // 
             this.streetnameTextBox.Location = new System.Drawing.Point(201, 331);
-            this.streetnameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetnameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnameTextBox.Name = "streetnameTextBox";
             this.streetnameTextBox.Size = new System.Drawing.Size(203, 20);
             this.streetnameTextBox.TabIndex = 9;
@@ -272,7 +272,7 @@
             // streetnumberTextBox
             // 
             this.streetnumberTextBox.Location = new System.Drawing.Point(201, 357);
-            this.streetnumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetnumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnumberTextBox.Name = "streetnumberTextBox";
             this.streetnumberTextBox.Size = new System.Drawing.Size(49, 20);
             this.streetnumberTextBox.TabIndex = 10;
@@ -281,7 +281,7 @@
             // streetnumberSuffixTextBox
             // 
             this.streetnumberSuffixTextBox.Location = new System.Drawing.Point(252, 357);
-            this.streetnumberSuffixTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetnumberSuffixTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnumberSuffixTextBox.Name = "streetnumberSuffixTextBox";
             this.streetnumberSuffixTextBox.Size = new System.Drawing.Size(49, 20);
             this.streetnumberSuffixTextBox.TabIndex = 11;
@@ -290,7 +290,7 @@
             // phonenumberTextBox
             // 
             this.phonenumberTextBox.Location = new System.Drawing.Point(201, 390);
-            this.phonenumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phonenumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.phonenumberTextBox.Name = "phonenumberTextBox";
             this.phonenumberTextBox.Size = new System.Drawing.Size(203, 20);
             this.phonenumberTextBox.TabIndex = 12;
@@ -299,7 +299,7 @@
             // emailadresTextBox
             // 
             this.emailadresTextBox.Location = new System.Drawing.Point(201, 420);
-            this.emailadresTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailadresTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.emailadresTextBox.Name = "emailadresTextBox";
             this.emailadresTextBox.Size = new System.Drawing.Size(203, 20);
             this.emailadresTextBox.TabIndex = 13;
@@ -307,7 +307,7 @@
             // delete_Button
             // 
             this.delete_Button.Location = new System.Drawing.Point(8, 561);
-            this.delete_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.delete_Button.Margin = new System.Windows.Forms.Padding(2);
             this.delete_Button.Name = "delete_Button";
             this.delete_Button.Size = new System.Drawing.Size(73, 23);
             this.delete_Button.TabIndex = 16;
@@ -318,7 +318,7 @@
             // cancel_Button
             // 
             this.cancel_Button.Location = new System.Drawing.Point(287, 561);
-            this.cancel_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancel_Button.Margin = new System.Windows.Forms.Padding(2);
             this.cancel_Button.Name = "cancel_Button";
             this.cancel_Button.Size = new System.Drawing.Size(73, 23);
             this.cancel_Button.TabIndex = 14;
@@ -329,7 +329,7 @@
             // save_Button
             // 
             this.save_Button.Location = new System.Drawing.Point(364, 561);
-            this.save_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.save_Button.Margin = new System.Windows.Forms.Padding(2);
             this.save_Button.Name = "save_Button";
             this.save_Button.Size = new System.Drawing.Size(73, 23);
             this.save_Button.TabIndex = 15;
@@ -351,7 +351,7 @@
             // accountLevelTextBox
             // 
             this.accountLevelTextBox.Location = new System.Drawing.Point(201, 53);
-            this.accountLevelTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.accountLevelTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.accountLevelTextBox.Name = "accountLevelTextBox";
             this.accountLevelTextBox.Size = new System.Drawing.Size(54, 20);
             this.accountLevelTextBox.TabIndex = 1;
@@ -371,7 +371,7 @@
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(201, 301);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(203, 20);
             this.cityTextBox.TabIndex = 8;
@@ -392,7 +392,7 @@
             // 
             this.establishmentComboBox.FormattingEnabled = true;
             this.establishmentComboBox.Location = new System.Drawing.Point(201, 78);
-            this.establishmentComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.establishmentComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.establishmentComboBox.Name = "establishmentComboBox";
             this.establishmentComboBox.Size = new System.Drawing.Size(203, 21);
             this.establishmentComboBox.TabIndex = 2;
@@ -401,7 +401,7 @@
             // 
             this.driverLicensePictureBox.ErrorImage = global::Qars_Admin.Properties.Resources.PicNotAvailable;
             this.driverLicensePictureBox.Location = new System.Drawing.Point(201, 448);
-            this.driverLicensePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.driverLicensePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.driverLicensePictureBox.Name = "driverLicensePictureBox";
             this.driverLicensePictureBox.Size = new System.Drawing.Size(202, 109);
             this.driverLicensePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -412,7 +412,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 567);
+            this.ClientSize = new System.Drawing.Size(449, 586);
+            this.ControlBox = false;
             this.Controls.Add(this.establishmentComboBox);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cityTextBox);
@@ -447,7 +448,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(465, 643);
             this.MinimizeBox = false;

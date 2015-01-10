@@ -154,7 +154,7 @@
             // startDateTextBox
             // 
             this.startDateTextBox.Location = new System.Drawing.Point(227, 16);
-            this.startDateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startDateTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.startDateTextBox.Name = "startDateTextBox";
             this.startDateTextBox.Size = new System.Drawing.Size(79, 20);
             this.startDateTextBox.TabIndex = 1;
@@ -164,7 +164,7 @@
             // endDateTextBox
             // 
             this.endDateTextBox.Location = new System.Drawing.Point(227, 42);
-            this.endDateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.endDateTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.endDateTextBox.Name = "endDateTextBox";
             this.endDateTextBox.Size = new System.Drawing.Size(79, 20);
             this.endDateTextBox.TabIndex = 2;
@@ -175,7 +175,7 @@
             // 
             this.confirmedCheckBox.AutoSize = true;
             this.confirmedCheckBox.Location = new System.Drawing.Point(227, 72);
-            this.confirmedCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.confirmedCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.confirmedCheckBox.Name = "confirmedCheckBox";
             this.confirmedCheckBox.Size = new System.Drawing.Size(15, 14);
             this.confirmedCheckBox.TabIndex = 3;
@@ -184,7 +184,7 @@
             // kilometersTextbox
             // 
             this.kilometersTextbox.Location = new System.Drawing.Point(227, 103);
-            this.kilometersTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kilometersTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.kilometersTextbox.Name = "kilometersTextbox";
             this.kilometersTextbox.Size = new System.Drawing.Size(79, 20);
             this.kilometersTextbox.TabIndex = 4;
@@ -192,7 +192,7 @@
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(227, 151);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(79, 20);
             this.cityTextBox.TabIndex = 5;
@@ -201,7 +201,7 @@
             // streetnameTextBox
             // 
             this.streetnameTextBox.Location = new System.Drawing.Point(227, 175);
-            this.streetnameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetnameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnameTextBox.Name = "streetnameTextBox";
             this.streetnameTextBox.Size = new System.Drawing.Size(79, 20);
             this.streetnameTextBox.TabIndex = 6;
@@ -210,7 +210,7 @@
             // streetnumberTextBox
             // 
             this.streetnumberTextBox.Location = new System.Drawing.Point(227, 198);
-            this.streetnumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetnumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnumberTextBox.Name = "streetnumberTextBox";
             this.streetnumberTextBox.Size = new System.Drawing.Size(53, 20);
             this.streetnumberTextBox.TabIndex = 7;
@@ -220,7 +220,7 @@
             // 
             this.paidCheckBox.AutoSize = true;
             this.paidCheckBox.Location = new System.Drawing.Point(227, 251);
-            this.paidCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.paidCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.paidCheckBox.Name = "paidCheckBox";
             this.paidCheckBox.Size = new System.Drawing.Size(15, 14);
             this.paidCheckBox.TabIndex = 9;
@@ -229,7 +229,7 @@
             // commentCheckBox
             // 
             this.commentCheckBox.Location = new System.Drawing.Point(227, 275);
-            this.commentCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.commentCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.commentCheckBox.Name = "commentCheckBox";
             this.commentCheckBox.Size = new System.Drawing.Size(153, 106);
             this.commentCheckBox.TabIndex = 10;
@@ -238,7 +238,7 @@
             // streetnumberSuffixTextBox
             // 
             this.streetnumberSuffixTextBox.Location = new System.Drawing.Point(283, 198);
-            this.streetnumberSuffixTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetnumberSuffixTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetnumberSuffixTextBox.Name = "streetnumberSuffixTextBox";
             this.streetnumberSuffixTextBox.Size = new System.Drawing.Size(24, 20);
             this.streetnumberSuffixTextBox.TabIndex = 8;
@@ -247,7 +247,7 @@
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(331, 425);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(74, 23);
             this.saveButton.TabIndex = 12;
@@ -258,7 +258,7 @@
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(253, 425);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(74, 23);
             this.cancelButton.TabIndex = 11;
@@ -269,7 +269,7 @@
             // delete_Button
             // 
             this.delete_Button.Location = new System.Drawing.Point(8, 425);
-            this.delete_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.delete_Button.Margin = new System.Windows.Forms.Padding(2);
             this.delete_Button.Name = "delete_Button";
             this.delete_Button.Size = new System.Drawing.Size(74, 23);
             this.delete_Button.TabIndex = 13;
@@ -282,6 +282,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 469);
+            this.ControlBox = false;
             this.Controls.Add(this.delete_Button);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
@@ -304,7 +305,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(433, 508);
             this.MinimizeBox = false;
