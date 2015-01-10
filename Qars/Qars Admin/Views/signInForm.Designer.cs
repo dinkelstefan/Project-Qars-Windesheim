@@ -33,12 +33,13 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.SignInButton = new System.Windows.Forms.Button();
+            this.LogInFailedLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(8, 27);
+            this.usernameLabel.Location = new System.Drawing.Point(8, 41);
             this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(87, 13);
@@ -48,7 +49,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(24, 48);
+            this.passwordLabel.Location = new System.Drawing.Point(24, 62);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(71, 13);
@@ -57,7 +58,7 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(97, 24);
+            this.usernameTextBox.Location = new System.Drawing.Point(97, 38);
             this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(124, 20);
@@ -65,7 +66,7 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(97, 45);
+            this.passwordTextBox.Location = new System.Drawing.Point(97, 59);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
@@ -74,7 +75,7 @@
             // 
             // SignInButton
             // 
-            this.SignInButton.Location = new System.Drawing.Point(145, 79);
+            this.SignInButton.Location = new System.Drawing.Point(145, 93);
             this.SignInButton.Name = "SignInButton";
             this.SignInButton.Size = new System.Drawing.Size(75, 23);
             this.SignInButton.TabIndex = 3;
@@ -82,11 +83,24 @@
             this.SignInButton.UseVisualStyleBackColor = true;
             this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
             // 
+            // LogInFailedLabel
+            // 
+            this.LogInFailedLabel.AutoSize = true;
+            this.LogInFailedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LogInFailedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogInFailedLabel.Location = new System.Drawing.Point(24, 9);
+            this.LogInFailedLabel.Name = "LogInFailedLabel";
+            this.LogInFailedLabel.Size = new System.Drawing.Size(180, 17);
+            this.LogInFailedLabel.TabIndex = 4;
+            this.LogInFailedLabel.Text = "Uw inloggegevens kloppen niet";
+            this.LogInFailedLabel.Visible = false;
+            // 
             // signInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 116);
+            this.ClientSize = new System.Drawing.Size(232, 123);
+            this.Controls.Add(this.LogInFailedLabel);
             this.Controls.Add(this.SignInButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
@@ -112,6 +126,7 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button SignInButton;
+        private System.Windows.Forms.Label LogInFailedLabel;
     }
 }
 

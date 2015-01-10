@@ -49,6 +49,9 @@ namespace Qars_Admin.Views
             }
             else
             {
+                this.LogInFailedLabel.Visible = true;
+                this.usernameLabel.ForeColor = Color.Red;
+                this.passwordLabel.ForeColor = Color.Red;
                 this.passwordTextBox.Clear();
                 this.SignInButton.Enabled = true;
                 this.usernameTextBox.Enabled = true;
