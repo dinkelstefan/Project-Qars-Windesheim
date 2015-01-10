@@ -624,6 +624,11 @@ namespace Qars.Models
 
                 queryresult = cmd.ExecuteNonQuery();
 
+                query = "Select max(PhotoID) From Photo";
+
+                MySqlCommand cmd2 = new MySqlCommand(query, connection);
+                int maxPhotoId = Convert.ToInt32(cmd2.ExecuteScalar());
+                maxPhotoId++;
 
                 foreach (CarPhoto photo in car.PhotoList)
                 {
@@ -637,21 +642,21 @@ namespace Qars.Models
                     ;
                     string fileExtension = "." + file.Split('.').Last();
                     Console.WriteLine(fileExtension);
-                    string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, photo.PhotoID + fileExtension);
+                    string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, maxPhotoId + fileExtension);
 
                     query = "INSERT INTO Photo(PhotoID, CarID, Name, Description, Datetaken, Photolink) ";
                     query += "VALUES(@PhotoID, @CarID, @Name, @Description, @Datetaken, @Photolink)";
 
                     command.CommandText = query;
                     command.Parameters.AddWithValue("@CarID", maxCarId);
-                    command.Parameters.AddWithValue("@PhotoID", photo.PhotoID);
+                    command.Parameters.AddWithValue("@PhotoID", maxPhotoId);
                     command.Parameters.AddWithValue("@Name", photo.Name);
                     command.Parameters.AddWithValue("@Description", photo.Description);
                     command.Parameters.AddWithValue("@Datetaken", photo.Datetaken);
                     command.Parameters.AddWithValue("@Photolink", remoteLink);
 
                     command.ExecuteNonQuery();
-                    maxCarId++;
+                    maxPhotoId++;
                 }
 
 
@@ -811,6 +816,13 @@ namespace Qars.Models
                         PhotoIDs.Add(SafeGetInt(dataReader, 0));
                     }
                     dataReader.Close();
+
+                    query = "Select max(PhotoID) From Photo";
+
+                    MySqlCommand cmd2 = new MySqlCommand(query, connection);
+                    int maxPhotoId = Convert.ToInt32(cmd2.ExecuteScalar());
+                    maxPhotoId++;
+
                     foreach (CarPhoto c in car.PhotoList)
                     {
                         bool exists = false;
@@ -825,9 +837,12 @@ namespace Qars.Models
 
                         if (!exists)
                         {
+
+
+                            MySqlCommand command = new MySqlCommand(query, connection);
                             query = "INSERT INTO Photo (PhotoID, CarID, Name, Description, Datetaken, Photolink) ";
                             query += "VALUES(@photoid, @carid2, @name, @description2, @datetaken, @photolink)";
-                            cmd.CommandText = query;
+                            command.CommandText = query;
 
                             string file = c.Photolink;
 
@@ -835,16 +850,16 @@ namespace Qars.Models
                             Console.WriteLine(fileExtension);
                             string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, c.PhotoID + fileExtension);
 
-                            cmd.Parameters.AddWithValue("@photoid", c.PhotoID);
-                            cmd.Parameters.AddWithValue("@carid2", c.CarID);
-                            cmd.Parameters.AddWithValue("@name", c.Name);
-                            cmd.Parameters.AddWithValue("@description2", c.Description);
-                            cmd.Parameters.AddWithValue("@datetaken", c.Datetaken);
-                            cmd.Parameters.AddWithValue("@photolink", remoteLink);
+                            command.Parameters.AddWithValue("@photoid", maxPhotoId);
+                            command.Parameters.AddWithValue("@carid2", c.CarID);
+                            command.Parameters.AddWithValue("@name", c.Name);
+                            command.Parameters.AddWithValue("@description2", c.Description);
+                            command.Parameters.AddWithValue("@datetaken", c.Datetaken);
+                            command.Parameters.AddWithValue("@photolink", remoteLink);
 
-                            Console.WriteLine(cmd.CommandText);
-                            cmd.ExecuteNonQuery();
-
+                            Console.WriteLine(command.CommandText);
+                            command.ExecuteNonQuery();
+                            maxPhotoId++;
                         }
 
 
