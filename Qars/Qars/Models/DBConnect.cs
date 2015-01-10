@@ -84,6 +84,7 @@ namespace Qars.Models
         // returns an empty user with an accountlevel of -1 if the password is wrong
         public User CheckUser(string username, string password)
         {
+
             // get the userlist from the DB
             List<User> userList = this.SelectUsers();
 
@@ -99,9 +100,8 @@ namespace Qars.Models
                 // check if username exsists
                 if (username == user.username)
                 {
-
                     // check if password is correct
-                    if (password == user.password)
+                    if (PasswordHash.ValidatePassword(password, user.password))
                     {
                         //return the correct user
                         return user;
@@ -114,7 +114,7 @@ namespace Qars.Models
                 }
             }
             return incorrectUser;
-        } //Hash this thing like the LogInUser thingy does it
+        }
         public int LogInUser(string username, string password)
         {
             int userID = 0;
@@ -633,7 +633,8 @@ namespace Qars.Models
                         this.OpenConnection();
                     }
 
-                    string file = photo.Photolink; ;
+                    string file = photo.Photolink;
+                    ;
                     string fileExtension = "." + file.Split('.').Last();
                     Console.WriteLine(fileExtension);
                     string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, photo.PhotoID + fileExtension);

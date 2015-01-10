@@ -55,7 +55,7 @@ namespace Qars.Views
             int lengthb = (this.qarsApplication.carList[carNumber].rentalprice.ToString()).Count();
             Label priceperkm = createLabel("Kilometerprijs:", 100, 375, 116, 25, 13, FontStyle.Regular);
             Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 15 * lengthb, 27, 14, FontStyle.Regular);
-  
+
 
             if (discount != null)
             {
@@ -382,7 +382,7 @@ namespace Qars.Views
                         else
                         {
                             createLabel("Gewicht:", top, left1, width1, height, 12, FontStyle.Bold);
-                            createLabel(list[carnumber].weight + " cm", top, left, width, height, 12, FontStyle.Regular);
+                            createLabel(list[carnumber].weight + " Kilo", top, left, width, height, 12, FontStyle.Regular);
                             top += 30;
                             countFailure++;
                             countSuccess++;
