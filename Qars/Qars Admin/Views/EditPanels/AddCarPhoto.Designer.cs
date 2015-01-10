@@ -35,10 +35,10 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.photoLinkTextBox = new System.Windows.Forms.TextBox();
             this.photoPictureBox = new System.Windows.Forms.PictureBox();
             this.save_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ChoosePictureButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +82,9 @@
             this.FotolinkLabel.Location = new System.Drawing.Point(71, 100);
             this.FotolinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FotolinkLabel.Name = "FotolinkLabel";
-            this.FotolinkLabel.Size = new System.Drawing.Size(65, 18);
+            this.FotolinkLabel.Size = new System.Drawing.Size(43, 18);
             this.FotolinkLabel.TabIndex = 3;
-            this.FotolinkLabel.Text = "Fotolink:";
+            this.FotolinkLabel.Text = "Foto:";
             // 
             // nameTextBox
             // 
@@ -110,16 +110,6 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(141, 20);
             this.dateTimePicker.TabIndex = 3;
-            // 
-            // photoLinkTextBox
-            // 
-            this.photoLinkTextBox.Location = new System.Drawing.Point(137, 101);
-            this.photoLinkTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.photoLinkTextBox.Name = "photoLinkTextBox";
-            this.photoLinkTextBox.Size = new System.Drawing.Size(141, 20);
-            this.photoLinkTextBox.TabIndex = 4;
-            this.photoLinkTextBox.TextChanged += new System.EventHandler(this.photoLinkTextBox_TextChanged);
-            this.photoLinkTextBox.Enter += new System.EventHandler(this.photoLinkTextBox_Enter);
             // 
             // photoPictureBox
             // 
@@ -152,16 +142,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ChoosePictureButton
+            // 
+            this.ChoosePictureButton.Location = new System.Drawing.Point(137, 100);
+            this.ChoosePictureButton.Name = "ChoosePictureButton";
+            this.ChoosePictureButton.Size = new System.Drawing.Size(141, 23);
+            this.ChoosePictureButton.TabIndex = 9;
+            this.ChoosePictureButton.Text = "Kies een foto";
+            this.ChoosePictureButton.UseVisualStyleBackColor = true;
+            this.ChoosePictureButton.Click += new System.EventHandler(this.ChoosePictureButton_Click);
+            // 
             // AddCarPhoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 335);
             this.ControlBox = false;
+            this.Controls.Add(this.ChoosePictureButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.save_Button);
             this.Controls.Add(this.photoPictureBox);
-            this.Controls.Add(this.photoLinkTextBox);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.nameTextBox);
@@ -188,9 +188,9 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.TextBox photoLinkTextBox;
         private System.Windows.Forms.PictureBox photoPictureBox;
         private System.Windows.Forms.Button save_Button;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ChoosePictureButton;
     }
 }

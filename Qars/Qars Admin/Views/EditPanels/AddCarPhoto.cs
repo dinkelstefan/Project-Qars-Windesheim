@@ -28,12 +28,8 @@ namespace Qars_Admin.Views.EditPanels
             this.carWindow = carWindow;
         }
 
-        private void photoLinkTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void photoLinkTextBox_Enter(object sender, EventArgs e)
+        private void ChoosePictureButton_Click(object sender, EventArgs e)
         {
 
             bool error = false;
@@ -79,7 +75,6 @@ namespace Qars_Admin.Views.EditPanels
                 {
                     photoPictureBox.Image = Image.FromFile(photoLink);
                     photoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    photoLinkTextBox.Text = photoLink;
                 }
                 else
                 {
@@ -98,7 +93,7 @@ namespace Qars_Admin.Views.EditPanels
         {
             //set right format for the database
             dateTimePicker.CustomFormat = "dd-mm-yyyy";
-            CarPhoto photo = new CarPhoto(this.HighestPhotoID, this.CarID, nameTextBox.Text, descriptionTextBox.Text, dateTimePicker.Text, photoLinkTextBox.Text);
+            CarPhoto photo = new CarPhoto(this.HighestPhotoID, this.CarID, nameTextBox.Text, descriptionTextBox.Text, dateTimePicker.Text, openFileDialog.FileName);
             carWindow.addCarPhoto(photo);
             this.Close();
         }
