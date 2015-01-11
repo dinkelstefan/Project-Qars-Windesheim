@@ -52,9 +52,7 @@ namespace Qars.Views
             pb.Click += new EventHandler(pb_Click);
             pb.MouseHover += new EventHandler(pb_MouseHover);
             pb.MouseLeave += new EventHandler(pb_MouseLeave);
-
-           
-                pb.Paint += new PaintEventHandler(pb_Paint);
+            pb.Paint += new PaintEventHandler(pb_Paint);
 
             this.Controls.Add(pb);
 
@@ -74,7 +72,8 @@ namespace Qars.Views
             price.Font = new Font("Ariel", 10);
             price.Top = 180;
             price.Left = 10;
-
+            
+            //Only show if car has discount values
             if (discount != null)
             {
                 price.Font = new Font("Ariel", 10, FontStyle.Strikeout);

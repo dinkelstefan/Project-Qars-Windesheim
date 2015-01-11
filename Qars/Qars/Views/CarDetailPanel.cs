@@ -43,17 +43,23 @@ namespace Qars.Views
                     availableat = "Verkrijgbaar bij: " + company.name;
                 }
             }
-
+            int left = 22;
+            foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
+            {
+                PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
+                left += 88;
+            }
             //all the labels, images and buttons
             Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
 
-            Label beginprice = createLabel("Beginprijs:", 60, 374, 85, 25, 13, FontStyle.Regular);
+
+            Label beginprice = createLabel("Beginprijs:", 62, 374, 85, 20, 13, FontStyle.Regular);
             Label beginAmount = createLabel("€" + this.qarsApplication.carList[carNumber].startprice, 62, 455, Convert.ToInt32(20 * Math.Floor(Math.Log10(this.qarsApplication.carList[carNumber].startprice) + 1)), 27, 14, FontStyle.Regular);
 
 
             int lengthb = (this.qarsApplication.carList[carNumber].rentalprice.ToString()).Count();
-            Label priceperkm = createLabel("Kilometerprijs:", 100, 375, 116, 25, 13, FontStyle.Regular);
-            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 15 * lengthb, 27, 14, FontStyle.Regular);
+            Label priceperkm = createLabel("Kilometerprijs:", 102, 375, 116, 25, 13, FontStyle.Regular);
+            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 35 * lengthb, 27, 14, FontStyle.Regular);
 
 
             if (discount != null)
@@ -63,9 +69,10 @@ namespace Qars.Views
                     Label discountLabelB = new Label();
                     beginAmount.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Strikeout);
                     beginAmount.ForeColor = Color.Red;
+                    beginAmount.Top = 64;
                     discountLabelB.Font = new Font("Ariel", 12, FontStyle.Bold);
                     discountLabelB.Width = 155;
-                    discountLabelB.Top = 62;
+                    discountLabelB.Top = 64;
                     discountLabelB.Left = beginAmount.Left + (beginAmount.Width);
                     discountLabelB.ForeColor = System.Drawing.Color.Green;
                     discountLabelB.Text = "- " + discount.percentage + "%  =  €" + Math.Round(qarsApplication.carList[carNumber].startprice * ((double)1 - ((double)discount.percentage / 100)), 2);
@@ -77,9 +84,10 @@ namespace Qars.Views
                     Label discountLabelP = new Label();
                     ppk.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Strikeout);
                     ppk.ForeColor = Color.Red;
+                    ppk.Top = 104;
                     discountLabelP.Font = new Font("Ariel", 12, FontStyle.Bold);
                     discountLabelP.Width = 135;
-                    discountLabelP.Top = 102;
+                    discountLabelP.Top = 104;
                     discountLabelP.Left = ppk.Left + (ppk.Width);
                     discountLabelP.ForeColor = System.Drawing.Color.Green;
                     discountLabelP.Text = "- " + discount.KMPercentage + "%  =  €" + Math.Round(qarsApplication.carList[carNumber].rentalprice * ((double)1 - ((double)discount.KMPercentage / 100)), 2);
@@ -147,12 +155,7 @@ namespace Qars.Views
 
 
                 //Create the small pictures
-                int left = 22;
-                foreach (CarPhoto photo in this.qarsApplication.carList[carNumber].PhotoList)
-                {
-                    PictureBox pbox = createPictureBox(photo.Photolink, PictureBoxSizeMode.StretchImage, 232, left, 75, 75, PictureHover);
-                    left += 88;
-                }
+
                 //Select the main picture
                 if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
                 {

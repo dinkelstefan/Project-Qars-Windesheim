@@ -72,6 +72,7 @@ namespace Qars.Views
             hp.BringToFront();
             ChangeAccountDetails(userID);
 
+
         }
         private void ChangeAccountDetails(int UserID)
         {
