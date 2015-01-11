@@ -21,7 +21,8 @@ namespace Qars.Views
         private VisualDemo qarsApplication;
         private string availableat;
         private Discount discount;
-        public CarDetailPanel(int carNumber, int UserID, VisualDemo qarsApp, Discount dis)
+        bool notDamaged;
+        public CarDetailPanel(int carNumber, int UserID, VisualDemo qarsApp, Discount dis, bool ndamage)
         {   //properties of the panel
             this.currentCarNumber = carNumber;
             this.Height = 568;
@@ -31,7 +32,7 @@ namespace Qars.Views
             this.BorderStyle = BorderStyle.FixedSingle;
             this.BackColor = Color.White;
             this.discount = dis;
-
+            notDamaged = ndamage;
             this.qarsApplication = qarsApp;
             this.UserID = qarsApp.userID;
             CreateSpecInfo(this.qarsApplication.carList[carNumber], carNumber);
@@ -142,37 +143,31 @@ namespace Qars.Views
                     }
                 }
 
-            }
-            //look up if the car is being repaired
-            foreach (var rep in this.qarsApplication.damageList)
-            {
-
-                if (rep.carID == carNumber && rep.repaired == false)
+                //Select the main picture
+                if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
                 {
-                    if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
-                    {
-                        hire.Text = "Reparatie";
-                    }
-                    else
-                    {
-                        hire.Text = "Niet beschikbaar";
-                    }
-                    hire.BackColor = Color.Red;
-                    hire.Enabled = false;
+                    mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                }
+                else
+                {
+                    mainpicture.Image = Properties.Resources.niet_beschikbaar;
                 }
             }
 
-
-            //Select the main picture
-            if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
+            Debug.WriteLine(notDamaged);
+            if (!notDamaged)
             {
-                mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
+                {
+                    hire.Text = "Reparatie";
+                }
+                else
+                {
+                    hire.Text = "Niet beschikbaar";
+                }
+                hire.BackColor = Color.Red;
+                hire.Enabled = false;
             }
-            else
-            {
-                mainpicture.Image = Properties.Resources.niet_beschikbaar;
-            }
-
         }
 
 
