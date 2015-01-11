@@ -174,7 +174,7 @@ namespace Qars.Views
 
         public void CheckLowest(string item, ref Label label, Car car)
         {
-            Debug.WriteLine(item);
+           
             double[] compare = new double[cars.Count];
             
             //Get discount values if discount is in effect

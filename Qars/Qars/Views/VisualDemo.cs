@@ -179,9 +179,9 @@ namespace Qars.Views
             ComparePanel p = new ComparePanel(compareList, discountPrices);
             this.Controls.Add(p);
         }
-        public void OpenDetails(int number, Discount d)
+        public void OpenDetails(int number, Discount d, bool available)
         {
-            CarDetailPanel cp = new CarDetailPanel(number, userID, this, d);
+            CarDetailPanel cp = new CarDetailPanel(number, userID, this, d, available);
             this.Controls.Add(cp);
             cp.BringToFront();
         }
@@ -222,7 +222,7 @@ namespace Qars.Views
                     bool notDamaged = true; ;
                     var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
                     var damage = damageList.FirstOrDefault(DamageToCheck => DamageToCheck.carID == carList[i].carID);
-                    Debug.WriteLine("this:" + damage);
+                   
                     if (damage != null)
                         notDamaged = false;
 

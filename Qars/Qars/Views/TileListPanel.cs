@@ -146,7 +146,7 @@ namespace Qars.Views
         //Open car detail panel
         private void pb_Click(object sender, EventArgs e)
         {
-            qarsApplication.OpenDetails(carNumber, discount);
+            qarsApplication.OpenDetails(carNumber, discount, available);
         }
 
         //Checkbox check too prevent checkbox errors
