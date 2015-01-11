@@ -58,8 +58,10 @@ namespace Qars.Views
 
 
             int lengthb = (this.qarsApplication.carList[carNumber].rentalprice.ToString()).Count();
+            if (lengthb > 1)
+                lengthb = lengthb - 2;
             Label priceperkm = createLabel("Kilometerprijs:", 102, 375, 116, 25, 13, FontStyle.Regular);
-            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 35 * lengthb, 27, 14, FontStyle.Regular);
+            Label ppk = createLabel("€" + this.qarsApplication.carList[carNumber].rentalprice, 102, 488, 30 * lengthb, 27, 14, FontStyle.Regular);
 
             //Add discount labels to panel
             if (discount != null)
