@@ -446,7 +446,7 @@ namespace Qars.Models
         {
             int result = 0;
             int ReservationID = 0;
-            string query = "SELECT count(*) FROM Reservation";
+            string query = "SELECT Max(ReservationID) FROM Reservation";
 
             try
             {
@@ -468,7 +468,7 @@ namespace Qars.Models
                 int convertPaidtoInt = 0;
                 cmd.CommandText = query2;
 
-                cmd.Parameters.AddWithValue("@reservationid", SafeInsertInt(reservation.reservationID));
+                cmd.Parameters.AddWithValue("@reservationid", SafeInsertInt(ReservationID));
                 cmd.Parameters.AddWithValue("@carid", SafeInsertInt(reservation.carID));
                 cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(reservation.UserID));
                 cmd.Parameters.AddWithValue("@startdate", SafeInsertString(reservation.startdate));
@@ -508,7 +508,7 @@ namespace Qars.Models
         {
             int result = 0;
             int UserID = 0;
-            string query = "SELECT COUNT(*) FROM User";
+            string query = "SELECT Max(UserID) FROM User";
 
             try
             {
