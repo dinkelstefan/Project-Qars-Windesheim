@@ -219,8 +219,14 @@ namespace Qars.Views
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
                 {
+                    bool notDamaged = true; ;
                     var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
-                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, carList[i].available, this, match);
+                    var damage = damageList.FirstOrDefault(DamageToCheck => DamageToCheck.carID == carList[i].carID);
+                    Debug.WriteLine("this:" + damage);
+                    if (damage != null)
+                        notDamaged = false;
+
+                    tp = new TileListPanel(carList[i].brand, carList[i].model, carList[i].startprice, carList[i].PhotoList[0].Photolink, localY, localX, i, notDamaged, this, match);
                     TileView.Controls.Add(tp);
                 }
                 localX += 200;
