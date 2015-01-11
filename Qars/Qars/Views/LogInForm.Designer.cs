@@ -39,6 +39,8 @@
             this.RegisterButton = new System.Windows.Forms.Button();
             this.passwordLabel2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            this.Icon = Properties.Resources.qarsIcon;
+
             // 
             // UsernameTextBox
             // 

@@ -102,6 +102,7 @@ namespace Qars.Views
             this.BoldDatesLabel = new System.Windows.Forms.Label();
             this.SpecBox.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // firstnameLabel
             // 

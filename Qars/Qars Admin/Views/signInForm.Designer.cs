@@ -35,6 +35,8 @@
             this.SignInButton = new System.Windows.Forms.Button();
             this.LogInFailedLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            this.Icon = Properties.Resources.qarsIcon;
+
             // 
             // usernameLabel
             // 

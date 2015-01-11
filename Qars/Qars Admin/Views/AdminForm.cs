@@ -14,13 +14,6 @@ using System.Windows.Forms;
 
 namespace Qars_Admin.Views
 {
-    //Beheerder             1
-    //Backoffice            2
-    //Franchisenemer        3
-    //Allocatiemedewerker   4
-    //Medewerker            5
-    //Klant                 6
-
     public partial class AdminForm : Form
     {
         public User currentUser { get; private set; }
@@ -84,7 +77,8 @@ namespace Qars_Admin.Views
         {
             //base.OnFormClosing(e);
 
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+                return;
 
 
             // Confirm user wants to close

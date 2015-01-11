@@ -32,6 +32,8 @@
             this.YesButton = new System.Windows.Forms.Button();
             this.NoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            this.Icon = Properties.Resources.qarsIcon;
+
             // 
             // Logoutlabel
             // 

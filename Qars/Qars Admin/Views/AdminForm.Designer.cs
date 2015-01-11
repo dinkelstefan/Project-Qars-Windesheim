@@ -1,5 +1,6 @@
 ﻿namespace Qars_Admin.Views
 {
+
     partial class AdminForm
     {
         /// <summary>
@@ -48,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 565);
             this.Controls.Add(this.categoriesLabel);
+            this.Icon = global::Qars_Admin.Properties.Resources.qarsIcon;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1029, 604);
             this.MinimumSize = new System.Drawing.Size(1029, 604);

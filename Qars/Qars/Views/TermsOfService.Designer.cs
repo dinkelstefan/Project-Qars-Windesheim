@@ -36,6 +36,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.userView = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            this.Icon = Properties.Resources.qarsIcon;
             // 
             // close
             // 

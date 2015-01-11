@@ -70,6 +70,8 @@
             this.UsernameRequirementsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).BeginInit();
             this.SuspendLayout();
+            this.Icon = Properties.Resources.qarsIcon;
+
             // 
             // RegisterButton
             // 
