@@ -142,37 +142,37 @@ namespace Qars.Views
                     }
                 }
 
+            }
+            //look up if the car is being repaired
+            foreach (var rep in this.qarsApplication.damageList)
+            {
 
-                //look up if the car is being repaired
-                foreach (var rep in this.qarsApplication.damageList)
+                if (rep.carID == carNumber && rep.repaired == false)
                 {
-
-                    if (rep.carID == carNumber && rep.repaired == false)
+                    if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
                     {
-                        if (qarsApplication.customerList[UserID].accountLevel == 4)//if rank is beheerder
-                        {
-                            hire.Text = "Reparatie";
-                        }
-                        else
-                        {
-                            hire.Text = "Niet beschikbaar";
-                        }
-                        hire.BackColor = Color.Red;
-                        hire.Enabled = false;
+                        hire.Text = "Reparatie";
                     }
-                }
-
-
-                //Select the main picture
-                if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
-                {
-                    mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
-                }
-                else
-                {
-                    mainpicture.Image = Properties.Resources.niet_beschikbaar;
+                    else
+                    {
+                        hire.Text = "Niet beschikbaar";
+                    }
+                    hire.BackColor = Color.Red;
+                    hire.Enabled = false;
                 }
             }
+
+
+            //Select the main picture
+            if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
+            {
+                mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+            }
+            else
+            {
+                mainpicture.Image = Properties.Resources.niet_beschikbaar;
+            }
+
         }
 
 
