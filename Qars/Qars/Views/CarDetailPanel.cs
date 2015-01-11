@@ -103,7 +103,14 @@ namespace Qars.Views
             Button hire = createButton("Huren", Color.Green, Color.White, 180, 375, 150, 29, 11, FontStyle.Bold, FlatStyle.Flat, hireButtonClick);
 
             mainpicture = createPictureBox("", PictureBoxSizeMode.StretchImage, 22, 22, 185, 350, null);
-
+            if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
+            {
+                mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+            }
+            else
+            {
+                mainpicture.Image = Properties.Resources.niet_beschikbaar;
+            }
             List<Reservation> ReservationList = new DBConnect().SelectReservation(); //Get the most recent list
             List<User> UserList = new DBConnect().SelectUsers(); //Get the most recent list
             List<Reservation> tempReservationList = new List<Reservation>();
@@ -154,12 +161,14 @@ namespace Qars.Views
                 }
 
 
-                //Create the small pictures
-
                 //Select the main picture
                 if (this.qarsApplication.carList[carNumber].PhotoList.Count > 0)
                 {
                     mainpicture.ImageLocation = this.qarsApplication.carList[carNumber].PhotoList[0].Photolink;
+                }
+                else
+                {
+                    mainpicture.Image = Properties.Resources.niet_beschikbaar;
                 }
             }
         }
