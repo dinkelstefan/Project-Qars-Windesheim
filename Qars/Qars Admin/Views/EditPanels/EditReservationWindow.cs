@@ -57,17 +57,10 @@ namespace Qars_Admin.Views.EditPanels
                 List<User> userList = connect.SelectUsers();
                 List<Car> carList = connect.SelectCar();
                 Reservation res = this.getReservationFromFields();
-                
-                //Search for user by this reservation
-                //var query = from u in userList
-                //            where u.customerID == res.customerID
-                //            select u;
-                //User user = query.First();
                 User user = userList[reservation.UserID];
                 Car car = carList[reservation.carID];
 
 
-                Console.WriteLine(user.firstname);
 
                 //Build email when reservations is confirmed
                 if ((reservation.confirmed != res.confirmed) && res.confirmed == true)
@@ -75,7 +68,7 @@ namespace Qars_Admin.Views.EditPanels
                     Mail mail = new Mail();
                     mail.addTo(user.emailaddress);
                     mail.addSubject("Qars orderbevestiging: " + res.reservationID);
-                    
+
                     StringBuilder sb = new StringBuilder();
                     sb.AppendLine("Beste " + user.firstname + ",\n");
                     sb.AppendLine("Uw order is zojuist bevestigd.\n");
@@ -91,7 +84,7 @@ namespace Qars_Admin.Views.EditPanels
                     sb.Append("\n\n");
                     sb.AppendLine("Met vriendelijke groeten,\n");
                     sb.AppendLine("Qars");
-                    
+
                     mail.addBody(sb.ToString());
                     mail.sendEmail();
                     MessageBox.Show("Er is een email naar de klant gestuurd met een bevestiging van de reservering.");

@@ -326,7 +326,6 @@ namespace Qars_Admin.Views.EditPanels
                 Console.WriteLine(exists.ToString());
                 if (!exists)
                 {
-                    Console.WriteLine(photo.Name);
 
                     string localphotolink = photo.Photolink;
                     bool error = false;
@@ -403,12 +402,9 @@ namespace Qars_Admin.Views.EditPanels
                     ftp.SetCurrentDirectory(directory);
                     foreach (var dir in ftp.GetDirectories(directory))
                     {
-                        Console.WriteLine(dir.Name);
                         foreach (var file in dir.GetFiles())
                         {
                             files.Add(file.Name);
-                            Console.WriteLine(file.Name);
-                            Console.WriteLine(file.LastAccessTime);
                         }
                     }
                 }
@@ -500,11 +496,7 @@ namespace Qars_Admin.Views.EditPanels
                     ftp.SetCurrentDirectory("/public_html/Images/" + car.brand + "/" + car.model + "/" + car.colour + "/");
                     newDirectory += "/";
                 }
-                Console.WriteLine(ftp.GetCurrentDirectory());
-
-
                 ftp.RemoveFile(photoToDelete.PhotoID.ToString() + extension);
-                Console.WriteLine(ftp.GetCurrentDirectory() + "/" + photoToDelete.PhotoID.ToString() + extension); //fix this
             }
             catch (Exception e)
             {

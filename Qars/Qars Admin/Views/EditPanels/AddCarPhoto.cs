@@ -53,7 +53,6 @@ namespace Qars_Admin.Views.EditPanels
                 if (error == false)
                 {
                     string extension = fi.Extension;
-                    Console.WriteLine(extension);
                     if (extension == ".png")
                     {
                         error = false;

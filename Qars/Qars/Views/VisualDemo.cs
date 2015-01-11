@@ -219,10 +219,11 @@ namespace Qars.Views
                 TileListPanel tp;
                 if (carList[i].PhotoList.Count > 0)
                 {
-                    bool notDamaged = true; ;
+                    bool notDamaged = true;
+                    ;
                     var match = discountList.FirstOrDefault(DiscountToCheck => DiscountToCheck.carID == carList[i].carID);
                     var damage = damageList.FirstOrDefault(DamageToCheck => DamageToCheck.carID == carList[i].carID);
-                   
+
                     if (damage != null)
                         notDamaged = false;
 
@@ -256,11 +257,9 @@ namespace Qars.Views
         }
         private void LogInOrRegisterButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(userID);
             LogInForm loginform = new LogInForm(this, userID);
             loginform.ShowDialog();
             userID = loginform.returnUserID();
-            Console.WriteLine(userID);
             ChangeAccountDetails(userID);
         }
         private void LogOutButton_Click(object sender, EventArgs e)

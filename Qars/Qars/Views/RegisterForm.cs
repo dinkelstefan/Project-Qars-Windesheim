@@ -52,7 +52,6 @@ namespace Qars.Views
                 else
                 {
                     string extension = fi.Extension;
-                    Console.WriteLine(extension);
                     if (extension == ".jpg")
                     {
                         JPG = true;
@@ -97,7 +96,6 @@ namespace Qars.Views
                 emailResult = SendEmail(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text, PhoneNumberTextBox.Text, driverslicenselink, FirstNameTextBox.Text, SurnameTextBox.Text, AgeTextBox.Text, PostalCodeTextBox.Text, CityTextBox.Text, StreetNameTextBox.Text, StreetNumberTextBox.Text, StreetNumberSuffixTextBox.Text);
             if (emailResult == true)
                 MessageBox.Show("U heeft zich geregistreerd en u kan nu inloggen. U ontvangt z.s.m een email met daarin uw inloggegevens");
-            Console.WriteLine(driverslicenselink);
         }
         private bool ValidateInput(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {

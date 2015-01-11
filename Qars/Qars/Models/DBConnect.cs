@@ -224,7 +224,6 @@ namespace Qars.Models
                         }
                         catch (System.Data.SqlTypes.SqlNullValueException)
                         {
-                            Console.WriteLine(" car:" + newCar.carID + " has no photos");
                         }
                         localCarList.Add(newCar);
                     }
@@ -242,7 +241,6 @@ namespace Qars.Models
                                 }
                                 catch (System.Data.SqlTypes.SqlNullValueException)
                                 {
-                                    Console.WriteLine(" car:" + car.carID + " failed to load more photos");
                                 }
                             }
                         }
@@ -417,7 +415,6 @@ namespace Qars.Models
             query += string.Format("Set AccountLevel=@accountlevel, Username=@username, Password=@password,Firstname=@firstname, Lastname=@lastname,Age=@age,Postalcode=@postalcode,City=@city, Streetname=@streetname, Streetnumber=@streetnumber, Streetnumbersuffix=@streetnumbersuffix, Phonenumber=@phonenumber, Emailaddress=@emailaddress, Driverslicencelink=@driverslicenselink, Establishment=@establishment");
             query += string.Format("Where UserID = @userID");
 
-            Console.WriteLine(query);
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -562,9 +559,8 @@ namespace Qars.Models
 
 
         }
-        public bool InsertCar(Car car) //Create LicensePlate input field in the form!
+        public bool InsertCar(Car car)
         {
-            Console.WriteLine(car.brand);
             int queryresult = 0;
 
             try
@@ -641,7 +637,6 @@ namespace Qars.Models
                     string file = photo.Photolink;
                     ;
                     string fileExtension = "." + file.Split('.').Last();
-                    Console.WriteLine(fileExtension);
                     string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, maxPhotoId + fileExtension);
 
                     query = "INSERT INTO Photo(PhotoID, CarID, Name, Description, Datetaken, Photolink) ";
@@ -720,7 +715,6 @@ namespace Qars.Models
             query += string.Format("SET Startdate=@startdate,Enddate=@enddate, Confirmed=@confirmed, Kilometres=@kilometres, Pickupcity=@pickupcity, Pickupstreetname=@pickupstreetname, Pickupstreetnumber=@pickupstreetnumber, Pickupstreetnumbersuffix=@pickupstreetnumbersuffix, Paid=@paid, Comment=@comment ");
             query += string.Format("Where ReservationID = @resID");
 
-            Console.WriteLine(query);
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -736,7 +730,6 @@ namespace Qars.Models
                 cmd.Parameters.AddWithValue("@comment", SafeInsertString(reservation.comment));
                 cmd.Parameters.AddWithValue("@resID", SafeInsertInt(reservation.reservationID));
 
-                Console.WriteLine(cmd.CommandText);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
@@ -762,7 +755,6 @@ namespace Qars.Models
 
             try
             {
-                Console.WriteLine(query);
                 if (this.OpenConnection() == true)
                 {
                     MySqlTransaction transaction = connection.BeginTransaction();
@@ -802,8 +794,6 @@ namespace Qars.Models
                     cmd.Parameters.AddWithValue("@description", SafeInsertString(car.description));
                     cmd.Parameters.AddWithValue("@airco", car.airco);
                     cmd.Parameters.AddWithValue("@licenseplate", SafeInsertString(car.LicensePlate));
-
-                    Console.WriteLine(cmd.CommandText);
                     cmd.ExecuteNonQuery();
 
 
@@ -831,7 +821,6 @@ namespace Qars.Models
                             if (c.PhotoID == i)
                             {
                                 exists = true;
-                                Console.WriteLine(c.PhotoID);
                             }
                         }
 
@@ -847,7 +836,6 @@ namespace Qars.Models
                             string file = c.Photolink;
 
                             string fileExtension = "." + file.Split('.').Last();
-                            Console.WriteLine(fileExtension);
                             string remoteLink = string.Format("http://pqrojectqars.herobo.com/Images/{0}/{1}/{2}/{3}", car.brand, car.model, car.colour, c.PhotoID + fileExtension);
 
                             command.Parameters.AddWithValue("@photoid", maxPhotoId);
@@ -857,7 +845,6 @@ namespace Qars.Models
                             command.Parameters.AddWithValue("@datetaken", c.Datetaken);
                             command.Parameters.AddWithValue("@photolink", remoteLink);
 
-                            Console.WriteLine(command.CommandText);
                             command.ExecuteNonQuery();
                             maxPhotoId++;
                         }

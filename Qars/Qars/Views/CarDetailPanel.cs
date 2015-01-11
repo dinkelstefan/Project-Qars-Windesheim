@@ -195,7 +195,6 @@ namespace Qars.Views
                     top = 355;
                     left += 240;
                     left1 += 240;
-                    Console.WriteLine("Ik ben nu " + countSuccess + " En failure is " + countFailure);
                     spec7 = true;
 
                 }
@@ -204,7 +203,6 @@ namespace Qars.Views
                     top = 355;
                     left += 240;
                     left1 += 240;
-                    Console.WriteLine("Ik ben nu " + countSuccess + " En failure is " + countFailure);
                     spec14 = true;
                 }
                 else if (countSuccess == 21 && spec21 == false)
@@ -212,7 +210,6 @@ namespace Qars.Views
                     top = 355;
                     left += 240;
                     left1 += 240;
-                    Console.WriteLine("Ik ben nu " + countSuccess + " En failure is " + countFailure);
                     spec21 = true;
                 }
 
@@ -229,7 +226,6 @@ namespace Qars.Views
                         {
                             createLabel("Categorie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.category, top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -245,7 +241,6 @@ namespace Qars.Views
                         {
                             createLabel("Bouwjaar:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.modelyear.ToString(), top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -261,7 +256,6 @@ namespace Qars.Views
                         {
                             createLabel("Automaat:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -278,7 +272,6 @@ namespace Qars.Views
                         {
                             createLabel("Versnellingen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.gearsamount.ToString(), top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -294,7 +287,6 @@ namespace Qars.Views
                         {
                             createLabel("Motor:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.motor, top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -310,7 +302,6 @@ namespace Qars.Views
                         {
                             createLabel("Vermogen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.horsepower + " PK", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -327,7 +318,6 @@ namespace Qars.Views
                         {
                             createLabel("Verbruik:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.fuelusage.ToString() + " liter per km", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -343,7 +333,6 @@ namespace Qars.Views
                         {
                             createLabel("Kilometers:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.kilometres.ToString(), top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -359,7 +348,6 @@ namespace Qars.Views
                         {
                             createLabel("APK:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.motdate, top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -375,7 +363,6 @@ namespace Qars.Views
                         {
                             createLabel("Lengte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.length + " cm", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -391,7 +378,6 @@ namespace Qars.Views
                         {
                             createLabel("Breedte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.width + " cm", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -407,7 +393,6 @@ namespace Qars.Views
                         {
                             createLabel("Hoogte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.height + " cm", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -423,7 +408,6 @@ namespace Qars.Views
                         {
                             createLabel("Gewicht:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.weight + " Kilo", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -439,7 +423,6 @@ namespace Qars.Views
                         {
                             createLabel("Kleur:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.colour, top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -455,7 +438,6 @@ namespace Qars.Views
                         {
                             createLabel("Deuren:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.doors.ToString(), top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -471,7 +453,6 @@ namespace Qars.Views
                         {
                             createLabel("Stereo:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -487,7 +468,6 @@ namespace Qars.Views
                         {
                             createLabel("Bluetooth:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -503,7 +483,6 @@ namespace Qars.Views
                         {
                             createLabel("Navigatie:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -519,7 +498,6 @@ namespace Qars.Views
                         {
                             createLabel("Cruise Control:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -535,7 +513,6 @@ namespace Qars.Views
                         {
                             createLabel("Parkeerhulp:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -551,7 +528,6 @@ namespace Qars.Views
                         {
                             createLabel("4WD:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -567,7 +543,6 @@ namespace Qars.Views
                         {
                             createLabel("Cabrio:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -583,7 +558,6 @@ namespace Qars.Views
                         {
                             createLabel("Airco:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel("Ja", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -600,7 +574,6 @@ namespace Qars.Views
                         {
                             createLabel("Stoelen:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.seats.ToString(), top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -616,7 +589,6 @@ namespace Qars.Views
                         {
                             createLabel("Ruimte:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.storagespace + " Liter", top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;
@@ -632,7 +604,6 @@ namespace Qars.Views
                         {
                             createLabel("Kenteken:", top, left1, width1, height, 12, FontStyle.Bold);
                             createLabel(car.LicensePlate, top, left, width, height, 12, FontStyle.Regular);
-                            Console.WriteLine(left.ToString() + " " + left1.ToString());
                             top += 30;
                             countFailure++;
                             countSuccess++;

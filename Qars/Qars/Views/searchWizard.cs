@@ -31,7 +31,7 @@ namespace Qars.Views
 
         private List<Car> allCars = new List<Car>();
         private List<Car> copyList = new List<Car>();
-        public  List<Car> filteredList = new List<Car>();
+        public List<Car> filteredList = new List<Car>();
 
         public searchWizard(VisualDemo qarsApp)
         {
@@ -63,16 +63,10 @@ namespace Qars.Views
 
             if (filteredList.Count > 0)
             {
-                Console.WriteLine("-----------Zoek resultaat-----------------");
-                printList(filteredList);
                 this.qarsApplication.button2.Visible = true;
             }
             else
             {
-                Console.WriteLine("Geen model gevonden dat voldoet aan de eisen");
-                Console.WriteLine("-----------Toon alles----------------");
-                printList(copyList);
-                Console.WriteLine("-------------------------------------------");
                 this.qarsApplication.button2.Visible = false;
             }
 
@@ -186,7 +180,7 @@ namespace Qars.Views
 
             var query = from car in listToFilter
                         select car;
-            query = query.Where(car => car.category == this.answerType|| 
+            query = query.Where(car => car.category == this.answerType ||
                 this.answerType == "Maakt niet uit");
 
             localList = query.ToList();
@@ -328,15 +322,6 @@ namespace Qars.Views
             countCarLabel3.Text = labelText;
             countCarLabel4.Text = labelText;
             countCarLabel5.Text = labelText;
-        }
-
-        //REMOVE WHEN FINISHED
-        private void printList(List<Car> list)
-        {
-            foreach (Car car in list)
-            {
-                Console.WriteLine(car.ToString());
-            }
         }
 
         private void searchTabpage1_Click(object sender, EventArgs e)
