@@ -69,9 +69,10 @@ namespace Qars.Views
                     Label discountLabelB = new Label();
                     beginAmount.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Strikeout);
                     beginAmount.ForeColor = Color.Red;
+                    beginAmount.Top = 64;
                     discountLabelB.Font = new Font("Ariel", 12, FontStyle.Bold);
                     discountLabelB.Width = 155;
-                    discountLabelB.Top = 62;
+                    discountLabelB.Top = 64;
                     discountLabelB.Left = beginAmount.Left + (beginAmount.Width);
                     discountLabelB.ForeColor = System.Drawing.Color.Green;
                     discountLabelB.Text = "- " + discount.percentage + "%  =  €" + Math.Round(qarsApplication.carList[carNumber].startprice * ((double)1 - ((double)discount.percentage / 100)), 2);
@@ -83,9 +84,10 @@ namespace Qars.Views
                     Label discountLabelP = new Label();
                     ppk.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Strikeout);
                     ppk.ForeColor = Color.Red;
+                    ppk.Top = 104;
                     discountLabelP.Font = new Font("Ariel", 12, FontStyle.Bold);
                     discountLabelP.Width = 135;
-                    discountLabelP.Top = 102;
+                    discountLabelP.Top = 104;
                     discountLabelP.Left = ppk.Left + (ppk.Width);
                     discountLabelP.ForeColor = System.Drawing.Color.Green;
                     discountLabelP.Text = "- " + discount.KMPercentage + "%  =  €" + Math.Round(qarsApplication.carList[carNumber].rentalprice * ((double)1 - ((double)discount.KMPercentage / 100)), 2);
