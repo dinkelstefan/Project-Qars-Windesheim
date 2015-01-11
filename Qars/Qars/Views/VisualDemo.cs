@@ -267,11 +267,6 @@ namespace Qars.Views
                 ChangeAccountDetails(userID);
             }
         }
-
-        private void TileView_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
 

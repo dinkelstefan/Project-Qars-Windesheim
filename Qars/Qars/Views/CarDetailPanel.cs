@@ -119,7 +119,7 @@ namespace Qars.Views
             bool carhasReservation = false;
             foreach (var res in ReservationList)
             {
-                if (res.carID == carNumber)
+                if (res.carID == carNumber && res.confirmed == true)
                 {
                     carhasReservation = true;
                     tempReservationList.Add(res);
@@ -655,6 +655,7 @@ namespace Qars.Views
         }
         public void BackButtonClick(object sender, EventArgs e)
         {
+
             this.Dispose();
         }
 

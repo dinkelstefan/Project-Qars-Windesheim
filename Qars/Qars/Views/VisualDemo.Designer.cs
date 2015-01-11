@@ -265,7 +265,6 @@
             this.TileView.Name = "TileView";
             this.TileView.Size = new System.Drawing.Size(1015, 568);
             this.TileView.TabIndex = 12;
-            this.TileView.Paint += new System.Windows.Forms.PaintEventHandler(this.TileView_Paint);
             // 
             // button2
             // 

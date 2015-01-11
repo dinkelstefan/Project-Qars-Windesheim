@@ -168,9 +168,6 @@
     <None Include="Views\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\niet-beschikbaar.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

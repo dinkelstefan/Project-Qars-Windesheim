@@ -17,22 +17,24 @@ namespace Qars.Util
 
         public Mail()
         {
-            message =  new MailMessage();
+            message = new MailMessage();
             client = new SmtpClient("smtp.gmail.com", 587);
 
             message.From = new MailAddress("qarsproject@gmail.com", "Qars");
             message.Bcc.Add(new MailAddress("qarsproject@gmail.com"));
 
-            client.Credentials = new NetworkCredential("qarsproject@gmail.com","Quintor1");
+            client.Credentials = new NetworkCredential("qarsproject@gmail.com", "Quintor1");
             client.EnableSsl = true;
 
         }
 
-        public void addTo(string email){
+        public void addTo(string email)
+        {
             message.To.Add(new MailAddress(email));
         }
 
-        public void addSubject(string subject){
+        public void addSubject(string subject)
+        {
             message.Subject = subject;
         }
 
@@ -41,9 +43,10 @@ namespace Qars.Util
             message.Body = body;
         }
 
-        public void sendEmail(){
+        public void sendEmail()
+        {
             this.client.Send(message);
         }
-         
+
     }
 }

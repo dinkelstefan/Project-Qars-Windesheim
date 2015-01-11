@@ -577,7 +577,7 @@ namespace Qars.Views
                     TimeSpan ts = endDate - startDate;
                     int differenceInDays = ts.Days;
 
-                    for (int i = 1; i <= differenceInDays; i++) //For all the days the reservation has, make them bold in the calendar
+                    for (int i = 0; i <= differenceInDays; i++) //For all the days the reservation has, make them bold in the calendar
                     {
                         monthCalendar.AddBoldedDate(startDate.AddDays(i));
                         if (i == differenceInDays) //There has to be a 1 day gap between reservations, this makes sure this shows up
