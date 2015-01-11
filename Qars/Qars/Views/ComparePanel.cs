@@ -98,6 +98,7 @@ namespace Qars.Views
 
                     Label tempLabel = new Label();
 
+                    //Set discount lables
                     if (j < 2)
                     {
                         tempLabel.Text = Convert.ToString(discounts[j + (i * 2)]);
@@ -176,6 +177,7 @@ namespace Qars.Views
             Debug.WriteLine(item);
             double[] compare = new double[cars.Count];
             
+            //Get discount values if discount is in effect
             for (int i = 0; i < compare.Length; i++)
             {
                 if (!item.Equals("Fuelusage"))

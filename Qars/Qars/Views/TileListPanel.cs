@@ -21,6 +21,7 @@ namespace Qars.Views
         public Discount discount;
         public bool available;
 
+        //Create whole new panel
         public TileListPanel(string cName, string cModel, double cPrice, string imageLink, int height, int width, int carNumber, bool avail, VisualDemo qarsApp, Discount dis)
         {
             this.name = cName;
@@ -32,6 +33,7 @@ namespace Qars.Views
             this.discount = dis;
             available = avail;
 
+            //Set panel specs
             Height = 220;
             Width = 175;
             Top = height;
@@ -90,6 +92,7 @@ namespace Qars.Views
 
             this.Controls.Add(price);
 
+            //Checkbox comparison
             Label verglijking = new Label();
             verglijking.Width = 48;
             verglijking.Text = "Vergelijk";
@@ -107,17 +110,20 @@ namespace Qars.Views
             this.Controls.Add(cb);
         }
 
+        //Enter tooltip
         protected void pb_MouseHover(object sender, EventArgs e)
         {
             qarsApplication.hp.SetInformation(MousePosition.X - 320, MousePosition.Y - 180, this.qarsApplication.carList[carNumber], discount);
             qarsApplication.hp.Visible = true;
         }
 
+        //Exit tooltip
         protected void pb_MouseLeave(object sender, EventArgs e)
         {
             qarsApplication.hp.Visible = false;
         }
 
+        //Paint valaibility and discounts
         protected void pb_Paint(object sender, PaintEventArgs e)
         {
             if (!available)
@@ -137,11 +143,13 @@ namespace Qars.Views
             }
         }
 
+        //Open car detail panel
         private void pb_Click(object sender, EventArgs e)
         {
             qarsApplication.OpenDetails(carNumber, discount);
         }
 
+        //Checkbox check too prevent checkbox errors
         public bool check = false;
         protected void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
