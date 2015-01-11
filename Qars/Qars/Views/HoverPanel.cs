@@ -15,6 +15,7 @@ namespace Qars.Views
         public Label info = new Label();
         public VisualDemo vd;
 
+        //Create new tooltip
         public HoverPanel(VisualDemo vd)
         {
             this.vd = vd;
@@ -37,6 +38,7 @@ namespace Qars.Views
             Visible = false;
         }
 
+        //Set information in tooltip with car variables
         public void SetInformation(int x, int y, Car c, Discount discount)
         {
             Car car = c;
@@ -60,7 +62,7 @@ namespace Qars.Views
             }
 
 
-
+            //Set text
             info.Text = c.brand + " " + c.model + "\n" +
                         "Huur: €";
 
