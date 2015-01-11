@@ -28,16 +28,19 @@ namespace Qars_Admin.Views {
             this.RefreshList();
         }
 
+        // refresh the contents of the car list
         public void RefreshList() {
+            // get a list of establishments and cars
             this.establishmentList = databaseConnection.SelectEstablishment();
             this.carList = databaseConnection.SelectCar();
+
+            // generate a simple cars with fewer properties to show on the list
             this.simpleCarList = new List<SimpleCar>();
-
-
             SimpleCar simpleCar;
             foreach (Car car in carList) {
-                string establishment = "";
 
+                // search for a name of the establishment to display instead of an establishment ID
+                string establishment = "";
                 foreach (Establishment est in this.establishmentList) {
                     if (car.establishmentID == est.establishmentID) {
                         establishment = est.name;
@@ -45,10 +48,12 @@ namespace Qars_Admin.Views {
                     }
                 }
 
+                //add a few properties of the car class to the simple car
                 simpleCar = new SimpleCar(car.carID, establishment, car.brand, car.model, car.modelyear, car.colour, car.kilometres);
                 simpleCarList.Add(simpleCar);
             }
 
+            // add the simple car list as a datasource
             this.dataGridView1.DataSource = simpleCarList;
         }
 
