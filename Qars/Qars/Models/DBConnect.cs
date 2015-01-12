@@ -412,7 +412,7 @@ namespace Qars.Models
         {
 
             string query = "Update User ";
-            query += string.Format("Set AccountLevel=@accountlevel, Username=@username, Password=@password,Firstname=@firstname, Lastname=@lastname,Age=@age,Postalcode=@postalcode,City=@city, Streetname=@streetname, Streetnumber=@streetnumber, Streetnumbersuffix=@streetnumbersuffix, Phonenumber=@phonenumber, Emailaddress=@emailaddress, Driverslicencelink=@driverslicenselink, Establishment=@establishment");
+            query += string.Format("Set AccountLevel=@accountlevel, Username=@username, Password=@password,Firstname=@firstname, Lastname=@lastname,Age=@age,Postalcode=@postalcode,City=@city, Streetname=@streetname, Streetnumber=@streetnumber, Streetnumbersuffix=@streetnumbersuffix, Phonenumber=@phonenumber, Emailaddress=@emailaddress, Driverslicencelink=@driverslicenselink, Establishment=@establishment ");
             query += string.Format("Where UserID = @userID");
 
             if (this.OpenConnection() == true)
@@ -464,7 +464,6 @@ namespace Qars.Models
                 int convertConfirmedToInt = 0;
                 int convertPaidtoInt = 0;
                 cmd.CommandText = query2;
-
                 cmd.Parameters.AddWithValue("@reservationid", SafeInsertInt(ReservationID));
                 cmd.Parameters.AddWithValue("@carid", SafeInsertInt(reservation.carID));
                 cmd.Parameters.AddWithValue("@UserID", SafeInsertInt(reservation.UserID));

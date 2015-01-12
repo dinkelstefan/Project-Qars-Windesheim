@@ -45,11 +45,11 @@ namespace Qars_Admin.Views.EditPanels
                 establishmentComboBox.Items.Add(est.name);
                 if (user.Establishment == est.establishmentID)
                 {
-                        establishmentComboBox.SelectedIndex = i;
+                    establishmentComboBox.SelectedIndex = i;
                 }
                 i++;
             }
-            
+
         }
 
         private User getUserFromFields()
@@ -90,19 +90,25 @@ namespace Qars_Admin.Views.EditPanels
                 MessageBox.Show("De gebruiker is succesvol geupdate.");
                 this.Close();
             }
-            catch (Exception)
+            catch (Exception ef)
             {
-                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet");
+                MessageBox.Show("Het format van de door u ingevulde tekst klopt niet" + ef.Message);
             }
 
         }
 
         private void delete_Button_Click(object sender, EventArgs e)
         {
-            User user = getUserFromFields();
-            this.connection.DeleteUser(user);
-            this.Close();
-
+            if (userIdTextBox.Text == "0")
+            {
+                MessageBox.Show("Deze klant mag niet verwijderd worden omdat alle niet-ingelogde gebruikers dit account gebruiken!");
+            }
+            else
+            {
+                User user = getUserFromFields();
+                this.connection.DeleteUser(user);
+                this.Close();
+            }
         }
 
         private void TextBoxAlphabeticalChars_KeyPress(object sender, KeyEventArgs e)

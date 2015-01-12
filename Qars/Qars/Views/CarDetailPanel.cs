@@ -51,7 +51,7 @@ namespace Qars.Views
                 left += 88;
             }
             //all the labels, images and buttons
-            Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 28, 20, FontStyle.Regular);
+            Label carname = createLabel(qarsApplication.carList[carNumber].brand + " " + this.qarsApplication.carList[carNumber].model, 20, 375, 300, 32, 20, FontStyle.Regular);
 
 
             Label beginprice = createLabel("Beginprijs:", 62, 374, 85, 20, 13, FontStyle.Regular);

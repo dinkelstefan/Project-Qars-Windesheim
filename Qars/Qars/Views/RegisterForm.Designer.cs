@@ -70,8 +70,6 @@
             this.UsernameRequirementsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DriversLicensePictureBox)).BeginInit();
             this.SuspendLayout();
-            this.Icon = Properties.Resources.qarsIcon;
-
             // 
             // RegisterButton
             // 
@@ -334,7 +332,7 @@
             // 
             // CancelButton1
             // 
-            this.CancelButton1.Location = new System.Drawing.Point(333, 466);
+            this.CancelButton1.Location = new System.Drawing.Point(364, 471);
             this.CancelButton1.Name = "CancelButton1";
             this.CancelButton1.Size = new System.Drawing.Size(75, 23);
             this.CancelButton1.TabIndex = 16;
@@ -376,9 +374,9 @@
             this.TOSLabel.ForeColor = System.Drawing.Color.Blue;
             this.TOSLabel.Location = new System.Drawing.Point(131, 449);
             this.TOSLabel.Name = "TOSLabel";
-            this.TOSLabel.Size = new System.Drawing.Size(120, 14);
+            this.TOSLabel.Size = new System.Drawing.Size(124, 14);
             this.TOSLabel.TabIndex = 40;
-            this.TOSLabel.Text = "algemene voorwaarden";
+            this.TOSLabel.Text = "algemene voorwaarden*";
             this.TOSLabel.Click += new System.EventHandler(this.TOSLabel_Click);
             // 
             // WrongFileLabel
@@ -462,6 +460,7 @@
             this.Controls.Add(this.AgeTextBox);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.UsernameTextBox);
+            this.Icon = global::Qars.Properties.Resources.qarsIcon;
             this.Name = "RegisterForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

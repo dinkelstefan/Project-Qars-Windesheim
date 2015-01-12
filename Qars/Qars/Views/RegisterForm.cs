@@ -23,6 +23,7 @@ namespace Qars.Views
         bool JPG = true;
         string driverslicenselink = ""; //LOCAL FILE
         bool emailInvalid = false;
+        bool buttonClicked = false;
         public RegisterForm()
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -32,6 +33,7 @@ namespace Qars.Views
 
         private void ChoosePictureButton_Click(object sender, EventArgs e)
         {
+            buttonClicked = true;
             bool error = false;
             openFileDialog1.Multiselect = false;
             openFileDialog1.Filter = "JPG files (*.JPG)|*.jpg|PNG files(*.PNG)|*.PNG";
@@ -200,11 +202,13 @@ namespace Qars.Views
                                 {
                                     //Upload file in UploadDriversLicensePhoto();
                                     return true;
+
                                 }
                                 else
                                 {
                                     //Do nothing, a driverlicensephoto is not required
                                     return true;
+
                                 }
 
                             }
@@ -302,39 +306,48 @@ namespace Qars.Views
         }
         private bool UploadDriversLicensePhoto(string Image, string username)
         {
-            string extension = ".PNG";
-            if (JPG)
+            if (Image == "" && buttonClicked)
             {
-                extension = ".JPG";
-            }
-            try
-            {
-                string ftpServerIP = "ftp.pqrojectqars.herobo.com";
-                string ftpUserID = "a8158354";
-                string ftpPassword = "Quintor1";
-                ////string ftpURI = "";
-                string filename = "ftp://" + ftpServerIP + "/public_html/DriverLicense/" + username + extension;
-                FtpWebRequest ftpReq = (FtpWebRequest)WebRequest.Create(filename);
-                ftpReq.UseBinary = true;
-                ftpReq.Method = WebRequestMethods.Ftp.UploadFile;
-                ftpReq.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
-                byte[] b = File.ReadAllBytes(Image);
-
-                ftpReq.ContentLength = b.Length;
-                using (Stream s = ftpReq.GetRequestStream())
+                string extension = ".PNG";
+                if (JPG)
                 {
-                    s.Write(b, 0, b.Length);
+                    extension = ".JPG";
                 }
+                try
+                {
+                    string ftpServerIP = "ftp.pqrojectqars.herobo.com";
+                    string ftpUserID = "a8158354";
+                    string ftpPassword = "Quintor1";
+                    ////string ftpURI = "";
+                    string filename = "ftp://" + ftpServerIP + "/public_html/DriverLicense/" + username + extension;
+                    FtpWebRequest ftpReq = (FtpWebRequest)WebRequest.Create(filename);
+                    ftpReq.UseBinary = true;
+                    ftpReq.Method = WebRequestMethods.Ftp.UploadFile;
+                    ftpReq.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
+                    byte[] b = File.ReadAllBytes(Image);
 
-                FtpWebResponse ftpResp = (FtpWebResponse)ftpReq.GetResponse();
+                    ftpReq.ContentLength = b.Length;
+                    using (Stream s = ftpReq.GetRequestStream())
+                    {
+                        s.Write(b, 0, b.Length);
+                    }
+
+                    FtpWebResponse ftpResp = (FtpWebResponse)ftpReq.GetResponse();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+
+                    return false;
+
+                }
+                driverslicenselink = "http://pqrojectqars.herobo.com/DriverLicense/" + username + extension;
+                return true;
             }
-            catch (Exception)
+            else
             {
-                return false;
-
+                return true; //No photo was selected, so no photo has to be uploaded
             }
-            driverslicenselink = "http://pqrojectqars.herobo.com/DriverLicense/" + username + extension;
-            return true;
         }
         private bool SendEmail(string username, string password, string emailaddress, string phonenumber, string driverslicensephotolink, string firstname, string lastname, string age, string postalcode, string city, string streetname, string streetnumber, string streetnumbersuffix)
         {

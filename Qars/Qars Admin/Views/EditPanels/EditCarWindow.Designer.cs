@@ -51,60 +51,60 @@
             this.WeightBox = new System.Windows.Forms.TextBox();
             this.HorsePowerBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.BrandLabel = new System.Windows.Forms.Label();
+            this.ModelLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.KilometresLabel = new System.Windows.Forms.Label();
+            this.ColourLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.HorsePowerLabel = new System.Windows.Forms.Label();
+            this.LengthLabel = new System.Windows.Forms.Label();
+            this.WidthLabel = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.WeightLabel = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.MOTDateLabel = new System.Windows.Forms.Label();
+            this.StorageSpaceLabel = new System.Windows.Forms.Label();
+            this.GearsLabel = new System.Windows.Forms.Label();
+            this.FuelLabel = new System.Windows.Forms.Label();
+            this.FuelUsageLabel = new System.Windows.Forms.Label();
+            this.StartpriceLabel = new System.Windows.Forms.Label();
             this.StartpriceBox = new System.Windows.Forms.TextBox();
             this.SellingpriceBox = new System.Windows.Forms.TextBox();
             this.RentalpriceBox = new System.Windows.Forms.TextBox();
             this.SeatsBox = new System.Windows.Forms.TextBox();
             this.DoorsBox = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.SeatsLabel = new System.Windows.Forms.Label();
+            this.SellingPriceLabel = new System.Windows.Forms.Label();
+            this.DoorsLabel = new System.Windows.Forms.Label();
+            this.HirePriceLabel = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.ModelYearLabel = new System.Windows.Forms.Label();
             this.AutomaticBox = new System.Windows.Forms.CheckBox();
             this.StereoBox = new System.Windows.Forms.CheckBox();
             this.BluetoothBox = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.CategoryLabel = new System.Windows.Forms.Label();
             this.AircoBox = new System.Windows.Forms.CheckBox();
             this.CabrioBox = new System.Windows.Forms.CheckBox();
             this.WheelDriveBox = new System.Windows.Forms.CheckBox();
             this.ParkingassistBox = new System.Windows.Forms.CheckBox();
             this.CruisecontrolBox = new System.Windows.Forms.CheckBox();
             this.NavigationBox = new System.Windows.Forms.CheckBox();
-            this.EsteblishmentComboBox = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
+            this.EstablishmentComboBox = new System.Windows.Forms.ComboBox();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.imageLinkList = new System.Windows.Forms.ListBox();
             this.CarPhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.add_Button = new System.Windows.Forms.Button();
             this.delete_Button = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
+            this.LicensePlateLabel = new System.Windows.Forms.Label();
             this.licensePlateTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.CarPhotoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -326,27 +326,27 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Vestiging";
             // 
-            // label2
+            // BrandLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(11, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 18);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Merk";
+            this.BrandLabel.AutoSize = true;
+            this.BrandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.BrandLabel.Location = new System.Drawing.Point(11, 59);
+            this.BrandLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BrandLabel.Name = "BrandLabel";
+            this.BrandLabel.Size = new System.Drawing.Size(48, 18);
+            this.BrandLabel.TabIndex = 46;
+            this.BrandLabel.Text = "Merk*";
             // 
-            // label3
+            // ModelLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(11, 83);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 18);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Model";
+            this.ModelLabel.AutoSize = true;
+            this.ModelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.ModelLabel.Location = new System.Drawing.Point(11, 83);
+            this.ModelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ModelLabel.Name = "ModelLabel";
+            this.ModelLabel.Size = new System.Drawing.Size(55, 18);
+            this.ModelLabel.TabIndex = 6;
+            this.ModelLabel.Text = "Model*";
             // 
             // label4
             // 
@@ -359,27 +359,27 @@
             this.label4.TabIndex = 46;
             this.label4.Text = "Automaat";
             // 
-            // label5
+            // KilometresLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(11, 178);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 18);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "Kilometers";
+            this.KilometresLabel.AutoSize = true;
+            this.KilometresLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.KilometresLabel.Location = new System.Drawing.Point(11, 178);
+            this.KilometresLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.KilometresLabel.Name = "KilometresLabel";
+            this.KilometresLabel.Size = new System.Drawing.Size(79, 18);
+            this.KilometresLabel.TabIndex = 46;
+            this.KilometresLabel.Text = "Kilometers";
             // 
-            // label6
+            // ColourLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(11, 202);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 18);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Kleur";
+            this.ColourLabel.AutoSize = true;
+            this.ColourLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.ColourLabel.Location = new System.Drawing.Point(11, 202);
+            this.ColourLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ColourLabel.Name = "ColourLabel";
+            this.ColourLabel.Size = new System.Drawing.Size(48, 18);
+            this.ColourLabel.TabIndex = 6;
+            this.ColourLabel.Text = "Kleur*";
             // 
             // label9
             // 
@@ -403,60 +403,60 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Bluetooth";
             // 
-            // label11
+            // HorsePowerLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label11.Location = new System.Drawing.Point(250, 11);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 18);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "Pk";
+            this.HorsePowerLabel.AutoSize = true;
+            this.HorsePowerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.HorsePowerLabel.Location = new System.Drawing.Point(250, 11);
+            this.HorsePowerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HorsePowerLabel.Name = "HorsePowerLabel";
+            this.HorsePowerLabel.Size = new System.Drawing.Size(28, 18);
+            this.HorsePowerLabel.TabIndex = 46;
+            this.HorsePowerLabel.Text = "PK";
             // 
-            // label12
+            // LengthLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label12.Location = new System.Drawing.Point(250, 35);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 18);
-            this.label12.TabIndex = 46;
-            this.label12.Text = "Lengte(cm)";
+            this.LengthLabel.AutoSize = true;
+            this.LengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LengthLabel.Location = new System.Drawing.Point(250, 35);
+            this.LengthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LengthLabel.Name = "LengthLabel";
+            this.LengthLabel.Size = new System.Drawing.Size(83, 18);
+            this.LengthLabel.TabIndex = 46;
+            this.LengthLabel.Text = "Lengte(cm)";
             // 
-            // label13
+            // WidthLabel
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label13.Location = new System.Drawing.Point(250, 59);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 18);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Breedte(cm)";
+            this.WidthLabel.AutoSize = true;
+            this.WidthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.WidthLabel.Location = new System.Drawing.Point(250, 59);
+            this.WidthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.WidthLabel.Name = "WidthLabel";
+            this.WidthLabel.Size = new System.Drawing.Size(90, 18);
+            this.WidthLabel.TabIndex = 6;
+            this.WidthLabel.Text = "Breedte(cm)";
             // 
-            // label14
+            // HeightLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label14.Location = new System.Drawing.Point(250, 83);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 18);
-            this.label14.TabIndex = 46;
-            this.label14.Text = "Hoogte(cm)";
+            this.HeightLabel.AutoSize = true;
+            this.HeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.HeightLabel.Location = new System.Drawing.Point(250, 83);
+            this.HeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(88, 18);
+            this.HeightLabel.TabIndex = 46;
+            this.HeightLabel.Text = "Hoogte(cm)";
             // 
-            // label15
+            // WeightLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label15.Location = new System.Drawing.Point(250, 107);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 18);
-            this.label15.TabIndex = 46;
-            this.label15.Text = "Gewicht(kg)";
+            this.WeightLabel.AutoSize = true;
+            this.WeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.WeightLabel.Location = new System.Drawing.Point(250, 107);
+            this.WeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.WeightLabel.Name = "WeightLabel";
+            this.WeightLabel.Size = new System.Drawing.Size(88, 18);
+            this.WeightLabel.TabIndex = 46;
+            this.WeightLabel.Text = "Gewicht(kg)";
             // 
             // label16
             // 
@@ -524,71 +524,71 @@
             this.label21.TabIndex = 6;
             this.label21.Text = "Airco";
             // 
-            // label22
+            // MOTDateLabel
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label22.Location = new System.Drawing.Point(467, 11);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(81, 18);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "Apk Datum";
+            this.MOTDateLabel.AutoSize = true;
+            this.MOTDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.MOTDateLabel.Location = new System.Drawing.Point(467, 11);
+            this.MOTDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MOTDateLabel.Name = "MOTDateLabel";
+            this.MOTDateLabel.Size = new System.Drawing.Size(85, 18);
+            this.MOTDateLabel.TabIndex = 6;
+            this.MOTDateLabel.Text = "APK Datum";
             // 
-            // label23
+            // StorageSpaceLabel
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label23.Location = new System.Drawing.Point(467, 59);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(116, 18);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Opbergruimte(L)";
+            this.StorageSpaceLabel.AutoSize = true;
+            this.StorageSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.StorageSpaceLabel.Location = new System.Drawing.Point(467, 59);
+            this.StorageSpaceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.StorageSpaceLabel.Name = "StorageSpaceLabel";
+            this.StorageSpaceLabel.Size = new System.Drawing.Size(116, 18);
+            this.StorageSpaceLabel.TabIndex = 6;
+            this.StorageSpaceLabel.Text = "Opbergruimte(L)";
             // 
-            // label24
+            // GearsLabel
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label24.Location = new System.Drawing.Point(467, 83);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(95, 18);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "Versnellingen";
+            this.GearsLabel.AutoSize = true;
+            this.GearsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.GearsLabel.Location = new System.Drawing.Point(467, 83);
+            this.GearsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.GearsLabel.Name = "GearsLabel";
+            this.GearsLabel.Size = new System.Drawing.Size(95, 18);
+            this.GearsLabel.TabIndex = 6;
+            this.GearsLabel.Text = "Versnellingen";
             // 
-            // label25
+            // FuelLabel
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label25.Location = new System.Drawing.Point(467, 109);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(72, 18);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "Brandstof";
+            this.FuelLabel.AutoSize = true;
+            this.FuelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.FuelLabel.Location = new System.Drawing.Point(467, 109);
+            this.FuelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FuelLabel.Name = "FuelLabel";
+            this.FuelLabel.Size = new System.Drawing.Size(72, 18);
+            this.FuelLabel.TabIndex = 6;
+            this.FuelLabel.Text = "Brandstof";
             // 
-            // label26
+            // FuelUsageLabel
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label26.Location = new System.Drawing.Point(467, 131);
-            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(62, 18);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "Verbruik";
+            this.FuelUsageLabel.AutoSize = true;
+            this.FuelUsageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.FuelUsageLabel.Location = new System.Drawing.Point(467, 131);
+            this.FuelUsageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FuelUsageLabel.Name = "FuelUsageLabel";
+            this.FuelUsageLabel.Size = new System.Drawing.Size(62, 18);
+            this.FuelUsageLabel.TabIndex = 6;
+            this.FuelUsageLabel.Text = "Verbruik";
             // 
-            // label27
+            // StartpriceLabel
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label27.Location = new System.Drawing.Point(467, 155);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(66, 18);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "Startprijs";
+            this.StartpriceLabel.AutoSize = true;
+            this.StartpriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.StartpriceLabel.Location = new System.Drawing.Point(467, 155);
+            this.StartpriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.StartpriceLabel.Name = "StartpriceLabel";
+            this.StartpriceLabel.Size = new System.Drawing.Size(72, 18);
+            this.StartpriceLabel.TabIndex = 6;
+            this.StartpriceLabel.Text = "Startprijs*";
             // 
             // StartpriceBox
             // 
@@ -635,49 +635,49 @@
             this.DoorsBox.TabIndex = 32;
             this.DoorsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxNumOnly_KeyPress);
             // 
-            // label28
+            // SeatsLabel
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label28.Location = new System.Drawing.Point(467, 250);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(58, 18);
-            this.label28.TabIndex = 46;
-            this.label28.Text = "Stoelen";
+            this.SeatsLabel.AutoSize = true;
+            this.SeatsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.SeatsLabel.Location = new System.Drawing.Point(467, 250);
+            this.SeatsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SeatsLabel.Name = "SeatsLabel";
+            this.SeatsLabel.Size = new System.Drawing.Size(58, 18);
+            this.SeatsLabel.TabIndex = 46;
+            this.SeatsLabel.Text = "Stoelen";
             // 
-            // label29
+            // SellingPriceLabel
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label29.Location = new System.Drawing.Point(467, 204);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(91, 18);
-            this.label29.TabIndex = 6;
-            this.label29.Text = "Verkoopprijs";
+            this.SellingPriceLabel.AutoSize = true;
+            this.SellingPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.SellingPriceLabel.Location = new System.Drawing.Point(467, 204);
+            this.SellingPriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SellingPriceLabel.Name = "SellingPriceLabel";
+            this.SellingPriceLabel.Size = new System.Drawing.Size(91, 18);
+            this.SellingPriceLabel.TabIndex = 6;
+            this.SellingPriceLabel.Text = "Verkoopprijs";
             // 
-            // label30
+            // DoorsLabel
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label30.Location = new System.Drawing.Point(467, 226);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(56, 18);
-            this.label30.TabIndex = 6;
-            this.label30.Text = "Deuren";
+            this.DoorsLabel.AutoSize = true;
+            this.DoorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.DoorsLabel.Location = new System.Drawing.Point(467, 226);
+            this.DoorsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DoorsLabel.Name = "DoorsLabel";
+            this.DoorsLabel.Size = new System.Drawing.Size(56, 18);
+            this.DoorsLabel.TabIndex = 6;
+            this.DoorsLabel.Text = "Deuren";
             // 
-            // label31
+            // HirePriceLabel
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label31.Location = new System.Drawing.Point(467, 178);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(67, 18);
-            this.label31.TabIndex = 6;
-            this.label31.Text = "Huurprijs";
+            this.HirePriceLabel.AutoSize = true;
+            this.HirePriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.HirePriceLabel.Location = new System.Drawing.Point(467, 178);
+            this.HirePriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HirePriceLabel.Name = "HirePriceLabel";
+            this.HirePriceLabel.Size = new System.Drawing.Size(67, 18);
+            this.HirePriceLabel.TabIndex = 6;
+            this.HirePriceLabel.Text = "Huurprijs";
             // 
             // label32
             // 
@@ -690,16 +690,16 @@
             this.label32.TabIndex = 6;
             this.label32.Text = "Beschikbaar";
             // 
-            // label33
+            // ModelYearLabel
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label33.Location = new System.Drawing.Point(11, 130);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(70, 18);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "Bouwjaar";
+            this.ModelYearLabel.AutoSize = true;
+            this.ModelYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.ModelYearLabel.Location = new System.Drawing.Point(11, 130);
+            this.ModelYearLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ModelYearLabel.Name = "ModelYearLabel";
+            this.ModelYearLabel.Size = new System.Drawing.Size(70, 18);
+            this.ModelYearLabel.TabIndex = 6;
+            this.ModelYearLabel.Text = "Bouwjaar";
             // 
             // AutomaticBox
             // 
@@ -731,16 +731,16 @@
             this.BluetoothBox.TabIndex = 10;
             this.BluetoothBox.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // CategoryLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label8.Location = new System.Drawing.Point(11, 107);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 18);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "Category";
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.CategoryLabel.Location = new System.Drawing.Point(11, 107);
+            this.CategoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(74, 18);
+            this.CategoryLabel.TabIndex = 46;
+            this.CategoryLabel.Text = "Category*";
             // 
             // AircoBox
             // 
@@ -802,25 +802,25 @@
             this.NavigationBox.TabIndex = 17;
             this.NavigationBox.UseVisualStyleBackColor = true;
             // 
-            // EsteblishmentComboBox
+            // EstablishmentComboBox
             // 
-            this.EsteblishmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.EsteblishmentComboBox.FormattingEnabled = true;
-            this.EsteblishmentComboBox.Location = new System.Drawing.Point(122, 35);
-            this.EsteblishmentComboBox.Name = "EsteblishmentComboBox";
-            this.EsteblishmentComboBox.Size = new System.Drawing.Size(123, 21);
-            this.EsteblishmentComboBox.TabIndex = 1;
+            this.EstablishmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.EstablishmentComboBox.FormattingEnabled = true;
+            this.EstablishmentComboBox.Location = new System.Drawing.Point(122, 35);
+            this.EstablishmentComboBox.Name = "EstablishmentComboBox";
+            this.EstablishmentComboBox.Size = new System.Drawing.Size(123, 21);
+            this.EstablishmentComboBox.TabIndex = 1;
             // 
-            // label34
+            // DescriptionLabel
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label34.Location = new System.Drawing.Point(412, 274);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(87, 18);
-            this.label34.TabIndex = 6;
-            this.label34.Text = "Beschrijving";
+            this.DescriptionLabel.AutoSize = true;
+            this.DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.DescriptionLabel.Location = new System.Drawing.Point(412, 274);
+            this.DescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(87, 18);
+            this.DescriptionLabel.TabIndex = 6;
+            this.DescriptionLabel.Text = "Beschrijving";
             // 
             // button1
             // 
@@ -886,16 +886,16 @@
             this.delete_Button.UseVisualStyleBackColor = true;
             this.delete_Button.Click += new System.EventHandler(this.delete_Button_Click_1);
             // 
-            // label36
+            // LicensePlateLabel
             // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label36.Location = new System.Drawing.Point(467, 34);
-            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(70, 18);
-            this.label36.TabIndex = 54;
-            this.label36.Text = "Kenteken";
+            this.LicensePlateLabel.AutoSize = true;
+            this.LicensePlateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LicensePlateLabel.Location = new System.Drawing.Point(467, 34);
+            this.LicensePlateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LicensePlateLabel.Name = "LicensePlateLabel";
+            this.LicensePlateLabel.Size = new System.Drawing.Size(76, 18);
+            this.LicensePlateLabel.TabIndex = 54;
+            this.LicensePlateLabel.Text = "Kenteken*";
             // 
             // licensePlateTextBox
             // 
@@ -912,24 +912,24 @@
             this.ClientSize = new System.Drawing.Size(671, 529);
             this.ControlBox = false;
             this.Controls.Add(this.licensePlateTextBox);
-            this.Controls.Add(this.label36);
+            this.Controls.Add(this.LicensePlateLabel);
             this.Controls.Add(this.delete_Button);
             this.Controls.Add(this.add_Button);
             this.Controls.Add(this.CarPhotoPictureBox);
             this.Controls.Add(this.imageLinkList);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.EsteblishmentComboBox);
-            this.Controls.Add(this.label28);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.EstablishmentComboBox);
+            this.Controls.Add(this.SeatsLabel);
+            this.Controls.Add(this.WeightLabel);
+            this.Controls.Add(this.HeightLabel);
+            this.Controls.Add(this.LengthLabel);
+            this.Controls.Add(this.HorsePowerLabel);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.CategoryLabel);
+            this.Controls.Add(this.KilometresLabel);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BrandLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.HorsePowerBox);
             this.Controls.Add(this.WeightBox);
@@ -964,28 +964,28 @@
             this.Controls.Add(this.AvailableBox);
             this.Controls.Add(this.ModelyearBox);
             this.Controls.Add(this.ModelBox);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.WidthLabel);
             this.Controls.Add(this.BrandBox);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label33);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ColourLabel);
+            this.Controls.Add(this.ModelYearLabel);
+            this.Controls.Add(this.ModelLabel);
             this.Controls.Add(this.CarIDBox);
-            this.Controls.Add(this.label34);
+            this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.label31);
-            this.Controls.Add(this.label24);
+            this.Controls.Add(this.StartpriceLabel);
+            this.Controls.Add(this.HirePriceLabel);
+            this.Controls.Add(this.GearsLabel);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.label30);
+            this.Controls.Add(this.DoorsLabel);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.label23);
+            this.Controls.Add(this.FuelUsageLabel);
+            this.Controls.Add(this.StorageSpaceLabel);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.label29);
+            this.Controls.Add(this.SellingPriceLabel);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label22);
+            this.Controls.Add(this.FuelLabel);
+            this.Controls.Add(this.MOTDateLabel);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label7);
@@ -1024,60 +1024,60 @@
         private System.Windows.Forms.TextBox WeightBox;
         private System.Windows.Forms.TextBox HorsePowerBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label BrandLabel;
+        private System.Windows.Forms.Label ModelLabel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label KilometresLabel;
+        private System.Windows.Forms.Label ColourLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label HorsePowerLabel;
+        private System.Windows.Forms.Label LengthLabel;
+        private System.Windows.Forms.Label WidthLabel;
+        private System.Windows.Forms.Label HeightLabel;
+        private System.Windows.Forms.Label WeightLabel;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label MOTDateLabel;
+        private System.Windows.Forms.Label StorageSpaceLabel;
+        private System.Windows.Forms.Label GearsLabel;
+        private System.Windows.Forms.Label FuelLabel;
+        private System.Windows.Forms.Label FuelUsageLabel;
+        private System.Windows.Forms.Label StartpriceLabel;
         private System.Windows.Forms.TextBox StartpriceBox;
         private System.Windows.Forms.TextBox SellingpriceBox;
         private System.Windows.Forms.TextBox RentalpriceBox;
         private System.Windows.Forms.TextBox SeatsBox;
         private System.Windows.Forms.TextBox DoorsBox;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label SeatsLabel;
+        private System.Windows.Forms.Label SellingPriceLabel;
+        private System.Windows.Forms.Label DoorsLabel;
+        private System.Windows.Forms.Label HirePriceLabel;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label ModelYearLabel;
         private System.Windows.Forms.CheckBox AutomaticBox;
         private System.Windows.Forms.CheckBox StereoBox;
         private System.Windows.Forms.CheckBox BluetoothBox;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.CheckBox AircoBox;
         private System.Windows.Forms.CheckBox CabrioBox;
         private System.Windows.Forms.CheckBox WheelDriveBox;
         private System.Windows.Forms.CheckBox ParkingassistBox;
         private System.Windows.Forms.CheckBox CruisecontrolBox;
         private System.Windows.Forms.CheckBox NavigationBox;
-        private System.Windows.Forms.ComboBox EsteblishmentComboBox;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.ComboBox EstablishmentComboBox;
+        private System.Windows.Forms.Label DescriptionLabel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ListBox imageLinkList;
         private System.Windows.Forms.PictureBox CarPhotoPictureBox;
         private System.Windows.Forms.Button add_Button;
         private System.Windows.Forms.Button delete_Button;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label LicensePlateLabel;
         private System.Windows.Forms.TextBox licensePlateTextBox;
     }
 }
